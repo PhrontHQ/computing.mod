@@ -1,0 +1,37 @@
+{
+  "blueprint_diskstatusmultipathanonymous_members": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "members",
+      "blueprint": {"@": "root"},
+      "valueType": "object"
+    }
+  },
+  "blueprint_diskstatusmultipathanonymous_node": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "node",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_diskstatusmultipathanonymous_status": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "status",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "DiskStatusMultipathAnonymous",
+      "propertyBlueprints": [
+        {"@": "blueprint_diskstatusmultipathanonymous_members"},
+        {"@": "blueprint_diskstatusmultipathanonymous_node"},
+        {"@": "blueprint_diskstatusmultipathanonymous_status"}
+      ]
+    }
+  }
+}

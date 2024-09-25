@@ -1,0 +1,304 @@
+{
+  "blueprint_serviceopenvpn_auxiliary": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "auxiliary",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_ca": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "ca",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_cert": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "cert",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_cipher": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "cipher",
+      "blueprint": {"@": "root"},
+      "valueType": "String",
+      "enumValues": [
+        "BF-CBC",
+        "AES-128-CBC",
+        "DES-EDE3-CBC"
+      ]
+    }
+  },
+  "blueprint_serviceopenvpn_comp_lzo": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "comp_lzo",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_serviceopenvpn_crl_verify": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "crl_verify",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_dev": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "dev",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_dh": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "dh",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_enable": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "enable",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_serviceopenvpn_group": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "group",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_keepalive_peer_down": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "keepalive_peer_down",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_serviceopenvpn_keepalive_ping_interval": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "keepalive_ping_interval",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_serviceopenvpn_key": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "key",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_max_clients": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "max_clients",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_serviceopenvpn_mode": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "mode",
+      "blueprint": {"@": "root"},
+      "valueType": "String",
+      "enumValues": [
+        "pki",
+        "psk"
+      ]
+    }
+  },
+  "blueprint_serviceopenvpn_persist_key": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "persist_key",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_serviceopenvpn_persist_tun": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "persist_tun",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_serviceopenvpn_port": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "port",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_serviceopenvpn_proto": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "proto",
+      "blueprint": {"@": "root"},
+      "valueType": "String",
+      "enumValues": [
+        "tcp",
+        "udp"
+      ]
+    }
+  },
+  "blueprint_serviceopenvpn_psk_remote_ip": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "psk_remote_ip",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_psk_server_ip": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "psk_server_ip",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_server_bridge": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "server_bridge",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_serviceopenvpn_server_bridge_extended": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "server_bridge_extended",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_serviceopenvpn_server_bridge_ip": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "server_bridge_ip",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_server_bridge_netmask": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "server_bridge_netmask",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_server_bridge_range_begin": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "server_bridge_range_begin",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_server_bridge_range_end": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "server_bridge_range_end",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_tls_auth": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "tls_auth",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "service-openvpn"
+      ]
+    }
+  },
+  "blueprint_serviceopenvpn_user": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "user",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceopenvpn_verb": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "verb",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ServiceOpenvpn",
+      "propertyBlueprints": [
+        {"@": "blueprint_serviceopenvpn_auxiliary"},
+        {"@": "blueprint_serviceopenvpn_ca"},
+        {"@": "blueprint_serviceopenvpn_cert"},
+        {"@": "blueprint_serviceopenvpn_cipher"},
+        {"@": "blueprint_serviceopenvpn_comp_lzo"},
+        {"@": "blueprint_serviceopenvpn_crl_verify"},
+        {"@": "blueprint_serviceopenvpn_dev"},
+        {"@": "blueprint_serviceopenvpn_dh"},
+        {"@": "blueprint_serviceopenvpn_enable"},
+        {"@": "blueprint_serviceopenvpn_group"},
+        {"@": "blueprint_serviceopenvpn_keepalive_peer_down"},
+        {"@": "blueprint_serviceopenvpn_keepalive_ping_interval"},
+        {"@": "blueprint_serviceopenvpn_key"},
+        {"@": "blueprint_serviceopenvpn_max_clients"},
+        {"@": "blueprint_serviceopenvpn_mode"},
+        {"@": "blueprint_serviceopenvpn_persist_key"},
+        {"@": "blueprint_serviceopenvpn_persist_tun"},
+        {"@": "blueprint_serviceopenvpn_port"},
+        {"@": "blueprint_serviceopenvpn_proto"},
+        {"@": "blueprint_serviceopenvpn_psk_remote_ip"},
+        {"@": "blueprint_serviceopenvpn_psk_server_ip"},
+        {"@": "blueprint_serviceopenvpn_server_bridge"},
+        {"@": "blueprint_serviceopenvpn_server_bridge_extended"},
+        {"@": "blueprint_serviceopenvpn_server_bridge_ip"},
+        {"@": "blueprint_serviceopenvpn_server_bridge_netmask"},
+        {"@": "blueprint_serviceopenvpn_server_bridge_range_begin"},
+        {"@": "blueprint_serviceopenvpn_server_bridge_range_end"},
+        {"@": "blueprint_serviceopenvpn_tls_auth"},
+        {"@": "blueprint_serviceopenvpn_type"},
+        {"@": "blueprint_serviceopenvpn_user"},
+        {"@": "blueprint_serviceopenvpn_verb"}
+      ]
+    }
+  }
+}

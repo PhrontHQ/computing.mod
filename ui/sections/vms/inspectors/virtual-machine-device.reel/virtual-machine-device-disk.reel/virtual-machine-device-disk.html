@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "treeControllers": {
+                    "BLOCK": {"@": "blockTreeController"},
+                    "FILE":  {"@": "fileTreeController"}
+                }
+            },
+            "bindings": {
+                "treeController": {"<-": "@owner.treeControllers[@owner.object.target_type]"},
+                "isBlockSelected": {"<-": "@owner.object.target_type == 'BLOCK' && @owner.treeController.entry.children.map{path}.has(@targetPath.selectedPath)"}
+            }
+        },
+        "blockTreeController": {
+            "prototype": "core/controller/tree/VmDatastoreTreeController",
+            "properties": {
+                "type": "BLOCK"
+            },
+            "bindings": {
+                "datastoreId": {"<-": "@owner.object._vm.target"}
+            }
+        },
+        "fileTreeController": {
+            "prototype": "core/controller/tree/VmDatastoreTreeController",
+            "properties": {
+                "type": "FILE"
+            },
+            "bindings": {
+                "datastoreId": {"<-": "@owner.object._vm.target"}
+            }
+        },
+        "targetPath": {
+            "prototype": "ui/controls/field-treeview.reel",
+            "properties": {
+                "element": {"#": "targetPath"},
+                "label": "Target path"
+            },
+            "bindings": {
+                "selectedPath": {"<->": "@owner.object._target_path"},
+                "controller": {"<-": "@owner.treeController ?? null"},
+                "classList.has('hide')": {"<-": "@targetType.selectedValue == 'DISK'"},
+                "disabled": {"<-": "@owner.isFromTemplate"}
+            }
+        },
+        "targetType": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "targetType"},
+                "label": "Target type"
+            },
+            "bindings": {
+                "options": {"<-": "@owner.targetTypeOptions.sorted{}"},
+                "selectedValue": {"<->": "@owner.object.target_type"},
+                "disabled": {"<-": "@owner.isFromTemplate"}
+            }
+        },
+        "selectOptionConverter": {
+            "prototype": "core/converter/select-option-converter"
+        },
+        "size": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "size"},
+                "label": "Size",
+                "readOnlyFormat": "0 b"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.sizeUnits"},
+                "value": {"<->": "@owner.object.size"},
+                "isReadOnly": {"<-": "@targetType.selectedValue == 'DISK' || @owner.isFromTemplate"}
+            }
+        },
+        "mode": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "mode"},
+                "label": "Disk mode",
+                "converter": {"@": "selectOptionConverter"}
+            },
+            "bindings": {
+                "options": {"<-": "@owner.blockModeOptions"},
+                "selectedValue": {"<->": "@owner.object.mode"},
+                "classList.has('hide')": {"<-": "@targetType.selectedValue != 'BLOCK'"},
+                "disabled": {"<-": "@owner.isFromTemplate"}
+            }
+        },
+        "disk": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "disk"},
+                "label": "Target path"
+            },
+            "bindings": {
+                "options": {"<-": "@owner.diskOptions"},
+                "selectedValue": {"<->": "@owner.object._disk"},
+                "classList.has('hide')": {"<-": "@targetType.selectedValue != 'DISK'"},
+                "disabled": {"<-": "@owner.isFromTemplate"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="VirtualMachineDeviceDisk">
+        <div data-mod-id="targetType"></div>
+        <div data-mod-id="targetPath"></div>
+        <div data-mod-id="disk"></div>
+        <div data-mod-id="block"></div>
+        <div data-mod-id="size"></div>
+        <div data-mod-id="mode"></div>
+    </div>
+</body>
+</html>

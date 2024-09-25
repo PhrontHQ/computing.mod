@@ -1,0 +1,158 @@
+.MainSidebar {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--separator-color);
+    background-color: var(--primary--6);
+    width: 9rem;
+}
+
+/* Logo */
+
+.MainSidebar-logo-container {
+    flex-shrink: 0;
+}
+
+.MainSidebar-logo {
+    margin: .75rem .9rem;
+    margin-top: 1.1rem;
+    padding-bottom: 30%;
+    background-image: url(../../../assets/images/corral-logo.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.MainSidebar-navigation  { flex: 1; }
+.MainSidebar-userSummary { flex-shrink: 0; }
+
+/*
+
+Power Actions
+
+*/
+
+.MainSidebar-globalActions {
+    position: relative;
+
+    & > * {
+        min-width: 0;
+    }
+
+    & svg {
+        height: 1.4em;
+        width: 1.4em;
+    }
+}
+
+.MainSidebar-globalActions-button {
+    position: relative;
+    z-index: 1;
+    background-color: var(--primary--9);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: .5em;
+    cursor: pointer;
+    transition: background-color .25s ease-in-out;
+    outline: none;
+
+    &:hover {
+        background-color: var(--primary--8);
+
+        & svg {
+            color: var(--white);
+        }
+    }
+
+    &:focus + .MainSidebar-globalActions-options {
+        display: block;
+    }
+}
+
+.MainSidebar-user {
+    width: 100%;
+    word-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: .5em;
+}
+
+.MainSidebar-globalActions-options {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 0;
+    bottom: 0;
+    list-style: none;
+    margin: 0;
+    background-color: var(--primary--4);
+    z-index: 1;
+
+    &:active {
+        display: block;
+    }
+
+    /* extends hit area over main button for UX */
+
+    &:before {
+        position: absolute;
+        content: '';
+        bottom: -3rem;
+        left: 0;
+        right: 0;
+        height: 3rem;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    & li {
+        transition: background-color .15s ease-in-out;
+
+        &:hover {
+            background: var(--primary);
+
+            & button {
+                color: var(--white);
+            }
+        }
+    }
+
+    & button {
+        width: 100%;
+        text-align: left;
+        padding: .5em;
+        color: var(--main-text-color);
+        font-size: 1em;
+        font-weight: 200;
+        font-family: inherit;
+        cursor: pointer;
+    }
+}
+
+.MainSidebar-confirmation {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    background: var(--primary--8);
+    padding: .5rem;
+    z-index: 1;
+
+    @nest .MainSidebar.has-confirmation & {
+        display: block;
+    }
+
+    & .MainSidebar-confirmation-message {
+        margin-bottom: 1em;
+        color: var(--white);
+    }
+
+    & .Button {
+        width: 100%;
+        line-height: 2rem;
+
+        &:first-of-type {
+            margin-bottom: .5em;
+        }
+    }
+}
+

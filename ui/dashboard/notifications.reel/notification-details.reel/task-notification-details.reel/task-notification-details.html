@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../notification-details.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('has-error')": {"<-": "!!@owner.object.errorMessage"},
+                "classList.has('has-warning')": {"<-": "@owner.object.warnings.length > 0"}
+            }
+        },
+        "jobId": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "jobId"},
+                "value": "Task #{id}"
+            },
+            "bindings": {
+                "args": {"<-": "{id: @owner.object.id}"}
+            }
+        },
+        "taskNameLabel": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "taskNameLabel"},
+                "value": "Task Name"
+            }
+        },
+        "taskName": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "taskName"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.name"}
+            }
+        },
+        "stateLabel": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "stateLabel"},
+                "value": "State"
+            }
+        },
+        "state": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "state"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.state"}
+            }
+        },
+        "descriptionLabel": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "descriptionLabel"},
+                "value": "Description"
+            }
+        },
+        "errorCondition": {
+            "prototype": "mod/ui/condition.reel",
+            "properties": {
+                "element": {"#": "errorCondition"}
+            },
+            "bindings": {
+                "condition": {"<-": "!!@owner.object.error || @owner.object.warnings.length > 0"}
+            }
+        },
+        "errorMessage": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "errorMessage"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.error.message"}
+            }
+        },
+        "warnings": {
+            "prototype": "mod/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "warnings"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.object.warnings"}
+            }
+        },
+        "warning": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "warning"}
+            },
+            "bindings": {
+                "value": {"<-": "@warnings:iteration.object.message"}
+            }
+        },
+        "retryButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "retryButton"},
+                "value": "Retry"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "@owner.object.state != 'FAILED'"}
+            }
+        },
+        "cancelButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "cancelButton"},
+                "value": "Cancel"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "!@owner.object.abortable || (@owner.object.state != 'WAITING' && @owner.object.state != 'EXECUTING')"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="TaskNotificationDetails">
+        <header>
+            <div data-mod-id="jobId" class="Notification-details-title"></div>
+            <button data-mod-id="retryButton" class="Button--primary Button--small"></button>
+            <button data-mod-id="cancelButton" class="Button--small"></button>
+        </header>
+        <main>
+            <h4 data-mod-id="descriptionLabel"></h4>
+            <div data-mod-id="errorCondition" class="Notification-details-messages">
+                <p data-mod-id="errorMessage" class="Notification-details-errorMessage"></p>
+                <div data-mod-id="warnings">
+                    <p data-mod-id="warning" class="Notification-details-warning"></p>
+                </div>
+            </div>
+            <h4 data-mod-id="taskNameLabel"></h4>
+            <p data-mod-id="taskName"></p>
+            <h4 data-mod-id="stateLabel"></h4>
+            <p data-mod-id="state"></p>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+    "root": {
+        "prototype": "mod/core/meta/user-interface-descriptor",
+        "properties": {
+            "inspectorComponentModule": {"%": "ui/inspectors/calendar.reel"},
+            "nameExpression": "'Calendar'"
+        }
+    }
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="overview.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "scrollView": {
+            "prototype": "blue-shark.mod/ui/scroller.reel",
+            "properties": {
+                "element": {"#": "scrollView"},
+                "overflow": "scrollY"
+            }
+        },
+        "hostname": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "hostname"},
+                "label": "Hostname"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.system.hostname"}
+            }
+        },
+        "defaultRouteIpv4": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "defaultRouteIpv4"},
+                "label": "IPv4"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.config.gateway.ipv4"}
+            }
+        },
+        "defaultRouteIpv6": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "defaultRouteIpv6"},
+                "label": "IPv6"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.config.gateway.ipv6"},
+                "classList.has('hide')": {"<-": "!@owner.object.config.gateway.ipv6"}
+            }
+        },
+        "interfacesSectionTitle": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "interfacesSectionTitle"},
+                "value": "Active Interfaces"
+            }
+        },
+        "interfaces": {
+            "prototype": "mod/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "interfaces"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.object.interfaces.filter{enabled}"}
+            }
+        },
+        "interface": {
+            "prototype": "./interface-overview-item.reel",
+            "properties": {
+                "element": {"#": "interface"}
+            },
+            "bindings": {
+                "object": {"<-": "@interfaces:iteration.object"}
+            }
+        },
+        "nameserverRepetition": {
+            "prototype": "mod/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "nameserverRepetition"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.object.config.dns.addresses"}
+            }
+        },
+        "nameserver": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "nameserver"}
+            },
+            "bindings": {
+                "value": {"<-": "@nameserverRepetition:iteration.object"}
+            }
+        },
+        "nameserversSectionTitle": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "nameserversSectionTitle"},
+                "value": "Nameservers"
+            }
+        },
+        "defaultRouteSectionTitle": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "defaultRouteSectionTitle"},
+                "value": "Default Route"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Overview">
+        <div data-mod-id="scrollView">
+            <div>
+                <div class="Overview-content">
+                    <div data-mod-id="hostname"></div>
+
+                    <div data-mod-id="interfacesSectionTitle"></div>
+                    <div data-mod-id="interfaces">
+                        <div data-mod-id="interface"></div>
+                    </div>
+
+                    <div data-mod-id="nameserversSectionTitle"></div>
+                    <div data-mod-id="nameserverRepetition">
+                        <div data-mod-id="nameserver" class="Overview-listItem"></div>
+                    </div>
+
+                    <div data-mod-id="defaultRouteSectionTitle"></div>
+                    <div data-mod-id="defaultRouteIpv4"></div>
+                    <div data-mod-id="defaultRouteIpv6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

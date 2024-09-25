@@ -1,0 +1,29 @@
+.InspectorOption {
+
+    @nest .Inspector-body & {
+        margin: 0 -1rem;
+    }
+
+    & > * {
+        border-top:     1px solid var(--transparent--lighten);
+        border-bottom:  1px solid var(--transparent--lighten);
+    }
+
+    &:only-of-type .ListItem {
+        border-bottom-color: transparent;
+    }
+
+    &.selected > * {
+        border-color: var(--color-selected);
+    }
+}
+
+.InspectorOption + .InspectorOption > *,
+.InspectorOption:first-child > * {
+    border-top-color: transparent;
+}
+
+.InspectorOption:last-child .ListItem {
+    border-bottom: none;
+}
+

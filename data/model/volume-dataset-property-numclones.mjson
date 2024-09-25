@@ -1,0 +1,49 @@
+{
+  "blueprint_volumedatasetpropertynumclones_parsed": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parsed",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyNumclonesValue"
+    }
+  },
+  "blueprint_volumedatasetpropertynumclones_rawvalue": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rawvalue",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumedatasetpropertynumclones_source": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "source",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertySource"
+    }
+  },
+  "blueprint_volumedatasetpropertynumclones_value": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "value",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumeDatasetPropertyNumclones",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumedatasetpropertynumclones_parsed"},
+        {"@": "blueprint_volumedatasetpropertynumclones_rawvalue"},
+        {"@": "blueprint_volumedatasetpropertynumclones_source"},
+        {"@": "blueprint_volumedatasetpropertynumclones_value"}
+      ]
+    }
+  }
+}

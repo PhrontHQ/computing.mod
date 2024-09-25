@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "selectOptionConverter": {
+            "prototype": "core/converter/select-option-converter"
+        },
+        "usbDevice": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "usbDevice"},
+                "label": "Device",
+                "converter": {"@": "selectOptionConverter"}
+            },
+            "bindings": {
+                "options": {"<-": "@owner.usbTypeOptions"},
+                "selectedValue": {"<->": "@owner.object.device"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="VirtualMachineDeviceUsb">
+        <div data-mod-id="usbDevice"></div>
+    </div>
+</body>
+</html>

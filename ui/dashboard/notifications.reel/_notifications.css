@@ -1,0 +1,37 @@
+.Notifications {
+    position: relative;
+    margin-bottom: 1em;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.Notifications-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: .5em;
+    border-top-right-radius: 2px;
+    border-top-left-radius:  2px;
+}
+
+.Notifications-body {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    transition: transform .5s cubic-bezier(.7,0,.3,1);
+}
+
+/* Empty State */
+
+.Notifications-emptyState {
+    position: absolute;
+    text-align: center;
+    color: rgba(255,255,255,.5);
+    width:100%;
+    top:  50%;
+    transform: translateY(-50%);
+    line-height: 1rem;
+
+    &.is-hidden { display: none; }
+}
+

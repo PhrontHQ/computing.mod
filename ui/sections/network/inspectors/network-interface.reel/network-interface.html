@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="network-interface.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"},
+                "inspector": {"@": "inspector"}
+            },
+            "bindings": {
+                "dhcpInterface": {"<-": "@owner.interfaces.filter{dhcp}.0"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller"
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canRevert": "true",
+                "canSave": "true",
+                "controller": {"@": "owner"},
+                "confirmSaveMessage": "This is the interface you are currently connected on, are you sure you want to change its configuration?"
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "canDelete": {"<-": "@owner.object.type != 'ETHER'"},
+                "needSaveConfirmation": {"<-": "@owner.object._isClient"},
+                "isLoading": {"<-": "@owner.isLoading"}
+            }
+        },
+        "overview": {
+            "prototype": "../../controls/interface-overview.reel",
+            "properties": {
+                "element": {"#": "overview"}
+            },
+            "bindings": {
+                "object": {"<-": "@owner.object"}
+            }
+        },
+        "enabled": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "enabled"},
+                "label": "Enabled"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.enabled"}
+            }
+        },
+        "description": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "description"},
+                "label": "Description",
+                "placeholder": "add a description"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.name"}
+            }
+        },
+        "addresses": {
+            "prototype": "ui/controls/ip-aliases.reel",
+            "properties": {
+                "element": {"#": "addresses"},
+                "label": "Addresses"
+            },
+            "bindings": {
+                "addresses": {"<-": "!!@owner.object.dhcp ? @owner.object.status.aliases.filter{type != 'LINK'} : @owner.object.aliases"},
+                "canAdd": {"<-": "!@owner.object.dhcp"},
+                "canDelete": {"<-": "!@owner.object.dhcp"},
+                "isMultiSelectionEnabled": {"<-": "!@owner.object.dhcp"},
+                "isReadOnly": {"<-": "!!@owner.object.dhcp"}
+            }
+        },
+        "v6disabled": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "v6disabled"},
+                "label": "IPv6 Disabled"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.noipv6"}
+            }
+        },
+        "linkAddress": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "linkAddress"},
+                "label": "MAC Address"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.status.link_address"},
+                "classList.has('hide')": {"<-": "@owner.object._isNew"}
+            }
+        },
+        "dhcp": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "dhcp"},
+                "label": "DHCP"
+            },
+            "bindings": {
+                "checked": {"<->": "!!@owner.object.dhcp"},
+                "disabled": {"<-": "@owner.dhcpInterface.defined() && @owner.dhcpInterface.id != @owner.object.id"}
+            }
+        },
+        "rtadv": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "rtadv"},
+                "label": "Auto-Configure IPv6"
+            },
+            "bindings": {
+                "checked": {"<->": "!!@owner.object.rtadv"}
+            }
+        },
+        "mtuValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 576,
+                "ceiling": 65536,
+                "errorMessage": "MTU must be an integer between 576 and 65536"
+            }
+        },
+        "mtuConverter": {
+            "prototype": "core/converter/string-to-integer-or-null-converter",
+            "properties": {
+                "validator": {"@": "mtuValidator"}
+            }
+        },
+        "mtu": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "mtu"},
+                "label": "MTU",
+                "converter": {"@": "mtuConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.mtu"},
+                "disabled": {"<-": "@owner.object.type == 'LAGG'"}
+            }
+        },
+        "interfaceTypeSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "interfaceTypeSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.object.type"}
+            }
+        },
+        "ether": {
+            "prototype": "./interface.reel",
+            "properties": {
+                "element": {"#": "ether"}
+            },
+            "bindings": {
+                "object": {"<-": "@owner.object"}
+            }
+        },
+        "bridge": {
+            "prototype": "./bridge.reel",
+            "properties": {
+                "element": {"#": "bridge"}
+            },
+            "bindings": {
+                "object": {"<-": "@owner.object.bridge"},
+                "memberOptions": {"<-": "@owner.interfaces.filter{type == 'ETHER' || type == 'VLAN'}"}
+            }
+        },
+        "lagg": {
+            "prototype": "./lagg.reel",
+            "properties": {
+                "element": {"#": "lagg"}
+            },
+            "bindings": {
+                "object": {"<-": "@owner.object"},
+                "portOptions": {"<-": "@owner.interfaces.filter{type == 'ETHER' && aliases.length == 0 && !dhcp}"}
+            }
+        },
+        "vlan": {
+            "prototype": "./vlan.reel",
+            "properties": {
+                "element": {"#": "vlan"}
+            },
+            "bindings": {
+                "object": {"<-": "@owner.object.vlan"},
+                "parentOptions": {"<-": "@owner.interfaces.filter{type == 'ETHER' || type == 'LAGG'}"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="NetworkInterface">
+        <div data-mod-id="inspector">
+            <div data-mod-id="overview"></div>
+            <div data-mod-id="enabled"></div>
+            <div data-mod-id="description"></div>
+            <div data-mod-id="addresses" class="g-margin-bottom"></div>
+            <div data-mod-id="v6disabled"></div>
+            <div data-mod-id="linkAddress"></div>
+            <div data-mod-id="dhcp"></div>
+            <div data-mod-id="rtadv"></div>
+            <div data-mod-id="mtu"></div>
+            <div data-mod-id="interfaceTypeSubstitution">
+                <div data-mod-id="ether" data-arg="ETHER"></div>
+                <div data-mod-id="lagg" data-arg="LAGG"></div>
+                <div data-mod-id="vlan" data-arg="VLAN"></div>
+                <div data-mod-id="bridge" data-arg="BRIDGE"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

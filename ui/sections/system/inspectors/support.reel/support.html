@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="support.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller"
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canRevert": true,
+                "canSave": true,
+                "controller": {"@": "owner"},
+                "footerDoneLabel": "Submit"
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "isSaveDisabled": {"<-": "!(@owner.object.username && @owner.object.password && @owner.object.type && @owner.object.category && @owner.object.subject && @owner.object.description)"}
+            }
+        },
+        "username": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "username"},
+                "label": "Username",
+                "isMandatory": true,
+                "placeholder": "account username"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.username"}
+            }
+        },
+        "password": {
+            "prototype": "blue-shark.mod/ui/field-password-input.reel",
+            "properties": {
+                "element": {"#": "password"},
+                "label": "Password",
+                "isMandatory": true,
+                "placeholder": "account password"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.password"}
+            }
+        },
+        "type": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "type"},
+                "label": "Type",
+                "isMandatory": true
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.type"},
+                "options": {"<-": "@owner.typeOptions"}
+            }
+        },
+        "category": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "category"},
+                "label": "Category",
+                "isMandatory": true
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.category"},
+                "options": {"<-": "[{label: '-', value: '-'}].concat(@owner.categoryOptions)"}
+            }
+        },
+        "debug": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "debug"},
+                "label": "Attach Debug Info"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.debug"}
+            }
+        },
+        "subject": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "subject"},
+                "label": "Subject",
+                "isMandatory": true,
+                "placeholder": "e.g. Docker networks are totally borked"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.subject"}
+            }
+        },
+        "description": {
+            "prototype": "blue-shark.mod/ui/field-text-area.reel",
+            "properties": {
+                "element": {"#": "description"},
+                "validationPath": "description",
+                "label": "Description",
+                "isMandatory": true,
+                "placeholder": "enter a detailed description of your issue"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.description"}
+            }
+        },
+        "title": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "title"},
+                "value": "Submit a Ticket"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Support">
+        <div data-mod-id="inspector">
+            <div data-mod-id="supportHeader" class="Support-header">
+                <p>Before filing a bug report or feature request, search <a href="http://bugs.freenas.org" target="_blank">http://bugs.freenas.org</a> to ensure the issue has not already been reported. If it has, add a comment to the existing issue instead of creating a new one. For enterprise-grade storage solutions and support, please visit <a href="http://www.ixsystems.com/storage/" target="_blank">http://www.ixsystems.com/storage/</a>.</p><p>If you do not have an account, please <a href="https://bugs.freenas.org/account/register" target="_blank">register</a>.</p>
+            </div>
+            <div data-mod-id="title"></div>
+            <div data-mod-id="username"></div>
+            <div data-mod-id="password"></div>
+            <div data-mod-id="type"></div>
+            <div data-mod-id="category"></div>
+            <div data-mod-id="debug"></div>
+            <div data-mod-id="subject"></div>
+            <div data-mod-id="description"></div>
+        </div>
+    </div>
+</body>
+</html>

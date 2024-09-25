@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="alert-filter.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "validationController": {
+            "prototype": "core/controller/validation-controller"
+        },
+
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "controller": {"@": "owner"},
+                "validationController": {"@": "validationController"},
+                "canDelete": true,
+                "canSave": true,
+                "canRevert": true,
+                "title": "Alerts & Reporting"
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "isLoading": {"<-": "@owner.isLoading"}
+            }
+        },
+
+        "table": {
+            "prototype": "blue-shark.mod/ui/tables/table-editable.reel",
+            "properties": {
+                "element": {"#": "table"},
+                "delegate": {"@": "owner"},
+                "label": "Alert Notifications",
+                "showRowActions": false,
+                "columns":  [
+                    {
+                        "value": "Event"
+                    },
+                    {
+                        "value": "Action"
+                    },
+                    {
+                        "value": "Recipients"
+                    }
+                ]
+            },
+            "bindings": {
+                "rows": {"<-": "@owner.object.filters"}
+            }
+        },
+
+        "defaultHeader": {
+            "prototype": "./table-header.reel",
+            "properties": {
+                "element": {"#": "tableHeader"},
+                "table": {"@": "table"}
+            }
+        },
+
+        "newEntry": {
+            "prototype": "./table-row-predicate.reel",
+            "properties": {
+                "element": {"#": "newEntry"}
+            },
+            "bindings": {
+                "object": {"<-": "@table.currentNewEntry.object"}
+            }
+        },
+
+        "entry": {
+            "prototype": "./table-row-predicate.reel",
+            "properties": {
+                "element": {"#": "entry"}
+            },
+            "bindings": {
+                "object": {"<-": "@table:rowIteration.object.object"}
+            }
+        },
+
+        "settings": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "settings"},
+                "name": "Settings",
+                "path": "settings"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="AlertFilter">
+        <div data-mod-id="inspector">
+            <div data-mod-id="table" class="AlertFilter-table g-margin-bottom">
+                <div data-arg="table-editable-header-toolbar" data-mod-id="tableHeader"></div>
+                <div data-arg="row-new" data-mod-id="newEntry" class="Table-row"></div>
+                <div data-arg="row-entry" data-mod-id="entry" class="Table-row"></div>
+            </div>
+            <div data-mod-id="settings"></div>
+        </div>
+    </div>
+</body>
+</html>

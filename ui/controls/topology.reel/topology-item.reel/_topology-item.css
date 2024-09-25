@@ -1,0 +1,143 @@
+:root {
+    --topologyItemMaxHeight: 15em;
+    --topologyItemBg: var(--grey);
+}
+
+.TopologyItem {
+    position: relative;
+    z-index: 1;
+    background: var(--primary--7);
+    display: flex;
+    flex-direction: column;
+    min-height: 2em;
+
+    &.has-items.Topology-log {
+        border-left: 1px solid var(--grey-blue);
+    }
+}
+
+.TopologyItem-dropZone {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+
+Title
+
+*/
+
+.TopologyItem-title {
+    position: relative;
+    height: 2em;
+    line-height: 1.7em;
+    padding: 0 1em;
+    font-weight: 400;
+    background: var(--primary);
+    border-top: 2px solid currentColor;
+    overflow: hidden;
+    /* set to hide behind dropZone overlay */
+    z-index: -1;
+    flex-shrink: 0;
+
+    /* left decoration */
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: -1.7em;
+        top: -1em;
+        height: 4em;
+        background: currentColor;
+        width: 2em;
+        transform: rotate(17deg);
+    }
+}
+
+.TopologyItem-title-content { flex: 1; }
+
+.TopologyItemTitle-size { float: right; }
+
+
+/************************
+
+allocation bar
+
+*************************/
+
+.TopologyItem-allocationBar {
+    display: none !important;
+    position: relative;
+    z-index: -1;
+    flex-shrink: 0;
+
+    @nest .TopologyItem.has-items & {
+        display: flex !important;
+    }
+
+    @nest .willAcceptDrop & { opacity: .5; }
+    @nest .acceptDrop &     { opacity: .5; }
+}
+
+/* Sets the different colors */
+
+.Topology-data .TopologyItem-title  { color: var(--orange-lighten-1); }
+.Topology-cache .TopologyItem-title { color: var(--orange-darken-2); }
+.Topology-spare .TopologyItem-title { color: var(--orange); }
+.Topology-log .TopologyItem-title   { color: var(--grey-1); }
+
+
+.Topology-data.has-items {
+    flex: 1;
+}
+
+.Topology-log {
+    border-left: 1px solid var(--grey-blue);
+}
+
+
+/************************
+
+Grid
+
+*************************/
+
+.TopologyItem-grid {
+    flex: 1;
+
+    @nest .TopologyItem.has-items & {
+        padding: .25em;
+    }
+}
+
+.TopologyItem .Grid-icon {
+    display: flex;
+    width:  auto;
+    height: auto;
+    margin-bottom: 0;
+}
+
+.TopologyItem .LabeledIcon-image > * {
+    width: auto;
+    height: auto;
+}
+
+/************************
+
+Vdev Container
+
+************************/
+
+.TopologyItem-vdevsGrid > .Grid-repetition > .GridItem > .LabeledIcon {
+    margin: 0em .25em .5em .25em;
+    padding: 0;
+}
+
+.TopologyItem-grid .LabeledIcon-title { display: none; }
+
+
+/* Grid Container*/
+.TopologyItem-vdevsGrid > .Grid-repetition > .LabeledIcon > .LabeledIcon-image > * {
+    padding: 0;
+}

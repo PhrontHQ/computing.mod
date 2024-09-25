@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="drawer-item.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('is-bar-graph')": {"<-": "@title.value == 'Composite Temperature' || @title.value == 'CPU temperature' || @title.value == 'Disk I/O' || @title.value == 'Disk Temperature'"}
+            }
+        },
+        "title": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "title"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.title"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="DrawerItem">
+        <header>
+            <div data-mod-id="title" class="DrawerItem-title"></div>
+        </header>
+        <main>
+            <div class="DrawerItem-content"></div>
+        </main>
+    </div>
+</body>
+</html>

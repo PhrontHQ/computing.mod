@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "mail": {
+            "prototype": "ui/sections/system/inspectors/mail.reel",
+            "properties": {
+                "element": {"#": "mail"}
+            },
+            "bindings": {
+                "object": {"<-": "@owner.object"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Mail-wizard">
+        <div data-mod-id="mail"></div>
+    </div>
+</body>
+</html>

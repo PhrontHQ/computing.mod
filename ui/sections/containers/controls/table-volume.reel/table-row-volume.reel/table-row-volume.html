@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="table-row-volume.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "source": {"<-": "@owner.object.origin == 'HOST' ? @hostPath.displayedPath : @vmPath.value"},
+                "object._source": {"<-": "(!!@owner.source && @owner.source.length > 0) ? @owner.source : @owner.object.source"}
+            }
+        },
+
+        "filesystemTreeController": {
+            "prototype": "core/controller/tree/filesystem-tree-controller",
+            "properties": {
+                "canListFiles": true,
+                "root": "/mnt"
+            },
+            "bindings": {
+                "service": {"<-": "@owner.application.filesystemService"}
+            }
+        },
+
+        "pathSelect": {
+            "prototype": "blue-shark.mod/ui/select.reel",
+            "properties": {
+                "element": {"#": "pathSelect"},
+                "options": [{"label": "host", "value": "HOST"}, {"label": "VM", "value": "VM"}]
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.object.isLocked"},
+                "selectedValue": {"<->": "@owner.object.origin"},
+                "isReadOnly": {"<-": "!@owner.isNew"}
+            }
+        },
+
+        "pathSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "pathSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.object.origin"}
+            }
+        },
+
+        "vmPath": {
+            "prototype": "blue-shark.mod/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "vmPath"},
+                "placeholder": "e.g. vm path"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.source"},
+                "disabled": {"<-": "@owner.object.isLocked"}
+            }
+        },
+
+        "hostPath": {
+            "prototype": "ui/controls/field-treeview.reel",
+            "properties": {
+                "element": {"#": "hostPath"},
+                "controller": {"@": "filesystemTreeController"},
+                "placeholder": "e.g. host path",
+                "isNotTypable": false
+            },
+            "bindings": {
+                "inspector": {"<-": "@owner.inspector"},
+                "selectedPath": {"<-": "@owner.object.source"},
+                "disabled": {"<-": "@owner.object.isLocked"}
+            }
+        },
+
+        "containerPath": {
+            "prototype": "blue-shark.mod/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "containerPath"},
+                "placeholder": "e.g. container path"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.target"},
+                "disabled": {"<-": "@owner.object.isLocked"}
+            }
+        },
+
+        "readOnly": {
+            "prototype": "blue-shark.mod/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "readOnly"}
+            },
+            "bindings": {
+                "checked": {"<->": "!!@owner.object.readonly"},
+                "disabled": {"<-": "@owner.object.isLocked"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="TableRowVolume Table-cells">
+        <div><div data-mod-id="pathSelect"></div></div>
+        <div data-mod-id="pathSubstitution">
+            <div data-mod-id="vmPath" data-arg="VM"></div>
+            <div data-mod-id="hostPath" data-arg="HOST"></div>
+        </div>
+        <div><div data-mod-id="containerPath"></div></div>
+        <div><div data-mod-id="readOnly"></div></div>
+    </div>
+</body>
+</html>

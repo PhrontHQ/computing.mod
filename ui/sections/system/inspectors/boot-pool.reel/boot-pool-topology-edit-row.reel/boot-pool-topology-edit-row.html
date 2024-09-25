@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "name": {
+            "prototype": "blue-shark.mod/ui/select.reel",
+            "properties": {
+                "element": {"#": "name"}
+            },
+            "bindings": {
+                "options": {"<-": "@owner._diskOptions"},
+                "selectedValue": {"<->": "@owner.selectedPath"}
+            }
+        },
+
+        "status": {
+            "prototype": "mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "status"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.online ? 'ONLINE' : 'OFFLINE'"},
+                "classList.has('hide')": {"<-": "!@owner.selectedPath"}
+            }
+        },
+
+        "capacity": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "capacity"},
+                "value": "{value, 0 b}"
+            },
+            "bindings": {
+                "args": {"<-": "!!@owner.object.mediasize ? {value: @owner.object.mediasize} : {value: 0}"},
+                "classList.has('hide')": {"<-": "!@owner.selectedPath"}
+            }
+        },
+
+        "is_ssd": {
+            "prototype": "mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "is_ssd"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.status.is_ssd.defined() && @owner.object.status.is_ssd ? 'SSD' : 'HDD'"},
+                "classList.has('hide')": {"<-": "!@owner.selectedPath"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="BootPoolTopologyEditRow Table-cells">
+        <div><span data-mod-id="name"></span></div>
+        <div><span data-mod-id="status"></span></div>
+        <div><span data-mod-id="capacity"></span></div>
+        <div><span data-mod-id="is_ssd"></span></div>
+    </div>
+</body>
+</html>

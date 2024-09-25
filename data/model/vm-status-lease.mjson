@@ -1,0 +1,19 @@
+{
+  "blueprint_vmstatuslease_client_ip": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "client_ip",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VmStatusLease",
+      "propertyBlueprints": [
+        {"@": "blueprint_vmstatuslease_client_ip"}
+      ]
+    }
+  }
+}

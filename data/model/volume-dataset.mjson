@@ -1,0 +1,140 @@
+{
+  "blueprint_volumedataset_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumedataset_last_replicated_at": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "last_replicated_at",
+      "blueprint": {"@": "root"},
+      "valueType": "datetime"
+    }
+  },
+  "blueprint_volumedataset_last_replicated_by": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "last_replicated_by",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumedataset_mounted": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "mounted",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_volumedataset_mountpoint": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "mountpoint",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumedataset_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumedataset_permissions": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "permissions",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "Permissions"
+    }
+  },
+  "blueprint_volumedataset_permissions_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "permissions_type",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPermissionstype"
+    }
+  },
+  "blueprint_volumedataset_properties": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "properties",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetProperties"
+    }
+  },
+  "blueprint_volumedataset_rname": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rname",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumedataset_temp_mountpoint": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "temp_mountpoint",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumedataset_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"}
+    }
+  },
+  "blueprint_volumedataset_volsize": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "volsize",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_volumedataset_volume": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "volume",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumeDataset",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumedataset_id"},
+        {"@": "blueprint_volumedataset_last_replicated_at"},
+        {"@": "blueprint_volumedataset_last_replicated_by"},
+        {"@": "blueprint_volumedataset_mounted"},
+        {"@": "blueprint_volumedataset_mountpoint"},
+        {"@": "blueprint_volumedataset_name"},
+        {"@": "blueprint_volumedataset_permissions"},
+        {"@": "blueprint_volumedataset_permissions_type"},
+        {"@": "blueprint_volumedataset_properties"},
+        {"@": "blueprint_volumedataset_rname"},
+        {"@": "blueprint_volumedataset_temp_mountpoint"},
+        {"@": "blueprint_volumedataset_type"},
+        {"@": "blueprint_volumedataset_volsize"},
+        {"@": "blueprint_volumedataset_volume"}
+      ]
+    }
+  }
+}

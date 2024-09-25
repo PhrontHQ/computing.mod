@@ -1,0 +1,47 @@
+{
+  "blueprint_alertfilter_emitter": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "emitter",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_alertfilter_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_alertfilter_parameters": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parameters",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "AlertEmitterEmail"
+    }
+  },
+  "blueprint_alertfilter_predicates": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "predicates",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "AlertFilter",
+      "propertyBlueprints": [
+        {"@": "blueprint_alertfilter_emitter"},
+        {"@": "blueprint_alertfilter_id"},
+        {"@": "blueprint_alertfilter_parameters"},
+        {"@": "blueprint_alertfilter_predicates"}
+      ]
+    }
+  }
+}

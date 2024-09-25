@@ -1,0 +1,113 @@
+@keyframes beacon {
+    0%   {transform: scale(.5); opacity: .5;}
+    100% {transform: scale(2); opacity: 0;}
+}
+
+.DiskIcon {
+    position: relative;
+    width: 2.5em;
+    margin: .25em;
+    margin-bottom: 0;
+
+    @nest .selected & {
+        position: relative;
+    }
+
+    &:before {
+        position: absolute;
+        content: '';
+        top:    -.25em;
+        left:   -.25em;
+        right:  -.25em;
+        bottom: -1.25em;
+        border-radius: 3px;
+        transition: border-color .25s ease-in-out;
+        border: 1px solid transparent;
+    }
+
+    &:hover:before { border: 1px solid var(--grey-1); }
+
+    @nest .selected &:before { border: 1px solid var(--accent); }
+
+    &:active:before { border: 1px solid var(--color-selected); }
+}
+
+.DiskIcon-mediaSize {
+    background-color: var(--tertiary--9);
+    color: var(--white);
+    font-size: .7em;
+    border-bottom-left-radius:  2px;
+    border-bottom-right-radius: 2px;
+    line-height: 1rem;
+    text-align: center;
+}
+
+/* states */
+
+.DiskIcon.is-unavailable .DiskIcon-img {
+    opacity: .5;
+}
+
+.DiskIcon-states {
+    position: absolute;
+    z-index: 1;
+    bottom: 2em;
+    left: 50%;
+    width: 3em;
+    margin-left: -1.5em;
+}
+
+.DiskIcon-state {
+    text-align: center;
+    font-size: .7em;
+    padding: 0 .15em .1em;
+    background: var(--orange-lighten-2);
+    border-radius: .25em;
+    color: var(--white);
+    margin-bottom: .15em;
+    box-shadow: 0 2px 2px rgba(0,0,0,.25);
+}
+
+.DiskIcon-state-offline { background-color: var(--red); }
+
+.DiskIcon-state-removed { background-color: var(--black); }
+
+.DiskIcon-smartStatus {
+    position: absolute;
+    z-index: 1;
+    top: -.5em;
+    right: -.5em;
+    height: 1.2em;
+    width:  1.2em;
+    color: var(--orange);
+
+    & svg {
+        height: 1.2em;
+        width:  1.2em;
+        filter: drop-shadow(0 2px 2px rgba(0,0,0,.25));
+    }
+
+    & .smartStatus-fail {
+        color: var(--red);
+
+        &:after,
+        &:before {
+            content: '';
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            border: 2px solid currentColor;
+            border-radius: 50%;
+            animation: beacon 2s infinite linear;
+            /* z-index: 1; */
+        }
+
+        &:before {
+            animation-delay: .5s;
+        }
+    }
+}
+

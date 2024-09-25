@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "table": {"@": "table"}
+            }
+        },
+
+        "table": {
+            "prototype": "blue-shark.mod/ui/tables/table-editable.reel",
+            "properties": {
+                "element": {"#": "table"},
+                "delegate": {"@": "owner"},
+                "label": "Active Directory",
+                "emptyMessage": "Add an Active Directory",
+                "columns":  [
+                    {
+                        "value": "name"
+                    },
+                    {
+                        "value": "domain name"
+                    },
+                    {
+                        "value": "domain account name"
+                    },
+                    {
+                        "value": "domain account password"
+                    }
+                ]
+            },
+            "bindings": {
+                "rows": {"<->": "@owner.values"}
+            }
+        },
+
+        "defaultHeader": {
+            "prototype": "ui/controls/table-editable-header.reel",
+            "properties": {
+                "element": {"#": "tableHeader"},
+                "table": {"@": "table"}
+            },
+            "bindings": {
+                "addButtonDisabled": {"<-": "@owner.values.length > 0"}
+            }
+        },
+
+        "newEntry": {
+            "prototype": "./table-row.reel",
+            "properties": {
+                "element": {"#": "newEntry"}
+            },
+            "bindings": {
+                "object": {"<-": "@table.currentNewEntry.object"}
+            }
+        },
+
+        "entry": {
+            "prototype": "./table-row.reel",
+            "properties": {
+                "element": {"#": "entry"}
+            },
+            "bindings": {
+                "object": {"<-": "@table:rowIteration.object.object"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="TableActiveDirectory">
+        <div data-mod-id="table">
+            <div data-arg="table-editable-header-toolbar" data-mod-id="tableHeader"></div>
+            <div data-arg="row-new" data-mod-id="newEntry" class="Table-row"></div>
+            <div data-arg="row-entry" data-mod-id="entry" class="Table-row"></div>
+        </div>
+    </div>
+</body>
+</html>

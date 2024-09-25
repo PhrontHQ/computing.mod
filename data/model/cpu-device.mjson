@@ -1,0 +1,28 @@
+{
+  "blueprint_cpudevice_description": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "description",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_cpudevice_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "CpuDevice",
+      "propertyBlueprints": [
+        {"@": "blueprint_cpudevice_description"},
+        {"@": "blueprint_cpudevice_name"}
+      ]
+    }
+  }
+}

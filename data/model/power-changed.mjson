@@ -1,0 +1,20 @@
+{
+  "blueprint_powerchanged_operation": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "operation",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "PowerChangedOperation"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "PowerChanged",
+      "propertyBlueprints": [
+        {"@": "blueprint_powerchanged_operation"}
+      ]
+    }
+  }
+}

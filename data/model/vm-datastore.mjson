@@ -1,0 +1,67 @@
+{
+  "blueprint_vmdatastore_capabilities": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "capabilities",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VmDatastoreCapabilities"
+    }
+  },
+  "blueprint_vmdatastore_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_vmdatastore_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_vmdatastore_properties": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "properties",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VmDatastoreProperties"
+    }
+  },
+  "blueprint_vmdatastore_state": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "state",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VmDatastoreState"
+    }
+  },
+  "blueprint_vmdatastore_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VmDatastore",
+      "propertyBlueprints": [
+        {"@": "blueprint_vmdatastore_capabilities"},
+        {"@": "blueprint_vmdatastore_id"},
+        {"@": "blueprint_vmdatastore_name"},
+        {"@": "blueprint_vmdatastore_properties"},
+        {"@": "blueprint_vmdatastore_state"},
+        {"@": "blueprint_vmdatastore_type"}
+      ]
+    }
+  }
+}

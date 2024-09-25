@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="disks-category.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "listeners": [
+                {
+                    "listener": {"@": "owner"},
+                    "type": "action"
+                }
+            ],
+            "bindings": {
+                "classList.has('is-expanded')": {"<-": "@owner.isExpanded"}
+            }
+        },
+        "controller": {
+            "prototype": "mod/core/range-controller",
+            "bindings": {
+                "content": {"<-": "@owner.disks"},
+                "selection": {"<->": "@owner.selectedDisk"}
+            }
+        },
+        "grid": {
+            "prototype": "ui/controls/grid.reel",
+            "properties": {
+                "element": {"#": "grid"},
+                "controller": {"@": "controller"},
+                "labelPath": "name",
+                "itemDraggable": true,
+                "delegate": {"@": "owner"}
+            },
+            "bindings": {
+                "icon": {"<-": "@owner.icon"},
+                "identifier": {"<-": "@owner.identifier"}
+            }
+        },
+        "scrollview": {
+            "prototype": "blue-shark.mod/ui/scroller.reel",
+            "properties": {
+                "element": {"#": "scrollview"},
+                "overflow": "scrollY"
+            }
+        },
+        "button": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "button"},
+                "value": "toggle"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.title"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="AvailableDisksCategory">
+        <div data-mod-id="button" class="AvailableDisksCategory-toggle Button--naked">
+            <svg><use xlink:href="#i-triangle-down"/></svg>
+        </div>
+        <div data-mod-id="scrollview">
+            <div data-mod-id="grid" class="AvailableDisksCategory-grid"></div>
+        </div>
+    </div>
+</body>
+</html>

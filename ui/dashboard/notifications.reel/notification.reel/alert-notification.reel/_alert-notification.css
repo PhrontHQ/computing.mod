@@ -1,0 +1,20 @@
+.AlertNotification:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    width: 3px;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.AlertNotification.has-error {
+    background-color: color(var(--red) alpha(8%));
+}
+
+
+/* alert Levels */
+
+.AlertNotification.has-info:before     { background-color: var(--yellow-orange); }
+.AlertNotification.has-warning:before  { background-color: var(--orange); }
+.AlertNotification.has-critical:before { background-color: var(--red); }

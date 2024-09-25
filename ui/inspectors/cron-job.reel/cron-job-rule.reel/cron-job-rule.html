@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "hasObjectValue": {"<-": "@owner.options.0.value.label.defined()"}
+            }
+        },
+        "ruleSectionTitle": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "ruleSectionTitle"}
+            },
+            "bindings": {
+                "title": {"<-": "@owner.title"},
+                "subtitle": {"<-": "!@owner.selectedValues.length ? 'No values selected' : @owner.selectedValues.length == @owner.options.length ? 'Every ' + @owner.title.toLowerCase().slice(0, -1) + ' selected' : @owner.hasObjectValue ? @owner.selectedValues.map{label}.join(', ') : @owner.selectedValues.join(', ')"}
+            }
+        },
+        "ruleOptionSelector": {
+            "prototype": "blue-shark.mod/ui/multiple-select-grid.reel",
+            "properties": {
+                "element": {"#": "ruleOptionSelector"},
+                "hasIterator": true
+            },
+            "bindings": {
+                "options": {"<-": "@owner.options"},
+                "selectedValues": {"<->": "@owner.selectedValues"},
+                "iteratorLabel": {"<-": "@owner.iteratorLabel"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="CronJobRule g-margin-bottom">
+        <div data-mod-id="ruleSectionTitle">
+            <div data-mod-id="ruleOptionSelector"></div>
+        </div>
+    </div>
+</body>
+</html>

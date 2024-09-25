@@ -1,0 +1,47 @@
+{
+  "blueprint_kerberoskeytab_entries": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "entries",
+      "blueprint": {"@": "root"},
+      "valueType": "array",
+      "valueObjectPrototypeName": "KerberosKeytabEntry"
+    }
+  },
+  "blueprint_kerberoskeytab_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_kerberoskeytab_keytab": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "keytab",
+      "blueprint": {"@": "root"},
+      "valueType": "binary"
+    }
+  },
+  "blueprint_kerberoskeytab_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "KerberosKeytab",
+      "propertyBlueprints": [
+        {"@": "blueprint_kerberoskeytab_entries"},
+        {"@": "blueprint_kerberoskeytab_id"},
+        {"@": "blueprint_kerberoskeytab_keytab"},
+        {"@": "blueprint_kerberoskeytab_name"}
+      ]
+    }
+  }
+}

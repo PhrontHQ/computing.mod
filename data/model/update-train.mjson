@@ -1,0 +1,46 @@
+{
+  "blueprint_updatetrain_current": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "current",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_updatetrain_description": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "description",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_updatetrain_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_updatetrain_sequence": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "sequence",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "UpdateTrain",
+      "propertyBlueprints": [
+        {"@": "blueprint_updatetrain_current"},
+        {"@": "blueprint_updatetrain_description"},
+        {"@": "blueprint_updatetrain_name"},
+        {"@": "blueprint_updatetrain_sequence"}
+      ]
+    }
+  }
+}

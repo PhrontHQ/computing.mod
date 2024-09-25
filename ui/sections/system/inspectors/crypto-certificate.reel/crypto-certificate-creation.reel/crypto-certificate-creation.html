@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "validationController": {"<-": "@owner.context.validationController"}
+            }
+        },
+        "optionsConverter": {
+            "prototype": "core/converter/select-option-converter",
+            "properties": {
+                "labelPropertyName": "name",
+                "valuePropertyName": "name"
+            }
+        },
+        "substitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "substitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "!!@owner.object._isNew + ''"}
+            }
+        },
+        "signing_ca_name": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "signing_ca_name"},
+                "label": "Signing Certificate Authority",
+                "converter": {"@": "optionsConverter"}
+            },
+            "bindings": {
+                "options" : {"<-": "[{name:@owner.SELF_SIGNED}].concat(@owner.certificates.filter{type=='CA_INTERNAL' || type=='CA_INTERMEDIATE' || type=='CA_EXISTING' })"},
+                "selectedValue": {"<->": "@owner.object.signing_ca_name"}
+            }
+        },
+        "signing_ca_name_display": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "signing_ca_name_display"},
+                "label": "Signing Certificate Authority"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.signing_ca_name"}
+            }
+        },
+        "showSigningName": {
+            "prototype": "mod/ui/condition.reel",
+            "properties": {
+                "element": {"#": "showSigningName"}
+            },
+            "bindings": {
+                "condition": {"<-": "@owner.object.type == 'CA_INTERMEDIATE' || @owner.object.type == 'CERT_INTERNAL'"}
+            }
+        },
+        "key_length": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "key_length"},
+                "label": "Key length"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.keyLenghtOptions"},
+                "selectedValue": {"<->": "@owner.object.key_length"}
+            }
+        },
+        "key_lengthForDisplay": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "key_lengthForDisplay"},
+                "label": "Key length"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.key_length"}
+            }
+        },
+        "lifeTimeConverterValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 0,
+                "errorMessage": "Value must be an integer"
+            }
+        },
+        "numberConverter": {
+            "prototype": "core/converter/string-to-integer-or-null-converter",
+            "properties": {
+                "validator": {"@": "lifeTimeConverterValidator"}
+            }
+        },
+        "lifetime": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "lifetime"},
+                "label": "Lifetime",
+                "converter": {"@": "numberConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.lifetime"}
+            }
+        },
+        "lifetimeForDisplay": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "lifetimeForDisplay"},
+                "label": "Lifetime",
+                "converter": {"@": "numberConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.lifetime"}
+            }
+        },
+        "country": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "country"},
+                "label": "Country code"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.countryCodes"},
+                "selectedValue": {"<->": "@owner.object.country"}
+            }
+        },
+        "countryForDisplay": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "countryForDisplay"},
+                "label": "Country code"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.country"}
+            }
+        },
+        "state": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "state"},
+                "label": "State"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.state"}
+            }
+        },
+        "stateForDisplay": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "stateForDisplay"},
+                "label": "State"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.state"}
+            }
+        },
+        "city": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "locality"},
+                "label": "Locality (city)"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.city"}
+            }
+        },
+        "localityForDisplay": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "localityForDisplay"},
+                "label": "Locality (city)"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.city"}
+            }
+        },
+        "organization": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "organization"},
+                "label": "Organization"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.organization"}
+            }
+        },
+        "organizationForDisplay": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "organizationForDisplay"},
+                "label": "Organization"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.organization"}
+            }
+        },
+        "email": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "email"},
+                "label": "Email"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.email"}
+            }
+        },
+        "emailForDisplay": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "emailForDisplay"},
+                "label": "Email"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.email"}
+            }
+        },
+        "common": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "commonName"},
+                "label": "Common name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.common"}
+            }
+        },
+        "commonForDisplay": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "commonNameForDisplay"},
+                "label": "Common name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.common"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="CryptoCertificateCreation">
+        <div data-mod-id="inspector">
+            <div data-mod-id="substitution">
+                <div data-arg="true">
+                    <div data-mod-id="showSigningName">
+                        <div data-mod-id="signing_ca_name"></div>
+                    </div>
+                    <div data-mod-id="key_length"></div>
+                    <div data-mod-id="algorithm"></div>
+                    <div data-mod-id="lifetime"></div>
+                    <div data-mod-id="type"></div>
+                    <div data-mod-id="country"></div>
+                    <div data-mod-id="state"></div>
+                    <div data-mod-id="locality"></div>
+                    <div data-mod-id="organization"></div>
+                    <div data-mod-id="email"></div>
+                    <div data-mod-id="commonName"></div>
+                </div>
+                <div data-arg="false">
+                    <div data-mod-id="showSigningName">
+                        <div data-mod-id="signing_ca_name_display"></div>
+                    </div>
+                    <div data-mod-id="key_lengthForDisplay"></div>
+                    <div data-mod-id="algorithmForDisplay"></div>
+                    <div data-mod-id="lifetimeForDisplay"></div>
+                    <div data-mod-id="typeForDisplay"></div>
+                    <div data-mod-id="countryForDisplay"></div>
+                    <div data-mod-id="stateForDisplay"></div>
+                    <div data-mod-id="localityForDisplay"></div>
+                    <div data-mod-id="organizationForDisplay"></div>
+                    <div data-mod-id="emailForDisplay"></div>
+                    <div data-mod-id="commonNameForDisplay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

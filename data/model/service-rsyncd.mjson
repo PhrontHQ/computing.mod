@@ -1,0 +1,48 @@
+{
+  "blueprint_servicersyncd_auxiliary": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "auxiliary",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_servicersyncd_enable": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "enable",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_servicersyncd_port": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "port",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_servicersyncd_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "service-rsyncd"
+      ]
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ServiceRsyncd",
+      "propertyBlueprints": [
+        {"@": "blueprint_servicersyncd_auxiliary"},
+        {"@": "blueprint_servicersyncd_enable"},
+        {"@": "blueprint_servicersyncd_port"},
+        {"@": "blueprint_servicersyncd_type"}
+      ]
+    }
+  }
+}

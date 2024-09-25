@@ -1,0 +1,49 @@
+{
+  "blueprint_volumepropertydedupratio_parsed": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parsed",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertyDedupratioValue"
+    }
+  },
+  "blueprint_volumepropertydedupratio_rawvalue": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rawvalue",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumepropertydedupratio_source": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "source",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertySource"
+    }
+  },
+  "blueprint_volumepropertydedupratio_value": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "value",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumePropertyDedupratio",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumepropertydedupratio_parsed"},
+        {"@": "blueprint_volumepropertydedupratio_rawvalue"},
+        {"@": "blueprint_volumepropertydedupratio_source"},
+        {"@": "blueprint_volumepropertydedupratio_value"}
+      ]
+    }
+  }
+}

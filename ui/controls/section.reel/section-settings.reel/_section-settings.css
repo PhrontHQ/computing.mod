@@ -1,0 +1,14 @@
+.SectionSettings {
+    min-width: 27rem !important;
+}
+
+.SectionSettings,
+.SectionSettings-content {
+    flex: 1;
+    @apply --flex-column;
+}
+
+.SectionSettings-content > * {
+    flex: 1;
+    @apply --flex-column;
+}

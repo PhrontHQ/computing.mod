@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="alert-notification.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('has-warning')": {"<-": "@owner.object.severity == 'WARNING'"},
+                "classList.has('has-info')": {"<-": "@owner.object.severity == 'INFO'"},
+                "classList.has('has-critical')": {"<-": "@owner.object.severity == 'CRITICAL'"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "summary": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "summary"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.title"},
+                "classList.has('hide')": {"<-": "!@owner.object.title"}
+            }
+        },
+        "timestamp": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "timestamp"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.date"}
+            }
+        },
+        "dismissButton": {
+            "prototype": "mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "dismissButton"}
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "@owner.object._dismissing"}
+            }
+        },
+        "expandButton": {
+            "prototype": "mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "expandButton"}
+            }
+        },
+        "details": {
+            "prototype": "../../notification-details.reel/alert-notification-details.reel",
+            "properties": {
+                "element": {"#": "details"}
+            },
+            "bindings": {
+                "object": {"<-": "@owner.object"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="AlertNotification">
+        <div class="Notification-header">
+            <div class="Notification-overview">
+                <div>
+                    <div data-mod-id="summary"></div>
+                </div>
+                <div>
+                    <div data-mod-id="timestamp" class="Notification-time"></div>
+                </div>
+            </div>
+            <div class="Notification-actions">
+                <div data-mod-id="expandButton" class="Notification-expand"></div>
+                <div data-mod-id="dismissButton" class="Notification-close">
+                    <svg id="i-close" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <title>close</title><g fill="none" fill-rule="evenodd"><circle id="i-close-bg" stroke="#979797" fill="#D8D8D8" cx="12" cy="12" r="10"/><path id="i-close-symbol" d="M11.293 12l-3.89-3.89-.353-.353.707-.707.354.354 3.89 3.89 3.89-3.89.353-.354.707.707-.354.354-3.89 3.89 3.89 3.89.354.353-.707.707-.354-.354-3.89-3.89-3.89 3.89-.353.354-.707-.707.354-.354 3.89-3.89z" fill="#979797"/></g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div data-mod-id="details" class="Notification-details"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="overview.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('is-expanded')": {"<-": "@owner.isExpanded"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "controller": {"@": "owner"},
+                "isFooterHidden": true
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"}
+            }
+        },
+        "version": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "version"},
+                "label": "System Version"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.systemInfo.systemVersion"},
+                "isLoading": {"<-": "@owner.isVersionLoading"}
+            }
+        },
+        "secondsToStringConverter": {
+            "prototype": "core/converter/seconds-to-string-converter"
+        },
+        "uptime": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "uptime"},
+                "label": "System Uptime",
+                "converter": {"@": "secondsToStringConverter"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.systemTime.uptime"},
+                "isLoading": {"<-": "@owner.isSystemTimeLoading"}
+            }
+        },
+        "hostname": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "hostname"},
+                "label": "Host Name"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.systemInfo.general.hostname"},
+                "isLoading": {"<-": "@owner.isSystemGeneralLoading"}
+            }
+        },
+        "dataset": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "dataset"},
+                "label": "Total Datasets"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.systemInfo.datasets.length"},
+                "isLoading": {"<-": "@owner.isVolumeDatasetLoading"}
+            }
+        },
+        "totalVolumes": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "totalVolumes"},
+                "label": "Total Volumes"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.systemInfo.volumes.length"},
+                "isLoading": {"<-": "@owner.isVolumesLoading"}
+            }
+        },
+        "totalVMs": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "totalVMs"},
+                "label": "VMs (enabled / total)"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.virtualMachines.filter{status.state=='RUNNING'}.length + ' / ' + @owner.virtualMachines.length"},
+                "isLoading": {"<-": "@owner.isVmsLoading"}
+            }
+        },
+        "totalDisks": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "totalDisks"},
+                "label": "Disks (SSD / HDD)"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.systemInfo.disks.filter{status.is_ssd==true}.length + ' / ' + @owner.systemInfo.disks.filter{status.is_ssd==false}.length "},
+                "isLoading": {"<-": "@owner.isDisksLoading"}
+            }
+        },
+        "totalContainers": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "totalContainers"},
+                "label": "Containers (running / total)"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.containers.filter{running == true}.length + ' / ' + @owner.containers.length"},
+                "isLoading": {"<-": "@owner.isDockerLoading"}
+            }
+        },
+        "totalNetworkInterfaces": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "totalNetworkInterfaces"},
+                "label": "Network (enabled / total)"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.systemInfo.totalNetworkInterfaces.filter{enabled == true}.length + ' / ' + @owner.systemInfo.totalNetworkInterfaces.length"},
+                "isLoading": {"<-": "@owner.isNetworkLoading"}
+            }
+        },
+        "snapshots": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "snapshots"},
+                "label": "Total Snapshots"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.systemInfo.snapshots.length + ''"},
+                "isLoading": {"<-": "@owner.isSnapshotsLoading"}
+            }
+        },
+        "shares": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "shares"},
+                "label": "Total Shares"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.systemInfo.shares.length + ''"},
+                "isLoading": {"<-": "@owner.isSharesLoading"}
+            }
+        },
+        "peer": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "peer"},
+                "label": "Total Peers"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.systemInfo.peers.length + ''"},
+                "isLoading": {"<-": "@owner.isPeersLoading"}
+            }
+        },
+        "replication": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "replication"},
+                "label": "Total Replications"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.systemInfo.replications.length + ''"},
+                "isLoading": {"<-": "@owner.isReplicationsLoading"}
+            }
+        },
+        "system_dataset": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "system_dataset"},
+                "label": "System Dataset"
+            },
+            "bindings": {
+                 "value": {"<-": "@owner.systemDatasetData"},
+                 "isLoading": {"<-": "@owner.isSystemDatasetLoading"}
+            }
+        },
+        "dataTitle": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "dataTitle"},
+                "value": "Data Info"
+            }
+        },
+        "networkTitle": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "networkTitle"},
+                "value": "Networking Info"
+            }
+        },
+        "virtualizationTitle": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "virtualizationTitle"},
+                "value": "Virtualization Info"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Overview">
+        <div data-mod-id="inspector">
+            <div class=Overview-system>
+                <div data-mod-id="version"></div>
+                <div data-mod-id="hostname"></div>
+                <div data-mod-id="uptime"></div>
+                <div data-mod-id="system_dataset"></div>
+            </div>
+            <div class="Overview-metrics">
+                <div class="OverviewMetrics-data">
+                    <div data-mod-id="dataTitle"></div>
+                    <div data-mod-id="totalDisks"></div>
+                    <div data-mod-id="totalVolumes"></div>
+                    <div data-mod-id="dataset"></div>
+                    <div data-mod-id="snapshots"></div>
+                    <div data-mod-id="shares"></div>
+                    <div data-mod-id="replication"></div>
+                </div>
+                <div class="OverviewMetrics-network">
+                    <div data-mod-id="networkTitle"></div>
+                    <div data-mod-id="totalNetworkInterfaces"></div>
+                    <div data-mod-id="peer"></div>
+                </div>
+                <div class="OverviewMetrics-virtualization">
+                    <div data-mod-id="virtualizationTitle"></div>
+                    <div data-mod-id="totalVMs"></div>
+                    <div data-mod-id="totalContainers"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

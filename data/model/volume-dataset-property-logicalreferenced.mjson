@@ -1,0 +1,49 @@
+{
+  "blueprint_volumedatasetpropertylogicalreferenced_parsed": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parsed",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyLogicalreferencedValue"
+    }
+  },
+  "blueprint_volumedatasetpropertylogicalreferenced_rawvalue": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rawvalue",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumedatasetpropertylogicalreferenced_source": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "source",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertySource"
+    }
+  },
+  "blueprint_volumedatasetpropertylogicalreferenced_value": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "value",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumeDatasetPropertyLogicalreferenced",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumedatasetpropertylogicalreferenced_parsed"},
+        {"@": "blueprint_volumedatasetpropertylogicalreferenced_rawvalue"},
+        {"@": "blueprint_volumedatasetpropertylogicalreferenced_source"},
+        {"@": "blueprint_volumedatasetpropertylogicalreferenced_value"}
+      ]
+    }
+  }
+}

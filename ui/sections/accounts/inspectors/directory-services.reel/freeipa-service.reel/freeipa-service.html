@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "domainName": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "domainName"},
+                "label": "Domain Name (DNS/Realm-Name)",
+                "placeholder": "e.g. company.com"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.parameters.realm"}
+            }
+        },
+
+        "domainAccountName": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "domainAccountName"},
+                "label": "Domain Account Name",
+                "placeholder": "e.g. Administrator"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.parameters.username"}
+            }
+        },
+
+        "domainAccountPassword": {
+            "prototype": "blue-shark.mod/ui/field-password-input.reel",
+            "properties": {
+                "element": {"#": "domainAccountPassword"},
+                "label": "Domain Account Password",
+                "placeholder": "enter password"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.parameters.password"}
+            }
+        },
+
+        "advancedSection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "advancedSection"},
+                "title": "Advanced"
+            }
+        },
+
+        "kerberosServerAddress": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "kerberosServerAddress"},
+                "label": "Kerberos Server Address"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.parameters.kdc"}
+            }
+        },
+
+        "encryption": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "encryption"},
+                "label": "Encryption",
+                "options": [
+                    "OFF",
+                    "SSL",
+                    "TLS"
+                ]
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.parameters.encryption"}
+            }
+        },
+
+        "userSuffix": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "userSuffix"},
+                "label": "User Suffix"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.parameters.user_suffix"}
+            }
+        },
+
+        "groupSuffix": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "groupSuffix"},
+                "label": "Group Suffix"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.parameters.group_suffix"}
+            }
+        },
+
+        "serverAddress": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "serverAddress"},
+                "label": "Server Address"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.parameters.server"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="FreeipaService">
+        <div data-mod-id="domainName"></div>
+        <div data-mod-id="domainAccountName"></div>
+        <div data-mod-id="domainAccountPassword"></div>
+
+        <div data-mod-id="advancedSection">
+            <div data-mod-id="kerberosServerAddress"></div>
+            <div data-mod-id="encryption"></div>
+            <div data-mod-id="userSuffix"></div>
+            <div data-mod-id="groupSuffix"></div>
+            <div data-mod-id="serverAddress"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+{
+  "blueprint_updateinfo_available": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "available",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_updateinfo_changelog": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "changelog",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_updateinfo_downloaded": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "downloaded",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_updateinfo_installed": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "installed",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_updateinfo_installed_version": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "installed_version",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_updateinfo_notes": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "notes",
+      "blueprint": {"@": "root"},
+      "valueType": "object"
+    }
+  },
+  "blueprint_updateinfo_notice": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "notice",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_updateinfo_operations": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "operations",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "UpdateOps"
+    }
+  },
+  "blueprint_updateinfo_version": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "version",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "UpdateInfo",
+      "propertyBlueprints": [
+        {"@": "blueprint_updateinfo_available"},
+        {"@": "blueprint_updateinfo_changelog"},
+        {"@": "blueprint_updateinfo_downloaded"},
+        {"@": "blueprint_updateinfo_installed"},
+        {"@": "blueprint_updateinfo_installed_version"},
+        {"@": "blueprint_updateinfo_notes"},
+        {"@": "blueprint_updateinfo_notice"},
+        {"@": "blueprint_updateinfo_operations"},
+        {"@": "blueprint_updateinfo_version"}
+      ]
+    }
+  }
+}

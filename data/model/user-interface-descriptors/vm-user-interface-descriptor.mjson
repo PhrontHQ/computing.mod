@@ -1,0 +1,18 @@
+{
+    "root": {
+        "prototype": "mod/core/meta/user-interface-descriptor",
+        "properties": {
+            "collectionInspectorComponentModule": {"%": "ui/controls/viewer.reel"},
+            "collectionNameExpression": "'Virtual Machines'",
+            "inspectorComponentModule": {"%": "ui/sections/vms/inspectors/virtual-machine.reel"},
+            "creatorComponentModule": {"%": "ui/sections/vms/inspectors/virtual-machine.reel"},
+            "nameExpression": "_isNew.defined() && _isNew ? 'Create a new VM' : name",
+            "statusColorMapping": {
+                "RUNNING": "green",
+                "BOOTLOADER": "green",
+                "STOPPED": "grey"
+            },
+            "statusValueExpression": "status.state"
+        }
+    }
+}

@@ -1,0 +1,49 @@
+{
+  "blueprint_volumepropertyleaked_parsed": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parsed",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertyLeakedValue"
+    }
+  },
+  "blueprint_volumepropertyleaked_rawvalue": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rawvalue",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumepropertyleaked_source": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "source",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertySource"
+    }
+  },
+  "blueprint_volumepropertyleaked_value": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "value",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumePropertyLeaked",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumepropertyleaked_parsed"},
+        {"@": "blueprint_volumepropertyleaked_rawvalue"},
+        {"@": "blueprint_volumepropertyleaked_source"},
+        {"@": "blueprint_volumepropertyleaked_value"}
+      ]
+    }
+  }
+}

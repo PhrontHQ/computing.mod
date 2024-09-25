@@ -1,0 +1,24 @@
+.Console {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--black);
+}
+
+.Console-terminal { display: flex; }
+
+.Console .terminal {
+    padding: 1rem;
+    font-family: monospace;
+    font-size: 1.2em;
+    color: currentColor !important;
+    background-color: none;
+    outline: none;
+}
+
+.Console .terminal-cursor { background-color: currentColor; }
+
+.Console .xterm-viewport,
+.Console .xterm-helpers {
+    display: none;
+}

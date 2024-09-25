@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="share-overview.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "iconPlaceholder": {
+            "prototype": "ui/controls/placeholder.reel",
+            "properties": {
+                "element": {"#": "icon"}
+            },
+            "bindings": {
+                "moduleId": {"<-": "@owner.ICON_MODULE_IDS[@owner.targetType]"}
+            }
+        },
+        "shareType": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "shareType"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.title.toUpperCase()"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="ShareOverview">
+        <div class="ShareOverview-iconContainer">
+            <div data-mod-id="icon" class="ShareOverview-icon"></div>
+        </div>
+        <div class="ShareOverview-info">
+            <p data-mod-id="shareType" class="ShareOverview-title"></p>
+        </div>
+    </div>
+</body>
+</html>

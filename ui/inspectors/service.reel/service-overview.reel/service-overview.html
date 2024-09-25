@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="service-overview.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "iconSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "iconSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.object.type"}
+            }
+        },
+        "smbIcon": {
+            "prototype": "ui/icons/smb-service.reel",
+            "properties": {
+                "element": {"#": "smbIcon"},
+                "component.object": {"<-": "@owner.object"}
+            }
+        },
+        "afpIcon": {
+            "prototype": "ui/icons/afp-service.reel",
+            "properties": {
+                "element": {"#": "afpIcon"},
+                "component.object": {"<-": "@owner.object"}
+            }
+        },
+        "nfsIcon": {
+            "prototype": "ui/icons/nfs-service.reel",
+            "properties": {
+                "element": {"#": "nfsIcon"},
+                "component.object": {"<-": "@owner.object"}
+            }
+        },
+        "serviceType": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "serviceType"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.name.toUpperCase()"}
+            }
+        },
+        "state": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "state"},
+                "label": "State"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.state"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="ServiceOverview">
+        <div data-mod-id="iconSubstitution">
+            <div data-mod-id="smbIcon" data-arg="smb" class="ServiceOverview-icon"></div>
+            <div data-mod-id="afpIcon" data-arg="afp" class="ServiceOverview-icon"></div>
+            <div data-mod-id="nfsIcon" data-arg="nfs" class="ServiceOverview-icon"></div>
+        </div>
+        <div class="ServiceOverview-info">
+            <p data-mod-id="serviceType" class="bold"></p>
+            <div data-mod-id="state"></div>
+        </div>
+    </div>
+</body>
+</html>

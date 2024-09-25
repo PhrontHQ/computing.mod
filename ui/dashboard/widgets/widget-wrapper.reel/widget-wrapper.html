@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="widget-wrapper.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "placeholder": {
+            "prototype": "ui/controls/placeholder.reel",
+            "properties": {
+                "element": {"#": "placeholder"}
+            },
+            "bindings": {
+                "moduleId": {"<-": "@owner.object.moduleId"},
+                "object": {"<-": "@owner.object"}
+            }
+        },
+
+        "removeWidgetButton": {
+            "prototype": "mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "removeButton"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="WidgetWrapper">
+        <div data-mod-id="placeholder"></div>
+        <button data-mod-id="removeButton" class="WidgetWrapper-removeButton">
+            <svg><use xlink:href="#i-trashCan"/></svg>
+        </button>
+    </div>
+</body>
+</html>

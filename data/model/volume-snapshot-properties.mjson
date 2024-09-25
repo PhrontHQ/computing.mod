@@ -1,0 +1,60 @@
+{
+  "blueprint_volumesnapshotproperties_clones": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "clones",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeSnapshotPropertyClones"
+    }
+  },
+  "blueprint_volumesnapshotproperties_compressratio": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "compressratio",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeSnapshotPropertyCompressratio"
+    }
+  },
+  "blueprint_volumesnapshotproperties_creation": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "creation",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeSnapshotPropertyCreation"
+    }
+  },
+  "blueprint_volumesnapshotproperties_referenced": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "referenced",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeSnapshotPropertyReferenced"
+    }
+  },
+  "blueprint_volumesnapshotproperties_used": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "used",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeSnapshotPropertyUsed"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumeSnapshotProperties",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumesnapshotproperties_clones"},
+        {"@": "blueprint_volumesnapshotproperties_compressratio"},
+        {"@": "blueprint_volumesnapshotproperties_creation"},
+        {"@": "blueprint_volumesnapshotproperties_referenced"},
+        {"@": "blueprint_volumesnapshotproperties_used"}
+      ]
+    }
+  }
+}

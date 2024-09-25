@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="ip-aliases.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "table": {"@": "table"}
+            }
+        },
+
+        "table": {
+            "prototype": "blue-shark.mod/ui/tables/table-editable.reel",
+            "properties": {
+                "element": {"#": "table"},
+                "delegate": {"@": "owner"},
+                "emptyMessage": "There are no addresses setup",
+                "emptyActionLabel": "Add address",
+                "canAddWithError": false,
+                "columns":  [
+                    {
+                        "value": "Type"
+                    },
+                    {
+                        "value": "Address"
+                    },
+                    {
+                        "value": "Subnet mask / Prefix length"
+                    }
+                ]
+            },
+            "bindings": {
+                "rows": {"<->": "@owner.addresses"},
+                "label": {"<->": "@owner.label"},
+                "isMultiSelectionEnabled": {"<-": "@owner.isMultiSelectionEnabled"}
+            }
+        },
+
+        "defaultHeader": {
+            "prototype": "./table-header.reel",
+            "properties": {
+                "element": {"#": "tableHeader"},
+                "table": {"@": "table"}
+            },
+            "bindings": {
+                "canAdd": {"<-": "@owner.canAdd"},
+                "canDelete": {"<-": "@owner.canDelete"}
+            }
+        },
+
+        "newEntry": {
+            "prototype": "./ip-address.reel",
+            "properties": {
+                "element": {"#": "newEntry"}
+            },
+            "bindings": {
+                "object": {"<-": "@table.currentNewEntry.object"},
+                "canChangeType": {"<-": "!@owner.canChangeType.defined() || @owner.canChangeType"}
+            }
+        },
+
+        "rowEntry": {
+            "prototype": "./ip-address.reel",
+            "properties": {
+                "element": {"#": "rowEntry"}
+            },
+            "bindings": {
+                "object": {"<-": "@table:rowIteration.object.object"},
+                "isReadOnly": {"<-": "@owner.isReadOnly"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+<div data-mod-id="owner" class="IpAliases">
+    <div data-mod-id="table">
+        <div data-arg="table-editable-header-toolbar" data-mod-id="tableHeader"></div>
+        <div data-arg="row-new" data-mod-id="newEntry" class="Table-row"></div>
+        <div data-arg="row-entry" data-mod-id="rowEntry" class="Table-row"></div>
+    </div>
+</div>
+</body>
+</html>

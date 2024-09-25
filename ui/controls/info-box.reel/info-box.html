@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="info-box.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "scroller": {"#": "scroller"}
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "!@owner.isShown"}
+            }
+        },
+        "title": {
+            "prototype": "mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "title"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.title"}
+            }
+        },
+        "message": {
+            "prototype": "mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "message"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.message"}
+            }
+        },
+        "scroller": {
+            "prototype": "blue-shark.mod/ui/scroller.reel",
+            "properties": {
+                "element": {"#": "scroller"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="InfoBox g-padding-h">
+        <h4 data-mod-id="title" class="InfoBox-title"></h4>
+        <div data-mod-id="scroller">
+            <p data-mod-id="message" class="InfoBox-message"></p>
+        </div>
+    </div>
+</body>
+</html>

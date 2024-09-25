@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "icons": {
+            "prototype": "blue-shark.mod/ui/icons.reel",
+            "properties": {
+                "element": {"#": "icons"}
+            }
+        },
+        "cronInspector": {
+            "prototype": "foo/ui/inspectors/cron-job.reel",
+            "properties": {
+                "element": {"#": "cronInspector"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Main">
+        <!-- example only -->
+        <div data-mod-id="icons"></div>
+        <!--  -->
+        <div data-mod-id="cronInspector"></div>
+    </div>
+</body>
+</html>

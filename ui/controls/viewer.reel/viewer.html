@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="viewer.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "hasItems": {"<-": "@owner.object.length > 0"},
+                "classList.has('has-items')": {"<-": "@owner.hasItems"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "list": {
+            "prototype": "ui/controls/list.reel",
+            "properties": {
+                "element": {"#": "list"}
+            },
+            "bindings": {
+                "content": {"<-": "!!@owner.controlFilter ? @controls.component.filteredContent : @owner.object"},
+                "showSubLabel": {"<-": "@owner.showSubLabel ?? @owner.userInterfaceDescriptor.subLabelExpression.defined()"}
+            }
+        },
+
+        "createButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "createButton"}
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "@owner.hideCreateButton || !@owner.hasCreateEditor"}
+            }
+        },
+        "headerCondition": {
+            "prototype": "mod/ui/component",
+            "properties": {
+                "element": {"#": "headerCondition"},
+                "hasTemplate": false
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "!!@owner.hideTitle || !@title.value.length"}
+            }
+        },
+        "title": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "title"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.title ?? !!@owner.userInterfaceDescriptor.collectionNameExpression ? @owner.userInterfaceDescriptor.collectionNameExpression.slice(1,-1) : ''"}
+            }
+        },
+        "emptyPanel": {
+            "prototype": "blue-shark.mod/ui/panel.reel",
+            "properties": {
+                "element": {"#": "emptyPanel"}
+            },
+            "bindings": {
+                "message": {"<-": "!!@owner.emptyMessage ? @owner.emptyMessage : 'There are currently no items in ' + @title.value"},
+                "classList.has('is-hidden')": {"<-": "@owner.hasItems"}
+            }
+        },
+        "viewerControls": {
+            "prototype": "mod/ui/condition.reel",
+            "properties": {
+                "element": {"#": "viewerControls"}
+            },
+            "bindings": {
+                "condition": {"<-": "@controls.moduleId"},
+                "classList.has('is-hidden')": {"<-": "!@viewerControls.condition || !@owner.hasItems"}
+            }
+        },
+        "controls": {
+            "prototype": "ui/controls/placeholder.reel",
+            "properties": {
+                "element": {"#": "controls"}
+            },
+            "bindings": {
+                "moduleId": {"<-": "@owner.userInterfaceDescriptor.listControlsComponentModule.id || @owner.userInterfaceDescriptor.listControlsComponentModule['%']"},
+                "component.showSubLabel": {"<->": "@owner.showSubLabel"},
+                "component.filter": {"<->": "@owner.controlFilter"},
+                "component.content": {"<-": "@owner.object"}
+            }
+        },
+        "navigationBackButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "navigationBackButton"},
+                "value": "back"
+            }
+        },
+        "viewerHelpButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "viewerHelpButton"},
+                "value": "help"
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "true"}
+            }
+        },
+        "infoBox": {
+            "prototype": "ui/controls/info-box.reel",
+            "properties": {
+                "element": {"#": "infoBox"}
+            },
+            "bindings": {
+                "message": {"<-": "'this is the infoBox message'"},
+                "isShown": {"<-": "@owner.helpShown"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Viewer">
+        <div data-mod-id="headerCondition" class="Viewer-header">
+            <div class="Viewer-title">
+                <button data-mod-id="navigationBackButton" class="Viewer-backButton Button--icon Button--transparent g-margin-right--half">
+                    <svg class="rotate-180"><use xlink:href="#i-arrow"/></svg>
+                </button>
+                <span data-mod-id="title"></span>
+            </div>
+            <button data-mod-id="viewerHelpButton" class="Button--icon Button--naked g-margin-right--half">
+                <svg><use xlink:href="#i-help"/></svg>
+            </button>
+            <div data-mod-id="createButton" class="Button--add g-margin-right--half">
+                <svg><use xlink:href="#i-plus"/></svg>
+            </div>
+        </div>
+        <div data-mod-id="infoBox"></div>
+        <div data-mod-id="viewerControls" class="Viewer-controls">
+            <div data-mod-id="controls"></div>
+        </div>
+        <div class="flex-column">
+            <div class="flex-column">
+                <div data-mod-id="emptyPanel" class="Viewer-emptyPanel g-margin"></div>
+                <div data-mod-id="list" class="Viewer-list"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

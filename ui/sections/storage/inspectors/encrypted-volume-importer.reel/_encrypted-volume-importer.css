@@ -1,0 +1,76 @@
+.CascadingListItem-EncryptedVolumeImporter.CascadingListItem {
+    flex: 1;
+    min-width: 37.25em;
+    max-width: 50em;
+}
+
+.EncryptedVolumeImporter .Inspector {
+    /* magic number tided to sidebar width */
+    margin-right: 12.3em;
+}
+
+.EncryptedVolumeImporter .Inspector-body {
+    margin: 0;
+    flex: 1;
+    display: flex;
+}
+
+.EncryptedVolumeImporter-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.EncryptedVolumeImporter-disks {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.DiskSelector-title {
+    position: relative;
+    height: 2em;
+    line-height: 1.7em;
+    padding: 0 1em;
+    font-weight: 400;
+    background: var(--primary);
+    border-top: 2px solid currentColor;
+    overflow: hidden;
+    color: var(--orange-lighten-1);
+    /* set to hide behind dropZone overlay */
+    z-index: -1;
+    flex-shrink: 0;
+
+    /* left decoration */
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: -1.7em;
+        top: -1em;
+        height: 4em;
+        background: currentColor;
+        width: 2em;
+        transform: rotate(17deg);
+    }
+}
+
+.EncryptedVolumeImporter-sidebar {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    /* magic number tied to inspector margin */
+    width: 12.3em;
+    background-color: var(--primary--6);
+    overflow: hidden;
+    border-left: 2px solid var(--primary);
+}
+
+.Inspector.is-locked + .EncryptedVolumeImporter-sidebar .FoldableSection-content {
+    height: 0 !important;
+    pointer-event: none;
+}
+

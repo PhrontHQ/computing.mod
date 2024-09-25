@@ -1,0 +1,132 @@
+.Sideboard {
+    box-sizing: content-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    background-color: var(--primary--8);
+    border-left: 1px solid var(--separator-color);
+    width: 15em;
+    overflow: hidden;
+    transition: margin .5s cubic-bezier(.7,0,.3,1);
+    will-change: margin;
+
+    &.is-collapsed { margin-right: -11.2em; }
+}
+
+
+.Sideboard-container {
+    min-height: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform .5s cubic-bezier(.7,0,.3,1);
+
+    @nest .is-collapsed & {
+        transform: translateX(4em);
+    }
+}
+
+.Sideboard-icons {
+    position: absolute;
+    left: calc( -3.5em - 5px);
+    top: .5em;
+    padding: .5em;
+}
+
+.Sideboard-logo {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    padding-top: 0;
+
+    & a {
+        transition: transform .1s ease-in-out;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    & img {
+        width: auto;
+        height: 1.5rem;
+    }
+}
+
+/* Toggle Button */
+
+.Sideboard-toggleSideboard {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    height: 2rem;
+    width:  2rem;
+    border-radius: var(--border-radius);
+    outline: none;
+    background-color: var(--primary);
+    transition: transform .5s cubic-bezier(.7,0,.3,1);
+    z-index: 1;
+
+    @nest .is-collapsed & {
+        transform: translateX(-4rem);
+
+        /* expands toggle hit area - hacky */
+        &:before {
+            position: absolute;
+            content: '';
+            top: -100vh;
+            left: -1rem;
+            /* matches width of collapsed sideboard */
+            width: 3.7em;
+            bottom: -1rem;
+        }
+    }
+
+    &:hover {
+        color: var(--white);
+        background-color: var(--primary--4);
+    }
+}
+
+/* transition the sideboard toggle icon */
+
+.Sideboard .Sideboard-toggleSideboard > div {
+
+    &:before {
+        /* expands toggle hit area - hacky */
+        @nest .Sideboard.is-collapsed & {
+            position: absolute;
+            content: '';
+            top: -100vh;
+            left: -1rem;
+            /* matches width of collapsed sideboard */
+            width: 3.7em;
+            bottom: -1rem;
+
+        }
+    }
+}
+
+.Sideboard-toggleSideboard svg {
+    transition: transform .5s cubic-bezier(.7,0,.3,1);
+
+    @nest .Sideboard.is-collapsed & {
+        transform: rotateY(180deg);
+    }
+}
+
+/* Scroller */
+
+.Sideboard .Tasks,
+.Sideboard .Widget,
+.Sideboard-scroller,
+.Sideboard-scroller > div {
+    @apply --flex-column;
+    flex: 1;
+}
+
+.Sideboard .Tasks {
+    flex: 1;
+    min-height: 18rem;
+}

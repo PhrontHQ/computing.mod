@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="alerts.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "notifications": {"@": "notifications"}
+            },
+            "bindings": {
+                "displayedAlerts": {"<-": "@owner.alerts.filter{active && !dismissed}.sorted{id}.reversed()"}
+            }
+        },
+        "widget": {
+            "prototype": "ui/dashboard/widgets/widget.reel",
+            "properties": {
+                "element": {"#": "widget"}
+            }
+        },
+        "title": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "title"},
+                "value": "Alerts"
+            }
+        },
+
+        "notifications": {
+            "prototype": "ui/dashboard/notifications.reel",
+            "properties": {
+                "element": {"#": "notifications"},
+                "type": "ALERT",
+                "emptyText": "No Alerts Reported"
+            },
+            "bindings": {
+                "notifications": {"<-": "@owner.displayedAlerts"}
+            }
+        },
+        "clear": {
+            "prototype": "mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "clear"},
+                "label": "clear all"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "@notifications.items.content.length == 0"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Alerts">
+        <div data-mod-id="widget">
+            <div data-arg="widget-title">
+                <svg data-mod-id="icon" class="Notifications-icon"><use xlink:href="#i-alert"/></svg>
+                <div data-mod-id="title" class="Notifications-title"></div>
+                <button data-mod-id="clear" class="Notifications-clear"></button>
+            </div>
+            <div data-arg="widget-content" data-mod-id="notifications"></div>
+        </div>
+    </div>
+</body>
+</html>

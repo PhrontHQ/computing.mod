@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "group": {
+            "prototype": "blue-shark.mod/ui/field-search.reel",
+            "properties": {
+                "element": {"#": "group"},
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.value"},
+                "labelPath": {"<-": "@owner.labelPath"},
+                "valuePath": {"<-": "@owner.valuePath"},
+                "label": {"<-": "@owner.label"},
+                "disabled": {"<-": "@owner.disabled"},
+                "isLoading": {"<-": "@owner.isLoading"},
+                "initialOptions": {"<-": "@owner.initialOptions"},
+                "hasNoneButton": {"<-": "@owner.hasNoneButton"},
+                "validationPath": {"<-": "@owner.validationPath"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="SearchGroups">
+        <div data-mod-id="group"></div>
+    </div>
+</body>
+</html>

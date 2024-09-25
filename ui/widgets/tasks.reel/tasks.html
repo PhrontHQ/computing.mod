@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="tasks.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "widget": {
+            "prototype": "ui/dashboard/widgets/widget.reel",
+            "properties": {
+                "element": {"#": "widget"},
+                "title": "Tasks"
+            }
+        },
+        "notifications": {
+            "prototype": "ui/dashboard/notifications.reel",
+            "properties": {
+                "element": {"#": "notifications"},
+                "type": "TASK",
+                "emptyText": "No Current Tasks"
+            },
+            "bindings": {
+                "notifications": {"<-": "@owner.tasks.filter{!parent}.sorted{id}.reversed()"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Tasks">
+         <div data-mod-id="widget">
+             <svg data-arg="widget-icon" class="Notifications-icon"><use xlink:href="#i-tasks"/></svg>
+            <div data-arg="widget-content" data-mod-id="notifications"></div>
+        </div>
+    </div>
+</body>
+</html>

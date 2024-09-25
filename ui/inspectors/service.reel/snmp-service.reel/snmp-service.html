@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="snmp-service.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "location": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "location"},
+                "label": "Location"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.location"}
+            }
+        },
+        "contact": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "contact"},
+                "label": "Contact"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.contact"}
+            }
+        },
+        "community": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "community"},
+                "label": "Community"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.community"}
+            }
+        },
+        "v3": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "v3"},
+                "label": "SNMP v3 Support"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.v3"}
+            }
+        },
+        "v3_condition": {
+            "prototype": "mod/ui/condition.reel",
+            "properties": {
+                "element": {"#": "v3_condition"}
+            },
+            "bindings": {
+                "condition": {"<-": "@owner.object.v3"}
+            }
+        },
+        "v3_username": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "v3_username"},
+                "label": "Username",
+                "placeholder": "enter username"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.v3_username"}
+            }
+        },
+        "v3_auth_type": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "v3_auth_type"},
+                "label": "Authentication Type"
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.v3_auth_type"},
+                "options": {"<-": "@owner.v3AuthTypeOptions"}
+            }
+        },
+        "v3_password": {
+            "prototype": "blue-shark.mod/ui/field-password.reel",
+            "properties": {
+                "element": {"#": "v3_password"},
+                "validationPath": "v3_password",
+                "label": "Password",
+                "placeholder1": "enter Password",
+                "placeholder2": "confirm Password",
+                "errorMessage": "Passwords don't match",
+                "resetLabel": "Set Password"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.v3_password"}
+            }
+        },
+        "v3_privacy_protocol": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "v3_privacy_protocol"},
+                "label": "Privacy Protocol"
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.v3_privacy_protocol"},
+                "options": {"<-": "@owner.v3PrivacyProtocolOptions"}
+            }
+        },
+        "v3_privacy_passphrase": {
+            "prototype": "blue-shark.mod/ui/field-password-input.reel",
+            "properties": {
+                "element": {"#": "v3_privacy_passphrase"},
+                "label": "Privacy Passphrase",
+                "placeholder": "enter passphrase"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.v3_privacy_passphrase"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="SnmpService">
+        <div data-mod-id="location"></div>
+        <div data-mod-id="contact"></div>
+        <div data-mod-id="community"></div>
+        <div data-mod-id="v3"></div>
+        <div data-mod-id="v3_condition">
+            <div data-mod-id="v3_username"></div>
+            <div data-mod-id="v3_password"></div>
+            <div data-mod-id="v3_auth_type"></div>
+            <div data-mod-id="v3_privacy_protocol"></div>
+            <div data-mod-id="v3_privacy_passphrase"></div>
+        </div>
+    </div>
+</body>
+</html>

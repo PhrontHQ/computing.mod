@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "isSaveDisabled": {"<-": "!@owner.certificateFile"}
+            }
+        },
+        "certificate": {
+            "prototype": "blue-shark.mod/ui/field-file-reader.reel",
+            "properties": {
+                "element": {"#": "certificate"},
+                "label": "Certificate",
+                "resultType": "text"
+            },
+            "bindings": {
+                "data": {"<->": "@owner.certificateFile"}
+            }
+        },
+        "privateKey": {
+            "prototype": "blue-shark.mod/ui/field-file-reader.reel",
+            "properties": {
+                "element": {"#": "privateKey"},
+                "label": "Private Key",
+                "resultType": "text"
+            },
+            "bindings": {
+                "data": {"<->": "@owner.privateKeyFile"},
+                "classList.has('is-hidden')": {"<-": "!@owner.object._isNew"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="CryptoCertificateImport">
+        <div data-mod-id="certificate"></div>
+        <div data-mod-id="privateKey"></div>
+    </div>
+</body>
+</html>

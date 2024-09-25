@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="afp-service.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "positiveIntegerValidator": {
+            "prototype": "core/converter/validator/integer-floor-validator",
+            "properties": {
+                "floor": 1,
+                "errorMessage": "Value must be a positive integer."
+            }
+        },
+        "connectionsLimitConverter": {
+            "prototype": "core/converter/string-to-integer-or-null-converter",
+            "properties": {
+                "validator": {"@": "positiveIntegerValidator"}
+            }
+        },
+        "bind_addresses": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "bind_addresses"},
+                "label": "Bind IP Addresses",
+                "placeholder": "eg. 1.2.3.4",
+                "inputTitle": "Add an IP address",
+                "valuesTitle": "Added IP addresses"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.object.bind_addresses"}
+            }
+        },
+        "connections_limit": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "connections_limit"},
+                "label": "Maximum Connections",
+                "converter": {"@": "connectionsLimitConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.connections_limit"}
+            }
+        },
+        "guest_enable": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "guest_enable"},
+                "label": "Enable Guest Access"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.guest_enable"}
+            }
+        },
+        "homedir_enable": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "homedir_enable"},
+                "label": "Enable Home Directories"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.homedir_enable"}
+            }
+        },
+        "guest_user": {
+            "prototype": "ui/controls/search-users.reel",
+            "properties": {
+                "element": {"#": "guest_user"},
+                "label": "Guest User",
+                "valuePath": "username"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.guest_user"}
+            }
+        },
+        "homedir_path": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "homedir_path"},
+                "label": "Home Directories Root Path"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.homedir_path"}
+            }
+        },
+        "homedir_name": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "homedir_name"},
+                "label": "Home Directory Share Name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.homedir_name"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="AfpService">
+        <div data-mod-id="guest_enable"></div>
+        <div data-mod-id="guest_user"></div>
+        <div data-mod-id="homedir_enable"></div>
+        <div data-mod-id="homedir_path"></div>
+        <div data-mod-id="homedir_name"></div>
+        <div data-mod-id="connections_limit"></div>
+        <div data-mod-id="bind_addresses"></div>
+    </div>
+</body>
+</html>

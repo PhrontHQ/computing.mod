@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="group.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"},
+                "inspector": {"@": "inspector"}
+            },
+            "bindings": {
+                "readOnly": {"<-": "!@owner.object._isNew && (@owner.object.builtin || @owner.object.origin.read_only)"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "controller": {"@": "owner"},
+                "validationController": {"@": "validationController"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "canDelete": {"<-": "!@owner.readOnly"},
+                "canRevert": {"<-": "!@owner.readOnly"},
+                "canSave": {"<-": "!@owner.readOnly"},
+                "isFooterHidden": {"<-": "@owner.readOnly"}
+            }
+        },
+        "gidValidator": {
+            "prototype": "core/converter/validator/unix-account-id-validator"
+        },
+        "gidSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "gidSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.editMode"}
+            }
+        },
+        "gidEdit": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "gidEdit"},
+                "label": "Group ID",
+                "validationPath": "gid",
+                "validator": {"@": "gidValidator"},
+                "placeholder": "e.g. 1001",
+                "helpMessage": "Group.uid",
+                "errorMessage": "User ID must be between 0 and 4294967295"
+            },
+            "bindings": {
+                "value": {"<->": "+@owner.object.gid"}
+            }
+        },
+        "gidDisplay": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "gidDisplay"},
+                "label": "Group ID"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.gid"}
+            }
+        },
+        "systemGroupSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "systemGroupSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.readOnly ? 'system' : @owner.groupType"}
+            }
+        },
+        "nameEdit": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "nameEdit"},
+                "validationPath": "name",
+                "label": "Group Name",
+                "placeholder": "enter group name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.name"}
+            }
+        },
+        "nameDisplay": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "nameDisplay"},
+                "label": "Group Name"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.name"}
+            }
+        },
+        "sudoEdit": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "sudoEdit"},
+                "validationPath": "sudo",
+                "label": "Administrator Permissions"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.sudo"}
+            }
+        },
+        "sudoDisplay": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "sudoDisplay"},
+                "label": "Administrator Permissions"
+            },
+            "bindings": {
+                "value": {"<-": "!!@owner.object.sudo ? 'Yes' : 'No'"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Group">
+        <div data-mod-id="inspector">
+            <div data-mod-id="gidSubstitution">
+                <div data-mod-id="gidEdit" data-arg="creating"></div>
+                <div data-mod-id="gidDisplay" data-arg="editing"></div>
+            </div>
+            <div data-mod-id="systemGroupSubstitution">
+                <div data-arg="user">
+                    <div data-mod-id="nameEdit"></div>
+                    <div data-mod-id="sudoEdit"></div>
+                </div>
+                <div data-arg="system">
+                    <div data-mod-id="nameDisplay"></div>
+                    <div data-mod-id="sudoDisplay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

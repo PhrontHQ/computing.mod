@@ -1,0 +1,176 @@
+{
+  "blueprint_serviceups_auxiliary": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "auxiliary",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceups_auxiliary_users": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "auxiliary_users",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceups_description": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "description",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceups_driver": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "driver",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceups_driver_port": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "driver_port",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceups_propagate_alerts": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "propagate_alerts",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_serviceups_enable": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "enable",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_serviceups_identifier": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "identifier",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceups_mode": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "mode",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "ServiceUpsMode"
+    }
+  },
+  "blueprint_serviceups_monitor_password": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "monitor_password",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceups_allow_remote_connections": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "allow_remote_connections",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_serviceups_monitor_user": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "monitor_user",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceups_powerdown": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "powerdown",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_serviceups_remote_host": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "remote_host",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceups_remote_port": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "remote_port",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_serviceups_shutdown_mode": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "shutdown_mode",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "ServiceUpsShutdownmode"
+    }
+  },
+  "blueprint_serviceups_shutdown_timer": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "shutdown_timer",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_serviceups_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "service-ups"
+      ]
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ServiceUps",
+      "propertyBlueprints": [
+        {"@": "blueprint_serviceups_auxiliary"},
+        {"@": "blueprint_serviceups_auxiliary_users"},
+        {"@": "blueprint_serviceups_description"},
+        {"@": "blueprint_serviceups_driver"},
+        {"@": "blueprint_serviceups_driver_port"},
+        {"@": "blueprint_serviceups_propagate_alerts"},
+        {"@": "blueprint_serviceups_enable"},
+        {"@": "blueprint_serviceups_identifier"},
+        {"@": "blueprint_serviceups_mode"},
+        {"@": "blueprint_serviceups_monitor_password"},
+        {"@": "blueprint_serviceups_allow_remote_connections"},
+        {"@": "blueprint_serviceups_monitor_user"},
+        {"@": "blueprint_serviceups_powerdown"},
+        {"@": "blueprint_serviceups_remote_host"},
+        {"@": "blueprint_serviceups_remote_port"},
+        {"@": "blueprint_serviceups_shutdown_mode"},
+        {"@": "blueprint_serviceups_shutdown_timer"},
+        {"@": "blueprint_serviceups_type"}
+      ]
+    }
+  }
+}

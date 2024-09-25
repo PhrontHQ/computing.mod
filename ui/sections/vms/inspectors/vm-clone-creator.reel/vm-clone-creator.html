@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/mod-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {
+                        "#": "owner"
+                    },
+                    "inspector": {
+                        "@": "inspector"
+                    }
+                }
+            },
+            "inspector": {
+                "prototype": "ui/inspectors/inspector.reel",
+                "properties": {
+                    "element": {
+                        "#": "inspector"
+                    },
+                    "canSave": true,
+                    "controller": {
+                        "@": "owner"
+                    }
+                },
+                "bindings": {
+                    "context": {
+                        "<-": "@owner.context"
+                    },
+                    "isSaveDisabled": {
+                        "<-": "!@owner.object.name"
+                    }
+                }
+            },
+            "name": {
+                "prototype": "blue-shark.mod/ui/field-text-input.reel",
+                "properties": {
+                    "element": {
+                        "#": "name"
+                    },
+                    "label": "Name"
+                },
+                "bindings": {
+                    "value": {
+                        "<->": "@owner.object.name"
+                    }
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div data-mod-id="owner" class="VmCloneCreator">
+    <div data-mod-id="inspector">
+        <div data-mod-id="name"></div>
+    </div>
+</div>
+</body>
+</html>

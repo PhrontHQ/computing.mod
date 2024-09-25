@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "controller": {"@": "owner"},
+                "canSave": true,
+                "validationController": {"@": "validationController"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "canDelete": {"<-": "!@owner.object._isNew"},
+                "canRevert": {"<-": "!@owner.object._isNew"},
+                "isLoading": {"<-": "@owner.isLoading"}
+            }
+        },
+
+        "name": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "name"},
+                "label": "Name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.name"}
+            }
+        },
+
+        "collection": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "collection"},
+                "label": "Collection"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.collection"}
+            }
+        },
+
+        "matchExpression": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "matchExpression"},
+                "label": "Match Expression"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.match_expr"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="DockerCollection">
+        <div data-mod-id="inspector">
+            <div data-mod-id="name"></div>
+            <div data-mod-id="collection"></div>
+            <div data-mod-id="matchExpression"></div>
+        </div>
+    </div>
+</body>
+</html>

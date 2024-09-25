@@ -1,0 +1,67 @@
+.InterfaceOverviewItem {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.InterfaceOverviewItem-overview {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.InterfaceOverviewItem-details {
+    display: none;
+    padding-left: 2em;
+
+    @nest .InterfaceOverviewItem.is-expanded & {
+        display: block;
+    }
+}
+
+.InterfaceOverviewItem-toggle {
+    cursor: pointer;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    & svg {
+        height: 1rem;
+        width:  1rem;
+        transform: rotate(-90deg);
+        position: relative;
+        top: 2px;
+        left: -2px;
+    }
+
+    @nest .InterfaceOverviewItem.is-expanded & svg {
+        transform: rotate(0);
+    }
+}
+
+.InterfaceOverviewItem-name {
+    margin-left: .5em;
+}
+
+.InterfaceOverviewItem-firstAddress {
+    flex: 1;
+    text-align: right;
+
+    @nest .InterfaceOverviewItem.is-expanded & {
+        visibility: hidden;
+    }
+}
+
+.InterfaceOverviewItem-status {
+    font-size: .5em;
+    margin-left: 1em;
+}
+
+.InterfaceOverviewItem-status .TrafficLight-legend { display: none; }
+

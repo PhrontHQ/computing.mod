@@ -1,0 +1,31 @@
+.Dashboard {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    & > main {
+        display: flex;
+        position: relative;
+        overflow-y: auto;
+        flex: 1;
+    }
+}
+
+.Dashboard-openDrawerButton {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5em 1em;
+    bottom: 1rem;
+    right:  1rem;
+    z-index: 1;
+    background: var(--grey);
+    color: color(var(--white) alpha(.5));
+    border-radius: 4px;
+
+    @nest .drawer-is-open & {
+        display: none;
+    }
+}

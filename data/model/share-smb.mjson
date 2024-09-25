@@ -1,0 +1,129 @@
+{
+  "propertyblueprint": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "%type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "share-smb"
+      ]
+    }
+  },
+  "blueprint_sharesmb_browseable": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "browseable",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_sharesmb_comment": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "comment",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_sharesmb_extra_parameters": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "extra_parameters",
+      "blueprint": {"@": "root"},
+      "valueType": "object"
+    }
+  },
+  "blueprint_sharesmb_guest_ok": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "guest_ok",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_sharesmb_guest_only": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "guest_only",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_sharesmb_hosts_allow": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "hosts_allow",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_sharesmb_hosts_deny": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "hosts_deny",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_sharesmb_previous_versions": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "previous_versions",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_sharesmb_read_only": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "read_only",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_sharesmb_recyclebin": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "recyclebin",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_sharesmb_show_hidden_files": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "show_hidden_files",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_sharesmb_vfs_objects": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "vfs_objects",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ShareSmb",
+      "propertyBlueprints": [
+        {"@": "propertyblueprint"},
+        {"@": "blueprint_sharesmb_browseable"},
+        {"@": "blueprint_sharesmb_comment"},
+        {"@": "blueprint_sharesmb_extra_parameters"},
+        {"@": "blueprint_sharesmb_guest_ok"},
+        {"@": "blueprint_sharesmb_guest_only"},
+        {"@": "blueprint_sharesmb_hosts_allow"},
+        {"@": "blueprint_sharesmb_hosts_deny"},
+        {"@": "blueprint_sharesmb_previous_versions"},
+        {"@": "blueprint_sharesmb_read_only"},
+        {"@": "blueprint_sharesmb_recyclebin"},
+        {"@": "blueprint_sharesmb_show_hidden_files"},
+        {"@": "blueprint_sharesmb_vfs_objects"}
+      ]
+    }
+  }
+}

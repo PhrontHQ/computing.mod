@@ -1,0 +1,59 @@
+.WidgetWrapper {
+    position: relative;
+    width: 100%;
+
+    @nest .Main.drawer-is-open & {
+        cursor: grab;
+    }
+
+    @nest .Sideboard & {
+        margin-left:    0;
+        margin-right:   0;
+        margin-top:     0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    &.isDragging {
+        opacity: .75;
+        max-width: 25rem;
+    }
+
+    @media (min-width: 65em) {
+        width: calc(50% - 1em);
+        max-width: 100%;
+    }
+
+    @media (min-width: 90em) {
+        width: calc(33% - .825em);
+        max-width: calc(50% - 1em);
+    }
+
+    &.Widget-size-2 { width: 50%; }
+    &.Widget-size-3 { width: 100%; max-width: 100%;}
+}
+
+.WidgetWrapper-removeButton {
+    right: -.5rem;
+    top: -.5rem;
+    position: absolute;
+    width:  2rem;
+    height: 2rem;
+    background: var(--red);
+    border-radius: 50%;
+    padding: .5rem;
+    color: var(--white);
+    box-shadow: 0 2px 2px 1px var(--shadow-1);
+    visibility: hidden;
+    transform: scale(0);
+    transition: transform .25s ease-in-out, visibility .25s ease-in-out;
+
+    &:hover {
+        background: color(var(--red) lightness(40%));
+    }
+
+    @nest .Main.drawer-is-open & {
+        visibility: visible;
+        transform: scale(1);
+    }
+}

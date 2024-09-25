@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "selectOptionConverter": {
+            "prototype": "core/converter/select-option-converter"
+        },
+        "integerRangeValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 1,
+                "ceiling": 65535,
+                "errorMessage": "VNC Port must be between 1 and 65535"
+            }
+        },
+        "integerConverter": {
+            "prototype": "core/converter/string-to-integer-or-null-converter",
+            "properties": {
+                "validator": {"@": "integerRangeValidator"}
+            }
+        },
+        "graphicsResolution": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "graphicsResolution"},
+                "label": "Resolution",
+                "converter": {"@": "selectOptionConverter"}
+            },
+            "bindings": {
+                "options": {"<-": "@owner.graphicsResolutionOptions"},
+                "selectedValue": {"<->": "@owner.object.resolution"},
+                "disabled": {"<-": "@owner.isFromTemplate"}
+            }
+        },
+        "vncPort": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "vncPort"},
+                "converter": {"@": "integerConverter"},
+                "label": "VNC Port"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.vnc_port"},
+                "disabled": {"<-": "@owner.isFromTemplate"}
+            }
+        },
+        "vncEnabled": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "vncEnabled"},
+                "label": "VNC Enabled"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.vnc_enabled"},
+                "disabled": {"<-": "@owner.isFromTemplate"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="VirtualMachineDeviceGraphics">
+        <div data-mod-id="graphicsResolution"></div>
+        <div data-mod-id="vncPort"></div>
+        <div data-mod-id="vncEnabled"></div>
+    </div>
+</body>
+</html>

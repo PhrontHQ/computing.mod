@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "server": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "server"},
+                "label": "Server Address",
+                "placeholder": "e.g. ldap.example.com"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.parameters.server"}
+            }
+        },
+
+        "base_dn": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "baseDn"},
+                "label": "Base DN",
+                "placeholder": "e.g. ou=users,dc=example,dc=com"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.parameters.base_dn"}
+            }
+        },
+
+        "bind_dn": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "bindDn"},
+                "label": "Bind DN",
+                "placeholder": "e.g. cn=admin,ou=users,dc=example,dc=com"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.parameters.bind_dn"}
+            }
+        },
+
+        "password": {
+            "prototype": "blue-shark.mod/ui/field-password-input.reel",
+            "properties": {
+                "element": {"#": "bindPassword"},
+                "label": "Bind password",
+                "placeholder": "enter password"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.parameters.password"}
+            }
+        },
+
+        "advancedSection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "advancedSection"},
+                "title": "Advanced"
+            }
+        },
+
+        "encryption": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "encryption"},
+                "label": "Encryption",
+                "options": [
+                    "OFF",
+                    "SSL",
+                    "TLS"
+                ]
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.parameters.encryption"}
+            }
+        },
+
+        "user_suffix": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "userSuffix"},
+                "label": "User Suffix"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.parameters.user_suffix"}
+            }
+        },
+
+        "group_suffix": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "groupSuffix"},
+                "label": "Group Suffix"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.parameters.group_suffix"}
+            }
+        },
+
+        "verify_certificate": {
+            "prototype": "blue-shark.mod/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "verifyCertificate"},
+                "label": "Verify certificate"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.parameters.verify_certificate"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="LdapService">
+        <div data-mod-id="server"></div>
+        <div data-mod-id="baseDn"></div>
+        <div data-mod-id="bindDn"></div>
+        <div data-mod-id="bindPassword"></div>
+
+        <div data-mod-id="advancedSection">
+            <div data-mod-id="userSuffix"></div>
+            <div data-mod-id="groupSuffix"></div>
+            <div data-mod-id="encryption"></div>
+            <div data-mod-id="verifyCertificate"></div>
+        </div>
+    </div>
+</body>
+</html>

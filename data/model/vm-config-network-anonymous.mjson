@@ -1,0 +1,28 @@
+{
+  "blueprint_vmconfignetworkanonymous_management": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "management",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_vmconfignetworkanonymous_nat": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "nat",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VmConfigNetworkAnonymous",
+      "propertyBlueprints": [
+        {"@": "blueprint_vmconfignetworkanonymous_management"},
+        {"@": "blueprint_vmconfignetworkanonymous_nat"}
+      ]
+    }
+  }
+}

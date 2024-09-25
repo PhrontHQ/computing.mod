@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="afp-share.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "context.groupsAllow": {"<-": "@owner.properties.groups_allow.map{{name: this}}"},
+                "context.groupsDeny": {"<-": "@owner.properties.groups_deny.map{{name: this}}"},
+                "context.usersAllow": {"<-": "@owner.properties.users_allow.map{{username: this}}"},
+                "context.usersDeny": {"<-": "@owner.properties.users_deny.map{{username: this}}"}
+            }
+        },
+        "hostAllow": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "hostAllow"},
+                "label": "Hosts Allow",
+                "placeholder": "eg. 1.2.3.4 or hostname.local",
+                "labelPath": "this",
+                "inputTitle": "Add Allowed Host",
+                "valuesTitle": "Allowed Hosts",
+                "emptyMessage": "No allowed hosts added"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.properties.hosts_allow"}
+            }
+        },
+        "hostDeny": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "hostDeny"},
+                "label": "Hosts Deny",
+                "placeholder": "eg. 1.2.3.4 or hostname.local",
+                "labelPath": "this",
+                "inputTitle": "Add a Denied Host",
+                "valuesTitle": "Denied Hosts",
+                "emptyMessage": "No hosts denied"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.properties.hosts_deny"}
+            }
+        },
+        "usersAllow": {
+            "prototype": "ui/controls/search-users-multiple.reel",
+            "properties": {
+                "element": {"#": "usersAllow"},
+                "label": "Users Allowed",
+                "emptyMessage": "No allowed users added",
+                "valuePath": "username"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.context.usersAllow"}
+            }
+        },
+        "usersDeny": {
+            "prototype": "ui/controls/search-users-multiple.reel",
+            "properties": {
+                "element": {"#": "usersDeny"},
+                "label": "Users Denied",
+                "emptyMessage": "No users denied",
+                "valuePath": "username"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.context.usersDeny"}
+            }
+        },
+        "groupsAllow": {
+            "prototype": "ui/controls/search-groups-multiple.reel",
+            "properties": {
+                "element": {"#": "groupsAllow"},
+                "label": "Groups Allowed",
+                "emptyMessage": "No allowed groups added",
+                "valuePath": "name"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.context.groupsAllow"}
+            }
+        },
+        "groupsDeny": {
+            "prototype": "ui/controls/search-groups-multiple.reel",
+            "properties": {
+                "element": {"#": "groupsDeny"},
+                "label": "Groups Deny",
+                "emptyMessage": "No groups denied",
+                "valuePath": "name"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.context.groupsDeny"}
+            }
+        },
+        "afp3Privileges": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "afp3Privileges"},
+                "label": "AFP3 Unix Privileges"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.afp3_privileges"}
+            }
+        },
+        "timeMachine": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "timeMachine"},
+                "label": "Time Machine"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.time_machine"}
+            }
+        },
+        "readOnly": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "readOnly"},
+                "label": "Read Only"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.read_only"}
+            }
+        },
+        "noStat": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "noStat"},
+                "label": "No Stat"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.no_stat"}
+            }
+        },
+        "zeroDevNumbers": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "zeroDevNumbers"},
+                "label": "Zero Device Numbers"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.zero_dev_numbers"}
+            }
+        },
+        "fileMask": {
+            "prototype": "ui/controls/unixPermissions.reel",
+            "properties": {
+                "element": {"#": "fileMask"},
+                "title": "File mask"
+            },
+            "bindings": {
+                "modes": {"<->": "@owner.properties.default_file_perms"}
+            }
+        },
+        "directoryMask": {
+            "prototype": "ui/controls/unixPermissions.reel",
+            "properties": {
+                "element": {"#": "directoryMask"},
+                "title": "Directory mask"
+            },
+            "bindings": {
+                "modes": {"<->": "@owner.properties.default_directory_perms"}
+            }
+        },
+        "defaultUmask": {
+            "prototype": "ui/controls/unixPermissions.reel",
+            "properties": {
+                "element": {"#": "defaultUmask"},
+                "title": "Default umask"
+            },
+            "bindings": {
+                "modes": {"<->": "@owner.properties.default_umask"}
+            }
+        },
+        "advancedSection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "advancedSection"},
+                "title": "Advanced"
+            }
+        },
+        "smbCompatible": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "smbCompatible"},
+                "label": "SMB Compatible"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.smb_compatible"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="AfpShare">
+        <div data-mod-id="timeMachine"></div>
+        <div data-mod-id="shareOwner"></div>
+        <div data-mod-id="advancedSection">
+            <div data-mod-id="readOnly"></div>
+            <div data-mod-id="zeroDevNumbers"></div>
+            <div data-mod-id="noStat"></div>
+            <div data-mod-id="afp3Privileges"></div>
+            <div data-mod-id="smbCompatible"></div>
+            <div data-mod-id="fileMask"></div>
+            <div data-mod-id="directoryMask"></div>
+            <div data-mod-id="defaultUmask"></div>
+            <div data-mod-id="hostAllow"></div>
+            <div data-mod-id="hostDeny"></div>
+            <div data-mod-id="usersAllow"></div>
+            <div data-mod-id="usersDeny"></div>
+            <div data-mod-id="groupsAllow"></div>
+            <div data-mod-id="groupsDeny"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+.VirtualMachineReadme {
+    min-width: 20em !Important;
+
+    & textarea {
+        flex: 1;
+        max-height: 100%;
+    }
+}

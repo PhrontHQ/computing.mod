@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="chart.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "chartElement": {"#": "chart"}
+            },
+            "bindings": {
+                "classList.has('is-spinner-shown')": {"<-": "@owner.isSpinnerShown"}
+            }
+        },
+        "spinner": {
+            "prototype": "blue-shark.mod/ui/spinner.reel",
+            "properties": {
+                "element": {"#": "spinner"},
+                "isShown": true,
+                "centerInContainer": true
+            },
+            "bindings": {
+                "isShown": {"<-":"@owner.isSpinnerShown"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Chart">
+        <div data-mod-id="spinner"></div>
+        <svg data-mod-id="chart" class="Chart-svg"></svg>
+    </div>
+</body>
+</html>

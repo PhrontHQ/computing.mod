@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "selectedObject": {"<->": "@detachedVolumes.selectedObject"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "detachedVolumes": {
+            "prototype": "ui/controls/viewer.reel",
+            "properties": {
+                "element": {"#": "detachedVolumes"},
+                "title": "Detached volumes",
+                "emptyMessage": "There are no available volumes to import."
+            },
+            "bindings": {
+                "object": {"<-": "@owner.detachedVolumes"}
+            }
+        },
+        "refresh": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "refresh"},
+                "value": "Scan for volumes"
+            }
+        },
+        "encrypted": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "encrypted"},
+                "name": "Import encrypted volume",
+                "path": "encrypted"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="VolumeImporter">
+        <div class="VolumeImporter-detachedVolumes">
+            <div data-mod-id="detachedVolumes"></div>
+            <div class="flex-row flex-justifyContent--center flush-top">
+                <div data-mod-id="refresh" class="g-margin-v"></div>
+            </div>
+        </div>
+        <div data-mod-id="encrypted"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+.WidgetDropzone {
+    flex: 1;
+    display: flex;
+}
+
+.WidgetDropzone-wrapper {
+    flex: 1;
+}
+
+.WidgetDropzone-widgets {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    padding: .5em;
+
+    @nest .Sideboard & {
+        padding: 1em;
+    }
+}
+
+.WidgetDropzone-widget { margin: .5em; }
+
+.WidgetDropzone-widget.placeholder {
+    position: relative;
+    width:  100%;
+    height: 15em;
+    border: 2px dashed var(--blue-lighten-2);
+    border-radius: 4px;
+    animation: pulse .5s infinite alternate;
+
+    @media (min-width: 65em) {
+        width: calc(50% - 1em);
+        max-width: 100%;
+    }
+
+    @media (min-width: 90em) {
+        width: calc(33% - .825em);
+        max-width: calc(50% - 1em);
+    }
+
+
+    &:before {
+        content: '';
+        position: absolute;
+    }
+
+}
+
+.Sideboard .WidgetDropzone-widget.placeholder {
+    width: 100%;
+    max-width: 100%;
+}
+
+.Dashboard-emptyMessage,
+.Dashboard-dragExample {
+    text-align: center;
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.Dashboard-emptyMessage {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px dashed var(--grey-1);
+    padding: 1em;
+    background: rgba(255,255,255,.05);
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .35s ease-in-out, visibility .35s ease-in-out;
+
+    @nest .drawer-is-open & {
+        visibility: hidden;
+        opacity: 0;
+        transition: none;
+    }
+}
+
+.Dashboard-emptyMessage-title {
+    font-size: 1.25em;
+    margin-bottom: 1em;
+}
+
+.Dashboard-dragExample {
+    width: 6em;
+    opacity: .5;
+}

@@ -1,0 +1,37 @@
+{
+  "blueprint_kerberoskeytabentry_enctype": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "enctype",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_kerberoskeytabentry_principal": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "principal",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_kerberoskeytabentry_vno": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "vno",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "KerberosKeytabEntry",
+      "propertyBlueprints": [
+        {"@": "blueprint_kerberoskeytabentry_enctype"},
+        {"@": "blueprint_kerberoskeytabentry_principal"},
+        {"@": "blueprint_kerberoskeytabentry_vno"}
+      ]
+    }
+  }
+}

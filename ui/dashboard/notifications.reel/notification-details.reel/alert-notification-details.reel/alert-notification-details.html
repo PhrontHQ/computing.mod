@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../notification-details.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('has-warning')": {"<-": "@owner.object.severity == 'WARNING'"},
+                "classList.has('has-info')": {"<-": "@owner.object.severity == 'INFO'"},
+                "classList.has('has-critical')": {"<-": "@owner.object.severity == 'CRITICAL'"}
+            }
+        },
+        "jobId": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "jobId"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.type + ' #' + @owner.object.idd"}
+            }
+        },
+        "taskName": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "taskName"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.title"}
+            }
+        },
+        "description": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "description"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.description"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="AlertNotificationDetails">
+        <header>
+            <div data-mod-id="jobId" class="Notification-details-title"></div>
+        </header>
+        <main>
+            <h4 class="bold">Task Name:</h4>
+            <p data-mod-id="taskName"></p>
+            <h4 class="bold">Description:</h4>
+            <p data-mod-id="description"></p>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="dashboard.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "openDrawerButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "openDrawerButton"},
+                "value": "Edit Dashboard"
+            }
+        },
+        "drawer": {
+            "prototype": "ui/drawer.reel",
+            "properties": {
+                "element": {"#": "drawer"}
+            }
+        },
+        "widgetDropzone": {
+            "prototype": "ui/dashboard/widget-dropzone.reel",
+            "properties": {
+                "element": {"#": "widget-dropzone"},
+                "widgetsPath": "dashboardContext.widgets"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Dashboard">
+        <main>
+            <div data-mod-id="widget-dropzone"></div>
+        </main>
+        <div data-mod-id="drawer"></div>
+        <button data-mod-id="openDrawerButton" class="Dashboard-openDrawerButton"></button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+{
+  "blueprint_group_builtin": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "builtin",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_group_gid": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "gid",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_group_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_group_members": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "members",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "array"
+    }
+  },
+  "blueprint_group_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_group_origin": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "origin",
+      "blueprint": {"@": "root"},
+      "valueType": "object"
+    }
+  },
+  "blueprint_group_sid": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "sid",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_group_sudo": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "sudo",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "Group",
+      "propertyBlueprints": [
+        {"@": "blueprint_group_builtin"},
+        {"@": "blueprint_group_gid"},
+        {"@": "blueprint_group_id"},
+        {"@": "blueprint_group_members"},
+        {"@": "blueprint_group_name"},
+        {"@": "blueprint_group_origin"},
+        {"@": "blueprint_group_sid"},
+        {"@": "blueprint_group_sudo"}
+      ]
+    }
+  }
+}

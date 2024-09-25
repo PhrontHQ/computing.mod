@@ -1,0 +1,68 @@
+.Viewer  {
+    /* compensates for inspector */
+    @nest .Inspector & {
+        margin: 0 -1em;
+    }
+}
+
+.Viewer-header {
+    height: 3rem;
+    border-bottom: 1px solid var(--separator-color);
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    & .Viewer-backButton {
+        margin-left: -.5rem;
+
+        @nest .SectionRoot & {
+            display: none;
+        }
+    }
+}
+
+.Viewer-footer { flex-shrink: 0; }
+
+/* Title */
+
+.Viewer-title {
+    flex: 1;
+    padding: 0 1em;
+    flex-shrink: 0;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.Viewer-listItem + .Viewer-listItem { border-top: none; }
+
+.Viewer-listItem:hover { background-color: var(--grey-3); }
+
+.Viewer-listItem.selected {
+    background: var(--color-selected);
+    cursor: default;
+    color: var(--white);
+}
+
+
+.Viewer-emptyPanel {
+    max-width: 14rem;
+}
+
+/* Controls */
+
+.Viewer-controls {
+    height: 3em;
+    padding: 0 1em;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    & > div:first-child {
+        flex: 1;
+    }
+}

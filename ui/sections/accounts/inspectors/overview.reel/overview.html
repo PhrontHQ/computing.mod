@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/mod-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "owner"}
+                }
+            },
+            "scrollView": {
+                "prototype": "blue-shark.mod/ui/scroller.reel",
+                "properties": {
+                    "element": {"#": "scrollView"},
+                    "overflow": "scrollY"
+                }
+            },
+            "users": {
+                "prototype": "blue-shark.mod/ui/field-text.reel",
+                "properties": {
+                    "element": {"#": "users"},
+                    "label": "Users"
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.object.users.length"}
+                }
+            },
+            "groups": {
+                "prototype": "blue-shark.mod/ui/field-text.reel",
+                "properties": {
+                    "element": {"#": "groups"},
+                    "label": "Groups"
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.object.groups.length"}
+                }
+            },
+            "system": {
+                "prototype": "blue-shark.mod/ui/field-text.reel",
+                "properties": {
+                    "element": {"#": "system"},
+                    "label": "System"
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.object.system.length"}
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Overview">
+        <div data-mod-id="scrollView">
+            <div>
+                <div class="Overview-content">
+                    <div data-mod-id="users"></div>
+                    <div data-mod-id="groups" class="g-margin-top--subtract"></div>
+                    <div data-mod-id="system" class="g-margin-top--subtract"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

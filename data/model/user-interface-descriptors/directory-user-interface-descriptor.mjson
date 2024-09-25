@@ -1,0 +1,17 @@
+{
+    "root": {
+        "prototype": "mod/core/meta/user-interface-descriptor",
+        "properties": {
+            "inspectorComponentModule": {"%": "ui/sections/accounts/inspectors/directory-services.reel/directory-service.reel"},
+            "nameExpression": "label",
+            "statusColorMapping": {
+                "BOUND": "green",
+                "FAILURE": "red",
+                "DISABLED": "grey",
+                "JOINING": "yellow",
+                "EXITING": "yellow"
+            },
+            "statusValueExpression": "!enabled || !status || !status.state ? 'DISABLED' : status.state"
+        }
+    }
+}

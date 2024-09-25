@@ -1,0 +1,49 @@
+{
+  "blueprint_volumepropertyfailmode_parsed": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parsed",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertyFailmodeValue"
+    }
+  },
+  "blueprint_volumepropertyfailmode_rawvalue": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rawvalue",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumepropertyfailmode_source": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "source",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertySource"
+    }
+  },
+  "blueprint_volumepropertyfailmode_value": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "value",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumePropertyFailmode",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumepropertyfailmode_parsed"},
+        {"@": "blueprint_volumepropertyfailmode_rawvalue"},
+        {"@": "blueprint_volumepropertyfailmode_source"},
+        {"@": "blueprint_volumepropertyfailmode_value"}
+      ]
+    }
+  }
+}

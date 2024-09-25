@@ -1,0 +1,17 @@
+{
+    "root": {
+        "prototype": "mod/core/meta/user-interface-descriptor",
+        "properties": {
+            "inspectorComponentModule": {"%": "ui/sections/containers/inspectors/container.reel"},
+            "nameExpression": "id.defined() ? names.0 : 'Create a container'",
+            "collectionNameExpression": "'Containers'",
+            "creatorComponentModule": {"%": "ui/sections/containers/inspectors/container.reel"},
+            "statusColorMapping": {
+                "running": "green",
+                "stopped": "grey"
+            },
+            "statusValueExpression": "running ? 'running' : 'stopped'",
+            "daoModuleId": "core/dao/docker-container-dao"
+        }
+    }
+}

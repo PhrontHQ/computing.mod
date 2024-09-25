@@ -1,0 +1,57 @@
+{
+  "blueprint_servicelldp_country_code": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "country_code",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_servicelldp_enable": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "enable",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_servicelldp_location": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "location",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_servicelldp_save_description": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "save_description",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_servicelldp_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "service-lldp"
+      ]
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ServiceLldp",
+      "propertyBlueprints": [
+        {"@": "blueprint_servicelldp_country_code"},
+        {"@": "blueprint_servicelldp_enable"},
+        {"@": "blueprint_servicelldp_location"},
+        {"@": "blueprint_servicelldp_save_description"},
+        {"@": "blueprint_servicelldp_type"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="serial-console.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canRevert": true,
+                "canSave": true,
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"}
+            }
+        },
+        "serial_console": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "serial_console"},
+                "label": "Use Serial Console CLI"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.console_cli"}
+            }
+        },
+        "serialPortOptionConverter": {
+            "prototype": "core/converter/select-option-converter"
+        },
+        "serial_port": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "serial_port"},
+                "label": "Serial Port Address",
+                "converter": {"@": "serialPortOptionConverter"}
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.serialPortOptions"},
+                "selectedValue": {"<->": "@owner.object.serial_port"}
+            }
+        },
+        "serial_port_speed": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "serial_port_speed"},
+                "label": "Serial Port Speed"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.serialSpeedOptions"},
+                "selectedValue": {"<->": "@owner.object.serial_speed"}
+            }
+        },
+        "enable_screensaver": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "enable_screensaver"},
+                "label": "VGA Screen Saver"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.console_screensaver"}
+            }
+        },
+        "keymaps": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "keymaps"},
+                "label": "Keyboard Preference"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.keymapsOptions"},
+                "selectedValue": {"<->": "@owner.generalData.console_keymap"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="SerialConsole">
+        <div data-mod-id="inspector">
+            <div data-mod-id="serial_console"></div>
+            <div data-mod-id="serial_port"></div>
+            <div data-mod-id="serial_port_speed"></div>
+            <div data-mod-id="enable_screensaver"></div>
+            <div data-mod-id="keymaps"></div>
+        </div>
+    </div>
+</body>
+</html>

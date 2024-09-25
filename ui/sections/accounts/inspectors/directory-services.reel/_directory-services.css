@@ -1,0 +1,16 @@
+.DirectoryServices-body {
+    flex: 0 !important;
+}
+
+.DirectoryServices-body {
+    margin: -1rem -1rem 0;
+}
+
+.DirectoryServices-searchorderContainer {
+    flex-grow: 0;
+}
+
+.DirectoryServices-buttons {
+    display: flex;
+    justify-content: space-between;
+}

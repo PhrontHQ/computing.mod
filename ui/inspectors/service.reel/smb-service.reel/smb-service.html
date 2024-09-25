@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="smb-service.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "netbiosName": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "netbiosName"},
+                "label": "NetBIOS Name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.netbiosname.0"}
+            }
+        },
+        "workgroup": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "workgroup"},
+                "label": "Workgroup"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.workgroup"}
+            }
+        },
+        "description": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "description"},
+                "label": "Description"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.description"}
+            }
+        },
+        "dosCharset": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "dosCharset"},
+                "label": "DOS charset"
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.dos_charset"},
+                "options": {"<-": "@owner.DOS_CHARSETS"}
+            }
+        },
+        "unixCharset": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "unixCharset"},
+                "label": "UNIX charset"
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.unix_charset"},
+                "options": {"<-": "@owner.UNIX_CHARSETS"}
+            }
+        },
+        "logLevel": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "logLevel"},
+                "label": "Log level"
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.log_level"},
+                "options": {"<-": "@owner.LOG_LEVELS"}
+            }
+        },
+        "localMaster": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "localMaster"},
+                "label": "Local master"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.local_master"}
+            }
+        },
+        "domainLogons": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "domainLogons"},
+                "label": "Domain logons"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.domain_logons"}
+            }
+        },
+        "timeServer": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "timeServer"},
+                "label": "Time server for domain"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.time_server"}
+            }
+        },
+        "guestUser": {
+            "prototype": "ui/controls/search-users.reel",
+            "properties": {
+                "element": {"#": "guestUser"},
+                "label": "Guest account",
+                "valuePath": "username"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.guest_user"}
+            }
+        },
+        "fileMask": {
+            "prototype": "ui/controls/unixPermissions.reel",
+            "properties": {
+                "element": {"#": "fileMask"},
+                "title": "File mask"
+            },
+            "bindings": {
+                "modes": {"<->": "@owner.filemaskModes"}
+            }
+        },
+        "directoryMask": {
+            "prototype": "ui/controls/unixPermissions.reel",
+            "properties": {
+                "element": {"#": "directoryMask"},
+                "title": "Directory mask"
+            },
+            "bindings": {
+                "modes": {"<->": "@owner.dirmaskModes"}
+            }
+        },
+        "unixExtensions": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "unixExtensions"},
+                "label": "Unix extensions"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.unixext"}
+            }
+        },
+        "zeroconf": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "zeroconf"},
+                "label": "Zeroconf share discovery"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.zeroconf"}
+            }
+        },
+        "hostLookup": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "hostLookup"},
+                "label": "Hostnames lookups"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.hostlookup"}
+            }
+        },
+        "minProtocol": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "minProtocol"},
+                "label": "Server minimum protocol"
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.min_protocol"},
+                "options": {"<-": "@owner.PROTOCOLS"}
+
+            }
+        },
+        "maxProtocol": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "maxProtocol"},
+                "label": "Server maximum protocol"
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.max_protocol"},
+                "options": {"<-": "@owner.PROTOCOLS"}
+            }
+        },
+        "executeAlways": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "executeAlways"},
+                "label": "Allow execute always"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.execute_always"}
+            }
+        },
+        "obeyPamRestrictions": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "obeyPamRestrictions"},
+                "label": "Obey PAM restrictions"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.obey_pam_restrictions"}
+            }
+        },
+
+        "bindAddresses": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "bindAddresses"},
+                "label": "Bind IP Addresses",
+                "placeholder": "eg. 1.2.3.4",
+                "delegate": {"@": "owner"},
+                "inputTitle": "Add an IP address",
+                "valuesTitle": "Added IP addresses",
+                "emptyMessage": "No IP addresses added :("
+            },
+            "bindings": {
+                "options": {"<-": "@owner.networkInterfacesAliases.map{address}.filter{!@owner.object.bind_addresses.has(this)}"},
+                "values": {"<->": "@owner.object.bind_addresses"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="SmbService">
+        <div data-mod-id="netbiosName"></div>
+        <div data-mod-id="workgroup"></div>
+        <div data-mod-id="description"></div>
+        <div data-mod-id="dosCharset"></div>
+        <div data-mod-id="unixCharset"></div>
+        <div data-mod-id="logLevel"></div>
+        <div data-mod-id="localMaster"></div>
+        <div data-mod-id="domainLogons"></div>
+        <div data-mod-id="timeServer"></div>
+        <div data-mod-id="guestUser"></div>
+        <div data-mod-id="fileMask"></div>
+        <div data-mod-id="directoryMask"></div>
+        <div data-mod-id="unixExtensions"></div>
+        <div data-mod-id="zeroconf"></div>
+        <div data-mod-id="hostLookup"></div>
+        <div data-mod-id="minProtocol"></div>
+        <div data-mod-id="maxProtocol"></div>
+        <div data-mod-id="executeAlways"></div>
+        <div data-mod-id="obeyPamRestrictions"></div>
+        <div data-mod-id="bindAddresses"></div>
+    </div>
+</body>
+</html>

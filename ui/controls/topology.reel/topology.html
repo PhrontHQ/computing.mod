@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="topology.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "dataTopologyItemComponent": {"@": "data"},
+                "cacheTopologyItemComponent": {"@": "cache"},
+                "logTopologyItemComponent": {"@": "log"},
+                "spareTopologyItemComponent": {"@": "spare"}
+            },
+            "bindings": {
+                "editable": {"<-": "@owner.mode != @owner.constructor.MODES.READ"}
+            }
+        },
+
+        "data": {
+            "prototype": "./topology-item.reel",
+            "properties": {
+                "element": {"#": "data"},
+                "topologyComponent": {"@": "owner"},
+                "name": "Data",
+                "hasAllocationBar": "true"
+            },
+            "bindings": {
+                "vdevs": {"<-": "@owner.object.data"},
+                "editable": {"<-": "@owner.editable"},
+                "selectedDisk": {"<->": "@owner.selectedDisk"}
+            }
+        },
+        "cache": {
+            "prototype": "./topology-item.reel",
+            "properties": {
+                "element": {"#": "cache"},
+                "topologyComponent": {"@": "owner"},
+                "name": "Cache"
+            },
+            "bindings": {
+                "vdevs": {"<-": "@owner.object.cache"},
+                "editable": {"<-": "@owner.editable"},
+                "selectedDisk": {"<->": "@owner.selectedDisk"}
+            }
+        },
+        "log": {
+            "prototype": "./topology-item.reel",
+            "properties": {
+                "element": {"#": "log"},
+                "topologyComponent": {"@": "owner"},
+                "name": "Log",
+                "hasAllocationBar": "true"
+            },
+            "bindings": {
+                "vdevs": {"<-": "@owner.object.log"},
+                "editable": {"<-": "@owner.editable"},
+                "selectedDisk": {"<->": "@owner.selectedDisk"}
+            }
+        },
+        "spare": {
+            "prototype": "./topology-item.reel",
+            "properties": {
+                "element": {"#": "spare"},
+                "topologyComponent": {"@": "owner"},
+                "name": "Spare"
+            },
+            "bindings": {
+                "vdevs": {"<-": "@owner.object.spare"},
+                "editable": {"<-": "@owner.editable"},
+                "selectedDisk": {"<->": "@owner.selectedDisk"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Topology">
+        <div data-mod-id="data" class="Topology-data"></div>
+        <div data-mod-id="spare" class="Topology-spare"></div>
+        <div class="flex-row">
+            <div data-mod-id="cache" class="Topology-cache"></div>
+            <div data-mod-id="log" class="Topology-log"></div>
+        </div>
+    </div>
+</body>
+</html>

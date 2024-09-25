@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "hasType": {"<-": "!!@owner.object && !!@owner.object.type"},
+                "type": {"<-": "@owner.hasType ? @owner.object.type : 'ETHER'"}
+            }
+        },
+        "interfaceTypeSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "interfaceTypeSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.type"}
+            }
+        },
+        "ether": {
+            "prototype": "./interface.reel",
+            "properties": {
+                "element": {"#": "ether"}
+            }
+        },
+        "bridge": {
+            "prototype": "./bridge.reel",
+            "properties": {
+                "element": {"#": "bridge"}
+            }
+        },
+        "lagg": {
+            "prototype": "./lagg.reel",
+            "properties": {
+                "element": {"#": "lagg"}
+            }
+        },
+        "vlan": {
+            "prototype": "./vlan.reel",
+            "properties": {
+                "element": {"#": "vlan"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="NetworkInterfaceIcon">
+        <div data-mod-id="interfaceTypeSubstitution">
+            <div data-mod-id="ether" data-arg="ETHER"></div>
+            <div data-mod-id="bridge" data-arg="BRIDGE"></div>
+            <div data-mod-id="lagg" data-arg="LAGG"></div>
+            <div data-mod-id="vlan" data-arg="VLAN"></div>
+        </div>
+    </div>
+</body>
+</html>

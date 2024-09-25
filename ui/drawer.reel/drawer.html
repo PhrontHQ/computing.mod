@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="drawer.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "_drawerItems": {"@": "items"}
+            },
+            "bindings": {
+                "dashboardWidgets": {"<-": "@owner.currentUser.attributes.dashboardContext.widgets"},
+                "sideBoardWidgets": {"<-": "@owner.currentUser.attributes.sideBoardContext.widgets"}
+            }
+        },
+        "title": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "title"},
+                "value": "Drag to add widgets"
+            }
+        },
+        "horizontalScroll": {
+            "prototype": "blue-shark.mod/ui/scroller.reel",
+            "properties": {
+                "element": {"#": "horizontalScroll"},
+                "overflow": "scrollX"
+            }
+        },
+        "contentController": {
+            "prototype": "mod/core/range-controller",
+            "properties": {
+                "sortPath": "title"
+            },
+            "bindings": {
+                "content": {"<-": "@owner.items"}
+            }
+        },
+        "items": {
+            "prototype": "mod/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "items"},
+                "contentController": {"@": "contentController"}
+            }
+        },
+        "item": {
+            "prototype": "ui/drawer.reel/drawer-item.reel",
+            "properties": {
+                "element": {"#": "item"}
+            },
+            "bindings": {
+                "object": {"<-": "@items:iteration.object"}
+            }
+        },
+        "closeButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "closeButton"},
+                "value": "Done Editing"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Drawer">
+        <header>
+            <h1 data-mod-id="title" class="Drawer-title"></h1>
+            <button data-mod-id="closeButton" class="Button--create"></button>
+        </header>
+        <div class="DrawerContent">
+            <div class="Drawer-overlay">
+                <svg><use xlink:href="#i-trashCan"/></svg>
+            </div>
+            <div data-mod-id="horizontalScroll">
+                <ul data-mod-id="items" class="Drawer-items">
+                    <li data-mod-id="item" class="Drawer-item"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

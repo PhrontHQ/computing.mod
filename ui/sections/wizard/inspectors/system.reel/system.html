@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "languageAndRegion": {
+            "prototype": "ui/sections/system/inspectors/language-and-region.reel",
+            "properties": {
+                "element": {"#": "languageAndRegion"}
+            },
+            "bindings": {
+                "object": {"<-": "@owner.object"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="System-wizard">
+        <div data-mod-id="languageAndRegion"></div>
+    </div>
+</body>
+</html>

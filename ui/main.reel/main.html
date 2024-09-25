@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "main"}
+            },
+            "bindings": {
+                "classList.has('drawer-is-open')": {"<-": "@owner.application.isDrawerOpen"}
+            }
+        },
+        "mainSidebar": {
+            "prototype": "../main-sidebar/main-sidebar.reel",
+            "properties": {
+                "element": {"#": "mainSidebar"}
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "@owner.connectionState != 'OPEN'"}
+            }
+        },
+        "sideboard": {
+            "prototype": "../dashboard/sideboard.reel",
+            "properties": {
+                "element": {"#": "sideboard"}
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "@owner.connectionState != 'OPEN'"}
+            }
+        },
+        "substitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "substitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.sectionId"}
+            }
+        },
+        "dashboard": {
+            "prototype": "../dashboard/dashboard.reel",
+            "properties": {
+                "element": {"#": "dashboard"}
+            }
+        },
+        "task": {
+            "prototype": "ui/sections/task/inspectors/tasks.reel",
+            "properties": {
+                "element": {"#": "task"}
+            }
+        },
+        "console": {
+            "prototype": "../console.reel",
+            "properties": {
+                "element": {"#": "console"}
+            }
+        },
+        "calendar": {
+            "prototype": "../calendar/calendar.reel",
+            "properties": {
+                "element": {"#": "calendar"}
+            }
+        },
+        "wizard": {
+            "prototype": "ui/sections/wizard/inspectors/wizard.reel",
+            "properties": {
+                "element": {"#": "wizard"}
+            }
+        },
+        "modal": {
+            "prototype": "blue-shark.mod/ui/modal.reel",
+            "properties": {
+                "element": {"#": "modal"}
+            }
+        },
+        "disconnectionModal": {
+            "prototype": "ui/disconnection-modal.reel",
+            "properties": {
+                "element": {"#": "disconnectionModal"}
+            },
+            "bindings": {
+                "connectionState": {"<-": "@owner.middlewareClient.state"}
+            }
+        },
+        "icons": {
+            "prototype": "blue-shark.mod/ui/icons.reel",
+            "properties": {
+                "element": {"#": "icons"}
+            }
+        },
+        "cascadingList": {
+            "prototype": "ui/controls/cascading-list.reel",
+            "properties": {
+                "element": {"#": "cascadingList"}
+            },
+            "bindings": {
+                "stack": {"<-": "@owner.stack"}
+            }
+        },
+        "migrationSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "migrationSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.sectionGeneration"},
+                "classList.has('is-hidden')": {"<-": "!@signIn.isLoggedIn"}
+            }
+        },
+        "confirmationModal": {
+            "prototype": "blue-shark.mod/ui/confirmation-modal.reel",
+            "properties": {
+                "element": {"#": "confirmationModal"}
+            },
+            "bindings": {
+                "isShown": {"<-": "@owner.application.confirmationModal.isShown"},
+                "message": {"<-": "@owner.application.confirmationModal.message"},
+                "title": {"<-": "@owner.application.confirmationModal.title"},
+                "buttonLabelFalse": {"<-": "@owner.application.confirmationModal.buttonLabelFalse"},
+                "buttonLabelTrue": {"<-": "@owner.application.confirmationModal.buttonLabelTrue"},
+                "deferred": {"<-": "@owner.application.confirmationModal.deferred"}
+            }
+        },
+        "signInModal": {
+            "prototype": "blue-shark.mod/ui/modal.reel",
+            "properties": {
+                "element": {"#": "signInModal"},
+                "hideCloseButton": true
+            },
+            "bindings": {
+                "classList.has('montage-Overlay--visible')": {"<-": "!@signIn.isLoggedIn"}
+            }
+        },
+        "signIn": {
+            "prototype": "ui/sign-in.reel",
+            "properties": {
+                "element": {"#": "signIn"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="main" class="Main">
+        <div data-mod-id="icons"></div>
+        <main>
+            <div data-mod-id="mainSidebar" class="Main-mainSidebar"></div>
+            <div data-mod-id="migrationSubstitution" class="Main-content">
+                <div data-arg="old" data-mod-id="substitution" class="Main-substitution">
+                    <div data-arg="dashboard" data-mod-id="dashboard"></div>
+                    <div data-arg="console" data-mod-id="console"></div>
+                    <div data-arg="task" data-mod-id="task"></div>
+                    <div data-arg="calendar" data-mod-id="calendar"></div>
+                    <div data-arg="wizard" data-mod-id="wizard"></div>
+                </div>
+                <div data-arg="new" data-mod-id="cascadingList"></div>
+            </div>
+            <div data-mod-id="sideboard" class="Main-sideboard"></div>
+        </main>
+        <div data-mod-id="signInModal" class="SignInModal">
+            <div data-mod-id="signIn"></div>
+        </div>
+        <div data-mod-id="modal" class="Main-modal"></div>
+        <div data-mod-id="disconnectionModal"></div>
+        <div data-mod-id="confirmationModal"></div>
+    </div>
+</body>
+</html>

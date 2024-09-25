@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="share.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"},
+                "inspector": {"@": "inspector"},
+                "_shareTypePlaceHolder": {"@": "shareTypePlaceHolder"},
+                "treeControllers": {
+                    "DATASET":      {"@": "datasetTreeController"},
+                    "ZVOL":         {"@": "datasetTreeController"},
+                    "DIRECTORY":    {"@": "directoryTreeController"},
+                    "FILE":         {"@": "fileTreeController"}
+                },
+                "targetTreeview": {"@": "target_path"}
+            },
+            "bindings": {
+                "volumePath": {"<-": "'/mnt/' + @owner.object._volume.id"},
+                "isLoading": {"<-": "@owner.isDataLoading || @shareTypePlaceHolder.isLoadingComponent || @shareTypePlaceHolder.component.isLoading"}
+            }
+        },
+        "datasetTreeController": {
+            "prototype": "core/controller/tree/dataset-tree-controller",
+            "bindings": {
+                "root": {"<-": "@owner.object._volume.id"}
+            }
+        },
+        "directoryTreeController": {
+            "prototype": "core/controller/tree/filesystem-tree-controller",
+            "properties": {
+                "canListFiles": false
+            },
+            "bindings": {
+                "service": {"<-": "@owner.application.filesystemService"},
+                "root": {"<-": "@owner.volumePath"}
+            }
+        },
+        "fileTreeController": {
+            "prototype": "core/controller/tree/filesystem-tree-controller",
+            "properties": {
+                "canListFiles": true
+            },
+            "bindings": {
+                "service": {"<-": "@owner.application.filesystemService"},
+                "root": {"<-": "@owner.volumePath"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller"
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canRevert":    true,
+                "canSave":      true,
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "canDelete": {"<-": "!@owner.object._isNew"},
+                "isSaveDisabled": {"<-": "(@owner.targetType == 'ZVOL' && !@owner.object.properties.size)"},
+                "context": {"<-": "@owner.context"},
+                "isLoading": {"<-": "@owner.isLoading"},
+                "extraDeleteFlags": {"<-": "@owner.extraDeleteFlags"},
+                "extraDeleteMessage": {"<-": "@owner.extraDeleteMessage"}
+            }
+        },
+        "overview": {
+            "prototype": "./share-overview.reel",
+            "properties": {
+                "element": {"#": "overview"}
+            },
+            "bindings": {
+                "title": {"<-": "@owner.object.type"},
+                "targetType": {"<-": "@owner.targetType"}
+            }
+        },
+        "enabled": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "enabled"},
+                "label": "Enabled"
+            },
+            "bindings": {
+                "checked": {"<->": "!!@owner.object.enabled"}
+            }
+        },
+        "serviceEnabled": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "serviceEnabled"}
+            },
+            "bindings": {
+                "checked": {"<->": "!!@owner.serviceEnabled"},
+                "label": {"<-": "'Enable ' + @owner.object.type.toUpperCase() + ' Service'"},
+                "isLoading": {"<-": "@owner.isServiceLoading"}
+            }
+        },
+        "name": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "name"},
+                "validationPath": "name",
+                "label": "Name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.name"}
+            }
+        },
+        "description": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "description"},
+                "label": "Description"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.description"}
+            }
+        },
+        "target_path": {
+            "prototype": "ui/controls/field-treeview.reel",
+            "properties": {
+                "element": {"#": "target_path"},
+                "validationPath": "target_path",
+                "allowPathInput": true
+            },
+            "bindings": {
+                "selectedPath": {"<->": "@owner.object.target_path"},
+                "label": {"<-": "@owner.targetType != 'DATASET' || @owner.targetType != 'ZVOL' ? 'Target' : 'Create target'"},
+                "readOnly": {"<-": "@owner.isPathReadOnly"},
+                "suffix": {"<-": "(@owner.targetType == 'DATASET' || (@owner.targetType == 'ZVOL' && @target_path.selectedEntry.type != 'VOLUME')) && !@owner.isPathReadOnly ? @name.value || '' : ''"},
+                "controller": {"<-": "@owner.treeControllers[@owner.targetType]"}
+            }
+        },
+        "shareTypePlaceHolder": {
+            "prototype": "ui/controls/placeholder.reel",
+            "properties": {
+                "element": {"#": "shareTypePlaceHolder"}
+            },
+            "bindings": {
+                "moduleId": {"<-": "@owner._montage_metadata.moduleId + '/' + @owner.object.type + '-share.reel'"},
+                "object": {"<-": "@owner.object"},
+                "context": {"<-": "@owner.context"}
+            }
+        },
+        "targetTypeSelect": {
+            "prototype": "blue-shark.mod/ui/field-radio-group.reel",
+            "properties": {
+                "element": {"#": "targetTypeSelect"},
+                "label": "Create share for"
+            },
+            "bindings": {
+                "options": {"<-": "@owner.possibleTargetTypes"},
+                "selectedValue": {"<->": "@owner.targetType"},
+                "classList.has('hide')": {"<-": "!@owner.object._isNew"}
+            }
+        },
+        "targetType": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "targetType"},
+                "validationPath": "target_type",
+                "label": "Target Type"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.targetType"},
+                "classList.has('hide')": {"<-": "!!@owner.object._isNew"}
+            }
+        },
+        "permissions": {
+            "prototype": "./share-permissions.reel",
+            "properties": {
+                "element": {"#": "permissions"}
+            },
+            "bindings": {
+                "object": {"<->": "@owner.object"},
+                "classList.has('hide')": {"<-": "@owner.object.type == 'iscsi'"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Share">
+        <div data-mod-id="inspector">
+            <div data-mod-id="overview" class="wizard-is-hidden"></div>
+            <div data-mod-id="targetTypeSelect" class="wizard-is-hidden"></div>
+            <div data-mod-id="targetType"></div>
+            <div data-mod-id="enabled" class="wizard-is-hidden"></div>
+            <div data-mod-id="serviceEnabled" class="wizard-is-hidden"></div>
+            <div data-mod-id="name"></div>
+            <div data-mod-id="target_path" class="wizard-is-hidden"></div>
+            <div data-mod-id="description" class="wizard-is-hidden"></div>
+            <div data-mod-id="shareTypePlaceHolder"></div>
+            <div data-mod-id="permissions"></div>
+        </div>
+    </div>
+</body>
+</html>

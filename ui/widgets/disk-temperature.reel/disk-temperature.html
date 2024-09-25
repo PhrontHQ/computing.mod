@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "widget": {
+            "prototype": "ui/dashboard/widgets/widget.reel",
+            "properties": {
+                "element": {"#": "widget"},
+                "title": "Disk Temperature"
+            }
+        },
+        "chart": {
+            "prototype": "ui/dashboard/widgets/chart-live.reel",
+            "properties": {
+                "element": {"#": "chart-live"},
+                "yLabel": "C",
+                "yFormat": "3r",
+                "graphType": "stackedBar",
+                "xAxisLable": -90,
+                "isTimeSeries": false,
+                "metrics": [
+                    "gauge-temperature"
+                ],
+                "removePrefix": "gauge-",
+                "removeSourcePrefix": "disktemp-",
+                "showLegend": false
+            },
+            "bindings": {
+                "datasources": {"<-": "@owner.disks.map{'disktemp-' + name}"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="DiskTemperature">
+        <div data-mod-id="widget">
+            <svg data-arg="widget-icon"><use xlink:href="#i-barChart"/></svg>
+            <div data-arg="widget-content">
+                <div data-mod-id="chart-live"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

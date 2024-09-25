@@ -1,0 +1,38 @@
+.DetachedVolume .ImportButton {
+    display: inline-block !important;
+}
+
+.DetachedVolume-header {
+    height: 4.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--grey-3);
+    color:      var(--grey-blue);
+}
+
+.DetachedVolume-header { display: none; }
+
+/* Icon */
+
+.DetachedVolume-header-icon {
+    width:  3em;
+    height: 3em;
+    margin-right: 1em;
+}
+
+.DetachedVolume-header-icon img { width:  100%; }
+
+/* Info */
+
+.DetachedVolume-header-diskSize {
+    font-size: 1.5em;
+    font-weight: 400;
+    line-height: 1rem;
+}
+
+.DetachedVolume-allocationBar {
+    height: 1.5em !Important;
+    width: 100%;
+}
+

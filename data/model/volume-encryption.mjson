@@ -1,0 +1,46 @@
+{
+  "blueprint_volumeencryption_hashed_password": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "hashed_password",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumeencryption_key": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "key",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumeencryption_salt": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "salt",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumeencryption_slot": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "slot",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumeEncryption",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumeencryption_hashed_password"},
+        {"@": "blueprint_volumeencryption_key"},
+        {"@": "blueprint_volumeencryption_salt"},
+        {"@": "blueprint_volumeencryption_slot"}
+      ]
+    }
+  }
+}

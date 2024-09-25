@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="task-notification.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "statusMap": {
+                    "FAILED": "error",
+                    "FINISHED": "success",
+                    "EXECUTING": "active",
+                    "WAITING": "pending"
+                }
+            },
+            "bindings": {
+                "classList.has('has-error')": {"<-": "@owner.object.state == 'FAILED' || @owner.object.state == 'ABORTED'"},
+                "classList.has('has-warning')": {"<-": "@owner.object.warnings.length > 0"},
+                "classList.has('has-success')": {"<-": "@owner.object.state == 'FINISHED'"},
+                "classList.has('is-expired')": {"<-": "@owner.isExpired"},
+                "classList.has('hide')": {"<-": "@owner.isHidden"}
+            }
+        },
+        "taskSummary": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "taskSummary"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.description.format.string"},
+                "args": {"<-": "@owner.object.description.format.args"},
+                "classList.has('hide')": {"<-": "!@owner.object.description"}
+            }
+        },
+        "timestamp": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "timestamp"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.startDate"}
+            }
+        },
+        "progress": {
+            "prototype": "blue-shark.mod/ui/progress.reel",
+            "properties": {
+                "element": {"#": "progress"}
+            },
+            "bindings": {
+                "percentageComplete": {"<-": "@owner.object.progress.percentage"},
+                "status": {"<-": "@owner.statusMap[@owner.object.state]"}
+            }
+        },
+        "expandButton": {
+            "prototype": "mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "expandButton"}
+            }
+        },
+        "details": {
+            "prototype": "../../notification-details.reel/task-notification-details.reel",
+            "properties": {
+                "element": {"#": "details"}
+            },
+            "bindings": {
+                "object": {"<-": "@owner.object"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="TaskNotification">
+        <div class="Notification-header">
+            <div class="Notification-overview">
+                <div>
+                    <div data-mod-id="taskSummary"></div>
+                </div>
+                <div>
+                    <div data-mod-id="timestamp" class="Notification-time"></div>
+                    <div data-mod-id="progress" class="Notification-progress"></div>
+                </div>
+            </div>
+            <div class="Notification-actions">
+                <div data-mod-id="expandButton" class="Notification-expand"></div>
+            </div>
+        </div>
+        <div data-mod-id="details" class="Notification-details"></div>
+    </div>
+</body>
+</html>

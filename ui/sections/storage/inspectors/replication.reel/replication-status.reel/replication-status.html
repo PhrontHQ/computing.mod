@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "statusSection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "statusSection"},
+                "title": "Current State"
+            }
+        },
+        "status": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "status"},
+                "label": "Status"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.status"}
+            }
+        },
+        "progress": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "progress"},
+                "label": "Progress"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.progress + ' %'"}
+            }
+        },
+        "speed": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "speed"},
+                "label": "Speed"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.speed"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="ReplicationStatus">
+        <div data-mod-id="statusSection">
+            <div data-mod-id="status"></div>
+            <div data-mod-id="progress"></div>
+            <div data-mod-id="speed"></div>
+        </div>
+    </div>
+</body>
+</html>

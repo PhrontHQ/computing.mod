@@ -1,0 +1,122 @@
+{
+  "blueprint_servicesnmp_auxiliary": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "auxiliary",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_servicesnmp_community": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "community",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_servicesnmp_contact": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "contact",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_servicesnmp_enable": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "enable",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_servicesnmp_location": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "location",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_servicesnmp_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "service-snmp"
+      ]
+    }
+  },
+  "blueprint_servicesnmp_v3": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "v3",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_servicesnmp_v3_auth_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "v3_auth_type",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "ServiceSnmpV3authtype"
+    }
+  },
+  "blueprint_servicesnmp_v3_password": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "v3_password",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_servicesnmp_v3_privacy_passphrase": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "v3_privacy_passphrase",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_servicesnmp_v3_privacy_protocol": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "v3_privacy_protocol",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "ServiceSnmpV3privacyprotocol"
+    }
+  },
+  "blueprint_servicesnmp_v3_username": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "v3_username",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ServiceSnmp",
+      "propertyBlueprints": [
+        {"@": "blueprint_servicesnmp_auxiliary"},
+        {"@": "blueprint_servicesnmp_community"},
+        {"@": "blueprint_servicesnmp_contact"},
+        {"@": "blueprint_servicesnmp_enable"},
+        {"@": "blueprint_servicesnmp_location"},
+        {"@": "blueprint_servicesnmp_type"},
+        {"@": "blueprint_servicesnmp_v3"},
+        {"@": "blueprint_servicesnmp_v3_auth_type"},
+        {"@": "blueprint_servicesnmp_v3_password"},
+        {"@": "blueprint_servicesnmp_v3_privacy_passphrase"},
+        {"@": "blueprint_servicesnmp_v3_privacy_protocol"},
+        {"@": "blueprint_servicesnmp_v3_username"}
+      ]
+    }
+  }
+}

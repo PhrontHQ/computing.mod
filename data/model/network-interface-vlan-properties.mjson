@@ -1,0 +1,28 @@
+{
+  "blueprint_networkinterfacevlanproperties_parent": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parent",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_networkinterfacevlanproperties_tag": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "tag",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "NetworkInterfaceVlanProperties",
+      "propertyBlueprints": [
+        {"@": "blueprint_networkinterfacevlanproperties_parent"},
+        {"@": "blueprint_networkinterfacevlanproperties_tag"}
+      ]
+    }
+  }
+}

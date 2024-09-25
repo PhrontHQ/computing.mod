@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "cdrom": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "cdrom"},
+                "isNewObject": "true"
+            },
+            "bindings": {
+                "object": {"<-": "@owner.newCdromDevice"}
+            }
+        },
+        "disk": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "disk"},
+                "isNewObject": "true"
+            },
+            "bindings": {
+                "object": {"<-": "@owner.newDiskDevice"}
+            }
+        },
+        "graphics": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "graphics"},
+                "isNewObject": "true"
+            },
+            "bindings": {
+                "object": {"<-": "@owner.newGraphicsDevice"}
+            }
+        },
+        "nic": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "nic"},
+                "isNewObject": "true"
+            },
+            "bindings": {
+                "object": {"<-": "@owner.newNicDevice"}
+            }
+        },
+        "usb": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "usb"},
+                "isNewObject": "true"
+            },
+            "bindings": {
+                "object": {"<-": "@owner.newUsbDevice"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="VirtualMachineDeviceCreator">
+        <div data-mod-id="cdrom"></div>
+        <div data-mod-id="disk"></div>
+        <div data-mod-id="graphics"></div>
+        <div data-mod-id="nic"></div>
+        <div data-mod-id="usb"></div>
+    </div>
+</body>
+</html>

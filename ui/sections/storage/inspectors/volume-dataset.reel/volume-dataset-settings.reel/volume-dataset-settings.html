@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="volume-dataset-settings.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "compression": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "compression"},
+                "label": "Compression"
+            },
+            "bindings": {
+                "options": {"<-": "@owner.compressionOptions"},
+                "selectedValue": {"<->": "@owner.compression"}
+            }
+        },
+        "dedup": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "dedup"},
+                "label": "Deduplication"
+            },
+            "bindings": {
+                "options": {"<-": "@owner.dedupOptions"},
+                "selectedValue": {"<->": "@owner.dedup"}
+            }
+        },
+        "typeSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "typeSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.object.type"}
+            }
+        },
+        "atime": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "atime"},
+                "label": "atime"
+            },
+            "bindings": {
+                "options": {"<-": "@owner.atimeOptions"},
+                "selectedValue": {"<->": "@owner.atime"}
+            }
+        },
+        "quota": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "quota"},
+                "label": "Quota"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.sizeUnits"},
+                "value": {"<->": "@owner.quota"},
+                "disabled": {"<-": "!@advancedSection.isExpanded"}
+            }
+        },
+        "refquota": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "refquota"},
+                "label": "Refquota"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.sizeUnits"},
+                "value": {"<->": "@owner.refquota"},
+                "disabled": {"<-": "!@advancedSection.isExpanded"}
+            }
+        },
+        "reservation": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "reservation"},
+                "label": "Reservation"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.sizeUnits"},
+                "value": {"<->": "@owner.object.properties.reservation.parsed"},
+                "disabled": {"<-": "!@advancedSection.isExpanded"}
+            }
+        },
+        "refreservation": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "refreservation"},
+                "label": "Refreservation"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.sizeUnits"},
+                "value": {"<->": "@owner.object.properties.refreservation.parsed"},
+                "disabled": {"<-": "!@advancedSection.isExpanded"}
+            }
+        },
+        "advancedSection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "advancedSection"},
+                "title": "Quotas and Reservations"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "@owner.object.type != 'FILESYSTEM' || @owner.isRootDataset"}
+            }
+        },
+        "volsize": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "volsize"},
+                "label": "Size"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.sizeUnits"},
+                "value": {"<->": "@owner.object.volsize"}
+            }
+        },
+        "volblocksizeSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "volblocksizeSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.volblocksizeDisplayMode"}
+            }
+        },
+        "volblocksize": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "volblocksize"},
+                "label": "Block Size"
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.properties.volblocksize.parsed"},
+                "options": {"<-": "@owner.volblocksizeOptions"}
+            }
+        },
+        "volblocksizeDisplay": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "volblocksizeDisplay"},
+                "label": "Block Size",
+                "isReadOnly": true,
+                "readOnlyFormat": "0 b"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.sizeUnits"},
+                "value": {"<-": "@owner.object.properties.volblocksize.parsed"}
+            }
+        },
+        "createdCondition": {
+            "prototype": "mod/ui/condition.reel",
+            "properties": {
+                "element": {"#": "createdCondition"}
+            },
+            "bindings": {
+                "condition": {"<-": "!@owner.object._isNew"}
+            }
+        },
+        "last_replication": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "last_replication"},
+                "label": "Last Replication"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.last_replicated_at ? (@owner.object.last_replicated_at['$date'] + ' By ' + @owner.object.last_replicated_by) : ''"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="VolumeDatasetSettings">
+        <div data-mod-id="compression"></div>
+        <div data-mod-id="dedup"></div>
+        <div data-mod-id="typeSubstitution">
+            <div data-arg="FILESYSTEM">
+                <div data-mod-id="atime"></div>
+            </div>
+            <div data-arg="VOLUME">
+                <div data-mod-id="volsize"></div>
+                <div data-mod-id="volblocksizeSubstitution">
+                    <div data-mod-id="volblocksize" data-arg="edit"></div>
+                    <div data-mod-id="volblocksizeDisplay" data-arg="display"></div>
+                </div>
+            </div>
+        </div>
+        <div data-mod-id="createdCondition">
+            <div data-mod-id="last_replication"></div>
+        </div>
+        <div data-mod-id="advancedSection">
+            <div data-mod-id="quota"></div>
+            <div data-mod-id="refquota"></div>
+            <div data-mod-id="reservation"></div>
+            <div data-mod-id="refreservation"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+{
+  "propertyblueprint": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "%type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "share-iscsi"
+      ]
+    }
+  },
+  "blueprint_shareiscsi_available_space_threshold": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "available_space_threshold",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_shareiscsi_block_size": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "block_size",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "ShareIscsiBlocksize"
+    }
+  },
+  "blueprint_shareiscsi_ctl_lun": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "ctl_lun",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_shareiscsi_device_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "device_id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_shareiscsi_naa": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "naa",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_shareiscsi_physical_block_size": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "physical_block_size",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_shareiscsi_product_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "product_id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_shareiscsi_read_only": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "read_only",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_shareiscsi_rpm": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rpm",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "ShareIscsiRpm"
+    }
+  },
+  "blueprint_shareiscsi_serial": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "serial",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_shareiscsi_size": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "size",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_shareiscsi_tpc": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "tpc",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_shareiscsi_vendor_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "vendor_id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_shareiscsi_xen_compat": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "xen_compat",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ShareIscsi",
+      "propertyBlueprints": [
+        {"@": "propertyblueprint"},
+        {"@": "blueprint_shareiscsi_available_space_threshold"},
+        {"@": "blueprint_shareiscsi_block_size"},
+        {"@": "blueprint_shareiscsi_ctl_lun"},
+        {"@": "blueprint_shareiscsi_device_id"},
+        {"@": "blueprint_shareiscsi_naa"},
+        {"@": "blueprint_shareiscsi_physical_block_size"},
+        {"@": "blueprint_shareiscsi_product_id"},
+        {"@": "blueprint_shareiscsi_read_only"},
+        {"@": "blueprint_shareiscsi_rpm"},
+        {"@": "blueprint_shareiscsi_serial"},
+        {"@": "blueprint_shareiscsi_size"},
+        {"@": "blueprint_shareiscsi_tpc"},
+        {"@": "blueprint_shareiscsi_vendor_id"},
+        {"@": "blueprint_shareiscsi_xen_compat"}
+      ]
+    }
+  }
+}

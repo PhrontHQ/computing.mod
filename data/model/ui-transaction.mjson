@@ -1,0 +1,28 @@
+{
+  "blueprint_uitransaction_identifier": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "identifier",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_uitransaction_sessions": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "sessions",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "UiTransaction",
+      "propertyBlueprints": [
+        {"@": "blueprint_uitransaction_identifier"},
+        {"@": "blueprint_uitransaction_sessions"}
+      ]
+    }
+  }
+}

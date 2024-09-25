@@ -1,0 +1,109 @@
+.Notification {
+    position: relative;
+    background-color: var(--primary--7);
+
+    & .Notification-placeholder > div:first-child {
+        border-bottom:  2px solid var(--primary--6);
+    }
+}
+
+
+.Notification-header {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    font-size: .85em;
+    letter-spacing: .5px;
+    align-items: center;
+    padding: .5em;
+    padding-left: calc(.5em + 3px);
+    padding-right: .25em;
+    transition: color            .25s ease-in-out,
+                background-color .25s ease-in-out;
+
+    &:hover {
+        background-color: var(--primary--6);
+        cursor: pointer;
+        color: var(--white);
+    }
+
+    @nest .Notification.is-expanded & {
+        background-color: var(--primary--4);
+        color: var(--white);
+    }
+}
+
+.Notification-overview {
+    flex: 1;
+    margin-right: .5rem;
+}
+
+.Notification-overview > div {
+    display: flex;
+    align-items: center;
+}
+
+.Notification-overview > div:first-child {
+    word-break: break-word;
+    margin-bottom: .5em;
+}
+
+.Notification-time,
+.Notification-service {
+    font-size: .75em;
+}
+
+.Notification-time { margin-right: .5rem; }
+
+.Notification-progress { width:  100%; }
+
+/* Action Buttons */
+
+.Notification-actions {
+    display: flex;
+    align-self: flex-start;
+}
+
+.Notification-actions > * {
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    margin:  0;
+}
+
+.Notification-actions svg {
+    display: block;
+    height: 2em;
+    width:  2em;
+    padding: .25em;
+    transition: color .25s ease-in-out;
+}
+
+/* Expand Arrow */
+
+.Notification-expand {
+    margin-top: -.25em;
+    transition: color .25s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.Notification-expand svg { transform: rotate(90deg); }
+.Notification-expand:hover svg { color: var(--white); }
+
+.Notification.is-expanded .Notification-expand svg { transform: rotate(270deg);  }
+
+/* Close Button */
+.Notification-close { position: relative; z-index: 1;}
+.Notification-close #i-close-bg { fill: transparent; }
+
+.Notification-close:hover #i-close-bg      { fill: var(--red); stroke: var(--red);}
+.Notification-close:hover #i-close-symbol  { fill: var(--white); }
+
+/* Details Hide/Show */
+
+.Notification-details { display: none; }
+.Notification.is-expanded .Notification-details { display: block; }

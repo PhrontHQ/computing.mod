@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="services-category-overview.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "activeCount": {"<-": "@owner.services.filter{this.state == 'RUNNING'}.length"}
+            }
+        },
+        "iconSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "iconSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.object.name.toLowerCase()"}
+            }
+        },
+        "sharingIcon": {
+            "prototype": "ui/icons/sharing.reel",
+            "properties": {
+                "element": {"#": "sharingIcon"},
+                "component.object": {"<-": "@owner.object"}
+            }
+        },
+        "servicesType": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "servicesType"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.name"}
+            }
+        },
+        "servicesCount": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "servicesCount"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.services.length + ' service' + (@owner.services.length > 1 ? 's' : '')"}
+            }
+        },
+        "actives": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "actives"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.activeCount + ' active'"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="ServicesCategoryOverview">
+        <div data-mod-id="iconSubstitution">
+            <div data-mod-id="sharingIcon" data-arg="sharing" class="ServicesCategoryOverview-icon"></div>
+        </div>
+        <div class="ServicesCategoryOverview-info">
+            <p data-mod-id="servicesType" class="bold"></p>
+            <div data-mod-id="servicesCount"></div>
+            <div data-mod-id="actives"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="foldable-section.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "contentContainer": {"#": "contentContainer"},
+                "sectionContent": {"#": "sectionContent"},
+                "expandButton": {"#":"expandButton"}
+            },
+            "bindings": {
+                "classList.has('is-expanded')": {"<-": "@owner.isExpanded"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "expandButton": {
+            "prototype": "mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "expandButton"}
+            }
+        },
+        "sectionTitle": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "sectionTitle"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.title"},
+                "subtitle": {"<-": "@owner.subtitle"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="FoldableSection">
+        <div data-mod-id="expandButton" class="FoldableSection-expand">
+            <div class="FoldableSection-expand-icon">
+                <svg>
+                    <use xlink:href="#i-triangle-down"/>
+                </svg>
+            </div>
+            <div class="FoldableSection-expand-titles">
+                <div data-mod-id="sectionTitle"></div>
+            </div>
+        </div>
+        <div data-mod-id="sectionContent" class="FoldableSection-content">
+            <div data-mod-id="contentContainer" class="FoldableSection-contentContainer">
+                <div data-param="*"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

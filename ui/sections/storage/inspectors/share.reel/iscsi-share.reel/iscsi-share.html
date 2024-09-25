@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="iscsi-share.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "targetIscsiNameSelectComponent": {"@": "targetIscsiName"}
+            }
+        },
+
+        "numberConverter": {
+            "prototype": "core/converter/string-to-integer-or-null-converter"
+        },
+
+        "extentSize": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "extentSize"},
+                "label": "Size"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.sizeUnits"},
+                "value": {"<->": "@owner.object.properties.size"},
+                "isMandatory": {"<-": "@owner.object.target_type != 'FILE'"},
+                "classList.has('hide')": {"<-": "@owner.object.target_type == 'FILE'"}
+            }
+        },
+
+        "refreservation": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "refreservation"},
+                "label": "Pre-allocate disk space"
+            },
+            "bindings": {
+                "checked": {"<->": "!!@owner.object.properties.refreservation"},
+                "classList.has('is-hidden')": {"<-": "@owner.object.target_type == 'FILE' || !@owner.object._isNew"}
+            }
+        },
+
+        "extentLogicalBlockSize": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "extentLogicalBlockSize"},
+                "label": "Logical block size"
+            },
+            "bindings": {
+                "options": {"<-": "@owner.iscsiBlocksize"},
+                "selectedValue": {"<->": "@owner.object.properties.block_size"}
+            }
+        },
+
+        "advancedSection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "advancedSection"},
+                "title": "Advanced"
+            }
+        },
+
+        "targetIscsiName": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "targetName"},
+                "validationPath": "target.id",
+                "label": "Target name"
+            },
+            "bindings": {
+                "options": {"<-": "@owner.targetNames"},
+                "selectedValue": {"<->": "@owner.object.__extent.id"}
+            }
+        },
+
+        "targetIscsiLun": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "targetIscsiLun"},
+                "converter": {"@": "numberConverter"},
+                "label": "LUN number"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.__extent.lun"}
+            }
+        },
+
+        "extentDisablePhysicalBlockSize": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "extentDisablePhysicalBlockSize"},
+                "label": "Disable physical block size reporting"
+            },
+            "bindings": {
+                "value": {"<->": "!!@owner.object.properties.physical_block_size"}
+            }
+        },
+
+        "extentEnableTPC": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "extentEnableTPC"},
+                "label": "Enable TPC"
+            },
+            "bindings": {
+                "value": {"<->": "!!@owner.object.properties.tpc"}
+            }
+        },
+
+        "extentXenInitiatorCompatMode": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "extentXenInitiatorCompatMode"},
+                "label": "Xen initiator compat mode"
+            },
+            "bindings": {
+                "value": {"<->": "!!@owner.object.properties.xen_compat"}
+            }
+        },
+
+        "extentLUNRPM": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "extentLUNRPM"},
+                "label": "LUN RPM"
+            },
+            "bindings": {
+                "options": {"<-": "@owner.iscsiRpm"},
+                "selectedValue": {"<->": "@owner.object.properties.rpm"}
+            }
+        },
+
+        "extentReadOnly": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "extentReadOnly"},
+                "label": "Read Only"
+            },
+            "bindings": {
+                "value": {"<->": "!!@owner.object.properties.read_only"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="IScsiShare">
+        <div data-mod-id="extentSize"></div>
+        <div data-mod-id="refreservation"></div>
+        <div data-mod-id="extentLogicalBlockSize"></div>
+
+        <div data-mod-id="advancedSection">
+            <div data-mod-id="targetName"></div>
+            <div data-mod-id="targetIscsiLun"></div>
+            <div data-mod-id="extentDisablePhysicalBlockSize"></div>
+            <div data-mod-id="extentEnableTPC"></div>
+            <div data-mod-id="extentXenInitiatorCompatMode"></div>
+            <div data-mod-id="extentLUNRPM"></div>
+            <div data-mod-id="extentReadOnly"></div>
+        </div>
+    </div>
+</body>
+</html>

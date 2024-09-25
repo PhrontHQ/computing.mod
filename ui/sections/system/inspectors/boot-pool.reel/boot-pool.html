@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="boot-pool.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "controller": {"@": "owner"},
+                "isFooterHidden": false
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "isLoading": {"<-": "!!@owner._isLocked"}
+            }
+        },
+        "bytesSizeConverter": {
+            "prototype": "mod/core/converter/bytes-converter"
+        },
+        "bootVolumeName": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "bootVolumeName"},
+                "label": "Name"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.bootVolume.name"}
+            }
+        },
+        "bootVolumeSize": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "bootVolumeSize"},
+                "label": "Capacity",
+                "value": "{value, 0 b}"
+            },
+            "bindings": {
+                "args": {"<-": "!!@owner.bootVolume.properties.size.parsed ? {value: @owner.bootVolume.properties.size.parsed} : {value: 0}"}
+            }
+        },
+        "bootVolumeUsed": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "bootVolumeUsed"},
+                "label": "Space Used",
+                "value": "{value, 0 b}"
+            },
+            "bindings": {
+                "args": {"<-": "!!@owner.bootVolume.properties.allocated.parsed ? {value: @owner.bootVolume.properties.allocated.parsed} : {value: 0}"}
+            }
+        },
+        "bootVolumeCapacityUsed": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "bootVolumeCapacityUsed"},
+                "label": "Capacity Used"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.bootVolume.properties.capacity.value"}
+            }
+        },
+        "bootVolumeCondition": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "bootVolumeCondition"},
+                "label": "Condition"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.bootVolume.status"}
+            }
+        },
+        "bootVolumeType": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "bootVolumeType"},
+                "label": "Type"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.bootVolume.disks.length > 1 ? 'MIRROR' : 'DISK'"}
+            }
+        },
+        "bootPoolTopologyTable": {
+            "prototype": "./boot-pool-topology-table.reel",
+            "properties": {
+                "element": {"#": "bootPoolTopologyTable"},
+                "contentMaxHeight": 8,
+                "delegate": {"@": "owner"}
+            },
+            "bindings": {
+                "object": {"<-": "@owner.bootVolume"},
+                "availableDisks": {"<-": "@owner._availableDisks"},
+                "bootDisks": {"<-": "@owner._bootDisks"}
+            }
+        },
+        "activeEnvironmentTable": {
+            "prototype": "./boot-environment-table.reel",
+            "properties": {
+                "element": {"#": "activeEnvironmentTable"},
+                "label": "Active Boot Environments",
+                "contentMaxHeight": 8
+            },
+            "bindings": {
+                "rows": {"<-": "@owner.bootEnvironments.filter{active || onReboot}"},
+                "service": {"<-": "@owner._sectionService"}
+            }
+        },
+        "inactiveEnvironmentTable": {
+            "prototype": "./boot-environment-table.reel",
+            "properties": {
+                "element": {"#": "inactiveEnvironmentTable"},
+                "label": "Inactive Boot Environments",
+                "contentMaxHeight": 20
+            },
+            "bindings": {
+                "rows": {"<-": "@owner.bootEnvironments.filter{!active && !onReboot}"},
+                "service": {"<-": "@owner._sectionService"}
+            }
+        },
+        "bootVolumeTopologySection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "bootVolumeTopologySection"},
+                "title": "Boot Volume Disks"
+            }
+        },
+        "scrub": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "scrub"},
+                "value": "Scrub"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="BootPool">
+        <div data-mod-id="inspector">
+            <div data-mod-id="bootVolumeName"></div>
+            <div data-mod-id="bootVolumeType"></div>
+            <div data-mod-id="bootVolumeSize"></div>
+            <div data-mod-id="bootVolumeUsed"></div>
+            <div data-mod-id="bootVolumeCapacityUsed"></div>
+            <div data-mod-id="bootVolumeCondition"></div>
+            <div data-mod-id="bootVolumeTopologySection">
+                <div data-mod-id="bootPoolTopologyTable" class="BootPool-table"></div>
+            </div>
+            <div data-mod-id="activeEnvironmentTable" class="BootPool-table BootPool-activeEnvironmentTable"></div>
+            <div data-mod-id="inactiveEnvironmentTable" class="BootPool-table"></div>
+            <div data-arg="footer-additional-button" class="ActionButtons">
+                <div data-mod-id="scrub"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

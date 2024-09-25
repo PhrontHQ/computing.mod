@@ -1,0 +1,77 @@
+{
+  "blueprint_zfsvdev_children": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "children",
+      "blueprint": {"@": "root"},
+      "valueType": "array",
+      "valueObjectPrototypeName": "ZfsVdev"
+    }
+  },
+  "blueprint_zfsvdev_disk_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "disk_id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_zfsvdev_guid": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "guid",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_zfsvdev_path": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "path",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_zfsvdev_stats": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "stats",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "object"
+    }
+  },
+  "blueprint_zfsvdev_status": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "status",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_zfsvdev_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "ZfsVdevType"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ZfsVdev",
+      "propertyBlueprints": [
+        {"@": "blueprint_zfsvdev_children"},
+        {"@": "blueprint_zfsvdev_disk_id"},
+        {"@": "blueprint_zfsvdev_guid"},
+        {"@": "blueprint_zfsvdev_path"},
+        {"@": "blueprint_zfsvdev_stats"},
+        {"@": "blueprint_zfsvdev_status"},
+        {"@": "blueprint_zfsvdev_type"}
+      ]
+    }
+  }
+}

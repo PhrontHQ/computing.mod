@@ -1,0 +1,58 @@
+{
+  "blueprint_networkroute_gateway": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "gateway",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "IpAddress"
+    }
+  },
+  "blueprint_networkroute_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_networkroute_netmask": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "netmask",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_networkroute_network": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "network",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "IpAddress"
+    }
+  },
+  "blueprint_networkroute_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "NetworkRouteType"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "NetworkRoute",
+      "propertyBlueprints": [
+        {"@": "blueprint_networkroute_gateway"},
+        {"@": "blueprint_networkroute_id"},
+        {"@": "blueprint_networkroute_netmask"},
+        {"@": "blueprint_networkroute_network"},
+        {"@": "blueprint_networkroute_type"}
+      ]
+    }
+  }
+}

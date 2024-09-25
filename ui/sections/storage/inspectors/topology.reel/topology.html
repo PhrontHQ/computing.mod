@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="topology.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"},
+                "inspector": {"@": "inspector"}
+            },
+            "bindings": {
+                "classList.has('has-availableDisks')": {"<-": "@availableDisks.availableDisks.length > 0"},
+                "classList.has('is-detached')": {"<-": "!!@owner.object._isDetached"},
+                "availableSelectedDisk": {"<->": "@availableDisks.selectedDisk"},
+                "topologySelectedDisk": {"<->": "@topology.selectedDisk"},
+                "isEditable": {"<-": "!@owner.object._isDetached && @owner.object._volume.status != 'LOCKED'"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller"
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "canDelete": {"<-": "@owner.isEditable"},
+                "canRevert": {"<-": "@owner.isEditable"},
+                "canSave": {"<-": "@owner.isEditable"},
+                "isFooterHidden": {"<-": "!@owner.isEditable"},
+                "context": {"<-": "@owner.context"},
+                "isLocked": {"<->": "@owner.isLocked"}
+            }
+        },
+        "topology": {
+            "prototype": "ui/controls/topology.reel",
+            "properties": {
+                "element": {"#": "topology"}
+            },
+            "bindings": {
+                "object": {"<-": "@owner.topologyProxy"},
+                "mode": {"<-": "@owner.isEditable ? 'UPDATE' : 'read-mode'"}
+            }
+        },
+
+        "availableDisks": {
+            "prototype": "ui/sections/storage/inspectors/available-disks.reel",
+            "properties": {
+                "element": {"#": "availableDisks"},
+                "topology": {"@": "topology"},
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "disks": {"<-": "@owner.availableDisks"},
+                "object": {"<-": "@owner.topologyProxy"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="TopologyEdit">
+        <div data-mod-id="inspector">
+            <div class="TopologyEdit-content g-margin-h--subtract g-margin-top--subtract">
+                <div data-mod-id="topology"></div>
+            </div>
+        </div>
+        <div class="TopologyEdit-sidebar">
+            <div data-mod-id="availableDisks"></div>
+        </div>
+    </div>
+</body>
+</html>

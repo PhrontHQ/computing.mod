@@ -1,0 +1,28 @@
+{
+  "blueprint_diskmetadata_disk": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "disk",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_diskmetadata_metadata": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "metadata",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "DiskMetadata",
+      "propertyBlueprints": [
+        {"@": "blueprint_diskmetadata_disk"},
+        {"@": "blueprint_diskmetadata_metadata"}
+      ]
+    }
+  }
+}

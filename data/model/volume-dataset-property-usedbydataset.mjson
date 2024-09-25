@@ -1,0 +1,49 @@
+{
+  "blueprint_volumedatasetpropertyusedbydataset_parsed": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parsed",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyUsedbydatasetValue"
+    }
+  },
+  "blueprint_volumedatasetpropertyusedbydataset_rawvalue": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rawvalue",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumedatasetpropertyusedbydataset_source": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "source",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertySource"
+    }
+  },
+  "blueprint_volumedatasetpropertyusedbydataset_value": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "value",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumeDatasetPropertyUsedbydataset",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumedatasetpropertyusedbydataset_parsed"},
+        {"@": "blueprint_volumedatasetpropertyusedbydataset_rawvalue"},
+        {"@": "blueprint_volumedatasetpropertyusedbydataset_source"},
+        {"@": "blueprint_volumedatasetpropertyusedbydataset_value"}
+      ]
+    }
+  }
+}

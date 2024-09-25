@@ -1,0 +1,92 @@
+{
+  "blueprint_simulatordisk_block_size": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "block_size",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_simulatordisk_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_simulatordisk_mediasize": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "mediasize",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_simulatordisk_model": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "model",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_simulatordisk_online": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "online",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_simulatordisk_path": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "path",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_simulatordisk_rpm": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rpm",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "SimulatorDiskRpm"
+    }
+  },
+  "blueprint_simulatordisk_serial": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "serial",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_simulatordisk_vendor": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "vendor",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "SimulatorDisk",
+      "propertyBlueprints": [
+        {"@": "blueprint_simulatordisk_block_size"},
+        {"@": "blueprint_simulatordisk_id"},
+        {"@": "blueprint_simulatordisk_mediasize"},
+        {"@": "blueprint_simulatordisk_model"},
+        {"@": "blueprint_simulatordisk_online"},
+        {"@": "blueprint_simulatordisk_path"},
+        {"@": "blueprint_simulatordisk_rpm"},
+        {"@": "blueprint_simulatordisk_serial"},
+        {"@": "blueprint_simulatordisk_vendor"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="current-user-summary.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "host": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "host"},
+                "disableTranslation": true
+            },
+            "bindings": {
+                "value": {"<-": "@owner.url"}
+            }
+        },
+        "user": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "user"},
+                "disableTranslation": true
+            },
+            "bindings": {
+                "value": {"<-": "@owner.user"}
+            }
+        },
+        "date": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "date"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.date"}
+            }
+        },
+        "time": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "time"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.time"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="CurrentUserSummary">
+        <div data-mod-id="user" class="CurrentUserSummary-user"></div>
+        <div data-mod-id="host" class="CurrentUserSummary-host Button--naked">
+            <span data-mod-id="host-full" class="CurrentUserSummary-host-full"></span>
+        </div>
+        <div class="CurrentUserSummary-time">
+            <div data-mod-id="date"></div>
+            <div data-mod-id="time"></div>
+        </div>
+    </div>
+</body>
+</html>

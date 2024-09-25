@@ -1,0 +1,110 @@
+{
+  "blueprint_rsyncdmodule_auxiliary": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "auxiliary",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_rsyncdmodule_description": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "description",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_rsyncdmodule_group": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "group",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_rsyncdmodule_hosts_allow": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "hosts_allow",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_rsyncdmodule_hosts_deny": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "hosts_deny",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_rsyncdmodule_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_rsyncdmodule_max_connections": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "max_connections",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_rsyncdmodule_mode": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "mode",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "RsyncdModuleMode"
+    }
+  },
+  "blueprint_rsyncdmodule_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_rsyncdmodule_path": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "path",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_rsyncdmodule_user": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "user",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "RsyncdModule",
+      "propertyBlueprints": [
+        {"@": "blueprint_rsyncdmodule_auxiliary"},
+        {"@": "blueprint_rsyncdmodule_description"},
+        {"@": "blueprint_rsyncdmodule_group"},
+        {"@": "blueprint_rsyncdmodule_hosts_allow"},
+        {"@": "blueprint_rsyncdmodule_hosts_deny"},
+        {"@": "blueprint_rsyncdmodule_id"},
+        {"@": "blueprint_rsyncdmodule_max_connections"},
+        {"@": "blueprint_rsyncdmodule_mode"},
+        {"@": "blueprint_rsyncdmodule_name"},
+        {"@": "blueprint_rsyncdmodule_path"},
+        {"@": "blueprint_rsyncdmodule_user"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "blueprint_session_active": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "active",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_session_ended_at": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "ended_at",
+      "blueprint": {"@": "root"},
+      "valueType": "datetime"
+    }
+  },
+  "blueprint_session_resource": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "resource",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_session_started_at": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "started_at",
+      "blueprint": {"@": "root"},
+      "valueType": "datetime"
+    }
+  },
+  "blueprint_session_tty": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "tty",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_session_username": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "username",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "Session",
+      "propertyBlueprints": [
+        {"@": "blueprint_session_active"},
+        {"@": "blueprint_session_ended_at"},
+        {"@": "blueprint_session_resource"},
+        {"@": "blueprint_session_started_at"},
+        {"@": "blueprint_session_tty"},
+        {"@": "blueprint_session_username"}
+      ]
+    }
+  }
+}

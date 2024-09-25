@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="share-owner.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "usersOptionsConverter": {
+            "prototype": "core/converter/select-option-converter",
+            "properties": {
+                "labelPropertyName": "username",
+                "valuePropertyName": "username"
+            }
+        },
+        "groupsOptionsConverter": {
+            "prototype": "core/converter/select-option-converter",
+            "properties": {
+                "labelPropertyName": "name",
+                "valuePropertyName": "name"
+            }
+        },
+        "ownerUser": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "ownerUser"},
+                "label": "Owner user",
+                "converter": {"@": "usersOptionsConverter"}
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.permissions.user"},
+                "options": {"<-": "@owner.users.sorted{builtin + username}"}
+            }
+        },
+        "ownerGroup": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "ownerGroup"},
+                "label": "Owner group",
+                "converter": {"@": "groupsOptionsConverter"}
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.permissions.group"},
+                "options": {"<-": "@owner.groups.sorted{builtin + name}"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="ShareOwner">
+        <div data-mod-id="ownerUser"></div>
+        <div data-mod-id="ownerGroup"></div>
+    </div>
+</body>
+</html>

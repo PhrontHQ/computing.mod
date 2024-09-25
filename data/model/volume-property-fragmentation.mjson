@@ -1,0 +1,49 @@
+{
+  "blueprint_volumepropertyfragmentation_parsed": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parsed",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertyFragmentationValue"
+    }
+  },
+  "blueprint_volumepropertyfragmentation_rawvalue": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rawvalue",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumepropertyfragmentation_source": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "source",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertySource"
+    }
+  },
+  "blueprint_volumepropertyfragmentation_value": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "value",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumePropertyFragmentation",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumepropertyfragmentation_parsed"},
+        {"@": "blueprint_volumepropertyfragmentation_rawvalue"},
+        {"@": "blueprint_volumepropertyfragmentation_source"},
+        {"@": "blueprint_volumepropertyfragmentation_value"}
+      ]
+    }
+  }
+}

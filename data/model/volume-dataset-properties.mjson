@@ -1,0 +1,250 @@
+{
+  "blueprint_volumedatasetproperties_atime": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "atime",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyAtime"
+    }
+  },
+  "blueprint_volumedatasetproperties_available": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "available",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyAvailable"
+    }
+  },
+  "blueprint_volumedatasetproperties_casesensitivity": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "casesensitivity",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyCasesensitivity"
+    }
+  },
+  "blueprint_volumedatasetproperties_compression": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "compression",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyCompression"
+    }
+  },
+  "blueprint_volumedatasetproperties_compressratio": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "compressratio",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyCompressratio"
+    }
+  },
+  "blueprint_volumedatasetproperties_dedup": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "dedup",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyDedup"
+    }
+  },
+  "blueprint_volumedatasetproperties_logicalreferenced": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "logicalreferenced",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyLogicalreferenced"
+    }
+  },
+  "blueprint_volumedatasetproperties_logicalused": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "logicalused",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyLogicalused"
+    }
+  },
+  "blueprint_volumedatasetproperties_numclones": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "numclones",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyNumclones"
+    }
+  },
+  "blueprint_volumedatasetproperties_quota": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "quota",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyQuota"
+    }
+  },
+  "blueprint_volumedatasetproperties_readonly": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "readonly",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyReadonly"
+    }
+  },
+  "blueprint_volumedatasetproperties_refcompressratio": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "refcompressratio",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyRefcompressratio"
+    }
+  },
+  "blueprint_volumedatasetproperties_referenced": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "referenced",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyReferenced"
+    }
+  },
+  "blueprint_volumedatasetproperties_refquota": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "refquota",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyRefquota"
+    }
+  },
+  "blueprint_volumedatasetproperties_refreservation": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "refreservation",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyRefreservation"
+    }
+  },
+  "blueprint_volumedatasetproperties_reservation": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "reservation",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyReservation"
+    }
+  },
+  "blueprint_volumedatasetproperties_used": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "used",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyUsed"
+    }
+  },
+  "blueprint_volumedatasetproperties_usedbychildren": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "usedbychildren",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyUsedbychildren"
+    }
+  },
+  "blueprint_volumedatasetproperties_usedbydataset": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "usedbydataset",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyUsedbydataset"
+    }
+  },
+  "blueprint_volumedatasetproperties_usedbyrefreservation": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "usedbyrefreservation",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyUsedbyrefreservation"
+    }
+  },
+  "blueprint_volumedatasetproperties_usedbysnapshots": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "usedbysnapshots",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyUsedbysnapshots"
+    }
+  },
+  "blueprint_volumedatasetproperties_volblocksize": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "volblocksize",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyVolblocksize"
+    }
+  },
+  "blueprint_volumedatasetproperties_volsize": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "volsize",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyVolsize"
+    }
+  },
+  "blueprint_volumedatasetproperties_written": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "written",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyWritten"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumeDatasetProperties",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumedatasetproperties_atime"},
+        {"@": "blueprint_volumedatasetproperties_available"},
+        {"@": "blueprint_volumedatasetproperties_casesensitivity"},
+        {"@": "blueprint_volumedatasetproperties_compression"},
+        {"@": "blueprint_volumedatasetproperties_compressratio"},
+        {"@": "blueprint_volumedatasetproperties_dedup"},
+        {"@": "blueprint_volumedatasetproperties_logicalreferenced"},
+        {"@": "blueprint_volumedatasetproperties_logicalused"},
+        {"@": "blueprint_volumedatasetproperties_numclones"},
+        {"@": "blueprint_volumedatasetproperties_quota"},
+        {"@": "blueprint_volumedatasetproperties_readonly"},
+        {"@": "blueprint_volumedatasetproperties_refcompressratio"},
+        {"@": "blueprint_volumedatasetproperties_referenced"},
+        {"@": "blueprint_volumedatasetproperties_refquota"},
+        {"@": "blueprint_volumedatasetproperties_refreservation"},
+        {"@": "blueprint_volumedatasetproperties_reservation"},
+        {"@": "blueprint_volumedatasetproperties_used"},
+        {"@": "blueprint_volumedatasetproperties_usedbychildren"},
+        {"@": "blueprint_volumedatasetproperties_usedbydataset"},
+        {"@": "blueprint_volumedatasetproperties_usedbyrefreservation"},
+        {"@": "blueprint_volumedatasetproperties_usedbysnapshots"},
+        {"@": "blueprint_volumedatasetproperties_volblocksize"},
+        {"@": "blueprint_volumedatasetproperties_volsize"},
+        {"@": "blueprint_volumedatasetproperties_written"}
+      ]
+    }
+  }
+}

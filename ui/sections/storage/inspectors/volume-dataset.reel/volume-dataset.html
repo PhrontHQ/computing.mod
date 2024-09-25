@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="volume-dataset.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"},
+                "inspector": {"@": "inspector"},
+                "treeController": {"@": "datasetTreeController"}
+            },
+            "bindings": {
+                "mode": {"<-": "@owner.object._isNew.defined() && @owner.object._isNew ? 'CREATE' : 'EDIT'"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "controller": {"@": "owner"},
+                "validationController": {"@": "validationController"},
+                "canRevert": true,
+                "canSave": true,
+                "needsExtraConfirm": true,
+                "extraDeleteMessage": "I am sure that I wish to delete my dataset and all the data on it"
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "canDelete": {"<-": "!@owner.object._isNew && @owner.object.name != @owner.object.volume"}
+            }
+        },
+        "datasetTreeController": {
+            "prototype": "core/controller/tree/dataset-tree-controller",
+            "bindings": {
+                "service": {"<-": "@owner.application.dataService"},
+                "root": {"<-": "@owner.object._volume.id"}
+            }
+        },
+        "nameSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "nameSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.mode"}
+            }
+        },
+        "id": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "nameInput"},
+                "label": "Name"
+            },
+             "bindings": {
+                "value": {"<->": "@owner.name"}
+            }
+        },
+        "volume": {
+            "prototype": "ui/controls/field-treeview.reel",
+            "properties": {
+                "element": {"#": "pathSelector"},
+                "controller": {"@": "datasetTreeController"},
+                "label": "Path",
+                "allowPathInput": true
+            },
+            "bindings": {
+                "selectedPath": {"<->": "@owner.path"},
+                "suffix": {"<-": "@owner.name"}
+            }
+        },
+        "nameDisplay": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "nameDisplay"},
+                "label": "Name"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.id"}
+            }
+        },
+        "select-option-converter": {
+            "prototype": "core/converter/select-option-converter"
+        },
+        "typeSelector": {
+            "prototype": "blue-shark.mod/ui/field-radio-group.reel",
+            "properties": {
+                "element": {"#": "typeSelector"},
+                "label": "Dataset Type",
+                "converter": {"@": "select-option-converter"}
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.type"},
+                "options": {"<-": "@owner.TYPE_OPTIONS"},
+                "classList.has('hide')": {"<-": "!@owner.object._isNew"}
+            }
+        },
+        "settings": {
+            "prototype": "./volume-dataset-settings.reel",
+            "properties": {
+                "element": {"#": "settings"}
+            },
+            "bindings": {
+                "object": {"<->": "@owner.object"}
+            }
+        },
+        "createdCondition": {
+            "prototype": "mod/ui/condition.reel",
+            "properties": {
+                "element": {"#": "createdCondition"}
+            },
+            "bindings": {
+                "condition": {"<-": "!@owner.object._isNew"}
+            }
+        },
+        "replicate": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "replicate"},
+                "name": "Replicate",
+                "path": "replication"
+            }
+        },
+        "snapshots": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "snapshots"},
+                "objectType": "VolumeSnapshot",
+                "name": "Snapshots"
+            }
+        },
+        "permissions": {
+            "prototype": "./volume-dataset-permissions.reel",
+            "properties": {
+                "element": {"#": "permissions"}
+            },
+            "bindings": {
+                "object": {"<->": "@owner.object"},
+                "classList.has('hide')": {"<-": "@owner.object.type != 'FILESYSTEM'"}
+            }
+        },
+        "vmwareSnapshots": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "vmwareSnapshots"},
+                "name": "VMware Snapshots",
+                "objectType": "VmwareDataset"
+            },
+            "bindings": {
+                "object": {"<-": "@owner.vmwareDatasets.filter{dataset == @owner.object.id}"}
+            }
+        },
+        "share": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "share"},
+                "name": "Share",
+                "path": "_/share"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "!@owner.object._share"}
+            }
+        },
+        "checkbox": {
+             "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+             "properties": {
+                 "element": {"#": "checkbox"},
+                 "label": "Hidden"
+             },
+             "bindings": {
+                 "checked": {"<->": "@owner.object.hidden"}
+             }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="VolumeDataset">
+        <div data-mod-id="inspector">
+            <div data-mod-id="nameSubstitution">
+                <div data-arg="CREATE">
+                    <div data-mod-id="nameInput"></div>
+                    <div data-mod-id="pathSelector"></div>
+                </div>
+                <div data-arg="EDIT">
+                    <div data-mod-id="nameDisplay"></div> 
+                    <div data-mod-id="checkbox"></div>
+                </div>
+            </div>
+            <div data-mod-id="typeSelector"></div>
+            <div data-mod-id="settings"></div>
+            <div data-mod-id="permissions"></div>
+            <div data-mod-id="createdCondition">
+                <div data-mod-id="replicate"></div>
+                <div data-mod-id="snapshots"></div>
+                <div data-mod-id="vmwareSnapshots"></div>
+                <div data-mod-id="share"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="topology-item.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('has-items')": {"<-": "@controller.content.length > 0"}
+            }
+        },
+        "bytesConverter": {
+            "prototype": "mod/core/converter/bytes-converter"
+        },
+        "name": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "name"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.name"}
+            }
+        },
+        "usableSize": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "usableSize"},
+                "converter": {"@": "bytesConverter"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.vdevs.map{_availableSize}.sum() + @allocationBar.usedSize"}
+            }
+        },
+        "allocationBar": {
+            "prototype": "ui/controls/allocation-bar.reel",
+            "properties": {
+                "element": {"#": "allocationBar"}
+            },
+            "bindings": {
+                "classList.has('is-visible')": {"<-": "@owner.hasAllocationBar && @owner.vdevs && @owner.vdevs.length > 0"},
+                "usedSize": {"<-": "@owner.vdevs.map{_usedSize}.sum()"},
+                "paritySize": {"<-": "@owner.vdevs.map{_paritySize}.sum()"},
+                "totalSize": {"<-": "@usableSize.value + @allocationBar.paritySize"},
+                "available": {"<-": "@allocationBar.totalSize - (@allocationBar.usedSize + @allocationBar.paritySize)"}
+            }
+        },
+        "controller": {
+            "prototype": "mod/core/range-controller",
+            "bindings": {
+                "content": {"<-": "@owner.vdevs.reversed()"}
+            }
+        },
+        "vdevsGrid": {
+            "prototype": "ui/controls/grid.reel",
+            "properties": {
+                "element": {"#": "vdevsGrid"},
+                "controller": {"@": "controller"},
+                "icon": "ui/controls/topology.reel/vdev.reel"
+            }
+        },
+        "dropZone": {
+            "prototype": "../topology-dropzone.reel",
+            "properties": {
+                "element": {"#": "drop-zone"},
+                "vDevController": {"@": "controller"},
+                "scrollView": {"@": "scrollView"}
+            },
+            "bindings": {
+                "identifier": {"<-": "@owner.gridIdentifier"}
+            }
+        },
+        "scrollView": {
+            "prototype": "blue-shark.mod/ui/scroller.reel",
+            "properties": {
+                "element": {"#": "scrollView"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="TopologyItem">
+        <div data-mod-id="drop-zone" class="TopologyItem-dropZone">
+            <div class="TopologyItem-title">
+                <div class="TopologyItem-title-content">
+                    <span data-mod-id="name"></span>
+                    <span class="TopologyItemTitle-size">
+                        <span data-mod-id="usableSize"></span>
+                    </span>
+                </div>
+            </div>
+            <div data-mod-id="allocationBar" class="TopologyItem-allocationBar"></div>
+            <div data-mod-id="scrollView">
+                <div class="TopologyItem-grid">
+                    <div data-mod-id="vdevsGrid" class="vdevs-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

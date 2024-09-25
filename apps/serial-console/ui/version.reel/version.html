@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="version.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "version"}
+            }
+        },
+        "modVersion": {
+            "prototype": "mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "modVersion"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.modDescription.version"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <footer data-mod-id="version" class="Version">Mod version: <span data-mod-id="modVersion"></span></footer>
+</body>
+</html>

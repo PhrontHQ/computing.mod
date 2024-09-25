@@ -1,0 +1,119 @@
+{
+  "blueprint_updateprogress_details": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "details",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_updateprogress_error": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "error",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_updateprogress_filesize": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "filesize",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_updateprogress_finished": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "finished",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_updateprogress_indeterminate": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "indeterminate",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_updateprogress_num_files_done": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "num_files_done",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_updateprogress_num_files_total": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "num_files_total",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_updateprogress_operation": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "operation",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "UpdateProgressOperation"
+    }
+  },
+  "blueprint_updateprogress_percent": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "percent",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_updateprogress_pkg_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "pkg_name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_updateprogress_pkg_version": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "pkg_version",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_updateprogress_reboot": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "reboot",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "UpdateProgress",
+      "propertyBlueprints": [
+        {"@": "blueprint_updateprogress_details"},
+        {"@": "blueprint_updateprogress_error"},
+        {"@": "blueprint_updateprogress_filesize"},
+        {"@": "blueprint_updateprogress_finished"},
+        {"@": "blueprint_updateprogress_indeterminate"},
+        {"@": "blueprint_updateprogress_num_files_done"},
+        {"@": "blueprint_updateprogress_num_files_total"},
+        {"@": "blueprint_updateprogress_operation"},
+        {"@": "blueprint_updateprogress_percent"},
+        {"@": "blueprint_updateprogress_pkg_name"},
+        {"@": "blueprint_updateprogress_pkg_version"},
+        {"@": "blueprint_updateprogress_reboot"}
+      ]
+    }
+  }
+}

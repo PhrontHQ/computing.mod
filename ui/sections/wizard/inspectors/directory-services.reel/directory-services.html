@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "_windbindTable": {"@": "windbind"},
+                "_freeipaTable": {"@": "freeipa"},
+                "_ldapTable": {"@": "ldap"},
+                "_nisTable": {"@": "nis"}
+            },
+            "bindings": {
+                "object.__directoryServices": {"<-": "[].concat(@windbind.values, @freeipa.values, @ldap.values, @nis.values)"}
+            }
+        },
+
+        "windbind": {
+            "prototype": "./table-active-directory.reel",
+            "properties": {
+                "element": {"#": "windbind"}
+            },
+            "bindings": {
+                "_sectionService": {"<-": "@owner._sectionService"}
+            }
+        },
+
+        "freeipa": {
+            "prototype": "./table-freeipa.reel",
+            "properties": {
+                "element": {"#": "freeipa"}
+            },
+            "bindings": {
+                "_sectionService": {"<-": "@owner._sectionService"}
+            }
+        },
+
+        "ldap": {
+            "prototype": "./table-ldap.reel",
+            "properties": {
+                "element": {"#": "ldap"}
+            },
+            "bindings": {
+                "_sectionService": {"<-": "@owner._sectionService"}
+            }
+        },
+
+        "nis": {
+            "prototype": "./table-nis.reel",
+            "properties": {
+                "element": {"#": "nis"}
+            },
+            "bindings": {
+                "_sectionService": {"<-": "@owner._sectionService"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="DirectoryServices-wizard">
+        <div data-mod-id="windbind" class="g-margin-bottom"></div>
+        <div data-mod-id="freeipa" class="g-margin-bottom"></div>
+        <div data-mod-id="ldap" class="g-margin-bottom"></div>
+        <div data-mod-id="nis" class="g-margin-bottom"></div>
+    </div>
+</body>
+</html>

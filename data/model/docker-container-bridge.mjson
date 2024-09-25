@@ -1,0 +1,28 @@
+{
+  "blueprint_dockercontainerbridge_address": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "address",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_dockercontainerbridge_enable": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "enable",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "DockerContainerBridge",
+      "propertyBlueprints": [
+        {"@": "blueprint_dockercontainerbridge_address"},
+        {"@": "blueprint_dockercontainerbridge_enable"}
+      ]
+    }
+  }
+}

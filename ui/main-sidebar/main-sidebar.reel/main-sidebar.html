@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="main-sidebar.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('has-confirmation')": {"<-": "!!@owner._confirmationDeferred"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "navigation": {
+            "prototype": "../main-navigation.reel",
+            "properties": {
+                "element": {"#": "navigation"}
+            }
+        },
+        "userSummary": {
+            "prototype": "../current-user-summary.reel",
+            "properties": {
+                "element": {"#": "userSummary"}
+            }
+        },
+        "logout": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "logout"},
+                "value": "Logout",
+                "hasTemplate": false
+            }
+        },
+        "logoutLabel": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "logoutLabel"},
+                "value": "Logout"
+            }
+        },
+        "reboot": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "reboot"},
+                "value": "Reboot",
+                "hasTemplate": false
+            }
+        },
+        "rebootLabel": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "rebootLabel"},
+                "value": "Reboot"
+            }
+        },
+        "shutdown": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "shutdown"},
+                "value": "Shutdown",
+                "hasTemplate": false
+            }
+        },
+        "shutdownLabel": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "shutdownLabel"},
+                "value": "Shutdown"
+            }
+        },
+        "confirmationMessage": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "confirmationMessage"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.confirmationMessage"}
+            }
+        },
+        "confirm": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "confirm"}
+            },
+            "bindings": {
+                "label": {"<-": "@owner.confirmationButtonLabel || 'Confirm'"}
+            }
+        },
+        "cancel": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "cancel"},
+                "label": "Cancel"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="MainSidebar">
+        <div class="MainSidebar-logo-container">
+            <div class="MainSidebar-logo"></div>
+        </div>
+        <div data-mod-id="navigation" class="MainSidebar-navigation"></div>
+        <div data-mod-id="userSummary" class="MainSidebar-userSummary"></div>
+        <div class="MainSidebar-globalActions">
+            <div class="MainSidebar-globalActions-button" tabindex="0">
+                <svg><use xlink:href="#i-power"/></svg>
+            </div>
+            <ul class="MainSidebar-globalActions-options">
+                <li><button data-mod-id="logout"><span data-mod-id="logoutLabel"></span></button></li>
+                <li><button data-mod-id="reboot"><span data-mod-id="rebootLabel"></span></button></li>
+                <li><button data-mod-id="shutdown"><span data-mod-id="shutdownLabel"></span></button></li>
+            </ul>
+            <div class="MainSidebar-confirmation">
+                <div data-mod-id="confirmationMessage" class="MainSidebar-confirmation-message"></div>
+                <button data-mod-id="confirm" class="Button--primary"></button>
+                <button data-mod-id="cancel"></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

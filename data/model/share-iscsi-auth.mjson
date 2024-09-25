@@ -1,0 +1,65 @@
+{
+  "blueprint_shareiscsiauth_description": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "description",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_shareiscsiauth_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_shareiscsiauth_initiators": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "initiators",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_shareiscsiauth_networks": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "networks",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_shareiscsiauth_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "ShareIscsiAuthType"
+    }
+  },
+  "blueprint_shareiscsiauth_users": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "users",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ShareIscsiAuth",
+      "propertyBlueprints": [
+        {"@": "blueprint_shareiscsiauth_description"},
+        {"@": "blueprint_shareiscsiauth_id"},
+        {"@": "blueprint_shareiscsiauth_initiators"},
+        {"@": "blueprint_shareiscsiauth_networks"},
+        {"@": "blueprint_shareiscsiauth_type"},
+        {"@": "blueprint_shareiscsiauth_users"}
+      ]
+    }
+  }
+}

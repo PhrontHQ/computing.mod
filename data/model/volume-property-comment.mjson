@@ -1,0 +1,49 @@
+{
+  "blueprint_volumepropertycomment_parsed": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parsed",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertyCommentValue"
+    }
+  },
+  "blueprint_volumepropertycomment_rawvalue": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rawvalue",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumepropertycomment_source": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "source",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertySource"
+    }
+  },
+  "blueprint_volumepropertycomment_value": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "value",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumePropertyComment",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumepropertycomment_parsed"},
+        {"@": "blueprint_volumepropertycomment_rawvalue"},
+        {"@": "blueprint_volumepropertycomment_source"},
+        {"@": "blueprint_volumepropertycomment_value"}
+      ]
+    }
+  }
+}

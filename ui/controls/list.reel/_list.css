@@ -1,0 +1,9 @@
+.List-item + .List-item > * {
+    border-top-color: transparent;
+}
+
+.ListItem .dummy {
+    position: absolute;
+    margin: -1000px;
+    z-index: -1000;
+}

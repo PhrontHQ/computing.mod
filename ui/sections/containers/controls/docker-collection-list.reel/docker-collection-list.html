@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "selectedCollection": {"<->": "@list.selectedObject"}
+            }
+        },
+        "list": {
+            "prototype": "ui/controls/list.reel",
+            "properties": {
+                "element": {"#": "dockerCollection"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.instances"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="DockerCollectionList">
+        <div data-mod-id="dockerCollection"></div>
+    </div>
+</body>
+</html>

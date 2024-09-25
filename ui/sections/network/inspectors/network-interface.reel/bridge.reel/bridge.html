@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="bridge.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "members": {
+            "prototype": "blue-shark.mod/ui/field-select-multiple.reel",
+            "properties": {
+                "element": {"#": "members"},
+                "label": "Members",
+                "valuePropertyName": "id",
+                "labelPropertyName": "id"
+            },
+            "bindings": {
+                "options": {"<-": "@owner.memberOptions"},
+                "selectedValues": {"<->": "@owner.object.members"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Bridge">
+        <div data-mod-id="members"></div>
+    </div>
+</body>
+</html>

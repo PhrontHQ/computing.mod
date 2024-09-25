@@ -1,0 +1,31 @@
+{
+  "propertyblueprint": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "%type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "compress-replication-transport-option"
+      ]
+    }
+  },
+  "blueprint_compressreplicationtransportoption_level": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "level",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "CompressPluginLevel"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "CompressReplicationTransportOption",
+      "propertyBlueprints": [
+        {"@": "propertyblueprint"},
+        {"@": "blueprint_compressreplicationtransportoption_level"}
+      ]
+    }
+  }
+}

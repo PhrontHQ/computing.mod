@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="lldp-service.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "enable": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "enable"},
+                "label": "Interface Description"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.enable"}
+            }
+        },
+        "location": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "location"},
+                "label": "location"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.location"}
+            }
+        },
+
+        "country_code": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "country_code"},
+                "label": "Country Code"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.country_code"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="LldpService">
+        <div data-mod-id="enable"></div>
+        <div data-mod-id="location"></div>
+        <div data-mod-id="country_code"></div>
+    </div>
+</body>
+</html>

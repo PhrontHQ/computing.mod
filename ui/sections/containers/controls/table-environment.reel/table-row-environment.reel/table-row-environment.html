@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "variable": {
+            "prototype": "blue-shark.mod/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "variable"},
+                "placeholder": "e.g. variable"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.id"}
+            }
+        },
+
+        "value": {
+            "prototype": "blue-shark.mod/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "value"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.value"},
+                "placeholder": {"<-": "@owner.object.description ?? 'e.g. value'"}
+            }
+        },
+
+        "optional": {
+            "prototype": "blue-shark.mod/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "optional"},
+                "disabled": true
+            },
+            "bindings": {
+                "checked": {"<-": "!@owner.object.optional.defined() || @owner.object.optional ? true : false"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="TableRowEnvironment Table-cells">
+        <div><div data-mod-id="variable"></div></div>
+        <div><div data-mod-id="value"></div></div>
+        <div><div data-mod-id="optional"></div></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "viewer": {"@": "viewer"}
+            }
+        },
+        "viewer": {
+            "prototype": "ui/controls/viewer.reel",
+            "properties": {
+                "element": {"#": "viewer"}
+            },
+            "bindings": {
+                "object": {"<-": "@owner.certificates"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Certificates">
+        <div data-mod-id="viewer"></div>
+    </div>
+</body>
+</html

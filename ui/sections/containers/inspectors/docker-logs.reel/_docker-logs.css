@@ -1,0 +1,11 @@
+.DockerLogs {
+
+    & .Inspector-body {
+        flex: 1 !important;
+        display: flex !important;
+    }
+}
+
+.DockerLogs .Console {
+    min-width: 40rem;
+}

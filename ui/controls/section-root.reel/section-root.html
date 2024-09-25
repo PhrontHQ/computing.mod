@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="section-root.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "selectedEntry": {"<->": "@entries.selectedObject"},
+                "selectedExtraEntry": {"<->": "@extraEntries.selectedObject"},
+                "classList.has('has-disabled-overlay')": {"<-": "!!@owner._disabledMessage"}
+            }
+        },
+        "overview": {
+            "prototype": "ui/controls/placeholder.reel",
+            "properties": {
+                "element": {"#": "overview"}
+            },
+            "bindings": {
+                "object": {"<-": "@owner.object.overview"},
+                "moduleId": {"<-": "@owner.object.overview.defined() && 'ui/sections/' + @owner.object.id + '/inspectors/overview.reel'"}
+            }
+        },
+        "entries": {
+            "prototype": "ui/controls/viewer.reel",
+            "properties": {
+                "element": {"#": "entries"},
+                "displayTitle": true,
+                "sortingKey": "_order"
+            },
+            "bindings": {
+                "object": {"<-": "@owner.object.entries"},
+                "title": {"<-": "@owner.object.entriesTitle"}
+            }
+        },
+        "extraEntries": {
+            "prototype": "ui/controls/viewer.reel",
+            "properties": {
+                "element": {"#": "extraEntries"},
+                "hideTitle": true
+            },
+            "bindings": {
+                "object": {"<-": "@owner.object.extraEntries"},
+                "classList.has('is-hidden')": {"<-": "!@owner.object.extraEntries"}
+            }
+        },
+        "settings": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "settings"},
+                "name": "Settings",
+                "path": "settings",
+                "objectType": "SectionSettings"
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "!@owner.object.settings.settings"}
+            }
+        },
+        "disabledMessage": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "disabledMessage"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner._disabledMessage"}
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "isFooterHidden": true
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "hideHeader": {"<-": "!@owner.object.overview"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="SectionRoot">
+        <div data-mod-id="inspector">
+            <div data-mod-id="overview" class="SectionRoot-overview"></div>
+            <div data-mod-id="entries" class="SectionRoot-entries"></div>
+            <div data-mod-id="extraEntries" class="SectionRoot-extraEntries"></div>
+            <div data-mod-id="settings"></div>
+            <div data-mod-id="disabledMessage" class="SectionRoot-disabledMessage"></div>
+        </div>
+    </div>
+</body>
+</html>

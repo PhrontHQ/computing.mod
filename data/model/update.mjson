@@ -1,0 +1,38 @@
+{
+  "blueprint_update_check_auto": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "check_auto",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_update_train": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "train",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_update_update_server": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "update_server",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "Update",
+      "propertyBlueprints": [
+        {"@": "blueprint_update_check_auto"},
+        {"@": "blueprint_update_train"},
+        {"@": "blueprint_update_update_server"}
+      ]
+    }
+  }
+}

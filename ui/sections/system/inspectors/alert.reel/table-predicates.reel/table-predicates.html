@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "table": {
+            "prototype": "blue-shark.mod/ui/tables/table-editable.reel",
+            "properties": {
+                "element": {"#": "table"},
+                "delegate": {"@": "owner"},
+                "label": "Alert Notifications",
+                "contentMaxHeight": 25,
+                "columns":  [
+                    {
+                        "value": "Event"
+                    },
+                    {
+                        "value": "Action"
+                    },
+                    {
+                        "value": "Recipients"
+                    }
+                ]
+            },
+            "bindings": {
+                "rows": {"<-": "@owner.rows"}
+            }
+        },
+
+        "defaultHeader": {
+            "prototype": "./table-container-default-header.reel",
+            "properties": {
+                "element": {"#": "tableHeader"},
+                "table": {"@": "table"}
+            }
+        },
+
+        "newEntry": {
+            "prototype": "./table-row-predicate.reel",
+            "properties": {
+                "element": {"#": "newEntry"}
+            },
+            "bindings": {
+                "object": {"<-": "@table.currentNewEntry.object"}
+            }
+        },
+
+        "entry": {
+            "prototype": "./table-row-predicate.reel",
+            "properties": {
+                "element": {"#": "entry"}
+            },
+            "bindings": {
+                "object": {"<-": "@table:rowIteration.object.object"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="TablePredicate">
+        <div data-mod-id="table">
+            <div data-arg="table-editable-header-toolbar" data-mod-id="tableHeader"></div>
+            <div data-arg="row-new" data-mod-id="newEntry" class="Table-row"></div>
+            <div data-arg="row-entry" data-mod-id="entry" class="Table-row"></div>
+        </div>
+    </div>
+</body>
+</html>

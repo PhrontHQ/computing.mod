@@ -1,0 +1,77 @@
+{
+  "blueprint_aclentry_flags": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "flags",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "AclEntryFlags"
+    }
+  },
+  "blueprint_aclentry_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_aclentry_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_aclentry_perms": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "perms",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "AclEntryPerms"
+    }
+  },
+  "blueprint_aclentry_tag": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "tag",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "AclEntryTag"
+    }
+  },
+  "blueprint_aclentry_text": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "text",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_aclentry_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "AclEntryType"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "AclEntry",
+      "propertyBlueprints": [
+        {"@": "blueprint_aclentry_flags"},
+        {"@": "blueprint_aclentry_id"},
+        {"@": "blueprint_aclentry_name"},
+        {"@": "blueprint_aclentry_perms"},
+        {"@": "blueprint_aclentry_tag"},
+        {"@": "blueprint_aclentry_text"},
+        {"@": "blueprint_aclentry_type"}
+      ]
+    }
+  }
+}

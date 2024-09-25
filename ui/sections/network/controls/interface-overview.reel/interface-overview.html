@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="interface-overview.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "interfaceIcon": {
+            "prototype": "ui/controls/placeholder.reel",
+            "properties": {
+                "element": {"#": "interfaceIcon"}
+            },
+            "bindings": {
+                "moduleId": {"<-": "@owner.userInterfaceDescriptor.iconComponentModule.id || @owner.userInterfaceDescriptor.iconComponentModule['%']"},
+                "object": {"<-": "@owner.object"}
+            }
+        },
+        "media_type": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "media_type"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.status.media_type"}
+            }
+        },
+        "name": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "name"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.id"}
+            }
+        },
+         "status": {
+            "prototype": "ui/controls/traffic-light.reel",
+            "properties": {
+                "element": {"#": "status"}
+            },
+            "bindings": {
+                "colorMapping": {"<-": "!@owner.object._isNew && @owner.userInterfaceDescriptor.statusColorMapping"},
+                "value": {"<-": "@owner.object.path(@owner.userInterfaceDescriptor.statusValueExpression)"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="InterfaceOverview">
+        <div data-mod-id="interfaceIcon" class="InterfaceOverview-icon"></div>
+        <div class="InterfaceOverview-info">
+            <p>
+                <span data-mod-id="name"></span>
+                <span data-mod-id="media_type" class="InterfaceOverview-type"></span>
+            </p>
+            <div data-mod-id="status"></div>
+        </div>
+    </div>
+</body>
+</html>

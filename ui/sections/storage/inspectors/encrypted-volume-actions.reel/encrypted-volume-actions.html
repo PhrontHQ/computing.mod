@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="encrypted-volume-actions.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('unlock')":  {"<-": "@owner.providers == 'NONE' || @owner.providers == 'PART'"},
+                "classList.has('lock')":    {"<-": "@owner.providers == 'ALL'  || @owner.providers == 'PART'"},
+                "classList.has('rekey')":   {"<-": "@owner.providers == 'ALL'"},
+                "classList.has('backup')":  {"<-": "@owner.providers == 'ALL'"},
+                "classList.has('restore')": {"<-": "@owner.providers == 'NONE'"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "isFooterHidden": true
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"}
+            }
+        },
+        "lockButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "lockButton"},
+                "value": "Lock volume"
+            }
+        },
+        "unlockPassword": {
+            "prototype": "blue-shark.mod/ui/field-password-input.reel",
+            "properties": {
+                "element": {"#": "unlockPassword"},
+                "label": "Unlock password"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.unlockPassword"}
+            }
+        },
+        "unlockButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "unlockButton"},
+                "value": "Unlock volume"
+            }
+        },
+        "rekeySection": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "rekeySection"},
+                "value": "Re-key"
+            }
+        },
+        "rekeyKey": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "rekeyKey"},
+                "label": "Key"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.rekeyKey"}
+            }
+        },
+        "rekeyPassword": {
+            "prototype": "blue-shark.mod/ui/field-password-input.reel",
+            "properties": {
+                "element": {"#": "rekeyPassword"},
+                "label": "Password",
+                "placeholder": "enter password..."
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.rekeyPassword"}
+            }
+        },
+        "rekeyButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "rekeyButton"},
+                "value": "Rekey"
+            },
+            "bindings": {
+                "disabled": {"<-": "!(@owner.object.rekeyKey || @owner.object.rekeyPassword)"}
+            }
+        },
+        "keySection": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "keySection"},
+                "value": "Key management"
+            }
+        },
+        "backupKey": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "backupKey"},
+                "value": "Download key"
+            }
+        },
+        "backupKeyPassword": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "backupKeyPassword"},
+                "label": "Backup key password"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "!@owner.object.backupKeyPassword"},
+                "value": {"<-": "@owner.object.backupKeyPassword"}
+            }
+        },
+        "uploadKey": {
+            "prototype": "blue-shark.mod/ui/field-file-reader.reel",
+            "properties": {
+                "element": {"#": "uploadKey"},
+                "label": "Upload key file",
+                "resultType": "file"
+            },
+            "bindings": {
+                 "data": {"<->": "@owner.object.keyFile"}
+            }
+        },
+        "restoreKeyPassword": {
+            "prototype": "blue-shark.mod/ui/field-password-input.reel",
+            "properties": {
+                "element": {"#": "restoreKeyPassword"},
+                "label": "Restore key password"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.restoreKeyPassword"}
+            }
+        },
+        "restoreKey": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "restoreKey"},
+                "value": "Restore key"
+            },
+            "bindings": {
+                "disabled": {"<-": "!(@owner.object.keyFile && @owner.object.restoreKeyPassword)"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="EncryptedVolumeActions">
+        <div data-mod-id="inspector">
+            <div class="section lockSection">
+                <div data-mod-id="lockButton" class="Button--block"></div>
+            </div>
+
+            <div class="section unlockSection">
+                <div data-mod-id="unlockPassword"></div>
+                <div data-mod-id="unlockButton"></div>
+            </div>
+
+            <div class="section rekeySection">
+                <div data-mod-id="rekeySection"></div>
+                <div data-mod-id="rekeyKey"></div>
+                <div data-mod-id="rekeyPassword"></div>
+                <div data-mod-id="rekeyButton"></div>
+            </div>
+
+            <div class="backupSection restoreSection">
+                <div data-mod-id="keySection"></div>
+                <div class="section backupSection">
+                    <div data-mod-id="backupKey" class="g-margin-bottom"></div>
+                    <div data-mod-id="backupKeyPassword"></div>
+                </div>
+
+                <div class="section restoreSection">
+                    <div data-mod-id="uploadKey"></div>
+                    <div data-mod-id="restoreKeyPassword"></div>
+                    <div data-mod-id="restoreKey"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

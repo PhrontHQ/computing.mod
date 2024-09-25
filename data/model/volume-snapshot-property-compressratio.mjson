@@ -1,0 +1,49 @@
+{
+  "blueprint_volumesnapshotpropertycompressratio_parsed": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parsed",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeSnapshotPropertyCompressratioValue"
+    }
+  },
+  "blueprint_volumesnapshotpropertycompressratio_rawvalue": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rawvalue",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumesnapshotpropertycompressratio_source": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "source",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertySource"
+    }
+  },
+  "blueprint_volumesnapshotpropertycompressratio_value": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "value",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumeSnapshotPropertyCompressratio",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumesnapshotpropertycompressratio_parsed"},
+        {"@": "blueprint_volumesnapshotpropertycompressratio_rawvalue"},
+        {"@": "blueprint_volumesnapshotpropertycompressratio_source"},
+        {"@": "blueprint_volumesnapshotpropertycompressratio_value"}
+      ]
+    }
+  }
+}

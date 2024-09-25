@@ -1,0 +1,41 @@
+.ButtonGroup-repetition {
+    user-select: none;
+    white-space: nowrap;
+}
+
+.ButtonGroup-option {
+    display: inline-block;
+    font-family: 'lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+    background-color: var(--grey-2);
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color: var(--grey-2);
+    color: var(--grey);
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-size: 18px;
+    line-height: 1.33;
+    padding: 10px 16px;
+}
+
+.ButtonGroup-option:hover {
+    background-color: var(--grey-3);
+}
+
+.ButtonGroup-option:first-child {
+    border-left-width: 1px;
+    border-left-style: solid;
+
+}
+
+.ButtonGroup-option.selected {
+    background-color: var(--grey-1);
+    background-image: none;
+    border-color: var(--grey-1);
+    color: var(--white);
+    pointer-events: none;
+    cursor: default;
+}
+

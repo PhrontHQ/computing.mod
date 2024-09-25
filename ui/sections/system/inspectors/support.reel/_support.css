@@ -1,0 +1,15 @@
+.Support {
+    width: 30rem !important;
+}
+
+.Support-header {
+    background: var(--primary--4);
+    margin: -1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    padding-bottom: .5rem;
+}
+
+.Support-header a {
+    color: var(--blue-lighten-2);
+}

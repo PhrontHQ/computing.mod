@@ -1,0 +1,73 @@
+{
+  "blueprint_dockerhubimage_description": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "description",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_dockerhubimage_icon": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "icon",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_dockerhubimage_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_dockerhubimage_presets": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "presets",
+      "blueprint": {"@": "root"},
+      "valueType": "object"
+    }
+  },
+  "blueprint_dockerhubimage_pull_count": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "pull_count",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_dockerhubimage_star_count": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "star_count",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_dockerhubimage_version": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "version",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "DockerHubImage",
+      "propertyBlueprints": [
+        {"@": "blueprint_dockerhubimage_description"},
+        {"@": "blueprint_dockerhubimage_icon"},
+        {"@": "blueprint_dockerhubimage_name"},
+        {"@": "blueprint_dockerhubimage_presets"},
+        {"@": "blueprint_dockerhubimage_pull_count"},
+        {"@": "blueprint_dockerhubimage_star_count"},
+        {"@": "blueprint_dockerhubimage_version"}
+      ]
+    }
+  }
+}

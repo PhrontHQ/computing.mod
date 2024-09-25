@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./docker-logs.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "console": {
+            "prototype": "ui/console.reel",
+            "properties": {
+                "element": {"#": "console"},
+                "waitForToken": true,
+                "type": "console"
+            },
+            "bindings": {
+                "token": {"<-": "@owner.token"}
+            }
+        },
+
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "isFooterHidden": true
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "isLoading": {"<-": "!@owner.token"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="DockerLogs">
+        <div data-mod-id="inspector">
+            <div data-mod-id="console" class="_g-margin--subtract"></div>
+        </div>
+    </div>
+</body>
+</html>

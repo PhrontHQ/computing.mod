@@ -1,0 +1,101 @@
+.Wizard .Wizard-loading,
+.Wizard.is-loading .Wizard-controls,
+.Wizard.is-loading .Wizard-content *,
+.Wizard .wizard-is-hidden {
+    display: none !important;
+}
+
+.Wizard.is-loading .Wizard-loading {
+    display: inherit !important;
+    width: 100%;
+}
+
+.Wizard {
+    flex: 1;
+    @apply --flex-column;
+}
+
+/* Remove Inspector Header */
+
+.Wizard .Inspector-header {
+    display: none;
+}
+
+/* inspector edits */
+
+.Wizard .VolumeCreator .Inspector   { margin: 0; }
+.Wizard .Inspector-body             { margin: 0; }
+
+.Wizard-header {
+    position: relative;
+    background-color: var(--primary);
+    color: var(--white);
+
+    & .wrapper {
+        margin: 0 auto;
+        max-width: 50em;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+
+    }
+}
+
+.Wizard-header-title { font-size: 1.25em; }
+
+.Wizard-content {
+    @apply --flex-column;
+    background-color: var(--primary--7);
+
+    & .stepPlaceholder {
+        margin: 0 auto;
+        max-width: 50em;
+    }
+}
+
+.Wizard-footer {
+    flex: 1;
+    background: var(--main-bg-color);
+}
+
+/* controls */
+
+.Wizard-controls {
+    margin: 0 auto;
+    max-width: 50em;
+}
+
+.Wizard-controls > div {
+    flex: 1;
+
+    & button + button { margin-left: .5em; }
+}
+
+.Wizard-controls-previous {
+    padding-left: .5em !important;
+    & svg {
+        height: 1em;
+        transform: rotate(180deg);
+        margin-right: 0 !important;
+    }
+}
+
+.Wizard-controls-next  {
+    display: flex;
+    justify-content: center;
+    padding-right: .5em !important;
+
+    & .Button-content {
+        display: flex;
+        align-items: center;
+    }
+
+
+    & svg {
+        width: 1em;
+        height: 1em;
+        order: 1;
+        margin-right: 0 !important;
+        margin-left: .25em;
+    }
+}

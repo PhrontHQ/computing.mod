@@ -1,0 +1,82 @@
+{
+  "blueprint_replicationoptions_followdelete": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "followdelete",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_replicationoptions_force": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "force",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_replicationoptions_lifetime": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "lifetime",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_replicationoptions_nomount": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "nomount",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_replicationoptions_peer": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "peer",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_replicationoptions_recursive": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "recursive",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_replicationoptions_remote": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "remote",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_replicationoptions_remote_dataset": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "remote_dataset",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ReplicationOptions",
+      "propertyBlueprints": [
+        {"@": "blueprint_replicationoptions_followdelete"},
+        {"@": "blueprint_replicationoptions_force"},
+        {"@": "blueprint_replicationoptions_lifetime"},
+        {"@": "blueprint_replicationoptions_nomount"},
+        {"@": "blueprint_replicationoptions_peer"},
+        {"@": "blueprint_replicationoptions_recursive"},
+        {"@": "blueprint_replicationoptions_remote"},
+        {"@": "blueprint_replicationoptions_remote_dataset"}
+      ]
+    }
+  }
+}

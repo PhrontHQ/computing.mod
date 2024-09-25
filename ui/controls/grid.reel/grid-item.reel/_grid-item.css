@@ -1,0 +1,14 @@
+.Grid-icon {
+    box-sizing: content-box;
+    cursor: pointer;
+    padding: .25em;
+}
+
+/* selected state */
+
+.LabeledIcon-title {
+
+    @nest .selected & {
+        color: var(--white);
+    }
+}

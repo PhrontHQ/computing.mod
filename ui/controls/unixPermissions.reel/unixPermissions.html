@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="unixPermissions.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "modeBitsElement": {"#": "modeBits"}
+            },
+            "bindings": {
+                "classList.has('is-disabled')": {"<-": "@owner.disabled"}
+            }
+        },
+        "user": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "user"},
+                "value": "User"
+            }
+        },
+        "group": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "group"},
+                "value": "Group"
+            }
+        },
+        "all": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "all"},
+                "value": "All"
+            }
+        },
+        "read": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "read"},
+                "value": "Read"
+            }
+        },
+        "write": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "write"},
+                "value": "Write"
+            }
+        },
+        "execute": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "execute"},
+                "value": "Execute"
+            }
+        },
+        "userRead": {
+            "prototype": "blue-shark.mod/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "userRead"}
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.disabled"},
+                "checked": {"<->": "@owner.modes.user.read"}
+            }
+        },
+        "userWrite": {
+            "prototype": "blue-shark.mod/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "userWrite"}
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.disabled"},
+                "checked": {"<->": "@owner.modes.user.write"}
+            }
+        },
+        "userExecute": {
+            "prototype": "blue-shark.mod/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "userExecute"}
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.disabled"},
+                "checked": {"<->": "@owner.modes.user.execute"}
+            }
+        },
+        "groupRead": {
+            "prototype": "blue-shark.mod/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "groupRead"}
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.disabled"},
+                "checked": {"<->": "@owner.modes.group.read"}
+            }
+        },
+        "groupWrite": {
+            "prototype": "blue-shark.mod/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "groupWrite"}
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.disabled"},
+                "checked": {"<->": "@owner.modes.group.write"}
+            }
+        },
+        "groupExecute": {
+            "prototype": "blue-shark.mod/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "groupExecute"}
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.disabled"},
+                "checked": {"<->": "@owner.modes.group.execute"}
+            }
+        },
+        "othersRead": {
+            "prototype": "blue-shark.mod/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "othersRead"}
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.disabled"},
+                "checked": {"<->": "@owner.modes.others.read"}
+            }
+        },
+        "othersWrite": {
+            "prototype": "blue-shark.mod/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "othersWrite"}
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.disabled"},
+                "checked": {"<->": "@owner.modes.others.write"}
+            }
+        },
+        "othersExecute": {
+            "prototype": "blue-shark.mod/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "othersExecute"}
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.disabled"},
+                "checked": {"<->": "@owner.modes.others.execute"}
+            }
+        },
+        "modeBits": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "modeBits"},
+                "label": "Mode"
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.disabled"},
+                "value": {"<->": "@owner.modeBits"},
+                "delegate": {"<-": "@owner.modeBitsInputDelegate"}
+            }
+        },
+        "title": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "title"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.title || 'Permissions'"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Permissions">
+        <div data-mod-id="title" class="Permissions-title"></div>
+        <table class="Permissions-flags">
+            <tr>
+                <td></td>
+                <th data-mod-id="user" class="PermissionsFlag-label">User</th>
+                <th data-mod-id="group" class="PermissionsFlag-label">Group</th>
+                <th data-mod-id="all" class="PermissionsFlag-label">All</th>
+            </tr>
+            <tr>
+                <th data-mod-id="read" class="PermissionsFlag-label">Read</th>
+                <td><div data-mod-id="userRead"></div></td>
+                <td><div data-mod-id="groupRead"></div></td>
+                <td><div data-mod-id="othersRead"></div></td>
+            </tr>
+            <tr>
+                <th data-mod-id="write" class="PermissionsFlag-label">Write</th>
+                <td><div data-mod-id="userWrite"></div></td>
+                <td><div data-mod-id="groupWrite"></div></td>
+                <td><div data-mod-id="othersWrite"></div></td>
+            </tr>
+            <tr>
+                <th data-mod-id="execute" class="PermissionsFlag-label">Execute</th>
+                <td><div data-mod-id="userExecute"></div></td>
+                <td><div data-mod-id="groupExecute"></div></td>
+                <td><div data-mod-id="othersExecute"></div></td>
+            </tr>
+        </table>
+        <div data-mod-id="modeBits" class="Permissions-mode"></div>
+    </div>
+</body>
+</html>

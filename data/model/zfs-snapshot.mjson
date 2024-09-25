@@ -1,0 +1,65 @@
+{
+  "blueprint_zfssnapshot_dataset": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "dataset",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_zfssnapshot_holds": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "holds",
+      "blueprint": {"@": "root"},
+      "valueType": "object"
+    }
+  },
+  "blueprint_zfssnapshot_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_zfssnapshot_pool": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "pool",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_zfssnapshot_properties": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "properties",
+      "blueprint": {"@": "root"},
+      "valueType": "object"
+    }
+  },
+  "blueprint_zfssnapshot_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "DatasetType"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ZfsSnapshot",
+      "propertyBlueprints": [
+        {"@": "blueprint_zfssnapshot_dataset"},
+        {"@": "blueprint_zfssnapshot_holds"},
+        {"@": "blueprint_zfssnapshot_name"},
+        {"@": "blueprint_zfssnapshot_pool"},
+        {"@": "blueprint_zfssnapshot_properties"},
+        {"@": "blueprint_zfssnapshot_type"}
+      ]
+    }
+  }
+}

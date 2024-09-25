@@ -1,0 +1,201 @@
+{
+  "blueprint_dockercontainer_autostart": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "autostart",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_dockercontainer_bridge": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "bridge",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "DockerContainerBridge"
+    }
+  },
+  "blueprint_dockercontainer_command": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "command",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_dockercontainer_environment": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "environment",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_dockercontainer_exec_ids": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "exec_ids",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_dockercontainer_expose_ports": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "expose_ports",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_dockercontainer_host": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "host",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_dockercontainer_hostname": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "hostname",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_dockercontainer_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_dockercontainer_image": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "image",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_dockercontainer_interactive": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "interactive",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_dockercontainer_memory_limit": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "memory_limit",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_dockercontainer_names": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "names",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_dockercontainer_parent_directory": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parent_directory",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_dockercontainer_ports": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "ports",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_dockercontainer_running": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "running",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_dockercontainer_settings": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "settings",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_dockercontainer_status": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "status",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_dockercontainer_version": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "version",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_dockercontainer_volumes": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "volumes",
+      "blueprint": {"@": "root"},
+      "valueType": "array",
+      "valueObjectPrototypeName": "DockerVolume"
+    }
+  },
+  "blueprint_dockercontainer_web_ui_url": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "web_ui_url",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "DockerContainer",
+      "propertyBlueprints": [
+        {"@": "blueprint_dockercontainer_autostart"},
+        {"@": "blueprint_dockercontainer_bridge"},
+        {"@": "blueprint_dockercontainer_command"},
+        {"@": "blueprint_dockercontainer_environment"},
+        {"@": "blueprint_dockercontainer_exec_ids"},
+        {"@": "blueprint_dockercontainer_expose_ports"},
+        {"@": "blueprint_dockercontainer_host"},
+        {"@": "blueprint_dockercontainer_hostname"},
+        {"@": "blueprint_dockercontainer_id"},
+        {"@": "blueprint_dockercontainer_image"},
+        {"@": "blueprint_dockercontainer_interactive"},
+        {"@": "blueprint_dockercontainer_memory_limit"},
+        {"@": "blueprint_dockercontainer_names"},
+        {"@": "blueprint_dockercontainer_parent_directory"},
+        {"@": "blueprint_dockercontainer_ports"},
+        {"@": "blueprint_dockercontainer_running"},
+        {"@": "blueprint_dockercontainer_settings"},
+        {"@": "blueprint_dockercontainer_status"},
+        {"@": "blueprint_dockercontainer_version"},
+        {"@": "blueprint_dockercontainer_volumes"},
+        {"@": "blueprint_dockercontainer_web_ui_url"}
+      ]
+    }
+  }
+}

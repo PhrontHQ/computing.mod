@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"},
+                "inspector": {"@": "inspector"}
+            },
+            "bindings": {
+                "moduleRoot": {"<-": "@owner.templateModuleId.substr(0, @owner.templateModuleId.lastIndexOf('/')+1)"},
+                "isNewObject": {"<-": "@owner.object._isNew.defined() && @owner.object._isNew"},
+                "isLoading": {"<-": "@deviceTypePlaceholder.isLoadingComponent || @deviceTypePlaceholder.object._isLoading"},
+                "propertiesComponent": {"<-": "@deviceTypePlaceholder.component"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canRevert": false,
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "canSave": {"<-": "@owner.isNewObject"},
+                "canDelete": {"<-": "!@owner.isNewObject && !@owner.object._isFromTemplate"}
+            }
+        },
+        "name": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "name"},
+                "label": "Name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.name"},
+                "disabled": {"<-": "@owner.object._isFromTemplate"}
+            }
+        },
+        "deviceStatus": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "deviceStatus"},
+                "label": "Status"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.status"},
+                "classList.has('hide')": {"<-": "@owner.object._isNew"}
+            }
+        },
+        "deviceTypePlaceholder": {
+            "prototype": "ui/controls/placeholder.reel",
+            "properties": {
+                "element": {"#": "deviceTypePlaceholder"}
+            },
+            "bindings": {
+                "moduleId": {"<-": "@owner.moduleRoot + 'virtual-machine-device-' + @owner.object.type.toLowerCase() + '.reel'"},
+                "object": {"<-": "@owner.object.properties"},
+                "component.isNew": {"<-": "@owner.object._isNew"},
+                "component.isFromTemplate": {"<-": "@owner.object._isFromTemplate"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="VirtualMachineDevice">
+        <div data-mod-id="inspector">
+            <div data-mod-id="deviceStatus"></div>
+            <div data-mod-id="name"></div>
+            <div data-mod-id="deviceTypePlaceholder"></div>
+        </div>
+    </div>
+</body>
+</html>

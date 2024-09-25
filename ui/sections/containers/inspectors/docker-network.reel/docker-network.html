@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "_availablesDockers": {"<-": "@owner._dockerHosts.map{{label: name, value: id}}"}
+            }
+        },
+
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "controller": {"@": "owner"},
+                "validationController": {"@": "validationController"},
+                "canSave": true
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "canDelete": {"<-": "!@owner.object._isNew"},
+                "canRevert": {"<-": "!@owner.object._isNew && @inspector.canSave"},
+                "isLoading": {"<-": "@owner.isLoading"}
+            }
+        },
+
+        "name": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "name"},
+                "label": "Name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.name"}
+            }
+        },
+
+        "driverSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "driverSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "!!@owner.object._isNew ? 'create' : 'read'"}
+            }
+        },
+
+        "driverReadOnly": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "driverReadOnly"},
+                "label": "Driver"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.driver != 'null' ? @owner.object.driver : 'none'"}
+            }
+        },
+
+        "driver": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "driver"},
+                "label": "Driver"
+            },
+            "bindings": {
+                "options": {"<-": "[{label: 'bridge', value: 'bridge'}]"},
+                "selectedValue": {"<->": "@owner.object.driver"}
+            }
+        },
+
+        "subnet": {
+            "prototype": "ui/controls/ip-aliases.reel",
+            "properties": {
+                "element": {"#": "subnet"},
+                "label": "Subnet",
+                "canAdd": false,
+                "canDelete": false,
+                "canChangeType": false
+            },
+            "bindings": {
+                "addresses": {"<->": "@owner.object._subnet"}
+            }
+        },
+
+        "gateway": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "gateway"},
+                "label": "Gateway"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.gateway"}
+            }
+        },
+
+        "containers": {
+            "prototype": "blue-shark.mod/ui/field-select-multiple.reel",
+            "properties": {
+                "element": {"#": "containers"},
+                "label": "Containers"
+            },
+            "bindings": {
+                "options": {"<-": "@owner.object._containers.map{{ label: name, value: id }}"},
+                "selectedValues": {"<->": "@owner.object.containers"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="DockerNetwork">
+        <div data-mod-id="inspector">
+            <div data-mod-id="name"></div>
+            <div data-mod-id="driverSubstitution">
+                <div data-mod-id="driverReadOnly" data-arg="read"></div>
+                <div data-mod-id="driver" data-arg="create"></div>
+            </div>
+            <div data-mod-id="subnet" class="g-margin-bottom"></div>
+            <div data-mod-id="gateway"></div>
+            <div data-mod-id="containers"></div>
+        </div>
+    </div>
+</body>
+</html>

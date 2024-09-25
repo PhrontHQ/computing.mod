@@ -1,0 +1,56 @@
+.WidgetIcon {
+    box-sizing: content-box;
+    position: relative;
+    height: 2em;
+    width:  2em;
+    padding: .15em;
+    border-radius: 4px;
+    background: var(--primary);
+    border: 2px solid transparent;
+    color: var(--primary--3);
+}
+
+.WidgetIcon + .WidgetIcon { margin-top: 1em; }
+
+/* badge */
+
+.WidgetIcon-badge {
+    display: none;
+    position: absolute;
+    top:    -.5em;
+    transform:  translateX(-50%);
+    border-radius: .5rem;
+    padding: 0.2em 0.45em .25em;
+    font-size: 0.7em;
+    /* background: var(--grey-2); */
+    color: var(--black);
+    line-height: 1em;
+    box-shadow: 0 2px 2px var(--shadow-1);
+}
+
+/* sets color levels */
+
+.WidgetIcon.has-error .WidgetIcon-badge,
+.WidgetIcon.has-critical .WidgetIcon-badge,
+.WidgetIcon.has-info .WidgetIcon-badge,
+.WidgetIcon.has-warning .WidgetIcon-badge {
+    color: var(--white);
+}
+
+
+.WidgetIcon.has-info .WidgetIcon-badge      { background-color: var(--yellow-orange);}
+.WidgetIcon.has-info                        { border-color:     var(--yellow-orange);}
+
+.WidgetIcon.has-warning .WidgetIcon-badge   { background-color: var(--orange);}
+.WidgetIcon.has-warning                     { border-color:     var(--orange);}
+
+
+.WidgetIcon.has-critical .WidgetIcon-badge { background-color: var(--red); }
+.WidgetIcon.has-critical,
+.WidgetIcon.has-error                      { border-color:     var(--red); }
+
+.WidgetIcon-badge.has-value,
+.WidgetIcon-badge.is-executing {
+    display: block;
+}
+

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller"
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canDelete": true,
+                "canSave": true,
+                "canRevert": true,
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "isConfirmationVisible": {"<-": "@owner.isConfirmationVisible"},
+                "confirmationMessage": {"<-": "'Are you sure you want to delete ' + @owner.object.address + '?'"}
+            }
+        },
+        "address": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "address"},
+                "label": "Address",
+                "placeholder": "e.g. utcnist.colorado.edu"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.address"}
+            }
+        },
+        "syncNow": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "syncNow"},
+                "value": "Synchronize now"
+            },
+            "bindings": {
+                "disabled": {"<-": "!@owner.object.address"}
+            }
+        },
+        "force": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "force"},
+                "label": "Force save"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.force"}
+            }
+        },
+        "pool ": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "pool"},
+                "label": "Pool"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.pool"}
+            }
+        },
+        "burst": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "burst"},
+                "label": "Burst"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.burst"}
+            }
+        },
+        "iburst": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "iburst"},
+                "label": "Initial Burst"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.iburst"}
+            }
+        },
+        "prefer": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "prefer"},
+                "label": "Preferred"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.prefer"}
+            }
+        },
+        "minpoll": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "minpoll"},
+                "label": "Minimum Poll",
+                "placeholder": "e.g. 6"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.pollUnits"},
+                "value": {"<->": "@owner.object.minpoll"}
+            }
+        },
+        "maxpoll": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "maxpoll"},
+                "label": "Maximum Poll",
+                "placeholder": "e.g. 10"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.pollUnits"},
+                "value": {"<->": "@owner.object.maxpoll"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Ntpserver">
+        <div data-mod-id="inspector">
+            <div data-mod-id="address"></div>
+            <div data-mod-id="syncNow" class="g-margin-bottom"></div>
+            <div data-mod-id="force"></div>
+            <div data-mod-id="pool"></div>
+            <div data-mod-id="burst"></div>
+            <div data-mod-id="iburst"></div>
+            <div data-mod-id="prefer"></div>
+            <div data-mod-id="minpoll"></div>
+            <div data-mod-id="maxpoll"></div>
+        </div>
+    </div>
+</body>
+</html>

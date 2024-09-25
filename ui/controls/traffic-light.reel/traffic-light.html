@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="traffic-light.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "!@owner.colorMapping || !!@owner.isHidden"},
+                "classList.has('is-loading')": {"<-": "@owner.value == 'CONNECTING'"},
+                "lightClass": {"<-": "@owner.colorMapping[@owner.value]"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="TrafficLight">
+        <div class="TrafficLight-light"></div>
+        <div class="TrafficLight-after"></div>
+    </div>
+</body>
+</html>

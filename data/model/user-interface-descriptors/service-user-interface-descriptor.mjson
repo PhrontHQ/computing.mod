@@ -1,0 +1,15 @@
+{
+    "root": {
+        "prototype": "mod/core/meta/user-interface-descriptor",
+        "properties": {
+            "inspectorComponentModule": {"%": "ui/inspectors/service.reel"},
+            "nameExpression": "config.type.replace('service-', '').toUpperCase()",
+            "statusColorMapping": {
+                "RUNNING": "green",
+                "UNKNOWN": "red",
+                "STOPPED": "grey"
+            },
+            "statusValueExpression": "state"
+        }
+    }
+}

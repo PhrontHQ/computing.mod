@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="vdev.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "disksGrid": {"@": "disksGrid"}
+            },
+            "bindings": {
+                "vdevTypesOptions": {"<-": "@owner.vdevTypes.filter{minDisks <= @owner.children.length}.filter{maxDisks.defined() ? maxDisks >= @owner.children.length : true}"},
+                "classList.has('unhealthy')": {"<-": "@owner.object.status.defined() && @owner.object.status != 'ONLINE'"},
+                "selectedDisk": {"<->": "@controller.selection.0"},
+                "editable": {"<-": "@owner.topologyItem.editable"}
+            }
+        },
+        "typeSelect": {
+            "prototype": "blue-shark.mod/ui/select.reel",
+            "properties": {
+                "element": {"#": "typeSelect"}
+            },
+            "bindings": {
+                "options": {"<-": "@owner.vdevTypesOptions.map{{label: value, value: value}}"},
+                "selectedValue": {"<->": "@owner.object.type"},
+                "disabled": {"<-": "!@owner.editable || (@owner.editable && @owner.vdevTypesOptions.length < 2)"}
+            }
+        },
+        "controller": {
+            "prototype": "mod/core/range-controller",
+            "bindings": {
+                "content": {"<-": "@owner.children"}
+            }
+        },
+        "disksGrid": {
+            "prototype": "ui/controls/grid.reel",
+            "properties": {
+                "element": {"#": "disksGrid"},
+                "controller": {"@": "controller"},
+                "labelPath": "path.replace('/dev/', '').replace('multipath/', '')",
+                "icon": "ui/icons/disk.reel"
+            }
+        },
+        "deleteVDev": {
+            "prototype": "mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "deleteButton"},
+                "vDevComponent": {"@": "owner"}
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "!@owner.editable || (@owner.editable && !@owner.object._isNew)"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Vdev">
+        <div class="Vdev-title">
+            <div data-mod-id="typeSelect" class="Select--naked"></div>
+            <div data-mod-id="deleteButton" class="Vdev-deleteButton">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>close</title><circle id="close-circle" stroke="#979797" fill="#D8D8D8" cx="12" cy="12" r="10"/><path id="close-x" d="M11.293 12l-3.89-3.89-.353-.353.707-.707.354.354 3.89 3.89 3.89-3.89.353-.354.707.707-.354.354-3.89 3.89 3.89 3.89.354.353-.707.707-.354-.354-3.89-3.89-3.89 3.89-.353.354-.707-.707.354-.354 3.89-3.89z" fill="#979797"/></svg>
+            </div>
+        </div>
+        <div data-mod-id="disksGrid" class="Vdev-grid"></div>
+    </div>
+</body>
+</html>

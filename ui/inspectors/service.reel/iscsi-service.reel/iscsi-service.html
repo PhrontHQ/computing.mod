@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="iscsi-service.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "baseName": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "baseName"},
+                "label": "Base Name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.base_name"}
+            }
+        },
+        "poolSpaceThreshold": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "poolSpaceThreshold"},
+                "label": "Pool Available Space Threshold (%)",
+                "converter" : {"@": "poolSpaceThresholdConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.pool_space_threshold"}
+            }
+        },
+        "poolSpaceThresholdValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 1,
+                "ceiling": 100,
+                "errorMessage": "Value Port must be an integer between 1 and 99"
+            }
+        },
+        "poolSpaceThresholdConverter": {
+            "prototype": "core/converter/string-to-integer-converter",
+            "properties": {
+                "validator": {"@": "poolSpaceThresholdValidator"}
+            }
+        },
+        "iSNS_Servers": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "iSNS_Servers"},
+                "label": "ISNS Servers",
+                "labelPath": "this",
+                "isDraggable": true,
+                "placeholder": "",
+                "inputTitle": "Add an ISNS server",
+                "valuesTitle": "Added serves",
+                "emptyMessage": "no servers added :("
+            },
+            "bindings": {
+                "values": {"<->": "@owner.object.isns_servers"},
+                "placeholder": {"<-": "!@owner.object.isns_servers ? 'eg. example.com' : ''"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="IscsiService">
+        <div data-mod-id="baseName"></div>
+        <div data-mod-id="poolSpaceThreshold"></div>
+        <div data-mod-id="iSNS_Servers"></div>
+    </div>
+</body>
+</html>

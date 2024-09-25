@@ -1,0 +1,21 @@
+.SystemInfo-body-content {
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.SystemInfo .Widget-content {
+    position: relative;
+
+    /* adds hint for content below */
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2.5em;
+        background-image: linear-gradient(color(var(--primary--8) a(0%)), var(--primary--8));
+        border-radius: 4px;
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canRevert": true,
+                "canSave": true,
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"}
+            }
+        },
+        "protocols": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "protocols"},
+                "label": "Protocol"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.PROTOCOL_OPTIONS"},
+                "selectedValue": {"<->": "@owner.config.webui_protocol"}
+            }
+        },
+        "AllowAllIPAddress": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "AllowAllIPAddress"},
+                "label": "Bind IP Address",
+                "labelPath": "this",
+                "isDraggable": true,
+                "inputTitle": "Add Bind IP Address",
+                "valuesTitle": "Bind IP Addresses",
+                "emptyMessage": "No IP addresses allowed",
+                "placeholder": "eg. 1.2.3.4"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.config.webui_listen"},
+                "placeholder": {"<-": "!@owner.config.webui_listen ? 'eg. example.com' : ''"}
+            }
+        },
+        "RedirectHTTP": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "RedirectHTTP"},
+                "label": "HTTP -> HTTPS Redirect"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.config.webui_http_redirect_https"}
+            }
+        },
+        "httpPortValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 1,
+                "ceiling": 65535,
+                "errorMessage": "Port must be an integer between 1 and 65535"
+            }
+        },
+        "httpPortConverter": {
+            "prototype": "core/converter/string-to-integer-or-null-converter",
+            "properties": {
+                "validator": {"@": "httpPortValidator"}
+            }
+        },
+        "httpPort": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "httpPort"},
+                "label": "HTTP Port",
+                "converter" : {"@": "httpPortConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.config.webui_http_port"}
+            }
+        },
+        "httpsPort": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "httpsPort"},
+                "label": "HTTPS Port",
+                "converter" : {"@": "httpPortConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.config.webui_https_port"}
+            }
+        },
+        "certificatesConverter": {
+            "prototype": "core/converter/select-option-converter",
+            "properties": {
+                "valuePropertyName": "id",
+                "labelPropertyName": "name"
+            }
+        },
+        "SSLCertificate": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "SSLCertificate"},
+                "label": "SSL/TLS Certificate",
+                "converter": {"@": "certificatesConverter"}
+            },
+            "bindings": {
+                "options": {"<-": "[{name: '-', id: null}].concat(@owner.certificates)"},
+                "selectedValue": {"<->": "@owner.config.webui_https_certificate"}
+            }
+        },
+        "freenas_token_lifetime": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "freenas_token_lifetime"},
+                "label": "Token Lifetime"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.timeUnits"},
+                "value": {"<->": "@owner.systemAdvanced.freenas_token_lifetime"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="WebUi">
+        <div data-mod-id="inspector">
+            <div data-mod-id="protocols"></div>
+            <div data-mod-id="httpPort"></div>
+            <div data-mod-id="httpsPort"></div>
+            <div data-mod-id="SSLCertificate"></div>
+            <div data-mod-id="RedirectHTTP"></div>
+            <div data-mod-id="freenas_token_lifetime"></div>
+            <div data-mod-id="AllowAllIPAddress"></div>
+        </div>
+    </div>
+</body>
+</html>

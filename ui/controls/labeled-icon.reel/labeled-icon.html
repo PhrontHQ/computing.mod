@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="labeled-icon.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "label": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "label"}
+            },
+            "bindings": {
+                "value": {"<-": "!!@owner.labelPath ? @owner.object.path(@owner.labelPath) : @owner.label"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="LabeledIcon">
+        <div class="LabeledIcon-image">
+            <div data-param="image"></div>
+        </div>
+        <div class="LabeledIcon-title">
+            <div data-mod-id="label" class="LabeledIcon-label"></div>
+        </div>
+    </div>
+</body>
+</html>

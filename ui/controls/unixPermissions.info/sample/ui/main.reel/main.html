@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "permissions": {
+            "prototype": "foo/ui/controls/permissions.reel",
+            "properties": {
+                "element": {"#": "permissions"},
+                "permissions": {
+                    "modes": {
+                        "user": {
+                            "read": true,
+                            "write": true,
+                            "execute": true
+                        },
+                        "group": {
+                            "read": true,
+                            "write": false,
+                            "execute": true
+                        },
+                        "others": {
+                            "read": true,
+                            "write": false,
+                            "execute": true
+                        },
+                        "value": 755
+                    }
+                }
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Main">
+        <div data-mod-id="permissions"></div>
+    </div>
+</body>
+</html>
+
+
+ui/controls/permissions.info

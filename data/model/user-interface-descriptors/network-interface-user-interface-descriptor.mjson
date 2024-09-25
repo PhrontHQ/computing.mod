@@ -1,0 +1,20 @@
+{
+    "root": {
+        "prototype": "mod/core/meta/user-interface-descriptor",
+        "properties": {
+            "inspectorComponentModule": {"%": "ui/sections/network/inspectors/network-interface.reel"},
+            "iconComponentModule":  {"%": "ui/icons/network-interface.reel"},
+            "collectionInspectorComponentModule": {"%": "ui/controls/viewer.reel"},
+            "creatorComponentModule": {"%": "ui/sections/network/inspectors/network-interface-creator.reel"},
+            "collectionNameExpression": "'Interfaces'",
+            "nameExpression": "!!id ? (!!name ? name : id) + (!!dhcp ? ' (dhcp)': '') : !!type ? 'New ' + type : 'Choose an interface type'",
+            "statusColorMapping": {
+                "LINK_STATE_UP": "green",
+                "DISABLED": "grey",
+                "LINK_STATE_DOWN": "red",
+                "LINK_STATE_UNKNOWN": "yellow"
+            },
+            "statusValueExpression": "!enabled || !!_isNew ? 'DISABLED' : (status.link_state || link_state)"
+        }
+    }
+}

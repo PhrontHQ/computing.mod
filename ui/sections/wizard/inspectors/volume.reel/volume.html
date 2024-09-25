@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="volume.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "passwordComponent": {"@": "password"}
+            },
+            "bindings": {
+                "context.isNextStepDisabled": {"<-": "!@owner.object.id || (@owner.object.topology.data.length == 0 ?? true)"}
+            }
+        },
+
+        "id": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "name"},
+                "label": "Name",
+                "validationPath": "id",
+                "placeholder": "enter volume name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.id"}
+            }
+        },
+
+        "encrypt": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "encrypt"},
+                "label": "Encrypt volume"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object._encrypt"}
+            }
+        },
+
+        "password": {
+            "prototype": "blue-shark.mod/ui/field-password.reel",
+            "properties": {
+                "element": {"#": "password"},
+                "label": "Password",
+                "placeholder1": "enter password",
+                "placeholder2": "confirm password",
+                "resetLabel": "Set Password"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object._password"},
+                "disabled": {"<-": "!@encrypt.checked"}
+            }
+        },
+
+       "topologizer": {
+            "prototype": "ui/controls/topologizer.reel",
+            "properties": {
+                "element": {"#": "topologizer"}
+            },
+            "bindings": {
+                "topology": {"<->": "@owner.object.topology"},
+                "disks": {"<-": "@owner.availableDisks"},
+                "controller": {"<-": "@owner._sectionService"}
+            }
+        },
+
+        "topology": {
+            "prototype": "ui/controls/topology.reel",
+            "properties": {
+                "element": {"#": "topology"},
+                "mode": "READ"
+            },
+            "bindings": {
+                "object": {"<-": "@owner.object.topology"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Volume-volumeCreator">
+        <div data-mod-id="name"></div>
+        <div data-mod-id="encrypt" class="encrypt"></div>
+        <div data-mod-id="password"></div>
+        <div data-mod-id="topologizer"></div>
+        <div data-mod-id="topology"></div>
+    </div>
+</body>
+</html>

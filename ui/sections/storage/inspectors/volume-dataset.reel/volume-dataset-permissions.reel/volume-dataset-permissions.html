@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "permissionsSection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "permissionsSection"},
+                "title": "Permissions"
+            }
+        },
+        "permissionsType": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "permissionsType"},
+                "label": "Permissions Type"
+            },
+            "bindings": {
+                "options": {"<-": "@owner._permissionsTypeOptions"},
+                "selectedValue": {"<->": "@owner.object.permissions_type"}
+            }
+        },
+        "ownerUser": {
+            "prototype": "ui/controls/search-users.reel",
+            "properties": {
+                "element": {"#": "ownerUser"},
+                "label": "Owner user",
+                "valuePath": "username"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.permissions.user"}
+            }
+        },
+        "ownerGroup": {
+            "prototype": "ui/controls/search-groups.reel",
+            "properties": {
+                "element": {"#": "ownerGroup"},
+                "label": "Owner group",
+                "valuePath": "name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.permissions.group"}
+            }
+        },
+        "modes": {
+            "prototype": "ui/controls/unixPermissions.reel",
+            "properties": {
+                "element": {"#": "permissions"}
+            },
+            "bindings": {
+                "modes": {"<->": "@owner.object.permissions.modes"},
+                "classList.has('hide')": {"<-": "@owner.object.permissions_type == 'ACL'"}
+            }
+        },
+        "createdCondition": {
+            "prototype": "mod/ui/condition.reel",
+            "properties": {
+                "element": {"#": "createdCondition"}
+            },
+            "bindings": {
+                "condition": {"<-": "!@owner.object._isNew"}
+            }
+        },
+        "recursive": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "recursive"},
+                "label": "Recursive"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object._recursive"},
+                "classList.has('hide')": {"<-": "@owner.object.permissions_type == 'ACL'"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="VolumeDatasetPermissions">
+        <div data-mod-id="permissionsSection">
+            <div data-mod-id="permissionsType"></div>
+            <div data-mod-id="ownerUser"></div>
+            <div data-mod-id="ownerGroup"></div>
+            <div data-mod-id="permissions"></div>
+            <div data-mod-id="createdCondition">
+                <div data-mod-id="recursive"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="ip-address.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "errors": {},
+                "converters": {
+                    "INET": {
+                        "address": {"@": "validationOnlyConverter"},
+                        "netmask": {"@": "ipv4_netmask_converter"}
+                    },
+                    "INET6": {
+                        "address": {"@": "validationOnlyConverter"},
+                        "netmask": {"@": "ipv6_netmask_converter"}
+                    }
+                },
+                "validators": {
+                    "INET": {
+                        "address": {"@": "ipv4_validator"},
+                        "netmask": {"@": "ipv4_netmask_validator"}
+                    },
+                    "INET6": {
+                        "address": {"@": "ipv6_validator"},
+                        "netmask": {"@": "ipv6_netmask_validator"}
+                    }
+                },
+                "placeholders": {
+                    "address": {
+                        "INET": "eg. 1.2.3.4",
+                        "INET6": "eg. fda8:06c3:ce53:a890:0000:0000:0000:0005"
+                    },
+                    "netmask": {
+                        "INET": "255.255.255.0",
+                        "INET6": "64"
+                    }
+                }
+            }
+        },
+        "validationOnlyConverter": {
+            "prototype": "core/converter/validation-only-converter"
+        },
+        "ipv4_validator": {
+            "prototype": "core/converter/validator/ipv4-validator"
+        },
+        "ipv4_netmask_converter": {
+            "prototype": "core/converter/ipv4-netmask-converter"
+        },
+        "ipv4_netmask_validator": {
+            "prototype": "core/converter/validator/ipv4-netmask-validator"
+        },
+        "ipv6_validator": {
+            "prototype": "core/converter/validator/ipv6-validator"
+        },
+        "ipv6_netmask_converter": {
+            "prototype": "core/converter/string-to-integer-or-null-converter",
+            "properties": {
+                "validator": {"@": "ipv6_netmask_validator"}
+            }
+        },
+        "ipv6_netmask_validator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 0,
+                "ceiling": 128,
+                "errorMessage": "IPv6 prefix length must be an integer between 0 and 128"
+            }
+        },
+        "errorController": {
+            "prototype": "core/error-controller",
+            "properties": {
+                "form": {"@": "owner"}
+            }
+        },
+        "type": {
+            "prototype": "blue-shark.mod/ui/radio-button-field-group.reel",
+            "properties": {
+                "element": {"#": "type"},
+                "options": [
+                    { "label": "IPv4", "value": "INET"},
+                    { "label": "IPv6", "value": "INET6"}
+                ]
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.type"},
+                "isReadOnly": {"<-": "!@owner.canChangeType"}
+            }
+        },
+        "address": {
+            "prototype": "blue-shark.mod/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "address"},
+                "errorName": "Address",
+                "isMandatory": true
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.address"},
+                "placeholder": {"<-": "@owner.placeholders.address[@owner.object.type]"},
+                "disabled": {"<-": "!@owner.object.type || @owner.isReadOnly"},
+                "converter": {"<-": "@owner.converters[@owner.object.type].address"},
+                "validator": {"<-": "@owner.validators[@owner.object.type].address"},
+                "error": {"<->": "@owner.errors.address"}
+            }
+        },
+        "netmask": {
+            "prototype": "blue-shark.mod/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "netmask"},
+                "errorName": "Netmask",
+                "isMandatory": true
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.netmask"},
+                "placeholder": {"<-": "@owner.placeholders.netmask[@owner.object.type]"},
+                "converter": {"<-": "@owner.converters[@owner.object.type].netmask"},
+                "validator": {"<-": "@owner.validators[@owner.object.type].netmask"},
+                "disabled": {"<-": "!@owner.object.type || @owner.isReadOnly"},
+                "error": {"<->": "@owner.errors.netmask"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+<div data-mod-id="owner" class="IpAddress Table-cells">
+    <div>
+        <div data-mod-id="type"></div>
+    </div>
+    <div>
+        <div data-mod-id="address"></div>
+    </div>
+    <div>
+        <div data-mod-id="netmask"></div>
+    </div>
+</div>
+</body>
+</html>

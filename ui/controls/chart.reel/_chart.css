@@ -1,0 +1,58 @@
+.Chart {
+    width:  100%;
+    height: 100%;
+}
+
+.Chart .Chart-svg {
+    padding-top: 1em;
+    width: calc(100% - 1em);
+    flex: 1;
+}
+
+.Chart svg text { fill: var(--grey-3) !important; }
+
+.Chart svg g.tick line { opacity: 0.25 !important; }
+
+.Chart-loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top:  -1.5em;
+    margin-left: -1.5em;
+    width:  3em;
+    height: 3em;
+    color: var(--color-selected);
+}
+
+.Chart.is-spinner-shown .Chart-svg,
+.Chart .Chart-loading {
+    display: none;
+}
+
+.Chart.is-spinner-shown .Chart-loading,
+.Chart .Chart-svg {
+    display: block;
+}
+
+.Chart .plottable .legend .background-fill {
+    fill: var(--black);
+    opacity: 0.25;
+}
+
+.Chart .plottable .legend-entry {
+    cursor: pointer;
+}
+
+.Chart .plottable .legend-entry.is-disabled path {
+    fill: none;
+    stroke: var(--grey-1);
+    stroke-width: 1px;
+}
+
+.Chart .nv-x .nv-axislabel {
+    transform: translate3d(0, -15px, 0);
+}
+
+.Chart .nv-y .nv-axislabel {
+    transform: translate3d(5px, 0, 0) rotate(-90deg);
+}

@@ -1,0 +1,91 @@
+{
+  "blueprint_rsynccopyrsyncpropertiesanonymous_archive": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "archive",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_rsynccopyrsyncpropertiesanonymous_compress": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "compress",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_rsynccopyrsyncpropertiesanonymous_delay_updates": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "delay_updates",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_rsynccopyrsyncpropertiesanonymous_delete": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "delete",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_rsynccopyrsyncpropertiesanonymous_extra": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "extra",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_rsynccopyrsyncpropertiesanonymous_preserve_attributes": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "preserve_attributes",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_rsynccopyrsyncpropertiesanonymous_preserve_permissions": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "preserve_permissions",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_rsynccopyrsyncpropertiesanonymous_recursive": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "recursive",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_rsynccopyrsyncpropertiesanonymous_times": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "times",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "RsyncCopyRsyncPropertiesAnonymous",
+      "propertyBlueprints": [
+        {"@": "blueprint_rsynccopyrsyncpropertiesanonymous_archive"},
+        {"@": "blueprint_rsynccopyrsyncpropertiesanonymous_compress"},
+        {"@": "blueprint_rsynccopyrsyncpropertiesanonymous_delay_updates"},
+        {"@": "blueprint_rsynccopyrsyncpropertiesanonymous_delete"},
+        {"@": "blueprint_rsynccopyrsyncpropertiesanonymous_extra"},
+        {"@": "blueprint_rsynccopyrsyncpropertiesanonymous_preserve_attributes"},
+        {"@": "blueprint_rsynccopyrsyncpropertiesanonymous_preserve_permissions"},
+        {"@": "blueprint_rsynccopyrsyncpropertiesanonymous_recursive"},
+        {"@": "blueprint_rsynccopyrsyncpropertiesanonymous_times"}
+      ]
+    }
+  }
+}

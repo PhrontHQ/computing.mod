@@ -1,0 +1,42 @@
+.BootPoolAction {
+
+    &.actions-state-1 {
+
+        & .BootPoolAction-delete,
+        & .BootPoolAction-keep,
+        & .BootPoolAction-activate,
+        & .BootPoolAction-clone {
+            display: inline-block;
+        }
+    }
+
+    &.actions-state-2 {
+
+        & .BootPoolAction-delete,
+        & .BootPoolAction-keep,
+        & .BootPoolAction-clone {
+            display: inline-block;
+        }
+    }
+
+    &.actions-state-3 {
+
+        & .BootPoolAction-keep,
+        & .BootPoolAction-clone {
+            display: inline-block;
+        }
+    }
+}
+
+/* .BootPoolAction .BootPoolAction-delete,
+.BootPoolAction .BootPoolAction-keep,
+.BootPoolAction .BootPoolAction-activate,
+.BootPoolAction .BootPoolAction-clone {
+    display: none;
+} */
+
+
+
+.BootPoolAction > * {
+    display: inline-block;
+}

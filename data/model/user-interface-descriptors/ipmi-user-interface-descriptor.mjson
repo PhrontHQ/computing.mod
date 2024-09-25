@@ -1,0 +1,10 @@
+{
+    "root": {
+        "prototype": "mod/core/meta/user-interface-descriptor",
+        "properties": {
+            "collectionNameExpression": "'IPMI'",
+            "inspectorComponentModule": {"%": "ui/sections/network/inspectors/ipmi.reel"},
+            "nameExpression": "'IPMI Channel ' + id"
+        }
+    }
+}

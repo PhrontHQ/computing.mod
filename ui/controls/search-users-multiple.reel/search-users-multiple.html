@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+         "users": {
+            "prototype": "blue-shark.mod/ui/field-search-multiple.reel",
+            "properties": {
+                "element": {"#": "users"},
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "values": {"<->": "@owner.values"},
+                "label": {"<-": "@owner.label"},
+                "disabled": {"<-": "@owner.disabled"},
+                "isLoading": {"<-": "@owner.isLoading"},
+                "initialOptions": {"<-": "@owner.initialOptions"},
+                "hasNoneButton": {"<-": "@owner.hasNoneButton"},
+                "labelPath": {"<-": "@owner.labelPath"},
+                "valuePath": {"<-": "@owner.valuePath"},
+                "validationPath": {"<-": "@owner.validationPath"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="SearchUsersMultiple">
+        <div data-mod-id="users"></div>
+    </div>
+</body>
+</html>

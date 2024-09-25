@@ -1,0 +1,31 @@
+.LabeledIcon-image svg,
+.LabeledIcon-image img {
+    display: block;
+    width: 100%;
+}
+
+.LabeledIcon-label {
+    display: inline-block;
+    font-size:      .8em;
+    line-height:    1;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    user-select: none;
+}
+
+.LabeledIcon-title { text-align: center; }
+
+/* States */
+
+.selected.LabeledIcon .LabeledIcon-label {
+    background: var(--blue-lighten-2);
+    border-radius: 4px;
+}
+
+.selected.LabeledIcon .LabeledIcon-image > * {
+    background: var(--transparent--lighten);
+    border-radius: 4px;
+}
+

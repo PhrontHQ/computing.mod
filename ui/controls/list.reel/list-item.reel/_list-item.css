@@ -1,0 +1,97 @@
+.ListItem {
+    display: flex;
+    align-items: center;
+    height:       3em;
+    padding-left: 1em;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    border-top:     1px solid var(--transparent--lighten);
+    border-bottom:  1px solid var(--transparent--lighten);
+    background-color: var(--primary--6);
+    transition: background-color .25s, color .25s, border-color .25s;
+
+    &:hover {
+        background-color: var(--primary--4);
+        color: var(--white);
+    }
+
+    &.selected {
+        background: var(--color-selected);
+        cursor: default;
+        color: var(--white);
+        border-color: transparent;
+    }
+
+    & + .ListItem,
+    &:first-child {
+        border-top-color: transparent;
+        /* removes top border from first child and any sibling ListItem*/
+    }
+}
+
+.ListItem-labels {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.ListItem-label {
+    max-width: 20rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.ListItem-subLabel {
+    font-size: .75em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--grey-1);
+
+    @nest .ListItem.selected & {
+        color: var(--main-text-color);
+    }
+}
+
+/* Icon */
+
+.ListItem-icon > * {
+    width:  1.9em;
+    height: 1.9em;
+    /* gives the size to the icon */
+    margin-right: 1em;
+    color: var(--primary--2);
+    transition: color .25s;
+
+    @nest .ListItem:hover & {
+        color: var(--white);
+    }
+
+    @nest .ListItem.selected & {
+        color: var(--white);
+    }
+}
+
+/* List Item arrow */
+
+.ListItem-arrow {
+    width: 1.4em;
+    display: flex;
+    margin-right: .5em;
+    color: currentColor;
+
+    & svg {
+        align-self: center;
+        width:  2em;
+        height: 2em;
+    }
+}
+
+/* Status Icon */
+
+.ListItem-status {
+    font-size: .6em;
+    margin-right: 1rem;
+}

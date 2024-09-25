@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="memory-allocation.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "chart": {"@": "chart"}
+            }
+        },
+        "widget": {
+            "prototype": "ui/dashboard/widgets/widget.reel",
+            "properties": {
+                "element": {"#": "widget"},
+                "title": "Memory Allocation"
+            }
+        },
+        "chart": {
+            "prototype": "ui/dashboard/widgets/chart-live.reel",
+            "properties": {
+                "element": {"#": "chart-live"},
+                "showLegend": true,
+                "showYAxis": true,
+                "yFormat": "1.2s",
+                "isTimeSeries": true,
+                "graphType": "stacked",
+                "useGuideline": true,
+                "datasources": ["memory"],
+                "metrics": [
+                    "memory-active",
+                    "memory-inactive",
+                    "memory-cache",
+                    "memory-wired",
+                    "memory-free"
+                ],
+                "disabledMetrics": [
+                    "memory-free"
+                ],
+                "removePrefix": "memory-"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner">
+        <div data-mod-id="widget">
+            <svg data-arg="widget-icon"><use xlink:href="#i-lineChart"/></svg>
+            <div data-arg="widget-content">
+                <div data-mod-id="chart-live"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

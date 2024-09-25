@@ -1,0 +1,73 @@
+{
+  "blueprint_usbdevice_address": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "address",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_usbdevice_bus": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "bus",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_usbdevice_class": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "class",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_usbdevice_manufacturer": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "manufacturer",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_usbdevice_pid": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "pid",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_usbdevice_product": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "product",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_usbdevice_vid": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "vid",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "UsbDevice",
+      "propertyBlueprints": [
+        {"@": "blueprint_usbdevice_address"},
+        {"@": "blueprint_usbdevice_bus"},
+        {"@": "blueprint_usbdevice_class"},
+        {"@": "blueprint_usbdevice_manufacturer"},
+        {"@": "blueprint_usbdevice_pid"},
+        {"@": "blueprint_usbdevice_product"},
+        {"@": "blueprint_usbdevice_vid"}
+      ]
+    }
+  }
+}

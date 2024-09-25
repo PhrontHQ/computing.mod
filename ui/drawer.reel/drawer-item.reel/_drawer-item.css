@@ -1,0 +1,48 @@
+:root {
+    --drawer-height: 5rem;
+    --drawer-width:  12rem;
+}
+
+.DrawerItem {
+    cursor: grab;
+
+    /* pushes off scroller boundary */
+    &:last-child {
+        padding-right: 1rem;
+    }
+}
+
+.DrawerItem > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5em;
+    height: 2rem;
+    line-height: 1em;
+    background-color: var(--primary--6);
+    border-top-left-radius:  4px;
+    border-top-right-radius: 4px;
+}
+
+.DrawerItem main {
+    position: relative;
+    height: var(--drawer-height);
+    width:  var(--drawer-width);
+    overflow: hidden;
+    border-bottom-left-radius:  4px;
+    border-bottom-right-radius: 4px;
+    border: 2px solid var(--primary--6);
+    border-top: none;
+    display: flex;
+}
+
+/* content container */
+.DrawerItem-content {
+    flex: 1;
+    background-image: url("../../../assets/images/graph-placeholder.jpg");
+    background-size: cover;
+
+    @nest .is-bar-graph & {
+        background-image: url("../../../assets/images/graph-barChart.jpg");
+    }
+}

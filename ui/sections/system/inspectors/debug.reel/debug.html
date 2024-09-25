@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canRevert": true,
+                "canSave": true,
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"}
+            }
+        },
+        "enable_debug_kernel": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "enable_debug_kernel"},
+                "label": "Enable debug kernel"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.debugkernel"}
+            }
+        },
+        "uploadcrash": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "uploadcrash"},
+                "label": "Auto upload kernel crash dumps"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.uploadcrash"}
+            }
+        },
+        "downloadDebug": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "downloadDebug"},
+                "value": "Download Debug File"
+            }
+        },
+        "enable_debugger_ui": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "enable_debugger_ui"},
+                "label": "Enable debugger UI"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.debugui"}
+            }
+        },
+        "debuggerUrl": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "debuggerUrl"},
+                "value": "Open Debugger UI"
+            },
+            "bindings": {
+                "disabled": {"<-": "!@owner.object._isDebugUiEnabled"}
+            }
+        },
+        "noOperation": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "noOperation"},
+                "value": "System Settings"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Debug">
+        <div data-mod-id="inspector">
+            <div data-mod-id="downloadDebug" id="downloadDebug"></div>
+            <div data-mod-id="noOperation" class="Updates-noOperation"></div>
+            <div data-mod-id="enable_debug_kernel"></div>
+            <div data-mod-id="enable_debugger_ui"></div>
+            <div data-mod-id="debuggerUrl" class="g-margin-bottom"></div>
+            <div data-mod-id="uploadcrash"></div>
+        </div>
+    </div>
+</body>
+</html>

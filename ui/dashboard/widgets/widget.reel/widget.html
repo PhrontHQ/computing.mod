@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="widget.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('flip')": {"<-": "this.isFlipped"},
+                "classList.has('has-settings')": {"<-": "@owner.hasSettings"},
+                "classList.has('is-title-injected')": {"<-": "!@owner.title"}
+            }
+        },
+
+        "title": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "title"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.title"}
+            }
+        },
+
+        "infoWidgetButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "infoWidgetButton"},
+                "value": "Settings"
+            }
+        },
+
+        "cancelSettingWidgetButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "cancel"},
+                "value": "Cancel"
+            }
+        },
+
+        "saveSettingWidgetButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "save"},
+                "value": "Save"
+            }
+        },
+
+        "settingsTitle": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "settingsTitle"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.settingsLabel.defined() ? @owner.settingsLabel : 'Settings'"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Widget">
+        <div class="Widget-flipper">
+            <div class="Widget-front">
+                <div class="Widget-header Own">
+                    <div data-param="widget-icon"></div>
+                    <span data-mod-id="title"></span>
+                </div>
+                <div data-param="widget-title" class="Widget-header Injected"></div>
+                <div class="Widget-content">
+                    <div data-param="widget-content" class="Widget-content-front"></div>
+                </div>
+                <div data-mod-id="infoWidgetButton" class="Widget-info Button--primary"></div>
+            </div>
+            <div class="Widget-back">
+                <div class="Widget-header">
+                    <svg><use xlink:href="#i-gear"/></svg>
+                    <div data-mod-id="settingsTitle"></div>
+                </div>
+                <div class="Widget-content">
+                    <div data-param="widget-settings" class="Widget-settings"></div>
+                    <div class="Widget-footer">
+                        <div data-mod-id="saveSettingWidgetButton" class="Widget-save-setting"></div>
+                        <button data-mod-id="cancel" class="WidgetSettings-cancel Button--secondary"></button>
+                        <button data-mod-id="save" class="WidgetSettings-save Button--primary"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

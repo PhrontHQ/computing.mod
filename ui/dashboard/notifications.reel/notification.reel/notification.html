@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="notification.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('is-expanded')": {"<-": "@owner.infoExpanded"}
+            }
+        },
+        "notificationType": {
+            "prototype": "ui/controls/placeholder.reel",
+            "properties": {
+                "element": {"#": "notificationType"}
+            },
+            "bindings": {
+                "moduleId": {"<-": "'ui/dashboard/notifications.reel/notification.reel/' + @owner.object._objectType.toLowerCase() + '-notification.reel'"},
+                "object": {"<-": "@owner.object"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Notification">
+        <div data-mod-id="notificationType" class="Notification-placeholder">
+            <div data-mod-id="taskNotification" data-arg="Task"></div>
+            <div data-mod-id="alertNotification" data-arg="Alert"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="table-routes.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "table": {"@": "table"}
+            }
+        },
+
+        "table": {
+            "prototype": "blue-shark.mod/ui/tables/table-editable.reel",
+            "properties": {
+                "element": {"#": "table"},
+                "delegate": {"@": "owner"},
+                "columns":  [
+                    {
+                        "value": "Id"
+                    },
+                    {
+                        "value": "Network"
+                    },
+                    {
+                        "value": "Gateway"
+                    }
+                ]
+            },
+            "bindings": {
+                "rows": {"<->": "@owner.values"},
+                "label": {"<->": "@owner.label"}
+            }
+        },
+
+        "defaultHeader": {
+            "prototype": "../table-container-default-header.reel",
+            "properties": {
+                "element": {"#": "tableHeader"},
+                "table": {"@": "table"}
+            }
+        },
+
+        "newEntry": {
+            "prototype": "./table-row-route.reel",
+            "properties": {
+                "element": {"#": "newEntry"},
+                "canChangeType": true
+            },
+            "bindings": {
+                "object": {"<-": "@table.currentNewEntry.object"}
+            }
+        },
+
+        "entry": {
+            "prototype": "./table-row-route.reel",
+            "properties": {
+                "element": {"#": "entry"}
+            },
+            "bindings": {
+                "object": {"<-": "@table:rowIteration.object.object"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="TableRoutes">
+        <div data-mod-id="table">
+            <div data-arg="table-editable-header-toolbar" data-mod-id="tableHeader"></div>
+            <div data-arg="row-new" data-mod-id="newEntry" class="Table-row"></div>
+            <div data-arg="row-entry" data-mod-id="entry" class="Table-row"></div>
+        </div>
+    </div>
+</body>
+</html>

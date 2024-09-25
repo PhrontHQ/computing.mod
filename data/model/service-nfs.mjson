@@ -1,0 +1,111 @@
+{
+  "blueprint_servicenfs_bind_addresses": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "bind_addresses",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_servicenfs_enable": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "enable",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_servicenfs_mountd_port": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "mountd_port",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_servicenfs_nonroot": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "nonroot",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_servicenfs_rpclockd_port": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rpclockd_port",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_servicenfs_rpcstatd_port": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rpcstatd_port",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_servicenfs_servers": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "servers",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_servicenfs_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "service-nfs"
+      ]
+    }
+  },
+  "blueprint_servicenfs_udp": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "udp",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_servicenfs_v4": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "v4",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_servicenfs_v4_kerberos": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "v4_kerberos",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ServiceNfs",
+      "propertyBlueprints": [
+        {"@": "blueprint_servicenfs_bind_addresses"},
+        {"@": "blueprint_servicenfs_enable"},
+        {"@": "blueprint_servicenfs_mountd_port"},
+        {"@": "blueprint_servicenfs_nonroot"},
+        {"@": "blueprint_servicenfs_rpclockd_port"},
+        {"@": "blueprint_servicenfs_rpcstatd_port"},
+        {"@": "blueprint_servicenfs_servers"},
+        {"@": "blueprint_servicenfs_type"},
+        {"@": "blueprint_servicenfs_udp"},
+        {"@": "blueprint_servicenfs_v4"},
+        {"@": "blueprint_servicenfs_v4_kerberos"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "chart1": {
+            "prototype": "foo/ui/controls/chart.reel",
+            "properties": {
+                "element": {"#": "chart1"},
+                "updatePeriod": 2000,
+                "showYAxis": true,
+                "showXAxis": true,
+                "xFormat": "%X",
+                "isTimeSeries": true,
+                "interpolation": "basis",
+                "useGuideline": true,
+                "title": "CPU usage"
+            },
+            "bindings": {
+                "series": {"<-": "@owner.series1"}
+            }
+        },
+        "chart2": {
+            "prototype": "foo/ui/controls/chart.reel",
+            "properties": {
+                "element": {"#": "chart2"},
+                "updatePeriod": 500,
+                "interpolation": "foo",
+                "isStacked": true,
+                "title": "Network bandwidth"
+            },
+            "bindings": {
+                "series": {"<-": "@owner.series1"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Main">
+        <div data-mod-id="chart1"></div>
+        <div data-mod-id="chart2"></div>
+    </div>
+</body>
+</html>

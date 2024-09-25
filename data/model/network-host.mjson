@@ -1,0 +1,29 @@
+{
+  "blueprint_networkhost_addresses": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "addresses",
+      "blueprint": {"@": "root"},
+      "valueType": "array",
+      "valueObjectPrototypeName": "IpAddress"
+    }
+  },
+  "blueprint_networkhost_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "NetworkHost",
+      "propertyBlueprints": [
+        {"@": "blueprint_networkhost_addresses"},
+        {"@": "blueprint_networkhost_id"}
+      ]
+    }
+  }
+}

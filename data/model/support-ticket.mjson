@@ -1,0 +1,93 @@
+{
+  "blueprint_supportticket_attachments": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "attachments",
+      "blueprint": {"@": "root"},
+      "mandatory": true,
+      "valueType": "array"
+    }
+  },
+  "blueprint_supportticket_category": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "category",
+      "blueprint": {"@": "root"},
+      "mandatory": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_supportticket_debug": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "debug",
+      "blueprint": {"@": "root"},
+      "mandatory": true,
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_supportticket_description": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "description",
+      "blueprint": {"@": "root"},
+      "mandatory": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_supportticket_password": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "password",
+      "blueprint": {"@": "root"},
+      "mandatory": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_supportticket_subject": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "subject",
+      "blueprint": {"@": "root"},
+      "mandatory": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_supportticket_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "mandatory": true,
+      "valueType": "String",
+      "enumValues": [
+        "bug",
+        "feature"
+      ]
+    }
+  },
+  "blueprint_supportticket_username": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "username",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "SupportTicket",
+      "propertyBlueprints": [
+        {"@": "blueprint_supportticket_attachments"},
+        {"@": "blueprint_supportticket_category"},
+        {"@": "blueprint_supportticket_debug"},
+        {"@": "blueprint_supportticket_description"},
+        {"@": "blueprint_supportticket_password"},
+        {"@": "blueprint_supportticket_subject"},
+        {"@": "blueprint_supportticket_type"},
+        {"@": "blueprint_supportticket_username"}
+      ]
+    }
+  }
+}

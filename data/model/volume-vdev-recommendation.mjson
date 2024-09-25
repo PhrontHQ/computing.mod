@@ -1,0 +1,28 @@
+{
+  "blueprint_volumevdevrecommendation_drives": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "drives",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_volumevdevrecommendation_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumeVdevRecommendation",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumevdevrecommendation_drives"},
+        {"@": "blueprint_volumevdevrecommendation_type"}
+      ]
+    }
+  }
+}

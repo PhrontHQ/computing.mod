@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="language-and-region.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canRevert": true,
+                "canSave": true,
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"}
+            }
+        },
+        "timezones": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "timezones"},
+                "label": "Timezones"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.timezoneOptions"},
+                "selectedValue": {"<->": "@owner.generalData.timezone"}
+            }
+        },
+        "advancedSection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "advancedSection"},
+                "title": "Date and Time Format"
+            }
+        },
+        "firstDayOfWeek": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "firstDayOfWeek"},
+                "label": "First day of week"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.firstDayOfWeekOptions"},
+                "selectedValue": {"<->": "@owner.user.attributes.userSettings.firstDayOfWeek"}
+            }
+        },
+        "timeFormatShort": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "timeFormatShort"},
+                "label": "Short"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.timeFormatShortOptions"},
+                "selectedValue": {"<->": "@owner.user.attributes.userSettings.timeFormatShort"}
+            }
+        },
+        "timeFormatMedium": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "timeFormatMedium"},
+                "label": "Medium"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.timeFormatMediumOptions"},
+                "selectedValue": {"<->": "@owner.user.attributes.userSettings.timeFormatMedium"}
+            }
+        },
+        "timeFormatLong": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "timeFormatLong"},
+                "label": "Long"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.timeFormatLongOptions"},
+                "selectedValue": {"<->": "@owner.user.attributes.userSettings.timeFormatLong"}
+            }
+        },
+        "dateFormatShort": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "dateFormatShort"},
+                "label": "Short"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.dateFormatShortOptions"},
+                "selectedValue": {"<->": "@owner.user.attributes.userSettings.dateFormatShort"}
+            }
+        },
+        "dateFormatMedium": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "dateFormatMedium"},
+                "label": "Medium"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.dateFormatMediumOptions"},
+                "selectedValue": {"<->": "@owner.user.attributes.userSettings.dateFormatMedium"}
+            }
+        },
+        "dateFormatLong": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "dateFormatLong"},
+                "label": "Long"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.dateFormatLongOptions"},
+                "selectedValue": {"<->": "@owner.user.attributes.userSettings.dateFormatLong"}
+            }
+        },
+        "dateFormatFull": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "dateFormatFull"},
+                "label": "Full"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.dateFormatFullOptions"},
+                "selectedValue": {"<->": "@owner.user.attributes.userSettings.dateFormatFull"}
+            }
+        },
+        "keymaps": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "keymaps"},
+                "label": "Keyboard Preference"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.keymapsOptions"},
+                "selectedValue": {"<->": "@owner.generalData.console_keymap"}
+            }
+        },
+        "timezonepicker": {
+            "prototype": "ui/controls/timezone-picker.reel",
+            "properties": {
+                "element": {"#": "timezonepicker"}
+            },
+            "bindings": {
+                "timezone": {"<->": "@owner.generalData.timezone"}
+            }
+        },
+        "dateFormatTitle": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "dateFormatTitle"},
+                "value": "Date Format"
+            }
+        },
+        "timeFormatTitle": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "timeFormatTitle"},
+                "value": "Time Format"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="LanguageAndRegion">
+        <div data-mod-id="inspector">
+            <div data-mod-id="keymaps"></div>
+            <div data-mod-id="timezones"></div>
+            <div data-mod-id="timezonepicker" class="g-margin-bottom"></div>
+            <div data-mod-id="advancedSection" class="AdvancedSection">
+                <div data-mod-id="firstDayOfWeek"></div>
+                <div data-mod-id="dateFormatTitle"></div>
+                <div data-mod-id="dateFormatShort"></div>
+                <div data-mod-id="dateFormatMedium"></div>
+                <div data-mod-id="dateFormatLong"></div>
+                <div data-mod-id="dateFormatFull"></div>
+                <div data-mod-id="timeFormatTitle"></div>
+                <div data-mod-id="timeFormatShort"></div>
+                <div data-mod-id="timeFormatMedium"></div>
+                <div data-mod-id="timeFormatLong"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Main</title>
+
+
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "main"}
+            }
+        },
+        "icons": {
+            "prototype": "blue-shark.mod/ui/icons.reel",
+            "properties": {
+                "element": {"#": "icons"}
+            }
+        },
+        "default": {
+            "prototype": "gui/ui/controls/field-treeview.reel",
+            "properties": {
+                "element": {"#": "default"},
+                "label": "Home Directory",
+                "disabled": false,
+                "readOnly": false
+            },
+            "bindings": {
+                "controller": {"<-": "@owner.controller"},
+                "selectedPath": {"<->": "@owner.selectedPath"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="main" class="Main inspector">
+        <!-- only needed for demo -->
+        <div data-mod-id="icons"></div>
+        <!-- end -->
+        <div data-mod-id="default"></div>
+    </div>
+</body>
+</html>

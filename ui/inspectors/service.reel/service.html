@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="service.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"},
+                "inspector": {"@": "inspector"}
+            },
+            "bindings": {
+                "name": {"<-": "@owner.object.config.type.replace('service-', '')"},
+                "configComponent": {"<-": "@config.component"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canRevert": "true",
+                "canSave": "true",
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"}
+            }
+        },
+        "enabled": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "enabled"},
+                "label": "Enabled"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.config.enable"}
+            }
+        },
+        "overview": {
+            "prototype": "./service-overview.reel",
+            "properties": {
+                "element": {"#": "overview"}
+            },
+            "bindings": {
+                "name": {"<-": "@owner.name"},
+                "object": {"<-": "@owner.object"}
+            }
+        },
+        "config": {
+            "prototype": "ui/controls/placeholder.reel",
+            "properties": {
+                "element": {"#": "config"}
+            },
+            "bindings": {
+                "moduleId": {"<-": "'ui/inspectors/service.reel/' + @owner.name + '-service.reel'"},
+                "object": {"<-": "@owner.object.config"},
+                "context": {"<-": "@owner.context"}
+
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Service">
+        <div data-mod-id="inspector">
+            <div data-mod-id="overview"></div>
+            <div data-mod-id="enabled"></div>
+            <div data-mod-id="config"></div>
+        </div>
+    </div>
+</body>
+</html>

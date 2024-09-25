@@ -1,0 +1,55 @@
+{
+  "blueprint_shareclient_connected_at": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "connected_at",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_shareclient_extra": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "extra",
+      "blueprint": {"@": "root"},
+      "valueType": "object"
+    }
+  },
+  "blueprint_shareclient_host": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "host",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_shareclient_share": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "share",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_shareclient_user": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "user",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ShareClient",
+      "propertyBlueprints": [
+        {"@": "blueprint_shareclient_connected_at"},
+        {"@": "blueprint_shareclient_extra"},
+        {"@": "blueprint_shareclient_host"},
+        {"@": "blueprint_shareclient_share"},
+        {"@": "blueprint_shareclient_user"}
+      ]
+    }
+  }
+}

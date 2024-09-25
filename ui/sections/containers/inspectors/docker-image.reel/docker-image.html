@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "_availableHosts": {"<-": "@owner._dockerHosts.filter{!@owner.object.hosts.has(id)}"}
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "canDelete": true,
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"}
+            }
+        },
+
+        "collection": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "collection"},
+                "label": "Collection"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.collection"},
+                "classList.has('is-hidden')": {"<-": "!@owner.object.collection"}
+            }
+        },
+
+        "name": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "name"},
+                "label": "Name"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.names.join(' ')"}
+            }
+        },
+
+        "bytesConverter": {
+            "prototype": "mod/core/converter/bytes-converter"
+        },
+
+        "size": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "size"},
+                "label": "Size",
+                "converter": {"@": "bytesConverter"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.size"}
+            }
+        },
+
+        "createdAt": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "createdAt"},
+                "label": "Created At",
+                "value": "{date, MM/DD/YYYY HH:mm:ss}"
+            },
+            "bindings": {
+                "args": {"<-": "@owner.createdAtDate"}
+            }
+        },
+
+        "hosts": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "hosts"},
+                "controller": {"@": "owner"},
+                "label": "Hosts",
+                "placeholder": "",
+                "inputTitle": "Install image",
+                "valuesTitle": "Image installed on hosts",
+                "emptyMessage": "Image installed on no hosts :("
+            },
+            "bindings": {
+                "values": {"<-": "@owner._dockerHosts.filter{@owner.object.hosts.has(id)}.map{name}"},
+                "canAddNewEntry": {"<-": "@owner._availableHosts.length > 0 && !!@dockerHostSelect.selectedValue"}
+            }
+        },
+
+        "dockerHostSelect": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "dockerHostSelect"},
+                "label": "Available Hosts"
+            },
+            "bindings": {
+                "options": {"<-": "[{label: '---', value: null}].concat(@owner._availableHosts.map{{label: name, value: id}})"},
+                "selectedValue": {"<->": "@owner._selectedHost"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="DockerImage" style="max-width: 33rem;">
+        <div data-mod-id="inspector">
+            <div data-mod-id="collection"></div>
+            <div data-mod-id="name"></div>
+            <div data-mod-id="size"></div>
+            <div data-mod-id="createdAt"></div>
+            <div data-mod-id="hosts">
+                <div data-mod-id="dockerHostSelect"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "variable": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "variable"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.variable"}
+            }
+        },
+
+        "value": {
+            "prototype": "blue-shark.mod/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "value"},
+                "placeholder": "e.g. value"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.value"}
+            }
+        },
+
+        "optional": {
+            "prototype": "blue-shark.mod/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "optional"},
+                "disabled": true
+            },
+            "bindings": {
+                "checked": {"<->": "!!@owner.object.optional"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="TableRowSettings Table-cells">
+        <div><div data-mod-id="variable"></div></div>
+        <div><div data-mod-id="value"></div></div>
+        <div><div data-mod-id="optional"></div></div>
+    </div>
+</body>
+</html>

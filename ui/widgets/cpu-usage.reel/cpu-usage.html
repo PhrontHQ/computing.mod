@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="cpu-usage.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "widget": {
+            "prototype": "ui/dashboard/widgets/widget.reel",
+            "properties": {
+                "element": {"#": "widget"},
+                "title": "CPU Usage"
+            }
+        },
+        "chart": {
+            "prototype": "ui/dashboard/widgets/chart-live.reel",
+            "properties": {
+                "element": {"#": "chart-live"},
+                "showLegend": true,
+                "showYAxis": true,
+                "isTimeSeries": true,
+                "graphType": "stacked",
+                "yFormat": "%",
+                "useGuideline": true,
+                "datasources": ["aggregation-cpu-sum"],
+                "metrics": [
+                    "cpu-user",
+                    "cpu-system"
+                ],
+                "removePrefix": "cpu-",
+                "delegate": {"@": "owner"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="CpuUsage">
+        <div data-mod-id="widget">
+            <svg data-arg="widget-icon"><use xlink:href="#i-lineChart"/></svg>
+            <div data-arg="widget-content">
+                <div data-mod-id="chart-live"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

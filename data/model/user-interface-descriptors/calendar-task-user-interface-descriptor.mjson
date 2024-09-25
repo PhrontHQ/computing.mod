@@ -1,0 +1,9 @@
+{
+    "root": {
+        "prototype": "mod/core/meta/user-interface-descriptor",
+        "properties": {
+            "inspectorComponentModule": {"%": "ui/inspectors/calendar-task.reel"},
+            "nameExpression": "name.defined() ? name : 'Create an event'"
+        }
+    }
+}

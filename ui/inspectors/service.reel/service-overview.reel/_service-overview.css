@@ -1,0 +1,26 @@
+.ServiceOverview {
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 1em;
+    border-bottom: 1px solid var(--transparent--lighten);
+}
+
+.ServiceOverview-icon {
+    display: flex;
+    align-items: center;
+    width:  6em;
+    height: 6em;
+    margin-right: 2em;
+}
+
+.ServiceOverview-icon svg {
+    color: var(--grey-2);
+    width: 100%;
+}
+
+.ServiceOverview-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

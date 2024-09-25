@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="sign-in.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "userNameTextField": {"@": "userName"},
+                "passwordTextField": {"@": "password"},
+                "submitButton": {"@": "submit"}
+            },
+            "bindings": {
+                "classList.has('hasError')": {"<-": "@owner.hasError"},
+                "classList.has('had-error')": {"<-": "@owner.hadError"},
+                "classList.has('isAuthenticating')": {"<-": "@owner.isAuthenticating"}
+            }
+        },
+
+        "infoText": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "infoText"},
+                "value": "Enter your username and password."
+            }
+        },
+
+        "userName": {
+            "prototype": "blue-shark.mod/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "userName"},
+                "placeholder": "username"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.userName"}
+            }
+        },
+
+        "password": {
+            "prototype": "blue-shark.mod/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "password"},
+                "placeholder": "password"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.password"}
+            }
+        },
+
+        "errorMessage": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "errorMessage"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.errorMessage"}
+            }
+        },
+
+        "submit": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "submit"},
+                "value": "Sign In"
+            },
+            "bindings": {
+                "isProcessing": {"<-": "@owner.isAuthenticating"},
+                "disabled": {"<-": "isProcessing || !@userName.value"}
+            }
+        },
+
+        "browserMessage": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "browserMessage"},
+                "value": "We're sorry but at this time FreeNAS only supports the Chrome browser."
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "true"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="SignIn">
+        <div class="SignIn-content">
+            <div data-mod-id="browserMessage" class="SignIn-browserMessage"></div>
+            <img src="../../assets/images/corral-logo.svg" class="SignIn-logo" alt="FreeNas Corral Logo">
+            <div data-mod-id="infoText" class="SignIn-infoText"></div>
+            <div data-mod-id="errorMessage" class="SignIn-error-message "></div>
+            <input type="text" data-mod-id="userName" class="SignIn-userName g-margin-bottom--half" autocapitalize="none" autocorrect="none"></input>
+            <input type="password" data-mod-id="password" class="SignIn-userName g-margin-bottom--double"></input>
+            <button data-mod-id="submit" class="SignIn-submit Button--primary Button--block Button--large Button--loader"></button>
+        </div>
+    </div>
+</body>
+</html>

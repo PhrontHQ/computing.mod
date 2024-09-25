@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="services-category.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "categoryServices": {"<-": "@owner.object.services.filter{@owner.object.types.has(this.config.type)}"},
+                "selectedObject": {"<->": "@services.selectedObject"}
+            }
+        },
+        "services": {
+            "prototype": "ui/controls/list.reel",
+            "properties": {
+                "element": {"#": "services"},
+                "sortPath": "config.type"
+            },
+            "bindings": {
+                "isLoading": {"<-": "!@owner.categoryServices || @owner.categoryServices.length == 0"},
+                "content": {"<-": "@owner.categoryServices"}
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "hasFixedFooter": false
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="ServicesCategory">
+        <div data-mod-id="inspector">
+            <div data-mod-id="services" class="g-margin-top--subtract g-margin-h--subtract"></div>
+        </div>
+    </div>
+</body>
+</html>

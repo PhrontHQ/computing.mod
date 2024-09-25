@@ -1,0 +1,112 @@
+{
+  "propertyblueprint": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "%type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "ldap-directory-params"
+      ]
+    }
+  },
+  "blueprint_ldapdirectoryparams_base_dn": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "base_dn",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_ldapdirectoryparams_bind_dn": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "bind_dn",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_ldapdirectoryparams_certificate": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "certificate",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_ldapdirectoryparams_encryption": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "encryption",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "LdapDirectoryParamsEncryption"
+    }
+  },
+  "blueprint_ldapdirectoryparams_group_suffix": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "group_suffix",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_ldapdirectoryparams_krb_principal": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "krb_principal",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_ldapdirectoryparams_password": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "password",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_ldapdirectoryparams_server": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "server",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_ldapdirectoryparams_user_suffix": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "user_suffix",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_ldapdirectoryparams_verify_certificate": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "verify_certificate",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "LdapDirectoryParams",
+      "propertyBlueprints": [
+        {"@": "propertyblueprint"},
+        {"@": "blueprint_ldapdirectoryparams_base_dn"},
+        {"@": "blueprint_ldapdirectoryparams_bind_dn"},
+        {"@": "blueprint_ldapdirectoryparams_certificate"},
+        {"@": "blueprint_ldapdirectoryparams_encryption"},
+        {"@": "blueprint_ldapdirectoryparams_group_suffix"},
+        {"@": "blueprint_ldapdirectoryparams_krb_principal"},
+        {"@": "blueprint_ldapdirectoryparams_password"},
+        {"@": "blueprint_ldapdirectoryparams_server"},
+        {"@": "blueprint_ldapdirectoryparams_user_suffix"},
+        {"@": "blueprint_ldapdirectoryparams_verify_certificate"}
+      ]
+    }
+  }
+}

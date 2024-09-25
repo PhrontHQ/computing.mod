@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="interface.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "media": {"<-": "@media.selectedValue"}
+            }
+        },
+        "active_media_type": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "active_media_type"},
+                "label": "Active Media Type"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.active_media_type"}
+            }
+        },
+        "media": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "media"},
+                "label": "Selected Media Type"
+            },
+            "bindings": {
+                "options": {"<-": "[{value: null, label: '---'}].concat(@owner.object.status.supported_media.sorted{this})"},
+                "selectedValue": {"<->": "@owner.object.media"}
+            }
+        },
+        "link_address": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "link_address"},
+                "label": "MAC Address"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.status.link_address"}
+            }
+        },
+        "capabilities": {
+            "prototype": "blue-shark.mod/ui/field-scrollable-list.reel",
+            "properties": {
+                "element": {"#": "capabilities"},
+                "label": "Capabilities",
+                "height": 6.5
+            },
+            "bindings": {
+                "content": {"<-": "@owner.object.status.capabilities.map{{value: this}}"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Interface">
+        <div data-mod-id="active_media_type"></div>
+        <div data-mod-id="media">
+        <div data-mod-id="link_address"></div>
+        <div data-mod-id="capabilities"></div>
+    </div>
+</body>
+</html>

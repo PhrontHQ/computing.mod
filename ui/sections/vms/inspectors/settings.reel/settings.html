@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="settings.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"},
+                "inspector": {"@": "inspector"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller"
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canSave": true,
+                "canRevert": true,
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"}
+            }
+        },
+        "ipv4_address_validator": {
+            "prototype": "core/converter/validator/ipv4-with-netmask-validator"
+        },
+        "network.nat": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "network.nat"},
+                "label": "NAT Network",
+                "validator": {"@": "ipv4_address_validator"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.settings.config.network.nat"}
+            }
+        },
+        "network.management": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "network.management"},
+                "label": "Management Network",
+                "validator": {"@": "ipv4_address_validator"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.settings.config.network.management"}
+            }
+        },
+        "additional_templates": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "additional_templates"},
+                "label": "Additional Template Repositories",
+                "labelPath": "this",
+                "isDraggable": true,
+                "inputTitle": "Add Template Repository",
+                "valuesTitle": "Added Template Repositories",
+                "emptyMessage": "No template repositories added :("
+            },
+            "bindings": {
+                "values": {"<->": "@owner.additional_templates"},
+                "placeholder": {"<-": "@owner.additional_templates ? 'eg. https://github.com/my/repo' : ''"}
+            }
+        },
+        "flushTemplateCache": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "flushTemplateCache"},
+                "value": "Flush Template Cache"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Settings">
+        <div data-mod-id="inspector">
+            <div data-mod-id="network.nat"></div>
+            <div data-mod-id="network.management"></div>
+            <div data-mod-id="additional_templates"></div>
+            <div data-mod-id="flushTemplateCache" class="g-margin-bottom"></div>
+        </div>
+    </div>
+</body>
+</html>

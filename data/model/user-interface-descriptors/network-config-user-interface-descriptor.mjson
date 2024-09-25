@@ -1,0 +1,10 @@
+{
+    "root": {
+        "prototype": "mod/core/meta/user-interface-descriptor",
+        "properties": {
+            "inspectorComponentModule": {"%": "ui/sections/network/inspectors/network-configuration.reel"},
+            "iconComponentModule":  {"%": "ui/icons/network-configuration.reel"},
+            "nameExpression": "'Settings'"
+        }
+    }
+}

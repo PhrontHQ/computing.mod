@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canRevert": true,
+                "canSave": true,
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "classList.has('other-confirmation-is-visible')": {"<-": "@owner.isFactoryRestoreConfirmationVisible"},
+                "context": {"<-": "@owner.context"}
+            }
+        },
+        "hostname": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "hostname"},
+                "label": "Hostname"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.systemGeneralData.hostname"}
+            }
+        },
+        "description": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "description"},
+                "label": "Description"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.systemGeneralData.description"}
+            }
+        },
+        "tags": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "tags"},
+                "label": "Tags",
+                "labelPath": "this",
+                "inputTitle": "Add a tag",
+                "valuesTitle": "Added tags",
+                "placeholder": "tagname...",
+                "emptyMessage": "no tags added :("
+            },
+            "bindings": {
+                "values": {"<->": "@owner.systemGeneralData.tags"}
+            }
+        },
+        "syslog_server": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "syslog_server"},
+                "label": "Syslog Server"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.systemGeneralData.syslog_server"}
+            }
+        },
+        "home_directory_root": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "home_directory_root"},
+                "label": "Home Directory Root"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.systemAdvancedData.home_directory_root"}
+            }
+        },
+        "error_uploads": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "error_uploads"},
+                "label": "Enable Error Uploads"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.systemAdvancedData.uploadcrash"}
+            }
+        },
+        "dataset_pool": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "dataset_pool"},
+                "label": "System Dataset Pool"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.datasetOptions"},
+                "selectedValue": {"<->": "@owner.systemDatasetData"}
+            }
+        },
+        "MOTD": {
+            "prototype": "blue-shark.mod/ui/field-text-area.reel",
+            "properties": {
+                "element": {"#": "MOTD"},
+                "label": "MOTD Banner"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.systemAdvancedData.motd"}
+            }
+        },
+        "graphiteServer": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "graphiteServer"},
+                "label": "Remote Graphite Server",
+                "labelPath": "this"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.systemAdvancedData.graphite_servers"}
+            }
+        },
+        "downloadConfig": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "downloadConfig"},
+                "value": "Save Config File"
+            }
+        },
+        "uploadConfig": {
+            "prototype": "blue-shark.mod/ui/field-file-input.reel",
+            "properties": {
+                "element": {"#": "uploadConfig"},
+                "label": "Upload Config File"
+            },
+            "bindings": {
+                "file": {"<->": "@owner.configFile"}
+            }
+        },
+        "applyConfig": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "applyConfig"},
+                "value": "Apply Config File"
+            },
+            "bindings": {
+                "disabled": {"<-": "!@owner.configFile"}
+            }
+        },
+        "factoryRestore": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "factoryRestore"},
+                "value": "Restore Factory Settings"
+            }
+        },
+        "confirmationFactoryRestoreMessage": {
+            "prototype": "ui/inspectors/inspector.reel/inspector-confirmation.reel",
+            "properties": {
+                "element": {"#": "confirmationFactoryRestoreMessage"},
+                "inspector": {"@": "owner"},
+                "confirmMethod": "confirmFactoryRestore",
+                "cancelMethod": "cancelFactoryRestore",
+                "confirmLabel": "Factory Restore"
+            },
+            "bindings": {
+                "confirmMessage": {"<-": "'Are you sure you want to do a factory restore?  The box will reboot after a factory restore and the root password will be reset upon boot up.  You will need to set the root password from the CLI in order to log back in.'"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Preferences">
+        <div data-mod-id="inspector">
+            <div data-mod-id="confirmationFactoryRestoreMessage" class="Inspector-confirmationMessage other-confirmation"></div>
+            <div data-mod-id="downloadConfig" class="g-margin-bottom--half" id="saveConfig"></div>
+            <div data-mod-id="uploadConfig" class="g-margin-bottom--half"></div>
+            <div class="g-margin-bottom">
+                <div data-mod-id="applyConfig"></div>
+                <div data-mod-id="factoryRestore" ></div>
+            </div>
+            <div data-mod-id="noOperation" class="Updates-noOperation"></div>
+            <div data-mod-id="hostname"></div>
+            <div data-mod-id="description"></div>
+            <div data-mod-id="tags"></div>
+            <div data-mod-id="syslog_server"></div>
+            <div data-mod-id="error_uploads"></div>
+            <div data-mod-id="dataset_pool"></div>
+            <div data-mod-id="home_directory_root"></div>
+            <div data-mod-id="MOTD"></div>
+            <div data-mod-id="graphiteServer"></div>
+        </div>
+    </div>
+</body>
+</html>

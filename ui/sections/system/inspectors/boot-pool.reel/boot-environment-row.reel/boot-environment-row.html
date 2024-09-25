@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "name": {
+            "prototype": "blue-shark.mod/ui/text-input-edit.reel",
+            "properties": {
+                "element": {"#": "name"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.id"}
+            }
+        },
+
+        "active": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "active"}
+            },
+            "bindings": {
+                "value": {"<-": "(@owner.object.active ? 'Current' : 'Inactive') + (!!@owner.object.on_reboot ? ', Next Reboot' : '')"}
+            }
+        },
+
+        "space": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "space"},
+                "value": "{value, 0 b}"
+            },
+            "bindings": {
+                "args": {"<-": "!!@owner.object.space ? {value: @owner.object.space} : {value: 0}"}
+            }
+        },
+
+        "dateCreated": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "dateCreated"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.created['$date']"}
+            }
+        },
+
+        "keepToggle": {
+            "prototype": "blue-shark.mod/ui/toggle-switch.reel",
+            "properties": {
+                "element": {"#": "keepToggle"}
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.keep"},
+                "label": {"<-": "checked ? 'yes' : 'no'"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="BootEnvironmentRow Table-cells">
+        <div><span data-mod-id="name"></span></div>
+        <div><span data-mod-id="active"></span></div>
+        <div><span data-mod-id="space"></span></div>
+        <div><span data-mod-id="dateCreated"></span></div>
+        <div><span data-mod-id="keepToggle"></span></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "selectOptionConverter": {
+            "prototype": "core/converter/select-option-converter"
+        },
+        "address": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "address"},
+                "label": "Address"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.address"}
+            }
+        },
+        "path": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "path"},
+                "label": "Path"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.path"}
+            }
+        },
+        "version": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "version"},
+                "label": "Type",
+                "converter": {"@": "selectOptionConverter"}
+            },
+            "bindings": {
+                "options": {"<-": "@owner.versionOptions"},
+                "selectedValue": {"<->": "@owner.object.version"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="VirtualMachineDatastoreNfs">
+        <div data-mod-id="address"></div>
+        <div data-mod-id="path"></div>
+        <div data-mod-id="version"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "fileTreeController": {
+            "prototype": "core/controller/tree/filesystem-tree-controller",
+            "properties": {
+                "canListFiles": true,
+                "root": "/mnt/"
+            },
+            "bindings": {
+                "service": {"<-": "@owner.application.filesystemService"}
+            }
+        },
+        "cdromPath": {
+            "prototype": "ui/controls/field-treeview.reel",
+            "properties": {
+                "element": {"#": "cdromPath"},
+                "label": "Image Path",
+                "controller": {"@": "fileTreeController"}
+            },
+            "bindings": {
+                "selectedPath": {"<->": "@owner.object.path"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="VirtualMachineDeviceCdrom">
+        <div data-mod-id="cdromPath"></div>
+    </div>
+</body>
+</html>

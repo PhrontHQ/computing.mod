@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="docker-image-search.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "imageComponent": {"@": "image"}
+            },
+            "bindings": {
+                "selectedRow": {"<-": "@image.selectedRows.one() && @image.selectedRows.one().object"},
+                "hasImage": {"<-": "@image.rows && @image.rows.length > 0"}
+            }
+        },
+
+        "collection": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "collection"},
+                "label": "Collection"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.collection.name"}
+            }
+        },
+
+        "image": {
+            "prototype": "blue-shark.mod/ui/tables/table-editable.reel",
+            "properties": {
+                "element": {"#": "image"},
+                "isSelectionEnabled": true,
+                "label": "Choose an image",
+                "loadingMessage": "Searching for images...",
+                "contentMaxHeight": 22,
+                "isMultiSelectionEnabled": false,
+                "columns":  [
+                    {
+                        "value": "name",
+                        "path": "label"
+                    },
+                    {
+                        "value": "description",
+                        "path": "description"
+                    },
+                    {
+                        "value": "version",
+                        "path": "version"
+                    },
+                    {
+                        "value": "stars",
+                        "path": "stars"
+                    },
+                    {
+                        "value": "readme",
+                        "path": "readme"
+                    }
+                ]
+            },
+            "bindings": {
+                "rows": {"<-": "@owner._templates.sorted{label}"},
+                "isLoading": {"<-": "@owner._isSearchingDockerImages"}
+            }
+        },
+
+        "defaultHeader": {
+            "prototype": "ui/controls/table-editable-header.reel",
+            "properties": {
+                "element": {"#": "tableHeader"},
+                "table": {"@": "image"},
+                "addButtonDisabled": true
+            }
+        },
+
+        "newEntry": {
+            "prototype": "./table-row-image.reel",
+            "properties": {
+                "element": {"#": "newEntry"}
+            }
+        },
+
+        "entry": {
+            "prototype": "./table-row-image.reel",
+            "properties": {
+                "element": {"#": "entry"}
+            },
+            "bindings": {
+                "imageElement": {"<-": "@image.element"},
+                "object": {"<-": "@image:rowIteration.object.object"},
+                "context": {"<-": "@owner.context"}
+            }
+        },
+
+        "message": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "message"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.message"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="DockerImageSearch">
+        <div data-mod-id="collection"></div>
+        <div data-mod-id="image" class="DockerImageSearch-table">
+            <div data-arg="table-editable-header-toolbar" data-mod-id="tableHeader" class="is-hidden"></div>
+            <div data-arg="row-new" data-mod-id="newEntry" class="Table-row"></div>
+            <div data-arg="row-entry" data-mod-id="entry" class="Table-row"></div>
+        </div>
+        <div data-mod-id="searching"></div>
+        <div data-mod-id="message" class="DockerImageSearch-message"></div>
+    </div>
+</body>
+</html>

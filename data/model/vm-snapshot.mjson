@@ -1,0 +1,47 @@
+{
+  "blueprint_vmsnapshot_description": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "description",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_vmsnapshot_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_vmsnapshot_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_vmsnapshot_parent": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parent",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "Vm"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VmSnapshot",
+      "propertyBlueprints": [
+        {"@": "blueprint_vmsnapshot_description"},
+        {"@": "blueprint_vmsnapshot_id"},
+        {"@": "blueprint_vmsnapshot_name"},
+        {"@": "blueprint_vmsnapshot_parent"}
+      ]
+    }
+  }
+}

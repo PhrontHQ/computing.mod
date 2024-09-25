@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="dc-service.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+        "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "select-option-converter": {
+            "prototype": "core/converter/select-option-converter",
+            "properties": {
+                "labelPropertyName": "id",
+                "valuePropertyName": "id"
+            }
+        },
+        "volume": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "volume"},
+                "converter": {"@": "select-option-converter"},
+                "label": "Volume"
+            },
+            "bindings": {
+                "options" : {"<-": "[{id: '---'}].concat(@owner.volumeOptions)"},
+                "selectedValue": {"<->": "@owner.object.volume"}
+            }
+        },
+        "ip": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "ip"},
+                "label": "Domain Controller IP address"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.dcIp"},
+                "classList.has('hide')": {"<-": "@owner.context.object.state != 'RUNNING'"}
+            }
+        },
+        "dcUrl": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "dcUrl"},
+                "value": "Open DC GUI"
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.context.object.state != 'RUNNING'"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="DcService">
+        <div data-mod-id="volume"></div>
+        <div data-mod-id="ip"></div>
+        <div data-mod-id="dcUrl" class="g-margin-bottom"></div>
+    </div>
+</body>
+</html>

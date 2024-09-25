@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="virtual-machine-readme.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "isFooterHidden": true
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"}
+            }
+        },
+        "readmeHtml": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "readmeHtml"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.parsedHtml"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="VirtualMachineReadme">
+        <div data-mod-id="inspector">
+            <div data-mod-id="readmeHtml"></div>
+        </div>
+    </div>
+</body>
+</html>

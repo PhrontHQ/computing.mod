@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="list-item.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "status": {
+            "prototype": "ui/controls/traffic-light.reel",
+            "properties": {
+                "element": {"#": "status"}
+            },
+            "bindings": {
+                "colorMapping": {"<-": "!@owner.isCollection && !@owner.object._isNewObject ? @owner.userInterfaceDescriptor.statusColorMapping : null"},
+                "value": {"<-": "@owner.object.path(@owner.userInterfaceDescriptor.statusValueExpression)"}
+            }
+        },
+        "label": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "label"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.name.defined() ? @owner.name : @owner.isCollection ? path(@owner.userInterfaceDescriptor.collectionNameExpression) : @owner.object.path(@owner.userInterfaceDescriptor.nameExpression)"}
+            }
+        },
+        "subLabel": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "subLabel"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.path(@owner.userInterfaceDescriptor.subLabelExpression)"},
+                "classList.has('is-hidden')": {"<-": "!@owner.showSubLabel"}
+            }
+        },
+        "imageComponent": {
+            "prototype": "ui/controls/placeholder.reel",
+            "properties": {
+                "element": {"#": "iconImagePlaceholder"}
+            },
+            "bindings": {
+                "moduleId": {"<-": "@owner.userInterfaceDescriptor.iconValueExpression.defined() && !!@owner.userInterfaceDescriptor.iconValueMapping[@owner.object.path(@owner.userInterfaceDescriptor.iconValueExpression)] ? @owner.userInterfaceDescriptor.iconValueMapping[@owner.object.path(@owner.userInterfaceDescriptor.iconValueExpression)] : @owner.userInterfaceDescriptor.iconComponentModule.id || @owner.userInterfaceDescriptor.iconComponentModule['%']"},
+                "object": {"<-": "@owner.object"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="ListItem">
+        <div data-param="*"></div>
+        <div data-mod-id="status" class="ListItem-status"></div>
+        <div data-mod-id="iconImagePlaceholder" class="ListItem-icon"></div>
+        <div class="ListItem-labels">
+            <div data-mod-id="label" class="ListItem-label"></div>
+            <div data-mod-id="subLabel" class="ListItem-subLabel"></div>
+        </div>
+        <div class="ListItem-arrow"><svg><use xlink:href="#i-arrow"/></svg></div>
+    </div>
+</body>
+</html>

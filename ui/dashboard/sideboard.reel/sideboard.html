@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="sideboard.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('is-collapsed')": {"<-" : "@owner.isCollapsed"}
+            }
+        },
+
+        "toggleSideboard": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "toggleSideboard"}
+            }
+        },
+
+        "alerts": {
+            "prototype": "ui/widgets/alerts.reel",
+            "properties": {
+                "element": {"#": "alerts"}
+            }
+        },
+
+        "tasks": {
+            "prototype": "ui/widgets/tasks.reel",
+            "properties": {
+                "element": {"#": "tasks"}
+            }
+        },
+
+        "tasksIcon": {
+            "prototype": "ui/dashboard/widgets/widget-icon.reel",
+            "properties": {
+                "element": {"#": "tasksIcon"},
+                "icon": "i-tasks"
+            },
+            "bindings": {
+                "badgeValue": {"<-": "@owner.tasks.filter{state == 'EXECUTING'}.length"},
+                "data": {"<-": "@owner.notifications.filter{type == 'TASK'}"}
+            }
+        },
+
+        "tasksIcon": {
+            "prototype": "ui/dashboard/widgets/widget-icon.reel",
+            "properties": {
+                "element": {"#": "tasksIcon"},
+                "icon": "i-tasks"
+            },
+            "bindings": {
+                "badgeValue": {"<-": "@owner.tasks.filter{state == 'EXECUTING'}.length"},
+                "data": {"<-": "@owner.notifications.filter{type == 'TASK'}"}
+            }
+        },
+
+        "alertsIcon": {
+            "prototype": "ui/dashboard/widgets/widget-icon.reel",
+            "properties": {
+                "element": {"#": "alertsIcon"},
+                "icon": "i-alert"
+            },
+            "bindings": {
+                "data": {"<-": "@owner.notifications.filter{type == 'ALERT' && !data.dismissed}"}
+            }
+        },
+        "scroller": {
+            "prototype": "blue-shark.mod/ui/scroller.reel",
+            "properties": {
+                "element": {"#": "scroller"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Sideboard">
+        <div class="Sideboard-container">
+            <div class="Sideboard-icons">
+                <div data-mod-id="alertsIcon"></div>
+                <div data-mod-id="tasksIcon"></div>
+            </div>
+            <div data-mod-id="scroller" class="Sideboard-scroller">
+                <div class="flush-bottom g-padding">
+                    <div data-mod-id="alerts" class="g-margin-bottom"></div>
+                    <div data-mod-id="tasks"></div>
+                </div>
+            </div>
+            <div class="Sideboard-logo">
+                <a href="http://www.ixsystems.com" target="_blank"><img src="../../../assets/images/ix_logo_text.png" alt="IX Systems Logo"></a>
+            </div>
+            <div data-mod-id="toggleSideboard" class="Sideboard-toggleSideboard Button--naked Button--icon">
+                <div>
+                    <svg><use xlink:href="#i-arrow"/></svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

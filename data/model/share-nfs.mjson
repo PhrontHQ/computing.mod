@@ -1,0 +1,94 @@
+{
+  "propertyblueprint": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "%type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "share-nfs"
+      ]
+    }
+  },
+  "blueprint_sharenfs_alldirs": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "alldirs",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_sharenfs_hosts": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "hosts",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_sharenfs_mapall_group": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "mapall_group",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_sharenfs_mapall_user": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "mapall_user",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_sharenfs_maproot_group": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "maproot_group",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_sharenfs_maproot_user": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "maproot_user",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_sharenfs_read_only": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "read_only",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_sharenfs_security": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "security",
+      "blueprint": {"@": "root"},
+      "valueType": "array",
+      "valueObjectPrototypeName": "ShareNfsSecurityItems"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ShareNfs",
+      "propertyBlueprints": [
+        {"@": "propertyblueprint"},
+        {"@": "blueprint_sharenfs_alldirs"},
+        {"@": "blueprint_sharenfs_hosts"},
+        {"@": "blueprint_sharenfs_mapall_group"},
+        {"@": "blueprint_sharenfs_mapall_user"},
+        {"@": "blueprint_sharenfs_maproot_group"},
+        {"@": "blueprint_sharenfs_maproot_user"},
+        {"@": "blueprint_sharenfs_read_only"},
+        {"@": "blueprint_sharenfs_security"}
+      ]
+    }
+  }
+}

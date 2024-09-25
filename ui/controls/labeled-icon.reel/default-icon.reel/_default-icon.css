@@ -1,0 +1,12 @@
+.DefaultIcon {
+    background: var(--grey-2);
+    border-radius: 9999px;
+    /* $fix - need to change how this works with js */
+    width: 100% !important;
+    height: 100% !important;
+    line-height: 48px !important;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--white);
+    text-align: center;
+}

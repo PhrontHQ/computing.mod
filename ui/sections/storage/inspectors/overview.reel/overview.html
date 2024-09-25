@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="overview.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "hasContent": {"<-": "!!@volumes.content.length"}
+            }
+        },
+        "emptyPanel": {
+            "prototype": "blue-shark.mod/ui/panel.reel",
+            "properties": {
+                "element": {"#": "emptyPanel"},
+                "message": "No attached volumes."
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "@owner.hasContent"}
+            }
+        },
+        "scrollView": {
+            "prototype": "blue-shark.mod/ui/scroller.reel",
+            "properties": {
+                "element": {"#": "scrollView"},
+                "overflow": "scrollY"
+            }
+        },
+        "volumesSectionTitle": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "volumesSectionTitle"},
+                "value": "Attached volumes"
+            }
+        },
+        "volumes": {
+            "prototype": "mod/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "volumes"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.object.volumes.filter{properties}.sorted{id}"}
+            }
+        },
+        "volume": {
+            "prototype": "./volume-overview-item.reel",
+            "properties": {
+                "element": {"#": "volume"}
+            },
+            "bindings": {
+                "object": {"<-": "@volumes:iteration.object"}
+            }
+        },
+        "content": {
+            "prototype": "mod/ui/component",
+            "properties": {
+                "element": {"#": "content"},
+                "hasTemplate": false
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "!@owner.hasContent"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Overview">
+        <div data-mod-id="scrollView">
+            <div class="g-padding">
+                <div data-mod-id="emptyPanel"></div>
+                <div data-mod-id="content">
+                    <div data-mod-id="volumesSectionTitle" class="flush-top"></div>
+                    <div data-mod-id="volumes">
+                        <div data-mod-id="volume"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

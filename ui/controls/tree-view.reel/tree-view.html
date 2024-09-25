@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="tree-view.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "currentNode": {"@": "currentNode"}
+            },
+            "bindings": {
+                "entry": {"<-": "@owner.controller.entry"},
+                "type": {"<-": "@owner.controller.type"},
+                "selectedEntry": {"<-": "@currentNode.selectedEntry"},
+                "classList.has('is-disabled')": {"<-": "@owner.disabled"}
+            }
+        },
+        "currentNodeName": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "currentNodeName"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.entry.path == @owner.selectedPath ? @owner.entry.name + ' ✓': @owner.entry.name"},
+                "classList.has('is-selected')": {"<-": "@owner.entry.path == @owner.selectedPath"}
+            }
+        },
+        "currentNode": {
+            "prototype": "./current-node.reel",
+            "properties": {
+                "element": {"#": "currentNode"}
+            },
+            "bindings": {
+                "isExpanded": {"<-": "@owner.isExpanded"},
+                "controller": {"<-": "@owner.controller"},
+                "selectedPath": {"<->": "@owner.selectedPath"},
+                "selectedNode": {"<->": "@owner.selectedNode"}
+            }
+        },
+        "backButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "backButton"}
+            },
+            "bindings": {
+                "value": {"<-": "!!@owner.controller.parent && @owner.controller.parent.name.length < 10 ? @owner.controller.parent.name : 'Back'"},
+                "disabled": {"<-": "!@owner.controller.parent"}
+            }
+        },
+        "cancel": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "cancel"},
+                "value": "cancel"
+            }
+        },
+        "select": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "select"},
+                "value": "select"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="TreeView">
+        <div class="TreeView-header">
+            <div data-mod-id="backButton" class="TreeView-backButton Button--naked">
+                <svg><use xlink:href="#i-arrow"/></svg>
+            </div>
+            <div data-mod-id="currentNodeName" class="TreeView-currentNodeName"></div>
+        </div>
+        <div class="TreeView-body">
+            <div data-mod-id="currentNode" class="TreeView-currentNode"></div>
+        </div>
+        <div class="TreeView-footer">
+            <div data-mod-id="cancel"></div>
+            <div data-mod-id="select" class="Button--primary"></div>
+        </div>
+    </div>
+</body>
+</html>

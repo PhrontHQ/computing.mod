@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "_usersTable": {"@": "users"}
+            },
+            "bindings": {
+                "object.__users": {"<-": "@users.values"}
+            }
+        },
+
+        "users": {
+            "prototype": "./table-users.reel",
+            "properties": {
+                "element": {"#": "users"}
+            },
+            "bindings": {
+                "_sectionService": {"<-": "@owner._sectionService"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="System-User">
+        <div data-mod-id="users" class="g-margin-bottom"></div>
+    </div>
+</body>
+</html>

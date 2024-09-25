@@ -1,0 +1,66 @@
+{
+  "blueprint_peer_credentials": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "credentials",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "PeerCredentials"
+    }
+  },
+  "blueprint_peer_health_check_interval": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "health_check_interval",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_peer_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_peer_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_peer_status": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "status",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "PeerStatus"
+    }
+  },
+  "blueprint_peer_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "Peer",
+      "propertyBlueprints": [
+        {"@": "blueprint_peer_credentials"},
+        {"@": "blueprint_peer_health_check_interval"},
+        {"@": "blueprint_peer_id"},
+        {"@": "blueprint_peer_name"},
+        {"@": "blueprint_peer_status"},
+        {"@": "blueprint_peer_type"}
+      ]
+    }
+  }
+}

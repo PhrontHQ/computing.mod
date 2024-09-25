@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="disk.css">
+    <script type="text/mod-serialization">
+       {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "condition": false
+            },
+            "bindings": {
+                "disk": {"<-": "@owner.object ? @owner.object._disk.defined() ? @owner.object._disk : @owner.object : null"},
+                "isOffline": {"<-": "@owner.object._disk.defined() && @owner.object.status && @owner.object.status != 'ONLINE'" },
+                "isDetached": {"<-": "@owner.disk._allocation.defined() && @owner.disk._allocation.type == 'EXPORTED_VOLUME'"},
+                "isRemoved": {"<-": "@owner.object.status == 'REMOVED'"},
+                "classList.has('is-unavailable')": {"<-": "isOffline || isDetached || isRemoved"},
+                "smartFail": {"<-": "@owner.disk.status.smart_info.smart_status != 'PASS'" }
+            }
+        },
+        "bytesConverter": {
+            "object": "./[defaultBytesConverter]"
+        },
+        "mediaSize": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "mediaSize"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.disk.mediasize.defined() ? @owner.disk.mediasize : '&nbsp;'"},
+                "converter": {"<-": "@owner.disk.mediasize.defined() && @bytesConverter"}
+            }
+        },
+        "substitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "substitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "!!@owner.disk.status.is_ssd ? 'ssd' : 'hdd'"}
+            }
+        },
+        "smartStatus": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "smartStatus"}
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "!@owner.smartFail"},
+                "switchValue": {"<-": "@owner.disk.status.smart_info.smart_status == 'FAIL' ? 'fail' : 'warn'"}
+            }
+        },
+        "diskState": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "diskState"}
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "!@owner.isOffline && !@owner.isDetached && !@owner.isRemoved"},
+                "switchValue": {"<-": "@owner.isOffline ? 'offline' : @owner.isRemoved ? 'removed' : 'exported'"}
+            }
+        },
+        "offline": {
+           "prototype": "blue-shark.mod/ui/text.reel",
+           "properties": {
+               "element": {"#": "offline"},
+               "value": "Offline"
+           }
+        },
+        "removed": {
+           "prototype": "blue-shark.mod/ui/text.reel",
+           "properties": {
+               "element": {"#": "removed"},
+               "value": "Removed"
+           }
+        },
+        "exported": {
+           "prototype": "blue-shark.mod/ui/text.reel",
+           "properties": {
+               "element": {"#": "exported"},
+               "value": "Exported"
+           }
+       }
+    }
+    </script>
+</head>
+<body>
+<div data-mod-id="owner" class="DiskIcon">
+    <div data-mod-id="smartStatus" class="DiskIcon-smartStatus">
+        <svg data-arg="warn"><use xlink:href="#i-alert"/></svg>
+        <div data-arg="fail" class="smartStatus-fail"><svg><use xlink:href="#i-alert"/></svg></div>
+    </div>
+    <div data-mod-id="diskState" class="DiskIcon-states">
+        <div data-arg="offline" data-mod-id="offline" class="DiskIcon-state DiskIcon-state-offline"></div>
+        <div data-arg="removed" data-mod-id="removed" class="DiskIcon-state DiskIcon-state-removed"></div>
+        <div data-arg="exported" data-mod-id="exported" class="DiskIcon-state"></div>
+    </div>
+    <div data-mod-id="substitution" class="DiskIcon-img">
+        <img data-arg="hdd" src="./hdd.svg" alt="HDD Icon">
+        <img data-arg="ssd" src="./ssd.svg" alt="SSD Icon">
+    </div>
+    <div data-mod-id="mediaSize" class="DiskIcon-mediaSize"></div>
+</div>
+</body>
+</html>
+

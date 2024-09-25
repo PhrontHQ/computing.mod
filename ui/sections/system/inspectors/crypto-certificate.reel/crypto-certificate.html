@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "inspector": {"@": "inspector"},
+                "validationController": {"@": "validationController"}
+            },
+            "bindings": {
+                "certificateComponent": {"<-": "@certificateActionPlaceHolder.component"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canDelete": true,
+                "canSave": true,
+                "canRevert": true,
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "isConfirmationVisible": {"<-": "@owner.isConfirmationVisible"},
+                "confirmationMessage": {"<-": "'Are you sure you want to delete ' + @owner.object.var + '?'"},
+                "isSaveDisabled": {"<-": "@certificateActionPlaceHolder.component.isSaveDisabled"}
+            }
+        },
+        "name": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "name"},
+                "label": "Name",
+                "placeholder": "create a certificate name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.name"}
+            }
+        },
+        "nameDisplay": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "nameDisplay"},
+                "label": "type"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.type"}
+            }
+        },
+        "certificateActionPlaceHolder": {
+            "prototype": "ui/controls/placeholder.reel",
+            "properties": {
+                "element": {"#": "certificateActionPlaceHolder"},
+                "validationController": {"@": "validationController"}
+            },
+            "bindings": {
+                "moduleId": {"<-": "'ui/sections/system/inspectors/crypto-certificate.reel/crypto-certificate-' + @owner.object._action + '.reel'"},
+                "context": {"<-": "@owner.context"},
+                "object": {"<-": "@owner.object"}
+            }
+        },
+        "export": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "export"},
+                "value": "Export Certificate"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "!!@certificateActionPlaceHolder.component.object._isNew"}
+            }
+        },
+        "noOperation": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "noOperation"},
+                "value": "Certificate Settings"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="CryptoCertificate">
+        <div data-mod-id="inspector">
+            <div data-mod-id="export" id="export" class="g-margin-bottom"></div>
+            <div data-mod-id="noOperation" class="Updates-noOperation flush-top"></div>
+            <div data-mod-id="name"></div>
+            <div data-mod-id="nameDisplay"></div>
+            <div data-mod-id="certificateActionPlaceHolder"></div>
+        </div>
+    </div>
+</body>
+</html>

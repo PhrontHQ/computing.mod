@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="inspector-section-title.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "title": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "title"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.value"}
+            }
+        },
+        "subtitle": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "subtitle"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.subtitle"},
+                "classList.has('is-hidden')": {"<-": "!value"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="InspectorSectionTitle">
+        <div data-mod-id="title" class="InspectorSectionTitle-title"></div>
+        <div class="InspectorSectionTitle-subtitle-wrapper">
+            <div data-mod-id="subtitle" class="InspectorSectionTitle-subtitle"></div>
+        </div>
+    </div>
+</body>
+</html>

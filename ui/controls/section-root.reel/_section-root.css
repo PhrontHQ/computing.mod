@@ -1,0 +1,81 @@
+.SectionRoot {
+    display: flex;
+    flex-direction: column;
+
+    & .Inspector-body-scrollview {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.SectionRoot-entries {
+    @apply --flex-column;
+    flex-shrink: 0;
+    margin-top: -1rem !important;
+}
+
+.SectionRoot-overview {
+    position: relative;
+    flex: 1;
+    /* margin overrides for inspector spacing */
+    margin: -1rem;
+    margin-bottom: 1rem;
+    @apply --flex-column;
+    min-height: 6rem;
+
+    &:after {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1rem;
+        background-image: linear-gradient( color(var(--primary--7) a(0%)) , var(--primary--7) 90%);
+        pointer-events: none;
+    }
+
+    & > :first-child {
+        flex: 1;
+        @apply --flex-column;
+    }
+
+    & .Overview-content { padding: 1em 1em 0; }
+
+    & .InspectorSectionTitle { margin-top: 1rem;}
+
+}
+
+.SectionRoot-title {
+    color: var(--white);
+    padding: .5em 1em;
+    background-color: var(--purple);
+    font-weight: 400;
+    margin: 0;
+}
+
+.SectionRoot.has-disabled-overlay {
+    position: relative;
+}
+
+.SectionRoot.has-disabled-overlay:before,
+.SectionRoot.has-disabled-overlay:after {
+    position: absolute;
+    content: '';
+}
+
+.SectionRoot.has-disabled-overlay:after {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+    background-image: repeating-linear-gradient(-45deg, rgba(128,128,128,0.25), rgba(128,128,128,0.25) 1px, transparent 1px, transparent 10px);
+    background-size: 28px 28px;
+}
+
+.SectionRoot.has-disabled-overlay .SectionRoot-disabledMessage {
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    color: var(--white);
+}

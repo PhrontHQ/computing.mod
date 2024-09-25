@@ -1,0 +1,49 @@
+{
+  "blueprint_volumedatasetpropertyquota_parsed": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parsed",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyQuotaValue"
+    }
+  },
+  "blueprint_volumedatasetpropertyquota_rawvalue": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rawvalue",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumedatasetpropertyquota_source": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "source",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertySource"
+    }
+  },
+  "blueprint_volumedatasetpropertyquota_value": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "value",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumeDatasetPropertyQuota",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumedatasetpropertyquota_parsed"},
+        {"@": "blueprint_volumedatasetpropertyquota_rawvalue"},
+        {"@": "blueprint_volumedatasetpropertyquota_source"},
+        {"@": "blueprint_volumedatasetpropertyquota_value"}
+      ]
+    }
+  }
+}

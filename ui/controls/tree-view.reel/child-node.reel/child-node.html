@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="child-node.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('is-selected')": {"<-": "@owner.selected"}
+            }
+        },
+        "iconSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "iconSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.data.type ? @owner.data.type : 'DATASET'"}
+            }
+        },
+        "name": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "name"}
+            },
+            "bindings": {
+                "value": {"<-": "!!@owner.isSelectedPath ? @owner.data.name + ' ✓' : @owner.data.name"}
+            }
+        },
+        "homeCondition": {
+            "prototype": "mod/ui/condition.reel",
+            "properties": {
+                "element": {"#": "homeCondition"}
+            },
+            "bindings": {
+                "condition": {"<-": "@owner.data.home"}
+            }
+        },
+        "openButton": {
+            "prototype": "mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "openButton"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="ChildNode">
+        <div data-mod-id="openButton" class="ChildNode-openButton">
+            <div data-mod-id="iconSubstitution" class="ChildNode-typeIcon">
+                <svg data-arg="DIRECTORY"><use xlink:href="#i-folder"/></svg>
+                <svg data-arg="FILE"><use xlink:href="#i-file"/></svg>
+                <svg data-arg="DATASET"><use xlink:href="#i-dataset"/></svg>
+            </div>
+            <div data-mod-id="name" class="ChildNode-name"></div>
+            <div data-mod-id="homeCondition" class="ChildNode-homeIcon">
+                <svg><use xlink:href="#i-home"/></svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

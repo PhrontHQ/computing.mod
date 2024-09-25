@@ -1,0 +1,46 @@
+{
+  "blueprint_systemtime_boot_time": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "boot_time",
+      "blueprint": {"@": "root"},
+      "valueType": "datetime"
+    }
+  },
+  "blueprint_systemtime_system_time": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "system_time",
+      "blueprint": {"@": "root"},
+      "valueType": "datetime"
+    }
+  },
+  "blueprint_systemtime_timezone": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "timezone",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_systemtime_uptime": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "uptime",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "SystemTime",
+      "propertyBlueprints": [
+        {"@": "blueprint_systemtime_boot_time"},
+        {"@": "blueprint_systemtime_system_time"},
+        {"@": "blueprint_systemtime_timezone"},
+        {"@": "blueprint_systemtime_uptime"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.Topology {
+    border-bottom: 1px solid var(--primary--4);
+
+    /* log & cache */
+    & .flex-row > * {
+        flex: 1;
+    }
+}
+
+.Topology .Inspector-body { margin: 0; }

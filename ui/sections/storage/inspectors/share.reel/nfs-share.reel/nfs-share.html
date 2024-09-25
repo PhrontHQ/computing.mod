@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="nfs-share.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "readOnly": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "readOnly"},
+                "label": "Read only"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.read_only"}
+            }
+        },
+        "alldirs": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "alldirs"},
+                "label": "All directories"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.alldirs"}
+            }
+        },
+        "advancedSection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "advancedSection"},
+                "title": "Advanced"
+            }
+        },
+
+        "hosts": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "hosts"},
+                "labelPath": "this",
+                "label": "Authorized hosts or networks",
+                "inputTitle": "Add hosts / networks",
+                "emptyMessage": "No authorized hosts or networks added"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.properties.hosts"},
+                "placeholder": {"<-": "'eg. 1.2.3.4 or hostname'"}
+            }
+        },
+        "maprootUser": {
+            "prototype": "ui/controls/search-users.reel",
+            "properties": {
+                "element": {"#": "maprootUser"},
+                "label": "Maproot user",
+                "valuePath": "username"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.properties.maproot_user"}
+            }
+        },
+        "maprootGroup": {
+            "prototype": "ui/controls/search-groups.reel",
+            "properties": {
+                "element": {"#": "maprootGroup"},
+                "label": "Maproot group",
+                "valuePath": "name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.properties.maproot_group"}
+            }
+        },
+        "mapallUser": {
+            "prototype": "ui/controls/search-users.reel",
+            "properties": {
+                "element": {"#": "mapallUser"},
+                "label": "Mapall user",
+                "labelPath": "username",
+                "valuePath": "username"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.properties.mapall_user"}
+            }
+        },
+        "mapallGroup": {
+            "prototype": "ui/controls/search-groups.reel",
+            "properties": {
+                "element": {"#": "mapallGroup"},
+                "label": "Mapall group",
+                "labelPath": "name",
+                "valuePath": "name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.properties.mapall_group"}
+            }
+        },
+        "security": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "security"},
+                "isDraggable": true,
+                "labelPath": "this",
+                "label": "NFS v4 Security",
+                "placeholder": "",
+                "inputTitle": "Add Security Items",
+                "valuesTitle": "Secturity Items",
+                "emptyMessage": "No secturity items added"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.properties.security"},
+                "options": {"<-": "@owner.securityOptions"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="NfsShare">
+        <div data-mod-id="alldirs"></div>
+        <div data-mod-id="readOnly"></div>
+        <div data-mod-id="shareOwner"></div>
+        <div data-mod-id="advancedSection">
+            <div data-mod-id="hostsTitle"></div>
+            <div data-mod-id="hosts"></div>
+            <div data-mod-id="maprootUser"></div>
+            <div data-mod-id="maprootGroup"></div>
+            <div data-mod-id="mapallUser"></div>
+            <div data-mod-id="mapallGroup"></div>
+            <div data-mod-id="securityTitle"></div>
+            <div data-mod-id="security"></div>
+        </div>
+    </div>
+</body>
+</html>

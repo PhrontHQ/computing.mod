@@ -1,0 +1,119 @@
+{
+  "blueprint_smartinfo_attributes": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "attributes",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_smartinfo_diagnostics": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "diagnostics",
+      "blueprint": {"@": "root"},
+      "valueType": "object"
+    }
+  },
+  "blueprint_smartinfo_firmware": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "firmware",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_smartinfo_interface": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "interface",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_smartinfo_messages": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "messages",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_smartinfo_model": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "model",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_smartinfo_smart_capable": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "smart_capable",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_smartinfo_smart_enabled": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "smart_enabled",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_smartinfo_smart_status": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "smart_status",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_smartinfo_temperature": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "temperature",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_smartinfo_test_capabilities": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "test_capabilities",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "SupportedSmartTests"
+    }
+  },
+  "blueprint_smartinfo_tests": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "tests",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "SmartInfo",
+      "propertyBlueprints": [
+        {"@": "blueprint_smartinfo_attributes"},
+        {"@": "blueprint_smartinfo_diagnostics"},
+        {"@": "blueprint_smartinfo_firmware"},
+        {"@": "blueprint_smartinfo_interface"},
+        {"@": "blueprint_smartinfo_messages"},
+        {"@": "blueprint_smartinfo_model"},
+        {"@": "blueprint_smartinfo_smart_capable"},
+        {"@": "blueprint_smartinfo_smart_enabled"},
+        {"@": "blueprint_smartinfo_smart_status"},
+        {"@": "blueprint_smartinfo_temperature"},
+        {"@": "blueprint_smartinfo_test_capabilities"},
+        {"@": "blueprint_smartinfo_tests"}
+      ]
+    }
+  }
+}

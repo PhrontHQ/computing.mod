@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="allocation-bar.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "parityBarElement": {"#": "parityBar"},
+                "usedBarElement": {"#": "usedBar"},
+                "availableBarElement": {"#": "availableBar"}
+            }
+        },
+        "bytesSizeConverter": {
+            "prototype": "mod/core/converter/bytes-converter"
+        },
+        "parityTitle": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "parityTitle"},
+                "value": "Parity"
+            }
+        },
+        "parityValue": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "parityValue"},
+                "converter": {"@": "bytesSizeConverter"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.paritySize"}
+            }
+        },
+        "usedTitle": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "usedTitle"},
+                "value": "Used"
+            }
+        },
+        "usedValue": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "usedValue"},
+                "converter": {"@": "bytesSizeConverter"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.usedSize"}
+            }
+        },
+        "availableTitle": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "availableTitle"},
+                "value": "Usable"
+            }
+        },
+        "availableValue": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "availableValue"},
+                "converter": {"@": "bytesSizeConverter"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.available"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="AllocationBar">
+        <div data-mod-id="parityBar" class="AllocationBar-segement AllocationBar-parity" title="Parity">
+            <div class="AllocationBar-segement-data">
+                <div data-mod-id="parityTitle"></div>
+                <div data-mod-id="parityValue"></div>
+            </div>
+        </div>
+        <div data-mod-id="usedBar" class="AllocationBar-segement AllocationBar-used" title="Used">
+            <div class="AllocationBar-segement-data">
+                <div data-mod-id="usedTitle"></div>
+                <div data-mod-id="usedValue"></div>
+            </div>
+        </div>
+        <div data-mod-id="availableBar" class="AllocationBar-segement AllocationBar-available" title="Available">
+            <div class="AllocationBar-segement-data">
+                <div data-mod-id="availableTitle"></div>
+                <div data-mod-id="availableValue"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

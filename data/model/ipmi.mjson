@@ -1,0 +1,73 @@
+{
+  "blueprint_ipmi_address": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "address",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "Ipv4Address"
+    }
+  },
+  "blueprint_ipmi_dhcp": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "dhcp",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_ipmi_gateway": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "gateway",
+      "blueprint": {"@": "root"}
+    }
+  },
+  "blueprint_ipmi_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_ipmi_netmask": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "netmask",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_ipmi_password": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "password",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_ipmi_vlan_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "vlan_id",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "Ipmi",
+      "propertyBlueprints": [
+        {"@": "blueprint_ipmi_address"},
+        {"@": "blueprint_ipmi_dhcp"},
+        {"@": "blueprint_ipmi_gateway"},
+        {"@": "blueprint_ipmi_id"},
+        {"@": "blueprint_ipmi_netmask"},
+        {"@": "blueprint_ipmi_password"},
+        {"@": "blueprint_ipmi_vlan_id"}
+      ]
+    }
+  }
+}

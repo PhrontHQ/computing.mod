@@ -1,0 +1,19 @@
+{
+  "blueprint_networkinterfacebridgeproperties_members": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "members",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "NetworkInterfaceBridgeProperties",
+      "propertyBlueprints": [
+        {"@": "blueprint_networkinterfacebridgeproperties_members"}
+      ]
+    }
+  }
+}

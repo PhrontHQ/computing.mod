@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="main-navigation-item.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "icon": {"#": "icon"}
+            },
+            "bindings": {
+                "classList.has('selected')": {"<-": "@owner.isSelected"}
+            }
+        },
+
+        "label": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "label"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.label"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="MainNavigationItem">
+        <svg class="MainNavigationItem-icon"><use data-mod-id="icon"/></svg>
+        <div class="MainNavigationItem-label" data-mod-id="label"></div>
+    </div>
+</body>
+</html>

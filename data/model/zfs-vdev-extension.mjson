@@ -1,0 +1,29 @@
+{
+  "blueprint_zfsvdevextension_target_guid": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "target_guid",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_zfsvdevextension_vdev": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "vdev",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "ZfsVdev"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ZfsVdevExtension",
+      "propertyBlueprints": [
+        {"@": "blueprint_zfsvdevextension_target_guid"},
+        {"@": "blueprint_zfsvdevextension_vdev"}
+      ]
+    }
+  }
+}

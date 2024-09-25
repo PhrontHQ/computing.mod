@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="snapshot.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "datasetTreeController": {"@": "datasetTreeController"},
+                "validationController": {"@": "validationController"},
+                "inspector": {"@": "inspector"},
+                "extraDeleteFlags": [
+                     {"label": "Delete recursive snapshots?",
+                      "value": "recursive",
+                      "checked": false}
+                ],
+                "extraDeleteMessage" : "I am sure that I wish to delete this snapshot and its recursive snapshots"
+            }
+        },
+        "sizeConverter": {
+            "prototype": "mod/core/converter/bytes-converter"
+        },
+        "datasetTreeController": {
+            "prototype": "core/controller/tree/dataset-tree-controller",
+            "bindings": {
+                "service": {"<-": "@owner.application.dataService"},
+                "root": {"<-": "@owner.volume.id"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canDelete": true,
+                "canRevert": true,
+                "canSave": true,
+                "keys": [
+                    "name",
+                    "dataset"
+                ],
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "extraDeleteFlags": {"<-": "@owner.extraDeleteFlags"},
+                "extraDeleteMessage": {"<-": "@owner.extraDeleteMessage"},
+                "isSaveDisabled": {"<-": "!@owner.object.dataset"},
+                "isLoading": {"<-": "@owner.isLoading"}
+            }
+        },
+        "name": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "name"},
+                "validationPath": "name",
+                "label": "Name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.name"}
+            }
+        },
+        "datasetSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "datasetSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.pathDisplayMode"}
+            }
+        },
+        "dataset": {
+            "prototype": "ui/controls/field-treeview.reel",
+            "properties": {
+                "element": {"#": "datasetSelector"},
+                "controller": {"@": "datasetTreeController"},
+                "label": "Dataset",
+                "allowPathInput": true,
+                "isMandatory": true
+            },
+            "bindings": {
+                "selectedPath": {"<->": "@owner.object.dataset"}
+            }
+        },
+        "datasetDisplay": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "datasetDisplay"},
+                "label": "Dataset"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.dataset"}
+            }
+        },
+        "expirationType": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "expirationType"},
+                "label": "Expires"
+            },
+            "bindings": {
+                "options": {"<-": "@owner.constructor.EXPIRATION_TYPES"},
+                "selectedValue": {"<->": "@owner._expirationType"}
+            }
+        },
+        "expirationSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "expirationSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner._expirationType"}
+            }
+        },
+        "expirationDate": {
+            "prototype": "blue-shark.mod/ui/field-datetime.reel",
+            "properties": {
+                "element": {"#": "expirationDate"},
+                "allowEmpty": true,
+                "intervalInSeconds": 300
+            },
+            "bindings": {
+                "value": {"<->": "@owner._expirationDate"}
+            }
+        },
+        "lifetime": {
+            "prototype": "blue-shark.mod/ui/field-duration.reel",
+            "properties": {
+                "element": {"#": "lifetime"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner._lifetime"}
+            }
+        },
+        "replicable": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "replicable"},
+                "label": "Allow Replication"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.replicable"}
+            }
+        },
+        "createdSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "createdSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "!!@owner.object.id ? 'existing' : 'new'"}
+            }
+        },
+        "recursive": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "recursive"},
+                "label": "Recursive"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object._recursive"}
+            }
+        },
+        "used": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "used"},
+                "label": "Space Used",
+                "converter": {"@": "sizeConverter"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.properties.used.rawvalue"}
+            }
+        },
+        "creation": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "creation"},
+                "label": "Creation Time",
+                "value": "{date, MM/DD/YYYY HH:mm:ss}"
+            },
+            "bindings": {
+                "args": {"<-": "!!@owner.object._creationDate && {date: @owner.object._creationDate}"}
+            }
+        },
+        "repetitionSection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "repetitionSection"},
+                "title": "Repetition"
+            }
+        },
+        "repetition": {
+            "prototype": "blue-shark.mod/ui/field-duration.reel",
+            "properties": {
+                "element": {"#": "repetition"},
+                "label": "Repeat Every"
+            },
+            "bindings": {
+                "value": {"<->": "@owner._repetition"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Snapshot">
+        <div data-mod-id="inspector">
+            <div data-mod-id="name"></div>
+            <div data-mod-id="datasetSubstitution">
+                <div data-mod-id="datasetSelector" data-arg="select"></div>
+                <div data-mod-id="datasetDisplay" data-arg="display"></div>
+            </div>
+            <div data-mod-id="expirationType"></div>
+            <div data-mod-id="expirationSubstitution">
+                <div data-arg="never"></div>
+                <div data-arg="on">
+                    <div data-mod-id="expirationDate"></div>
+                </div>
+                <div data-arg="after">
+                    <div data-mod-id="lifetime"></div>
+                </div>
+            </div>
+            <div data-mod-id="replicable"></div>
+            <div data-mod-id="createdSubstitution">
+                <div data-arg="new">
+                    <div data-mod-id="recursive"></div>
+                    <div data-mod-id="repetitionSection">
+                        <div data-mod-id="repetition"></div>
+                    </div>
+                </div>
+                <div data-arg="existing">
+                    <div data-mod-id="used"></div>
+                    <div data-mod-id="creation"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

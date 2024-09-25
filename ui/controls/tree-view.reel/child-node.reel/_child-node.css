@@ -1,0 +1,67 @@
+.ChildNode {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    border-bottom: 1px solid var(--primary--4);
+    transition: background-color .15s ease-in-out;
+    user-select: none;
+
+    &:hover {
+        background-color: var(--primary--4);
+        color: var(--white);
+    }
+
+    &.is-selected {
+        background-color: var(--color-selected);
+        color: var(--white);
+    }
+}
+
+.ChildNode-openButton {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    padding: .25em .5em .25em .5em;
+
+    &:focus {
+        box-shadow: none;
+        outline: none;
+    }
+
+    & svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.ChildNode-name {
+    flex: 1;
+    line-height: 1em;
+}
+
+/* icons */
+
+.ChildNode-arrow,
+.ChildNode-typeIcon,
+.ChildNode-homeIcon {
+    width:  1.5em;
+    height: 1.5em;
+    padding: .15em;
+    padding-left:
+}
+
+.ChildNode-homeIcon {
+    margin-right: .5rem;
+
+    @nest .ChildNode.selected & svg {
+        stroke: var(--red);
+    }
+}
+
+.ChildNode-typeIcon {
+    margin-right: .5em;
+}
+
+.ChildNode-arrow {
+    margin-right: -.25em;
+}

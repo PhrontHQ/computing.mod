@@ -1,0 +1,32 @@
+.InspectorSectionTitle {
+    position: relative;
+    margin: 2em 0 1em;
+    line-height: 1.5em;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.InspectorSectionTitle:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-bottom: 1px solid var(--transparent--lighten);
+}
+
+.InspectorSectionTitle-title {
+    position: relative;
+    font-weight: 400;
+}
+
+.InspectorSectionTitle-subtitle {
+    position: relative;
+    font-weight: 200;
+    color: var(--grey-2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

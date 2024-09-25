@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "selectedObject": {"<->": "@owner.context.cascadingListItem.selectedObject"},
+                "selectedEntry": {"<->": "@entries.selectedObject"}
+            }
+        },
+        "entries": {
+            "prototype": "./alert-filter.reel",
+            "properties": {
+                "element": {"#": "entries"}
+            }
+        },
+        "settings": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "settings"},
+                "name": "Settings",
+                "path": "settings"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Alert">
+        <div data-mod-id="entries"></div>
+        <div data-mod-id="settings></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+{
+  "blueprint_aclentryperms_ADD_FILE": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "ADD_FILE",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_ADD_SUBDIRECTORY": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "ADD_SUBDIRECTORY",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_APPEND_DATA": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "APPEND_DATA",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_DELETE": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "DELETE",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_DELETE_CHILD": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "DELETE_CHILD",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_EXECUTE": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "EXECUTE",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_LIST_DIRECTORY": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "LIST_DIRECTORY",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_READ_ACL": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "READ_ACL",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_READ_ATTRIBUTES": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "READ_ATTRIBUTES",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_READ_DATA": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "READ_DATA",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_READ_NAMED_ATTRS": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "READ_NAMED_ATTRS",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_SYNCHRONIZE": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "SYNCHRONIZE",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_WRITE_ACL": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "WRITE_ACL",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_WRITE_ATTRIBUTES": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "WRITE_ATTRIBUTES",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_WRITE_DATA": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "WRITE_DATA",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_aclentryperms_WRITE_NAMED_ATTRS": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "WRITE_NAMED_ATTRS",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "AclEntryPerms",
+      "propertyBlueprints": [
+        {"@": "blueprint_aclentryperms_ADD_FILE"},
+        {"@": "blueprint_aclentryperms_ADD_SUBDIRECTORY"},
+        {"@": "blueprint_aclentryperms_APPEND_DATA"},
+        {"@": "blueprint_aclentryperms_DELETE"},
+        {"@": "blueprint_aclentryperms_DELETE_CHILD"},
+        {"@": "blueprint_aclentryperms_EXECUTE"},
+        {"@": "blueprint_aclentryperms_LIST_DIRECTORY"},
+        {"@": "blueprint_aclentryperms_READ_ACL"},
+        {"@": "blueprint_aclentryperms_READ_ATTRIBUTES"},
+        {"@": "blueprint_aclentryperms_READ_DATA"},
+        {"@": "blueprint_aclentryperms_READ_NAMED_ATTRS"},
+        {"@": "blueprint_aclentryperms_SYNCHRONIZE"},
+        {"@": "blueprint_aclentryperms_WRITE_ACL"},
+        {"@": "blueprint_aclentryperms_WRITE_ATTRIBUTES"},
+        {"@": "blueprint_aclentryperms_WRITE_DATA"},
+        {"@": "blueprint_aclentryperms_WRITE_NAMED_ATTRS"}
+      ]
+    }
+  }
+}

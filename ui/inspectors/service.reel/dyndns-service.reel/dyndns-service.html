@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="dyndns-service.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "provider": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "provider"},
+                "label": "Provider"
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.provider"},
+                "options": {"<-": "@owner.providerOptions"}
+            }
+        },
+        "ipserver": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "ipserver"},
+                "label": "IP server",
+                "placeholder": "eg. checkip.dyndns.org:80 /."
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.ipserver"}
+            }
+        },
+        "domains": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "domains"},
+                "label": "Domains",
+                "labelPath": "this",
+                "isDraggable": true,
+                "placeholder": "eg. mydomain.ddnsprovider.net",
+                "inputTitle": "Add a domain",
+                "valuesTitle": "Added domains",
+                "emptyMessage": "no domains added :("
+            },
+            "bindings": {
+                "values": {"<->": "@owner.object.domains"}
+            }
+        },
+        "username": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "username"},
+                "label": "Username"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.username"}
+            }
+        },
+        "password": {
+            "prototype": "blue-shark.mod/ui/field-password.reel",
+            "properties": {
+                "element": {"#": "password"},
+                "label": "Password",
+                "placeholder1": "enter password",
+                "placeholder2": "confirm password",
+                "errorMessage": "Passwords don't match"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.password"}
+            }
+        },
+        "updatePeriodValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 30,
+                "ceiling": 864000,
+                "errorMessage": "Value must be an integer between 30 and 864000"
+            }
+        },
+        "updatePeriodConverter": {
+            "prototype": "core/converter/string-to-integer-or-null-converter",
+            "properties": {
+                "validator": {"@": "updatePeriodValidator"}
+            }
+        },
+        "update_period": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "update_period"},
+                "label": "Update Period",
+                "converter": {"@": "updatePeriodConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.update_period"}
+            }
+        },
+        "forceUpdatePeriodValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 30,
+                "ceiling": 2592000,
+                "errorMessage": "Value must be an integer between 30 and 2592000"
+            }
+        },
+        "forceUpdatePeriodConverter": {
+            "prototype": "core/converter/string-to-integer-or-null-converter",
+            "properties": {
+                "validator": {"@": "forceUpdatePeriodValidator"}
+            }
+        },
+        "force_update_period": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "force_update_period"},
+                "label": "Force Update Period",
+                "converter": {"@": "forceUpdatePeriodConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.force_update_period"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="DynDnsService">
+        <div data-mod-id="provider"></div>
+        <div data-mod-id="ipserver"></div>
+        <div data-mod-id="domains"></div>
+        <div data-mod-id="username"></div>
+        <div data-mod-id="password"></div>
+        <div data-mod-id="update_period"></div>
+        <div data-mod-id="force_update_period"></div>
+    </div>
+</body>
+</html>

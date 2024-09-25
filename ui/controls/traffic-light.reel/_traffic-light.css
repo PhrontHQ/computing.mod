@@ -1,0 +1,43 @@
+.TrafficLight {
+    display: flex;
+
+    &.is-loading {
+        animation: pulse .5s infinite alternate;
+    }
+}
+
+.TrafficLight-light {
+    content: '';
+    height: 1em;
+    width: 1em;
+    min-width: 1em;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+.TrafficLight.is-green .TrafficLight-light {
+    color: color(var(--green) tint(0%));
+}
+
+.TrafficLight.is-yellow .TrafficLight-light {
+    color: var(--yellow-orange);
+}
+
+.TrafficLight.is-red .TrafficLight-light {
+    color: var(--red);
+}
+
+.TrafficLight.is-grey .TrafficLight-light {
+    color: var(--grey-1);
+    box-shadow: none;
+}
+
+.TrafficLight-light {
+    box-shadow: 0 0 15px currentColor,
+                inset 0 1px 2px color(var(--white) a(30%));
+}
+
+.TrafficLight .montage-Text {
+    margin-left: .5em;
+}
+

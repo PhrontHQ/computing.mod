@@ -1,0 +1,74 @@
+{
+  "blueprint_mail_auth": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "auth",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_mail_encryption": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "encryption",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "MailEncryptionType"
+    }
+  },
+  "blueprint_mail_from": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "from",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_mail_pass": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "pass",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_mail_port": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "port",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_mail_server": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "server",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_mail_user": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "user",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "Mail",
+      "propertyBlueprints": [
+        {"@": "blueprint_mail_auth"},
+        {"@": "blueprint_mail_encryption"},
+        {"@": "blueprint_mail_from"},
+        {"@": "blueprint_mail_pass"},
+        {"@": "blueprint_mail_port"},
+        {"@": "blueprint_mail_server"},
+        {"@": "blueprint_mail_user"}
+      ]
+    }
+  }
+}

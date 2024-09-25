@@ -1,0 +1,46 @@
+{
+  "blueprint_useroriginanonymous_cached_at": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "cached_at",
+      "blueprint": {"@": "root"},
+      "valueType": "datetime"
+    }
+  },
+  "blueprint_useroriginanonymous_directory": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "directory",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_useroriginanonymous_read_only": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "read_only",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_useroriginanonymous_ttl": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "ttl",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "UserOriginAnonymous",
+      "propertyBlueprints": [
+        {"@": "blueprint_useroriginanonymous_cached_at"},
+        {"@": "blueprint_useroriginanonymous_directory"},
+        {"@": "blueprint_useroriginanonymous_read_only"},
+        {"@": "blueprint_useroriginanonymous_ttl"}
+      ]
+    }
+  }
+}

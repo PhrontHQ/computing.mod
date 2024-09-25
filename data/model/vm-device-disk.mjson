@@ -1,0 +1,73 @@
+{
+  "propertyblueprint": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "%type",
+      "blueprint": {"@": "root"},
+      "mandatory": true,
+      "enumValues": [
+        "vm-device-disk"
+      ]
+    }
+  },
+  "blueprint_vmdevicedisk_mode": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "mode",
+      "blueprint": {"@": "root"},
+      "mandatory": true,
+      "valueType": "object",
+      "valueObjectPrototypeName": "VmDeviceDiskMode"
+    }
+  },
+  "blueprint_vmdevicedisk_size": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "size",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_vmdevicedisk_source": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "source",
+      "blueprint": {"@": "root"},
+      "mandatory": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_vmdevicedisk_target_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "target_type",
+      "blueprint": {"@": "root"},
+      "mandatory": true,
+      "valueType": "object",
+      "valueObjectPrototypeName": "VmDeviceDiskTargetType"
+    }
+  },
+  "blueprint_vmdevicedisk_target_path": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "target_path",
+      "blueprint": {"@": "root"},
+      "mandatory": true,
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VmDeviceDisk",
+      "propertyBlueprints": [
+        {"@": "propertyblueprint"},
+        {"@": "blueprint_vmdevicedisk_mode"},
+        {"@": "blueprint_vmdevicedisk_size"},
+        {"@": "blueprint_vmdevicedisk_source"},
+        {"@": "blueprint_vmdevicedisk_target_type"},
+        {"@": "blueprint_vmdevicedisk_target_path"}
+      ]
+    }
+  }
+}

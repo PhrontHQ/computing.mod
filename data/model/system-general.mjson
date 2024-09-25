@@ -1,0 +1,73 @@
+{
+  "blueprint_systemgeneral_console_keymap": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "console_keymap",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_systemgeneral_description": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "description",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_systemgeneral_hostname": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "hostname",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_systemgeneral_language": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "language",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_systemgeneral_syslog_server": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "syslog_server",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_systemgeneral_tags": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "tags",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_systemgeneral_timezone": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "timezone",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "SystemGeneral",
+      "propertyBlueprints": [
+        {"@": "blueprint_systemgeneral_console_keymap"},
+        {"@": "blueprint_systemgeneral_description"},
+        {"@": "blueprint_systemgeneral_hostname"},
+        {"@": "blueprint_systemgeneral_language"},
+        {"@": "blueprint_systemgeneral_syslog_server"},
+        {"@": "blueprint_systemgeneral_tags"},
+        {"@": "blueprint_systemgeneral_timezone"}
+      ]
+    }
+  }
+}

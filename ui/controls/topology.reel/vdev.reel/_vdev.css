@@ -1,0 +1,144 @@
+.Vdev {
+    position: relative;
+    border-bottom-left-radius:  4px;
+    border-bottom-right-radius: 4px;
+    min-width: 6em;
+
+    &:before {
+        position: absolute;
+        content: '';
+        top:    1.75em;
+        left:   0;
+        right:  0;
+        bottom: 0;
+    }
+
+    &.willAcceptDrop:before {
+        animation: blink 1s infinite ease;
+        border: 1px dashed var(--color-selected);
+    }
+
+    &.acceptDrop:before {
+        background-image: repeating-linear-gradient(-45deg, color(var(--color-selected) a(75%)), color(var(--color-selected) a(75%)) 1px, transparent 1px, transparent 10px);
+        background-size: 28px 28px;
+        border: 1px dashed var(--color-selected);
+    }
+}
+
+/* unhealthy vdev */
+
+.Topology.update-mode .Vdev.unhealthy { border-color: var(--red); }
+
+/* Drive Container */
+
+.Vdev .Grid-icon.LabeledIcon {
+    margin-bottom: 0;
+    height: 6em;
+    width:  3em;
+    display: flex;
+    flex-direction: column;
+    padding: .25em;
+}
+
+.Vdev .Grid-icon.LabeledIcon .LabeledIcon-image {
+    flex: 1;
+}
+
+.Vdev .LabeledIcon-title {
+    /* overrides removing the container icon label */
+    display: block !important;
+    color: var(--main-text-color);
+}
+
+.Vdev-grid {
+    background: var(--primary);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 1px 1px var(--shadow-1);
+    user-select: none;
+
+    & .Grid-repetition {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/******************
+
+Vdev Title
+
+*******************/
+
+.Vdev-title {
+    display: flex;
+    align-items: center;
+    position: relative;
+    order: -1;
+    text-align: left;
+    background: var(--primary--9);
+    border-top-right-radius: 4px;
+    border-top-left-radius:  4px;
+    padding: 0 .25em;
+
+    /* status icon */
+
+    &:before {
+        content: '';
+        display: inline-block;
+        width:  .5em;
+        height: .5em;
+        background: var(--green);
+        border-radius: .5em;
+        margin-bottom: .02em;
+        margin-right: .25em;
+        margin-left: .25em;
+        flex-shrink: 0;
+    }
+
+    &:focus { outline: none; }
+
+    @nest .Vdev.unhealthy &:before {
+        background: var(--red);
+    }
+
+    & .Select .montage--disabled .Select-currentOption {
+        right: 0;
+    }
+}
+
+.VdevTitle-arrow {
+    margin-left: .5em;
+    display: none;
+    width:  0;
+    height: 0;
+    border-left:    6px solid transparent;
+    border-right:   6px solid transparent;
+    border-top:     6px solid var(--grey-1);
+}
+
+/* delete button */
+
+.Vdev-deleteButton {
+    position: relative;
+    height: 1.4em;
+    width:  1.4em;
+    border-radius: .6em;
+    margin-left: .25em;
+    outline: none;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.Vdev-deleteButton #close-circle {
+    fill: none;
+    stroke: currentColor;
+}
+
+/* delete hover state */
+
+.Vdev-deleteButton:hover #close-circle {
+    fill:   var(--red);
+    stroke: var(--red);
+}
+
+.Vdev-deleteButton:hover #close-x { fill: var(--white);}

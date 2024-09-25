@@ -1,0 +1,85 @@
+{
+  "blueprint_servicewebdav_authentication": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "authentication",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "ServiceWebdavAuthentication"
+    }
+  },
+  "blueprint_servicewebdav_certificate": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "certificate",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_servicewebdav_enable": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "enable",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_servicewebdav_http_port": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "http_port",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_servicewebdav_https_port": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "https_port",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_servicewebdav_password": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "password",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_servicewebdav_protocol": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "protocol",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_servicewebdav_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "service-webdav"
+      ]
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ServiceWebdav",
+      "propertyBlueprints": [
+        {"@": "blueprint_servicewebdav_authentication"},
+        {"@": "blueprint_servicewebdav_certificate"},
+        {"@": "blueprint_servicewebdav_enable"},
+        {"@": "blueprint_servicewebdav_http_port"},
+        {"@": "blueprint_servicewebdav_https_port"},
+        {"@": "blueprint_servicewebdav_password"},
+        {"@": "blueprint_servicewebdav_protocol"},
+        {"@": "blueprint_servicewebdav_type"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.Alerts {
+    & .Widget { height: 19rem;}
+}
+
+.Notifications-icon { color: var(--primary--3) !important; }
+
+.Notifications-title { flex: 1; }
+
+/* clear all button */
+
+.Notifications-clear {
+    color: inherit;
+    padding: .5em 0;
+
+    &:hover {
+        color: color(var(--grey-1) lightness(80%));
+    }
+}

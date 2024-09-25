@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="ipmi.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"},
+                "inspector": {"@": "inspector"},
+                "passwordComponent": {"@": "password"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "controller": {"@": "owner"},
+                "validationController": {"@": "validationController"},
+                "canSave": true,
+                "canRevert": true
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "isConfirmationVisible": {"<-": "@owner.isConfirmationVisible"}
+            }
+        },
+        "dhcp": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "dhcp"},
+                "label": "DHCP"
+            },
+            "bindings": {
+                "checked": {"<->": "!!@owner.object.dhcp"}
+            }
+        },
+        "ipv4_address_validator": {
+            "prototype": "core/converter/validator/ipv4-validator"
+        },
+        "ipv4_netmask_converter": {
+            "prototype": "core/converter/ipv4-netmask-converter"
+        },
+        "gateway": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "gateway"},
+                "label": "Gateway",
+                "validator": {"@": "ipv4_address_validator"},
+                "errorMessage": "Invalid IP address"
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.object.dhcp.defined() && @owner.object.dhcp"},
+                "value": {"<->": "@owner.object.gateway"}
+            }
+        },
+        "netmask": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "netmask"},
+                "label": "Netmask",
+                "placeholder": "255.255.255.0",
+                "converter": {"@": "ipv4_netmask_converter"}
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.object.dhcp.defined() && @owner.object.dhcp"},
+                "value": {"<->": "@owner.object.netmask"}
+            }
+        },
+        "address": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "address"},
+                "label": "Address",
+                "validator": {"@": "ipv4_address_validator"},
+                "errorMessage": "Invalid IP address"
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.object.dhcp.defined() && @owner.object.dhcp"},
+                "value": {"<->": "@owner.object.address"}
+            }
+        },
+        "vlanIdValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 1,
+                "ceiling": 4094,
+                "errorMessage": "Value must be an integer between 1 and 4094"
+            }
+        },
+        "vlanIdConverter": {
+            "prototype": "core/converter/string-to-integer-or-null-converter",
+            "properties": {
+                "validator": {"@": "vlanIdValidator"}
+            }
+        },
+        "vlan_id": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "vlan_id"},
+                "label": "VLAN ID",
+                "converter": {"@": "vlanIdConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.vlan_id"}
+            }
+        },
+        "password": {
+            "prototype": "blue-shark.mod/ui/field-password.reel",
+            "properties": {
+                "element": {"#": "password"},
+                "label": "Password",
+                "placeholder1": "enter password",
+                "placeholder2": "confirm password",
+                "errorMessage": "Passwords don't match"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.password"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Ipmi">
+        <!-- This field requires data from another middleware call
+             ('ipmi.channels') to populate.
+             Here's the serialization in the meantime:
+            "channel": {
+                "prototype": "blue-shark.mod/ui/field-select.reel",
+                "properties": {
+                    "element": {"#": "channel"},
+                    "label": "Channel"
+                },
+                "bindings": {
+                    "selectedValue": {"<->": "@owner.object.channel"},
+                    "options": {"<-": "@owner.channelOptions"}
+                }
+            }
+        <div data-mod-id="channel"></div> -->
+        <div data-mod-id="inspector">
+            <div data-mod-id="address"></div>
+            <div data-mod-id="netmask"></div>
+            <div data-mod-id="gateway"></div>
+            <div data-mod-id="dhcp"></div>
+            <div data-mod-id="vlan_id"></div>
+            <div data-mod-id="password"></div>
+        </div>
+    </div>
+</body>
+</html>

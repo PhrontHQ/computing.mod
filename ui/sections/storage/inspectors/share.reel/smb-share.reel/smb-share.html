@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="smb-share.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "properties": {"<-": "@owner.object.properties"}
+            }
+        },
+        "readOnly": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "readOnly"},
+                "label": "Read only"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.read_only"}
+            }
+        },
+        "guestAllowed": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "guestAllowed"},
+                "label": "Guest allowed"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.guest_ok"}
+            }
+        },
+        "browseable": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "browseable"},
+                "label": "Browseable"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.browseable"}
+            }
+        },
+        "recycleBin": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "recycleBin"},
+                "label": "Recycle bin"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.recyclebin"}
+            }
+        },
+        "hiddenFiles": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "hiddenFiles"},
+                "label": "Show hidden files"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.show_hidden_files"}
+            }
+        },
+        "guestOnly": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "guestOnly"},
+                "label": "Guest only"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.guest_only"}
+            }
+        },
+        "hostAllow": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "hostAllow"},
+                "label": "Allowed hosts or networks",
+                "placeholder": "eg. 1.2.3.4 or hostname.local",
+                "labelPath": "this",
+                "inputTitle": "Add allowed hosts or networks",
+                "valuesTitle": "Allowed hosts / networks",
+                "emptyMessage": "No allowed hosts or networks added"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.properties.hosts_allow"}
+            }
+        },
+        "hostDeny": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "hostDeny"},
+                "label": "Denied hosts or networks",
+                "placeholder": "eg. 1.2.3.4 or hostname.local",
+                "labelPath": "this",
+                "inputTitle": "Deny a host or network ",
+                "valuesTitle": "Denied hosts / networks",
+                "emptyMessage": "No hosts or networks denied"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.properties.hosts_deny"}
+            }
+        },
+        "vfsObjects": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "vfsObjects"},
+                "label": "VFS objects",
+                "placeholder": "eg. vfs value",
+                "inputTitle": "Add a vfs object",
+                "valuesTitle": "VFS objects",
+                "emptyMessage": "No vfs objects added"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.properties.vfs_objects"}
+            }
+        },
+        "previousVersions": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "previousVersions"},
+                "label": "Previous Versions"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.properties.previous_versions"}
+            }
+        },
+        "advancedSection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "advancedSection"},
+                "title": "Advanced"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="SmbShare">
+        <div data-mod-id="guestAllowed"></div>
+        <div data-mod-id="homes"></div>
+        <div data-mod-id="advancedSection">
+            <div data-mod-id="readOnly"></div>
+            <div data-mod-id="browseable"></div>
+            <div data-mod-id="recycleBin"></div>
+            <div data-mod-id="hiddenFiles"></div>
+            <div data-mod-id="guestOnly"></div>
+            <div data-mod-id="hostAllow"></div>
+            <div data-mod-id="hostDeny"></div>
+            <div data-mod-id="vfsObjects"></div>
+            <div data-mod-id="previousVersions"></div>
+        </div>
+    </div>
+</body>
+</html>

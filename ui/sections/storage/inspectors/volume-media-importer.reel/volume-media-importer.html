@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "canDelete": false,
+                "canRevert": false,
+                "canSave": false,
+                "title": "Import media in volume"
+            }
+        },
+        "filesystemTreeController": {
+            "prototype": "core/controller/tree/filesystem-tree-controller",
+            "properties": {
+                "canListFiles": false,
+                "root": "/mnt"
+            },
+            "bindings": {
+                "service": {"<-": "@owner.application.filesystemService"}
+            }
+        },
+        "mapMediaPath": {
+            "prototype": "ui/controls/field-treeview.reel",
+            "properties": {
+                "element": {"#": "mapMediaPath"},
+                "controller": {"@": "filesystemTreeController"},
+                "validationPath": "mapMediaPath",
+                "label": "Directory"
+            },
+            "bindings": {
+                "selectedPath": {"<->": "@owner.importPath"}
+            }
+        },
+        "refreshMedia": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "refreshMedia"},
+                "value": "Scan for media"
+            }
+        },
+        "mediaFsType": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "mediaFsType"},
+                "label": "Media filesystem type",
+                "placeholder": "e.g. msdosfs",
+                "helpMessage": "Storage.importMedia.mediaFsType"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.importFsType"}
+            }
+        },
+        "importMedia": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "importMedia"},
+                "value": "Import"
+            },
+            "bindings": {
+                "disabled": {"<-": "!@owner.importDisk || !@owner.importPath"}
+            }
+        },
+        "importableDisks": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "importableDisks"},
+                "label": "Media"
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.importDisk"},
+                "options": {"<-": "@owner.importableDiskOptions"},
+                "readOnly": {"<-": "!options"}
+            }
+        },
+        "refreshField": {
+            "prototype": "blue-shark.mod/ui/field.reel",
+            "properties": {
+                "element": {"#": "refreshField"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="VolumeMediaImporter">
+        <div data-mod-id="inspector">
+            <div data-mod-id="importableDisks"></div>
+            <div data-mod-id="refreshField" class="g-margin-top--subtract-half">
+                <button data-mod-id="refreshMedia"></button>
+            </div>
+            <div data-mod-id="mapMediaPath"></div>
+            <div data-mod-id="mediaFsType"></div>
+            <div data-arg="footer-additional-button">
+                <div data-mod-id="importMedia"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

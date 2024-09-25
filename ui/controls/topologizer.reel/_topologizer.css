@@ -1,0 +1,111 @@
+.Topologizer {
+    display: flex;
+    position: relative;
+    user-select: none;
+    padding: 1em;
+}
+
+.Topologizer-legend {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Topologizer-legend-item { display: flex; }
+
+.Topologizer-legend-item + .Topologizer-legend-item {
+    margin-top: .5em;
+}
+
+.Topologizer-legend-item-marker {
+    position: relative;
+    top: .15em;
+    background-color: var(--aqua);
+    height: 1em;
+    width:  1em;
+    border-radius: 1em;
+    margin-right: .5em;
+    border: 4px solid var(--green);
+}
+
+.Topologizer-legend-item-label {
+    flex: 1;
+    margin-right: .5em;
+    font-weight: 200;
+    color: color(var(--white) a(80%));
+}
+
+.Topologizer-legend-item-score {
+    font-weight: 400;
+    width: 2em;
+    text-align: right;
+}
+
+/* Graph */
+
+.Topologizer-graph {
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    width: 9rem;
+    padding-right: 1.4em;
+    margin-bottom: .5em;
+}
+
+.Topologizer-triangle {
+    position: relative;
+    width: 110px;
+    height: 95px;
+    cursor: pointer;
+    color: var(--grey-2);
+    transition: color .25s;
+}
+
+.Topologizer-triangle:hover { color: var(--white); }
+
+.Topologizer-triangle svg {
+    position: absolute;
+    height: auto;
+    width:  auto;
+    left: -7px;
+    top:  -7px;
+    /* minor adjustment */
+}
+
+.Topologizer-handle {
+    border-radius: 50%;
+    width:  1em;
+    height: 1em;
+    position: absolute;
+    margin-left: -.5em;
+    margin-top:  -.5em;
+    border: 5px solid currentColor;
+    top:  50%;
+    left: 50%;
+    cursor: default;
+    pointer-events: none;
+}
+
+/* marker colors - controls both svg and html */
+
+.Topologizer-color-speed {
+    background-color:   var(--blue-lighten-2);
+    fill:               var(--blue-lighten-2);
+    border-color:   color(var(--blue-lighten-2) shade(15%));
+    stroke:         color(var(--blue-lighten-2) shade(15%));
+}
+
+.Topologizer-color-storage {
+    background-color:   var(--yellow-orange);
+    fill:               var(--yellow-orange);
+    border-color:   color(var(--yellow-orange) shade(15%));
+    stroke:         color(var(--yellow-orange) shade(15%));
+}
+
+.Topologizer-color-redundancy {
+    background-color:   var(--purple);
+    fill:               var(--purple);
+    border-color:   color(var(--purple) shade(15%));
+    stroke:         color(var(--purple) shade(15%));
+}

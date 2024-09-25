@@ -1,0 +1,30 @@
+{
+  "propertyblueprint": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "%type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "throttle-replication-transport-option"
+      ]
+    }
+  },
+  "blueprint_throttlereplicationtransportoption_buffer_size": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "buffer_size",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ThrottleReplicationTransportOption",
+      "propertyBlueprints": [
+        {"@": "propertyblueprint"},
+        {"@": "blueprint_throttlereplicationtransportoption_buffer_size"}
+      ]
+    }
+  }
+}

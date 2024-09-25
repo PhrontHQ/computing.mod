@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/mod-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "owner"},
+                    "inspector": {"@": "inspector"}
+                }
+            },
+            "inspector": {
+                "prototype": "ui/inspectors/inspector.reel",
+                "properties": {
+                    "element": {
+                        "#": "inspector"
+                    },
+                    "canSave": true,
+                    "canDelete": true,
+                    "controller": {"@": "owner"},
+                    "confirmSaveMessage": "Warning: Current snapshot implementation requires that VM be stopped to create a snapshot. Are you sure you want to stop the Virtual Machine?"
+                },
+                "bindings": {
+                    "context": {"<-": "@owner.context"},
+                    "needSaveConfirmation": {"<-": "@owner.object._parent.status.state != 'STOPPED' && @owner.object._isNew"},
+                    "isSaveDisabled": {"<-": "!@owner.object.name"}
+                }
+            },
+            "name": {
+                "prototype": "blue-shark.mod/ui/field-text-input.reel",
+                "properties": {
+                    "element": {
+                        "#": "name"
+                    },
+                    "label": "Name"
+                },
+                "bindings": {
+                    "value": {"<->": "@owner.object.name"}
+                }
+            },
+            "description": {
+                "prototype": "blue-shark.mod/ui/field-text-input.reel",
+                "properties": {
+                    "element": {
+                        "#": "description"
+                    },
+                    "label": "Description"
+                },
+                "bindings": {
+                    "value": {"<->": "@owner.object.description"}
+                }
+            },
+            "rollback": {
+                "prototype": "blue-shark.mod/ui/button.reel",
+                "properties": {
+                    "element": {"#": "rollback"},
+                    "value": "Rollback"
+                },
+                "bindings": {
+                    "classList.has('hide')": {"<-": "@owner.object._isNew"}
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div data-mod-id="owner" class="VmSnapshot">
+    <div data-mod-id="inspector">
+        <div data-mod-id="name"></div>
+        <div data-mod-id="description"></div>
+        <div data-mod-id="rollback"></div>
+    </div>
+</div>
+</body>
+</html>

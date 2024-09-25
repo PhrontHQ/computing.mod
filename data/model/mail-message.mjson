@@ -1,0 +1,64 @@
+{
+  "blueprint_mailmessage_attachments": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "attachments",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_mailmessage_extra_headers": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "extra_headers",
+      "blueprint": {"@": "root"},
+      "valueType": "object"
+    }
+  },
+  "blueprint_mailmessage_from": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "from",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_mailmessage_message": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "message",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_mailmessage_subject": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "subject",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_mailmessage_to": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "to",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "MailMessage",
+      "propertyBlueprints": [
+        {"@": "blueprint_mailmessage_attachments"},
+        {"@": "blueprint_mailmessage_extra_headers"},
+        {"@": "blueprint_mailmessage_from"},
+        {"@": "blueprint_mailmessage_message"},
+        {"@": "blueprint_mailmessage_subject"},
+        {"@": "blueprint_mailmessage_to"}
+      ]
+    }
+  }
+}

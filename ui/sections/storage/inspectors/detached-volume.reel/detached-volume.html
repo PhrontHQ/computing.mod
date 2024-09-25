@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="detached-volume.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"},
+                "inspector": {"@": "inspector"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "canDelete": true,
+                "controller": {"@": "owner"},
+                "validationController": {"@": "validationController"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "confirmDeleteMessage": {"<-": "'Are you sure you want to erase disks previously used in volume ' + @owner.object.name +'?'"}
+            }
+        },
+        "topology": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "topology"},
+                "name": "Topology",
+                "path": "topology",
+                "objectType": "ZfsTopology"
+            }
+        },
+        "volumeIcon": {
+            "prototype": "ui/icons/volume.reel",
+            "properties": {
+                "element": {"#": "volumeIcon"}
+            }
+        },
+        "import": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "import"},
+                "value": "Import"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="DetachedVolume">
+        <div class="DetachedVolume-header">
+            <div data-mod-id="volumeIcon" class="DetachedVolume-header-icon"></div>
+        </div>
+        <div data-mod-id="inspector">
+            <div class="g-margin-h--subbtract">
+                <div data-mod-id="topology" class="g-negative-margin-top"></div>
+            </div>
+            <div data-mod-id="import" data-arg="footer-additional-button" class="ImportButton"></div>
+        </div>
+    </div>
+</body>
+</html>

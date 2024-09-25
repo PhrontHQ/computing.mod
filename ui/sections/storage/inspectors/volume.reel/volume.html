@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="volume.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"},
+                "inspector": {"@":"inspector"}
+            },
+            "bindings": {
+                "directoryShares": {"<-": "@owner.shares.filter{(target_type == 'DIRECTORY' || target_type == 'FILE') && (target_path.indexOf('/mnt/' + @owner.object.id + '/') == 0 || target_path == '/mnt/' + @owner.object.id)}"},
+                "datasetShares": {"<-": "@owner.shares.filter{(target_type == 'DATASET' || target_type == 'ZVOL') && (target_path.indexOf(@owner.object.id + '/') == 0 || target_path == @owner.object.id)}"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "bytesConverter": {
+            "prototype": "mod/core/converter/bytes-converter"
+        },
+
+        "size": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "size"},
+                "converter": {"@": "bytesConverter"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.properties.size.parsed"},
+                "classList.has('hide')": {"<-": "@owner.object.status == 'LOCKED'"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canDelete": true,
+                "controller": {"@": "owner"},
+                "needsExtraConfirm": true,
+                "extraDeleteMessage": "I am sure that I wish to delete my volume and all the data on it"
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "isConfirmationVisible": {"<-": "@owner.isConfirmationVisible"}
+            }
+        },
+        "encryptionActions": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "encryptionActions"},
+                "objectType": "EncryptedVolumeActions"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "!@owner.object.password_encrypted && !@owner.object.key_encrypted"},
+                "object": {"<-": "@owner.encryptedVolumeActions"}
+            }
+        },
+        "shares": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "shares"},
+                "objectType": "Share",
+                "property": "share",
+                "name": "Shares"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "!!@owner.object._isDetached"}
+            }
+        },
+        "snapshots": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "snapshots"},
+                "objectType": "VolumeSnapshot",
+                "property": "volume-snapshot",
+                "name": "Snapshots"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "!!@owner.object._isDetached"}
+            }
+        },
+        "topology": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "topology"},
+                "property": "topology",
+                "name": "Topology"
+            }
+        },
+        "datasets": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "datasets"},
+                "objectType": "VolumeDataset",
+                "property": "volume-dataset",
+                "name": "Datasets"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "!!@owner.object._isDetached"}
+            }
+        },
+        "replications": {
+            "prototype": "ui/controls/inspector-option.reel",
+            "properties": {
+                "element": {"#": "replications"},
+                "name": "Replications",
+                "objectType": "Replication"
+            }
+        },
+        "volumeIcon": {
+            "prototype": "ui/icons/volume.reel",
+            "properties": {
+                "element": {"#": "volumeIcon"}
+            }
+        },
+        "allocationBar": {
+            "prototype": "ui/controls/allocation-bar.reel",
+            "properties": {
+                "element": {"#": "allocationBar"}
+            },
+            "bindings": {
+                "totalSize": {"<-": "@owner.object.properties.size.parsed"},
+                "usedSize": {"<-": "@owner.object.properties.allocated.parsed"},
+                "available": {"<-": "@owner.object.properties.free.parsed"},
+                "classList.has('hide')": {"<-": "@owner.object.status == 'LOCKED'"}
+            }
+        },
+        "scrub": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "scrub"},
+                "value": "Scrub"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "@owner.object.status == 'LOCKED'"}
+            }
+        },
+        "export": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "export"},
+                "value": "Detach"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "@owner.object.status == 'LOCKED'"}
+            }
+        },
+        "upgrade": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "upgrade"},
+                "value": "Upgrade"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "!!@owner.object.upgraded || @owner.object.status == 'LOCKED'"}
+            }
+        },
+        "importShares": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "importShares"},
+                "value": "Import Shares"
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "!!@owner.upgraded || @owner.object.status == 'LOCKED'"}
+            }
+        },
+        "capacityLabel": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "capacityLabel"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.status == 'LOCKED' ? 'Locked' : 'Capacity'"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Volume">
+        <div data-mod-id="inspector">
+            <div class="Volume-header">
+                <div data-mod-id="volumeIcon" class="Volume-header-icon"></div>
+                <div class="Volume-header-info">
+                    <div data-mod-id="size" class="Volume-header-diskSize"></div>
+                    <small data-mod-id="capacityLabel" class="flush-bottom"></small>
+                </div>
+            </div>
+            <div data-mod-id="allocationBar" class="Volume-allocationBar"></div>
+            <div data-mod-id="shares"></div>
+            <div data-mod-id="snapshots"></div>
+            <div data-mod-id="topology"></div>
+            <div data-mod-id="datasets"></div>
+            <div data-mod-id="replications"></div>
+            <div data-mod-id="encryptionActions"></div>
+            <div data-arg="footer-additional-button" class="ActionButtons">
+                <div data-mod-id="export"></div>
+                <div data-mod-id="scrub"></div>
+                <div data-mod-id="upgrade"></div>
+                <div data-mod-id="importShares"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

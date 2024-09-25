@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"},
+                "inspector": {"@": "inspector"}
+            },
+            "bindings": {
+                "isGatewayDhcpAssigned": {"<->": "@owner.object.dhcp.assign_gateway"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canSave": true,
+                "canRevert": true,
+                "controller": {"@": "owner"}
+            }
+        },
+        "hostname": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "hostname"},
+                "label": "Hostname"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.general.hostname"}
+            }
+        },
+        "netwait_enabled": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "netwait_enabled"},
+                "label": "Enable Netwait"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.netwait.enabled"}
+            }
+        },
+        "netwait_addresses": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "netwait_addresses"},
+                "label": "Netwait Addresses",
+                "labelPath": "this",
+                "isDraggable": true,
+                "inputTitle": "Add Netwait Address",
+                "valuesTitle": "Added Netwait Addresses",
+                "emptyMessage": "No Netwait Addresses added"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.object.netwait.addresses"},
+                "disabled": {"<-": "!@owner.object.netwait.enabled"},
+                "placeholder": {"<-": "@owner.object.netwait.enabled ? 'eg. 1.2.3.4' : ''"}
+            }
+        },
+        "netwait_settings": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "netwait_settings"},
+                "title": "Netwait Settings"
+            }
+        },
+        "http_proxy": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "http_proxy"},
+                "label": "HTTP Proxy",
+                "placeholder": "eg. http://a.com:1234"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.http_proxy"}
+            }
+        },
+        "dhcp_settings": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "dhcp_settings"},
+                "title": "DHCP Settings",
+                "isExpanded": true
+            }
+        },
+        "dhcp_assign_gateway": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "dhcp_assign_gateway"},
+                "label": "Assign Gateway"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.dhcp.assign_gateway"}
+            }
+        },
+        "dhcp_assign_dns": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "dhcp_assign_dns"},
+                "label": "Assign DNS"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.dhcp.assign_dns"}
+            }
+        },
+        "dhcpGatewaySubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "dhcpGatewaySubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.isGatewayDhcpAssigned ? 'dhcp' : 'static'"}
+            }
+        },
+        "gatewaySettings": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "gatewaySettings"},
+                "title": "Gateway Settings",
+                "isExpanded": true
+            }
+        },
+        "gatewayIpv4": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "gatewayIpv4"},
+                "label": "IPv4"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.gateway.ipv4"},
+                "placeholder": {"<-": "'eg. 1.2.3.4'"}
+            }
+        },
+        "gatewayIpv6": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "gatewayIpv6"},
+                "label": "IPv6"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.gateway.ipv6"},
+                "placeholder": {"<-": "'eg. ::ffff:102:304'"}
+            }
+        },
+        "dhcpGatewaySettings": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "dhcpGatewaySettings"},
+                "title": "Gateway Settings",
+                "isExpanded": "true"
+            }
+        },
+        "dhcpGatewayIpv4": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "dhcpGatewayIpv4"},
+                "label": "IPv4"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.status.gateway.ipv4"}
+            }
+        },
+        "dhcpGatewayIpv6": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "dhcpGatewayIpv6"},
+                "label": "IPv6"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.object.status.gateway.ipv6"}
+            }
+        },
+        "dns_settings": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "dns_settings"},
+                "title": "DNS Settings"
+            }
+        },
+        "dns_search": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "dns_search"},
+                "label": "Search Domains",
+                "labelPath": "this",
+                "isDraggable": true,
+                "inputTitle": "Add Domains",
+                "valuesTitle": "Added Domains",
+                "emptyMessage": "No domains added"
+
+            },
+            "bindings": {
+                "values": {"<->": "@owner.object.dns.search"},
+                "disabled": {"<-": "@owner.object.dhcp.assign_dns"},
+                "placeholder": {"<-": "!@owner.object.dhcp.assign_dns ? 'eg. example.com' : ''"}
+            }
+        },
+        "dns_addresses": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "dns_addresses"},
+                "label": "IP Addresses",
+                "labelPath": "this",
+                "isDraggable": true,
+                "inputTitle": "Add DNS address",
+                "valuesTitle": "DNS Addresses",
+                "emptyMessage": "no DNS addresses added"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.object.dns.addresses"},
+                "disabled": {"<-": "@owner.object.dhcp.assign_dns"},
+                "placeholder": {"<-": "!@owner.object.dhcp.assign_dns ? 'eg. 1.2.3.4' : ''"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="NetworkConfiguration">
+        <div data-mod-id="inspector">
+            <div data-mod-id="hostname"></div>
+            <div data-mod-id="dhcp_settings">
+                <div data-mod-id="dhcp_assign_gateway"></div>
+                <div data-mod-id="dhcp_assign_dns"></div>
+            </div>
+            <div data-mod-id="dhcpGatewaySubstitution">
+                <div data-mod-id="gatewaySettings" data-arg="static">
+                    <div data-mod-id="gatewayIpv4"></div>
+                    <div data-mod-id="gatewayIpv6"></div>
+                </div>
+                <div data-mod-id="dhcpGatewaySettings" data-arg="dhcp">
+                    <div data-mod-id="dhcpGatewayIpv4"></div>
+                    <div data-mod-id="dhcpGatewayIpv6"></div>
+                </div>
+            </div>
+            <div data-mod-id="http_proxy"></div>
+            <div data-mod-id="dns_settings">
+                <div data-mod-id="dns_search"></div>
+                <div data-mod-id="dns_addresses"></div>
+            </div>
+            <div data-mod-id="netwait_settings">
+                <div data-mod-id="netwait_enabled"></div>
+                <div data-mod-id="netwait_addresses"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

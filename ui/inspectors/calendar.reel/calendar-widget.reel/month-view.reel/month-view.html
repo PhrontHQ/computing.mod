@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="month-view.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "days": {"<-": "@owner.weeks.flatten().filter{isCurrentMonth}"}
+            }
+        },
+        "weekRepetition": {
+            "prototype": "mod/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "weekRepetition"}
+            },
+            "bindings": {
+                "content": {"<-" : "@owner.weeks"}
+            }
+        },
+        "dayRepetition": {
+            "prototype": "mod/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "dayRepetition"}
+            },
+            "bindings": {
+                "content": {"<-": "@weekRepetition:iteration.object"}
+            }
+        },
+        "day": {
+            "prototype": "../calendar-widget-day.reel",
+            "properties": {
+                "element": {"#": "day"}
+            },
+            "bindings": {
+                "data": {"<-": "@dayRepetition:iteration.object"},
+                "taskCategories": {"<-": "@owner.taskCategories"},
+                "selectedTask": {"<->": "@owner.selectedTask"},
+                "selectedDay": {"<->": "@owner.selectedDay"}
+            }
+        },
+        "daysOfTheWeek": {
+            "prototype": "mod/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "daysOfTheWeek"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.daysOfTheWeekContentForRepetition"}
+            }
+        },
+        "dayOfTheWeek": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "dayOfTheWeek"}
+            },
+            "bindings": {
+                "value": {"<-" : "@daysOfTheWeek:iteration.object"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="MonthView">
+        <table>
+            <thead>
+                <tr data-mod-id="daysOfTheWeek">
+                    <td data-mod-id="dayOfTheWeek"></td>
+                </tr>
+            </thead>
+            <tbody data-mod-id="weekRepetition">
+                <tr data-mod-id="dayRepetition">
+                    <td data-mod-id="day" class="CalendarWidget-day">
+                        <span></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

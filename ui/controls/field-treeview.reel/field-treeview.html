@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="field-treeview.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "pathInput": {"@": "pathInput"}
+            },
+            "bindings": {
+                "displayedPath": {"<-": "@pathInput.value"},
+                "selectedEntry": {"<-": "@treeview.selectedEntry"},
+                "inspector.isSaveDisabled": {"<-": "!!@owner.isExpanded"},
+                "classList.has('is-expanded')": {"<-": "@owner.isExpanded"}
+            },
+            "listeners": [
+                {
+                    "listener": {"@": "owner"},
+                    "type": "action"
+                }
+            ]
+        },
+        "field": {
+            "prototype": "blue-shark.mod/ui/field.reel",
+            "properties": {
+                "element": {"#": "field"},
+                "errorMessage": "Invalid path"
+            },
+            "bindings": {
+                "label": {"<-": "@owner.label"},
+                "documentationReference": {"<-": "@owner.documentationReference"},
+                "disabled": {"<-": "@owner.disabled"},
+                "errorMessage": {"<-": "@owner.errorMessage || @treeview.errorMessage"},
+                "hasError": {"<-": "@owner.hasError || !!@treeview.errorMessage"},
+                "isMandatory": {"<-": "@owner.isMandatory"}
+            }
+        },
+        "pathInput": {
+            "prototype": "blue-shark.mod/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "pathInput"}
+            },
+            "bindings": {
+                "placeholder": {"<-" : "@owner.placeholder || 'none'"},
+                "disabled": {"<-": "@owner.disabled || @owner.readOnly || @owner.isExpanded || !!@owner.isNotTypable"},
+                "value": {"<-": "!@owner.selectedPath ? '' : (@owner.selectedPath + (!@owner._ignoreSuffix && !!@owner.suffix ? '/' + @owner.suffix : '')).replace(@owner.removePrefix || '', '')"},
+                "delegate": {"<-": "@owner.pathInputDelegate"}
+            }
+        },
+        "treeview": {
+            "prototype": "ui/controls/tree-view.reel",
+            "properties": {
+                "element": {"#": "treeview"}
+            },
+            "bindings": {
+                "controller": {"<-": "@owner.controller"},
+                "isExpanded": {"<->": "@owner.isExpanded"},
+                "selectedPath": {"<->": "@owner.selectedPath"},
+                "suffix": {"<-": "@owner.suffix"},
+                "removePrefix": {"<-": "@owner.removePrefix || ''"},
+                "disabled": {"<-": "@owner.disabled"}
+            }
+        },
+        "iconSubstitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "iconSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "@owner.selectedPath.type"}
+            }
+        },
+        "browseButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "browseButton"},
+                "value": "Browse"
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.isExpanded"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="FieldTreeview">
+        <div data-mod-id="field">
+            <div class="FieldTreeview-path flex-row">
+                <div data-mod-id="pathInput" tabindex="0" class="g-margin-right--half FieldTreeview-path-input"></div>
+                <div data-mod-id="iconSubstitution" class="FieldTreeview-icon">
+                    <svg data-arg="FILE"><use xlink:href="#i-file"/></svg>
+                    <svg data-arg="DATASET"><use xlink:href="#i-dataset"/></svg>
+                    <svg data-arg="DIRECTORY"><use xlink:href="#i-folder"/></svg>
+                    <svg data-arg="ZVOL"><use xlink:href="#i-zvol"/></svg>
+                    <svg data-arg="NONE"><use xlink:href="#i-alert"/></svg>
+                </div>
+                <button data-mod-id="browseButton"></button>
+            </div>
+        </div>
+        <div data-mod-id="treeview" class="FieldTreeview-treeView"></div>
+    </div>
+</body>
+</html>

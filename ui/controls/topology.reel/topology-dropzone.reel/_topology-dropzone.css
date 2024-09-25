@@ -1,0 +1,70 @@
+.TopologyDropZone {
+    border-radius: 4px;
+
+    &:after {
+        display: none;
+        box-sizing: content-box;
+        content: "+";
+        position: absolute;
+        font-size: 1em;
+        height: 1rem;
+        width:  1rem;
+        top: .6em;
+        left: 50%;
+        margin-left: -.5rem;
+        line-height: .9rem;
+        border-radius: .5rem;
+        box-shadow: 0 0 0 1px currentColor;
+        z-index: 1;
+        text-align: center;
+    }
+
+    &:before {
+        display: none;
+        content: '';
+        position: absolute;
+        top:    0;
+        left:   0;
+        right:  0;
+        bottom: 0;
+        border: 2px dashed currentColor;
+        background-image: repeating-linear-gradient(-45deg, color(var(--accent) a(70%)), color(var(--accent) a(70%)) 1px, transparent 1px, transparent 10px);
+        background-size: 28px 28px;
+    }
+
+    &.willAcceptDrop { animation: blink 1s infinite ease; }
+
+    &.willAcceptDrop:before,
+    &.willAcceptDrop:after {
+        display: block;
+    }
+
+    &.willAcceptDrop:before {
+        border: 1px dashed var(--accent);
+        animation: blink 1s infinite ease;
+    }
+
+    &.acceptDrop:before,
+    &.acceptDrop:after {
+        display: block;
+    }
+
+    &.acceptDrop:before {
+        border: 1px dashed var(--accent);
+        background-image: repeating-linear-gradient(-45deg, color(var(--accent) a(85%)), color(var(--accent) a(85%)) 1px, transparent 1px, transparent 10px);
+        background-size: 28px 28px;
+        background-color: color(var(--accent) a(20%));
+    }
+
+    &.acceptDrop:after {
+        color: var(--white);
+        box-shadow: 0 0 0 1px var(--green),
+                    0 2px 2px var(--transparent--darken);
+        background-color: var(--green);
+    }
+}
+
+
+
+
+

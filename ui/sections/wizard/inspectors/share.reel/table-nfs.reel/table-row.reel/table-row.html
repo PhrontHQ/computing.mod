@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "usersOptionsConverter": {
+            "prototype": "core/converter/select-option-converter",
+            "properties": {
+                "labelPropertyName": "username",
+                "valuePropertyName": "username"
+            }
+        },
+
+        "name": {
+            "prototype": "blue-shark.mod/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "name"},
+                "placeholder": "e.g. name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.name"}
+            }
+        },
+
+       "readOnly": {
+            "prototype": "blue-shark.mod/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "readOnly"}
+            },
+            "bindings": {
+                "checked": {"<->": "!!@owner.object.properties.read_only"}
+            }
+        },
+
+        "ownerUser": {
+            "prototype": "blue-shark.mod/ui/select.reel",
+            "properties": {
+                "element": {"#": "ownerUser"},
+                "converter": {"@": "usersOptionsConverter"}
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.permissions.user"},
+                "options": {"<-": "@owner.users.sorted{builtin + username}"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="TableRow Table-cells">
+        <div><div data-mod-id="name"></div></div>
+        <div><div data-mod-id="readOnly"></div></div>
+        <div><div data-mod-id="ownerUser"></div></div>
+    </div>
+</body>
+</html>

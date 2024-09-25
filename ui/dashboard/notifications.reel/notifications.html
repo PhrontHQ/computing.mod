@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="notifications.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "items": {"@": "items"}
+            }
+        },
+        "items": {
+            "prototype": "mod/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "items"},
+                "isSelectionEnabled": true
+            },
+            "bindings": {
+                "content": {"<-": "@owner.notifications"}
+            }
+        },
+        "item": {
+            "prototype": "./notification.reel",
+            "properties": {
+                "element": {"#": "item"}
+            },
+            "bindings": {
+                "object": {"<-": "@items:iteration.object"}
+            }
+        },
+        "itemsScrollview": {
+            "prototype": "blue-shark.mod/ui/scroller.reel",
+            "properties": {
+                "element": {"#": "itemsScrollview"},
+                "overflow": "scrollY"
+            }
+        },
+        "emptyState": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "emptyState"}
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "@items.content.length > 0"},
+                "value": {"<-": "@owner.emptyText"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Notifications-body">
+        <div data-mod-id="emptyState" class="Notifications-emptyState"></div>
+        <div data-mod-id="itemsScrollview">
+            <div data-mod-id="items" class="Notifications-items">
+                <div data-mod-id="item"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

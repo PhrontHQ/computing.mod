@@ -1,0 +1,28 @@
+{
+  "blueprint_networkstatus_dns": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "dns",
+      "blueprint": {"@": "root"},
+      "valueType": "object"
+    }
+  },
+  "blueprint_networkstatus_gateway": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "gateway",
+      "blueprint": {"@": "root"},
+      "valueType": "object"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "NetworkStatus",
+      "propertyBlueprints": [
+        {"@": "blueprint_networkstatus_dns"},
+        {"@": "blueprint_networkstatus_gateway"}
+      ]
+    }
+  }
+}

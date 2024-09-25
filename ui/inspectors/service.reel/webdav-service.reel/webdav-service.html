@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="webdav-service.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "protocolsSection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "protocolsSection"},
+                "title": "Protocols"
+            }
+        },
+        "protocols": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "protocols"},
+                "label": "Protocols",
+                "labelPath": "this",
+                "isDraggable": true,
+                "placeholder": "Select a protocol",
+                "inputTitle": "Add a Protocol",
+                "valuesTitle": "Added Protocols",
+                "emptyMessage": "No Protocols added :("
+            },
+            "bindings": {
+                "options": {"<-": "@owner.PROTOCOL_OPTIONS"},
+                "values": {"<->": "@owner.object.protocol"}
+            }
+        },
+        "httpPortValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 1,
+                "ceiling": 65535,
+                "errorMessage": "Port must be an integer between 1 and 65535"
+            }
+        },
+        "httpPortConverter": {
+            "prototype": "core/converter/string-to-integer-converter",
+            "properties": {
+                "validator": {"@": "httpPortValidator"}
+            }
+        },
+        "httpPort": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "httpPort"},
+                "label": "HTTP Port",
+                "converter" : {"@": "httpPortConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.http_port"}
+            }
+        },
+        "httpsPort": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "httpsPort"},
+                "label": "HTTPS Port",
+                "converter" : {"@": "httpPortConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.https_port"}
+            }
+        },
+        "httpAuthentication": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "httpAuthentication"},
+                "label": "HTTP Authentication"
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.authentication"},
+                "options": {"<-": "@owner.AUTHENTICATIONS"}
+            }
+        },
+        "password": {
+            "prototype": "blue-shark.mod/ui/field-password.reel",
+            "properties": {
+                "element": {"#": "password"},
+                "label": "Password",
+                "placeholder1": "enter password",
+                "placeholder2": "confirm password",
+                "errorMessage": "Passwords don't match",
+                "resetLabel": "Set Password"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.password"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="WebdavService">
+        <div data-mod-id="protocolsSection">
+            <div data-mod-id="protocols"></div>
+        </div>
+        <div data-mod-id="httpPort"></div>
+        <div data-mod-id="httpsPort"></div>
+        <div data-mod-id="httpAuthentication"></div>
+        <div data-mod-id="password"></div>
+        <div data-mod-id="password"></div>
+    </div>
+</body>
+</html>

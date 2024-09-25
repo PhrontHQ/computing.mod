@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="calendar-list.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('is-empty')": {"<-": "!@days.content.some{_hasEvents}"}
+            }
+        },
+        "days": {
+            "prototype": "mod/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "days"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.days"}
+            }
+        },
+        "day": {
+            "prototype": "./calendar-list-day.reel",
+            "properties": {
+                "element": {"#": "day"}
+            },
+            "bindings": {
+                "taskCategories": {"<-": "@owner.taskCategories"},
+                "object": {"<-": "@days:iteration.object"},
+                "selectedTask": {"<->": "@owner.selectedTask"},
+                "selectedDay": {"<->": "@owner.selectedDay"}
+            }
+        },
+        "emptyMessage": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "emptyMessage"},
+                "value": "No tasks to display. Change the display filter or create a new task above."
+            }
+        },
+        "scrollview": {
+            "prototype": "blue-shark.mod/ui/scroller.reel",
+            "properties": {
+                "element": {"#": "scrollview"},
+                "overflow": "scrollY"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="CalendarList">
+        <div class="CalendarList-emptyState">
+            <span data-mod-id="emptyMessage" class="CalendarList-emptyState-content"></span>
+        </div>
+        <div data-mod-id="scrollview" class="">
+            <div data-mod-id="days" class="CalendarList-days">
+                <div class="CalendarList-day">
+                    <div data-mod-id="day"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

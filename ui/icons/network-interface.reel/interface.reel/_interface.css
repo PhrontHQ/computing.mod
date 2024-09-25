@@ -1,0 +1,13 @@
+.InterfaceIcon {
+    position: relative;
+    line-height: 0;
+    color: var(--red);
+}
+
+.InterfaceIcon svg {
+    color: var(--grey-2);
+}
+
+.Grid-icon.selected .InterfaceIcon svg {
+    color: var(--color-selected);
+}

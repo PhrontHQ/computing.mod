@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="available-disks.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "hdds": {"<-": "@owner.disks.filter{status.defined() && !status.is_ssd}.sorted{name}"},
+                "ssds": {"<-": "@owner.disks.filter{status.defined() && status.is_ssd}.sorted{name}"},
+                "selectedHdd": {"<->": "@hddsCategory.selectedDisk.0"},
+                "selectedSsd": {"<->": "@ssdsCategory.selectedDisk.0"}
+            }
+        },
+        "info": {
+            "prototype": "blue-shark.mod/ui/panel.reel",
+            "properties": {
+                "element": {"#": "info"}
+            },
+            "bindings": {
+                "status" : {"<-": "@owner.disks.length ? 'default' : 'error' "},
+                "message": {"<-": "@owner.disks.length ? 'Drag disks to the left': 'No available disks'"}
+            }
+        },
+        "hddsCategory": {
+            "prototype": "./disks-category.reel",
+            "properties": {
+                "element": {"#": "hddsCategory"},
+                "title": "Hard Drives",
+                "icon": "ui/icons/disk.reel",
+                "identifier": "HDDS",
+                "isSsd": false
+            },
+            "bindings": {
+                "disks": {"<-": "@owner.hdds"},
+                "topology": {"<-": "@owner.topology"},
+                "controller": {"<-": "@owner.controller"},
+                "isExpanded": {"<-": "!@owner.locked && disks.length > 0"}
+            }
+        },
+        "ssdsCategory": {
+            "prototype": "./disks-category.reel",
+            "properties": {
+                "element": {"#": "ssdsCategory"},
+                "title": "Solid State Drives",
+                "icon": "ui/icons/disk.reel",
+                "identifier": "SSDS",
+                "isSsd": true
+            },
+            "bindings": {
+                "disks": {"<-": "@owner.ssds"},
+                "topology": {"<-": "@owner.topology"},
+                "controller": {"<-": "@owner.controller"},
+                "isExpanded": {"<-": "!@owner.locked && disks.length > 0"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="AvailableDisks">
+        <div data-mod-id="info" class="AvailableDisks-header"></div>
+        <div data-mod-id="hddsCategory" class="AvailableDisks-category"></div>
+        <div data-mod-id="ssdsCategory" class="AvailableDisks-category"></div>
+    </div>
+</body>
+</html>

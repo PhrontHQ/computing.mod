@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="console.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "terminalElement": {"#": "terminal"}
+            },
+            "bindings": {
+                "configurationKey": {"<-": "(@owner.type || 'shell') + 'Configuration'"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Console">
+        <div data-mod-id="terminal" class="Console-terminal"></div>
+    </div>
+</body>
+</html>

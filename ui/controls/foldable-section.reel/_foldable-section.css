@@ -1,0 +1,122 @@
+.FoldableSection {
+    position: relative;
+    margin-bottom: 1em;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+/*
+
+title
+
+*/
+
+.FoldableSection .InspectorSectionTitle {
+    margin-top:     0;
+    margin-bottom:  0;
+}
+
+/* Title / Icon button container */
+
+.FoldableSection-expand {
+    font-size: 1em;
+    font-family: inherit;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: baseline;
+    color: inherit;
+    transition: color .25s ease-in-out;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top:     -.5rem;
+        left:    -1rem;
+        right:   -1rem;
+        bottom:  -.5rem;
+    }
+
+    &:focus:before {
+        @apply --input-focus;
+    }
+
+    & .FoldableSection-expand-icon {
+        width:  1em;
+        height: 1em;
+        transform: rotate(-90deg);
+        margin-right: .5em;
+        position: relative;
+        top: .15em;
+        color: inherit;
+        transition: color .25s ease-in-out;
+    }
+
+    &:hover { color: var(--white); }
+}
+
+
+.FoldableSection-expand .InspectorSectionTitle-text:after {
+    transition: border-color .25s ease-in-out;
+}
+
+.FoldableSection-expand:hover .InspectorSectionTitle-text:after { border-color: var(--white); }
+
+/* Icon */
+
+.FoldableSection.is-expanded .FoldableSection-expand .FoldableSection-expand-icon { transform: rotate(0);}
+
+.FoldableSection-expand-titles {
+    flex: 1;
+    display: flex;
+    min-width: 0;
+}
+
+.FoldableSection-expand-titles > .InspectorSectionTitle {
+    min-width: 0;
+
+    /* removes underline */
+    &:before { display: none;}
+}
+
+/* content */
+
+.FoldableSection-content {
+    overflow: hidden;
+    display: none;
+    transition: height .3s ease-in-out;
+}
+
+/*
+
+edits internal titles
+
+*/
+
+.FoldableSection-content .InspectorSectionTitle {
+    background: none;
+    margin-bottom: 1em;
+    padding: 0;
+}
+
+.FoldableSection-contentContainer {
+    padding: 1em 0;
+
+    @nest .FoldableSection.is-expanded & {
+        border-bottom: 1px solid var(--primary--3);
+    }
+}
+.FoldableSection-contentContainer > *:last-child,
+.FoldableSection-contentContainer > *:last-child .Field {
+    margin-bottom: 0;
+}
+
+
+/* overrides */
+
+.FoldableSection .InspectorFooter { margin: 0 -1em; }
+

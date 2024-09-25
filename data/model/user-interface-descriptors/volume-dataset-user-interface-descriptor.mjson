@@ -1,0 +1,19 @@
+{
+    "root": {
+        "prototype": "mod/core/meta/user-interface-descriptor",
+        "properties": {
+            "inspectorComponentModule": {"%": "ui/sections/storage/inspectors/volume-dataset.reel"},
+            "creatorComponentModule": {"%": "ui/sections/storage/inspectors/volume-dataset.reel"},
+            "listControlsComponentModule": {"%": "ui/sections/storage/controls/volume-dataset-options.reel"},
+            "collectionInspectorComponentModule": {"%": "ui/controls/viewer.reel"},
+            "collectionNameExpression": "'Datasets'",
+            "nameExpression": "name",
+            "iconValueMapping": {
+                "FILESYSTEM": "ui/icons/directory.reel",
+                "VOLUME": "ui/icons/volume.reel"
+            },
+            "iconValueExpression": "type",
+            "subLabelExpression": "properties.referenced.value + ' / ' + properties.used.value"
+        }
+    }
+}

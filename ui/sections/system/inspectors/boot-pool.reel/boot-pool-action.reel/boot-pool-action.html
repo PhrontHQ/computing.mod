@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="boot-pool-action.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "activate": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "activate"},
+                "value": "Activate"
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.currentState != 'state-4' && @owner.currentState != 'state-5'"}
+            }
+        },
+
+        "clone": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "clone"},
+                "value": "Clone"
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.currentState != 'state-3' && @owner.currentState != 'state-4' && @owner.currentState != 'state-5'"}
+            }
+        },
+
+        "delete": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "delete"},
+                "value": "Delete"
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.currentState != 'state-5' && @owner.currentState != 'state-1' && @owner.currentState != 'state-2'"}
+            }
+        },
+
+        "keepOnButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "keepOnButton"},
+                "value": "Keep: On"
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.currentState == 'default'"}
+            }
+        },
+
+        "keepOffButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "keepOffButton"},
+                "value": "Keep: Off"
+            },
+            "bindings": {
+                "disabled": {"<-": "@owner.currentState == 'default'"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="BootPoolAction">
+        <button data-mod-id="activate" class="Button--primary BootPoolAction-activate"></button>
+        <button data-mod-id="clone" class="BootPoolAction-clone"></button>
+        <button data-mod-id="keepOnButton" class="BootPoolAction-keep"></button>
+        <button data-mod-id="keepOffButton" class="BootPoolAction-keep"></button>
+        <div data-mod-id="delete" class="Button--alert BootPoolAction-delete"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "blueprint_dockerconfig_api_forwarding": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "api_forwarding",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_dockerconfig_api_forwarding_enable": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "api_forwarding_enable",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_dockerconfig_default_collection": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "default_collection",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_dockerconfig_default_host": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "default_host",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "DockerConfig",
+      "propertyBlueprints": [
+        {"@": "blueprint_dockerconfig_api_forwarding"},
+        {"@": "blueprint_dockerconfig_api_forwarding_enable"},
+        {"@": "blueprint_dockerconfig_default_collection"},
+        {"@": "blueprint_dockerconfig_default_host"}
+      ]
+    }
+  }
+}

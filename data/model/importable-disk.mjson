@@ -1,0 +1,46 @@
+{
+  "blueprint_importabledisk_fstype": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "fstype",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_importabledisk_label": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "label",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_importabledisk_path": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "path",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_importabledisk_size": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "size",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ImportableDisk",
+      "propertyBlueprints": [
+        {"@": "blueprint_importabledisk_fstype"},
+        {"@": "blueprint_importabledisk_label"},
+        {"@": "blueprint_importabledisk_path"},
+        {"@": "blueprint_importabledisk_size"}
+      ]
+    }
+  }
+}

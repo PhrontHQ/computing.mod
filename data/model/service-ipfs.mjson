@@ -1,0 +1,48 @@
+{
+  "blueprint_serviceipfs_enable": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "enable",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_serviceipfs_path": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "path",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_serviceipfs_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "service-ipfs"
+      ]
+    }
+  },
+  "blueprint_serviceipfs_webui": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "webui",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ServiceIpfs",
+      "propertyBlueprints": [
+        {"@": "blueprint_serviceipfs_enable"},
+        {"@": "blueprint_serviceipfs_path"},
+        {"@": "blueprint_serviceipfs_type"},
+        {"@": "blueprint_serviceipfs_webui"}
+      ]
+    }
+  }
+}

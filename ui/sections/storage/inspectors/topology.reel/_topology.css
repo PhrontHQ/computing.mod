@@ -1,0 +1,61 @@
+.Topology {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.CascadingListItem-Topology.CascadingListItem {
+    flex: 1;
+    min-width: 37.25em;
+    max-width: 50em;
+}
+
+.TopologyEdit {
+
+    & .Inspector {
+        /* magic number tided to sidebar width */
+        margin-right: 12.3rem;
+    }
+
+    & .Inspector-body { margin: 0; }
+
+    &.is-detached {
+        min-width: 24rem;
+
+        & .Inspector { margin-right: inherit; }
+
+        & .TopologyEdit-sidebar { display: none; }
+    }
+}
+
+.Topology .Inspector-body-scrollview,
+.TopologyEdit .Inspector-body-scrollview {
+    display: flex;
+    overflow: initial;
+}
+
+.TopologyEdit-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.TopologyEdit-sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    /* magic number tied to inspector margin */
+    width: 12.3rem;
+    background-color: var(--primary--6);
+    overflow: hidden;
+    border-left: 2px solid var(--primary);
+    display: flex;
+    flex-direction: column;
+}
+
+.Inspector.is-locked + .TopologyEdit-sidebar .FoldableSection-content {
+    height: 0 !important;
+    pointer-event: none;
+}

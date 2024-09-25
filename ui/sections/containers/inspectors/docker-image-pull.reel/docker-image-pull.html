@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "_selectedImage": {"<-": "@imageSearch.selectedValue.name"},
+                "_selectedImageHosts": {"<-": "@owner._installedDockerImages.filter{name == @owner._selectedImage}.one().hosts"},
+                "_availablesDockers": {"<-": "@owner._dockerHosts.filter{!@owner._selectedImageHosts || !@owner._selectedImageHosts.has(this.id)}"},
+                "_availablesDockersOptions": {"<-": "@owner._availablesDockers.map{{label: name, value: id}}"}
+            }
+        },
+
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "canDelete": false,
+                "canSave": true,
+                "canRevert": false,
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "isSaveDisabled": {"<-": "!@owner._selectedImage || !@owner._selectedHost"},
+                "isLoading": {"<-": "@owner.isLoading"},
+                "context": {"<-": "@owner.context"}
+            }
+        },
+
+        "imageSearch": {
+            "prototype": "ui/sections/containers/controls/docker-image-search.reel",
+            "properties": {
+                "element": {"#": "imageSearch"}
+            },
+            "bindings": {
+                "_sectionService": {"<-": "@owner._sectionService"},
+                "collection": {"<-": "@owner._collection"}
+            }
+        },
+
+        "dockerHost": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "dockerHost"},
+                "label": "Docker host"
+            },
+            "bindings": {
+                "options": {"<-": "[{label: '---', value: null}].concat(@owner._availablesDockersOptions)"},
+                "disabled": {"<-": "!@owner._selectedImage || @owner._availablesDockersOptions.length == 0"},
+                "selectedValue": {"<->": "@owner._selectedHost"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="DockerImagePull">
+        <div data-mod-id="inspector">
+            <div data-mod-id="imageSearch" class="g-margin-bottom"></div>
+            <div data-mod-id="dockerHost"></div>
+        </div>
+    </div>
+</body>
+</html>

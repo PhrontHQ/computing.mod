@@ -1,0 +1,59 @@
+{
+  "propertyblueprint": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "%type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "vm-device-nic"
+      ]
+    }
+  },
+  "blueprint_vmdevicenic_bridge": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "bridge",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_vmdevicenic_device": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "device",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VmDeviceNicDevice"
+    }
+  },
+  "blueprint_vmdevicenic_link_address": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "link_address",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_vmdevicenic_mode": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "mode",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VmDeviceNicMode"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VmDeviceNic",
+      "propertyBlueprints": [
+        {"@": "propertyblueprint"},
+        {"@": "blueprint_vmdevicenic_bridge"},
+        {"@": "blueprint_vmdevicenic_device"},
+        {"@": "blueprint_vmdevicenic_link_address"},
+        {"@": "blueprint_vmdevicenic_mode"}
+      ]
+    }
+  }
+}

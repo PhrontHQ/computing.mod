@@ -1,0 +1,29 @@
+.ServicesCategoryOverview {
+    display: none;
+    display: flex;
+    margin-top: 0;
+    padding: 1em;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    background-color: var(--grey-3);
+    color: var(--main-bg-color);
+}
+
+.ServicesCategoryOverview-icon {
+    display: flex;
+    align-items: center;
+    width:  6em;
+    height: 6em;
+    margin-right: 2em;
+}
+
+.ServicesCategoryOverview-icon svg {
+    color: var(--grey-2);
+    width: 100%;
+}
+
+.ServicesCategoryOverview-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="encrypted-volume-importer.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"},
+                "canDelete": false,
+                "canRevert": false,
+                "canSave": false,
+                "controller": {"@": "owner"},
+                "isFooterHidden": true
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "isLocked": {"<->": "@owner.isLocked"}
+            }
+        },
+        "name": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "name"},
+                "placeholder": "enter name...",
+                "label": "Name"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.name"}
+            }
+        },
+        "key": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "key"},
+                "placeholder": "enter key...",
+                "label": "Key"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.key"}
+            }
+        },
+        "password": {
+            "prototype": "blue-shark.mod/ui/field-password.reel",
+            "properties": {
+                "element": {"#": "password"},
+                "placeholder": "enter password...",
+                "label": "Password"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.password"}
+            }
+        },
+        "disks": {
+            "prototype": "ui/controls/disk-selector.reel",
+            "properties": {
+                "element": {"#": "disks"},
+                "name": "Disks"
+            },
+            "bindings": {
+                "disks": {"<->": "@owner.object.disks"}
+            }
+        },
+        "availableDisks": {
+            "prototype": "ui/sections/storage/inspectors/available-disks.reel",
+            "properties": {
+                "element": {"#": "availableDisks"},
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "disks": {"<-": "@owner.availableDisks"}
+            }
+        },
+        "importVolume": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "importVolume"},
+                "value": "Import"
+            },
+            "bindings": {
+                "disabled": {"<-": "!@name.value || (!@disks.disks || @disks.disks.length == 0) || (!@password.value && !@key.value)"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="EncryptedVolumeImporter has-availableDisks">
+        <div data-mod-id="inspector">
+            <div class="EncryptedVolumeImporter-content">
+                <div data-mod-id="name"></div>
+                <div data-mod-id="password"></div>
+                <div data-mod-id="key"></div>
+                <div data-mod-id="importVolume" class="g-margin-bottom"></div>
+                <div data-mod-id="disks" class="EncryptedVolumeImporter-disks g-margin-h--subtract"></div>
+            </div>
+        </div>
+        <div class="EncryptedVolumeImporter-sidebar">
+            <div data-mod-id="availableDisks"></div>
+        </div>
+    </div>
+</body>
+</html>

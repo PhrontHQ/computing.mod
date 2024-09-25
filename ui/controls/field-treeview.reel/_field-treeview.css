@@ -1,0 +1,38 @@
+.FieldTreeview-path { position: relative; flex: 1; }
+
+.FieldTreeview-path-input { flex: 1; }
+
+.FieldTreeview-icon {
+    display: flex;
+    display: none;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: .25rem;
+    transform: translateY(-50%);
+    pointer-events: none;
+
+    /* button overrides */
+    margin-top:     0 !important;
+    margin-right:   0 !important;
+    max-height: none !important;
+    max-width:  none !important;
+
+    & svg {
+        position: relative;
+        z-index: 200;
+        order: -1;
+        height: 1.25em;
+        width:  1.25em;
+        margin-right: .5em;
+    }
+}
+
+.FieldTreeview-treeView {
+    display: none;
+
+    @nest .FieldTreeview.is-expanded & {
+        display: block;
+        margin-bottom: 1em;
+    }
+}

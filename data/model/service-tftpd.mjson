@@ -1,0 +1,85 @@
+{
+  "blueprint_servicetftpd_allow_new_files": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "allow_new_files",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_servicetftpd_auxiliary": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "auxiliary",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_servicetftpd_enable": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "enable",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_servicetftpd_path": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "path",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_servicetftpd_port": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "port",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_servicetftpd_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "enumValues": [
+        "service-tftpd"
+      ]
+    }
+  },
+  "blueprint_servicetftpd_umask": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "umask",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "UnixPermissions"
+    }
+  },
+  "blueprint_servicetftpd_username": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "username",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "ServiceTftpd",
+      "propertyBlueprints": [
+        {"@": "blueprint_servicetftpd_allow_new_files"},
+        {"@": "blueprint_servicetftpd_auxiliary"},
+        {"@": "blueprint_servicetftpd_enable"},
+        {"@": "blueprint_servicetftpd_path"},
+        {"@": "blueprint_servicetftpd_port"},
+        {"@": "blueprint_servicetftpd_type"},
+        {"@": "blueprint_servicetftpd_umask"},
+        {"@": "blueprint_servicetftpd_username"}
+      ]
+    }
+  }
+}

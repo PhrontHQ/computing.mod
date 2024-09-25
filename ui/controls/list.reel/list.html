@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="list.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "loading": {
+            "prototype": "blue-shark.mod/ui/spinner.reel",
+            "properties": {
+                "element": {"#": "loading"}
+            },
+            "bindings": {
+                "classList.has('hide')": {"<-": "!@owner.isLoading"}
+            }
+        },
+        "repetition": {
+            "prototype": "mod/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"},
+                "isSelectionEnabled": true
+            },
+            "bindings": {
+                "contentController.sortPath": {"<-": "@owner.sortPath"},
+                "content": {"<-": "@owner.content"}
+            }
+        },
+        "item": {
+            "prototype": "./list-item.reel",
+            "properties": {
+                "element": {"#": "item"}
+            },
+            "bindings": {
+                "index": {"<-": "@repetition:iteration.index"},
+                "object": {"<-": "@repetition:iteration.object"},
+                "showSubLabel": {"<-": "@owner.showSubLabel"}
+            }
+        },
+        "loading": {
+            "prototype": "blue-shark.mod/ui/loading-message.reel",
+            "properties": {
+                "element": {"#": "loading"},
+                "loadingMessage": "fetching data..."
+            },
+            "bindings": {
+                "isLoading": {"<-": "@owner.isLoadingData"}
+            }
+        },
+        "scrollview": {
+            "prototype": "blue-shark.mod/ui/scroller.reel",
+            "properties": {
+                "element": {"#": "scrollview"},
+                "hasFooter": false
+            }
+        },
+        "substitution": {
+            "prototype": "mod/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "stateSubstitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "!!@owner.isInfiniteList && !!@owner.isLoadingData ? 'loading' : !!@owner.isInfiniteList ? 'load' : ''"}
+            }
+        },
+        "loadButton": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "loadButton"},
+                "value": "Load more data"
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="List flex-column">
+        <div data-mod-id="scrollview">
+            <div data-mod-id="repetition">
+                <div data-mod-id="item" class="List-item"></div>
+            </div>
+            <div data-mod-id="stateSubstitution" class="flex-row flex-justifyContent--center">
+                <div data-mod-id="loadButton" data-arg="load" class="Button--block g-margin--half"></div>
+                <div data-mod-id="loading" class="List-spinner" data-arg="loading"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

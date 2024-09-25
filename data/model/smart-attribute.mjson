@@ -1,0 +1,91 @@
+{
+  "blueprint_smartattribute_flags": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "flags",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_smartattribute_num": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "num",
+      "blueprint": {"@": "root"},
+      "valueType": "number"
+    }
+  },
+  "blueprint_smartattribute_raw": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "raw",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_smartattribute_threshold": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "threshold",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_smartattribute_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_smartattribute_updated": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "updated",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_smartattribute_value": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "value",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_smartattribute_when_failed": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "when_failed",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_smartattribute_worst": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "worst",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "SmartAttribute",
+      "propertyBlueprints": [
+        {"@": "blueprint_smartattribute_flags"},
+        {"@": "blueprint_smartattribute_num"},
+        {"@": "blueprint_smartattribute_raw"},
+        {"@": "blueprint_smartattribute_threshold"},
+        {"@": "blueprint_smartattribute_type"},
+        {"@": "blueprint_smartattribute_updated"},
+        {"@": "blueprint_smartattribute_value"},
+        {"@": "blueprint_smartattribute_when_failed"},
+        {"@": "blueprint_smartattribute_worst"}
+      ]
+    }
+  }
+}

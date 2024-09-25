@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="directory-services.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "selectedObject": {"<->": "@directoryServices.selectedObject"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "title": "Directory services",
+                "isFooterHidden": true,
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "isLoading": {"<-": "@owner.object.isLoading"}
+            }
+        },
+
+        "scrollView": {
+            "prototype": "blue-shark.mod/ui/scroller.reel",
+            "properties": {
+                "element": {"#": "scrollView"},
+                "overflow": "scrollY"
+            }
+        },
+
+        "directoryServices": {
+            "prototype": "ui/controls/list.reel",
+            "properties": {
+                "element": {"#": "directoryServices"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.directoryServices"}
+            }
+        },
+
+        "searchOrderTitle": {
+            "prototype": "ui/controls/inspector-section-title.reel",
+            "properties": {
+                "element": {"#": "searchOrderTitle"},
+                "value": "Search order"
+            }
+        },
+
+        "searchOrder": {
+            "prototype": "blue-shark.mod/ui/multiple-select.reel",
+            "properties": {
+                "element": {"#": "searchOrder"},
+                "inputTitle": "Add origin",
+                "labelPath": "this",
+                "isDraggable": true,
+                "valuesTitle": "Drag to change search order"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.directoryServiceConfig.search_order"},
+                "disabled": {"<-": "@owner.directoryServices.filter{enabled}.length == 0"}
+            }
+        },
+
+        "ntpServers": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "ntpServers"},
+                "label": "NTP Servers"
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.ntpServer"},
+                "options": {"<-": "@owner.ntpServerOptions"}
+            }
+        },
+
+        "ntpSyncNow": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "ntpSyncNow"},
+                "value": "Synchronize with NTP server"
+            },
+            "bindings": {
+                "disabled": {"<-": "!@owner.ntpServer"}
+            }
+        },
+
+        "revert": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "revert"},
+                "value": "Revert"
+            }
+        },
+
+        "save": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "save"},
+                "value": "Save"
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="DirectoryServices">
+        <div data-mod-id="inspector">
+            <div data-mod-id="scrollView" class="DirectoryServices-body">
+                <div data-mod-id="directoryServices"></div>
+            </div>
+            <div class="DirectoryServices-searchorderContainer g-margin-top">
+                <div data-mod-id="ntpServers"></div>
+                <div class="flex-row flex-justifyContent--end g-margin-bottom g-margin-top--subtract-half">
+                    <div data-mod-id="ntpSyncNow"></div>
+                </div>
+                <div data-mod-id="searchOrderTitle"></div>
+                <div data-mod-id="searchOrder" class="DirectoryServices-searchorder"></div>
+                <div class="DirectoryServices-buttons">
+                    <div data-mod-id="revert"></div>
+                    <div data-mod-id="save" class="Button--primary"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "inspector": {"@": "inspector"},
+                "credentials": {"@": "credentials"}
+            },
+            "bindings": {
+                "isLoading": {"<-": "@credentials.isLoadingComponent"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "type": {
+            "prototype": "blue-shark.mod/ui/field-text.reel",
+            "properties": {
+                "element": {"#": "type"},
+                "label": "Peer Type"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.type"}
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "canSave": true,
+                "canRevert": true,
+                "canDelete": true,
+                "controller": {"@": "owner"}
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "isConfirmationVisible": {"<-": "@owner.isConfirmationVisible"},
+                "confirmationMessage": {"<-": "'Are you sure you want to delete ' + @owner.object.var + '?'"},
+                "isSaveDisabled": {"<-": "@owner.credentials.component.shouldDisableSave.defined() && @owner.credentials.component.shouldDisableSave"}
+            }
+        },
+        "credentials": {
+            "prototype": "ui/controls/placeholder.reel",
+            "properties": {
+                "element": {"#": "credentials"}
+            },
+            "bindings": {
+                "moduleId": {"<-": "'ui/sections/peering/inspectors/' + @owner.object.type + '-credentials.reel'"},
+                "object": {"<-": "@owner.object"}
+            }
+        },
+        "healthCheck":{
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "healthCheck"},
+                "label": "Health Check Interval"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.intervalUnits"},
+                "value": {"<->": "@owner.object.health_check_interval"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Peer">
+        <div data-mod-id="inspector">
+            <div data-mod-id="type"></div>
+            <div data-mod-id="credentials"></div>
+            <div data-mod-id="healthCheck"></div>
+        </div>
+    </div>
+</body>
+</html>

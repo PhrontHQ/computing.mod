@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "controller": {"@": "owner"},
+                "validationController": {"@": "validationController"},
+                "canDelete": false,
+                "canSave": true,
+                "canRevert": true
+            },
+            "bindings": {
+                "context": {"<-": "@owner.context"},
+                "isLoading": {"<-": "@owner.isLoading"}
+            }
+        },
+        "outgoingPortValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 1,
+                "ceiling": 65535,
+                "errorMessage": "Port must be an integer between 1 and 65535"
+            }
+        },
+        "outgoingPortConverter": {
+            "prototype": "core/converter/string-to-integer-or-null-converter",
+            "properties": {
+                "validator": {"@": "outgoingPortValidator"}
+            }
+        },
+        "outgoingPort": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "outgoing_port"},
+                "label": "Mail Server Port",
+                "converter" : {"@": "outgoingPortConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.email.config.port"}
+            }
+        },
+        "from": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "from"},
+                "label": "From Email Address"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.email.config.from_address"}
+            }
+        },
+        "useSMTPAuth": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "useSMTPAuth"},
+                "label": "Use SMTP Authentication"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.email.config.auth"}
+            }
+        },
+        "outgoingServer": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "outgoing_server"},
+                "label": "Outgoing Mail server"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.email.config.server"}
+            }
+        },
+        "serialPortOptionConverter": {
+            "prototype": "core/converter/select-option-converter"
+        },
+        "encryption": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "encryption"},
+                "label": "TLS/SSL"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.encryptionOptions"},
+                "selectedValue": {"<->": "@owner.object.email.config.encryption"}
+            }
+        },
+        "username": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "username"},
+                "label": "Username"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.email.config.user"}
+            }
+        },
+        "password": {
+            "prototype": "blue-shark.mod/ui/field-password-input.reel",
+            "properties": {
+                "element": {"#": "password"},
+                "label": "Password",
+                "placeholder": "enter password"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.email.config.password"}
+            }
+        },
+        "sendTestMail": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "sendTestMail"},
+                "value": "Send Test Mail"
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "send_to": {
+            "prototype": "blue-shark.mod/ui/field-multiple-select.reel",
+            "properties": {
+                "element": {"#": "send_to"},
+                "label": "Recipients List",
+                "labelPath": "this",
+                "isDraggable": true,
+                "inputTitle": "Add a recipient",
+                "valuesTitle": "Recipients",
+                "placeholder": "eg. foo@example.com"
+            },
+            "bindings": {
+                "values": {"<->": "@owner.object.email.config.to"}
+            }
+        },
+        "emailSection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "emailSection"},
+                "isExpanded": true,
+                "title": "Setup Email Emitter"
+            }
+        },
+        "pushBulletSection": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "pushBulletSection"},
+                "isExpanded": true,
+                "title": "Setup PushBullet Emitter"
+            }
+        },
+        "apikey": {
+            "prototype": "blue-shark.mod/ui/field-text-area.reel",
+            "properties": {
+                "element": {"#": "apikey"},
+                "label": "PushBullet API Key"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.pushbullet.config.api_key"}
+            }
+        },
+        "msgSent": {
+            "prototype": "blue-shark.mod/ui/panel.reel",
+            "properties": {
+                "element": {"#": "msgSent"},
+                "status": "error"
+            },
+            "bindings": {
+                "message": {"<-": "@owner.msgSent"},
+                "classList.has('is-hidden')": {"<-": "!@owner.msgSent"}
+            }
+        }
+    }
+    </script>
+    <style>
+        .Mail-msg .montage-Text {
+            max-width: 24rem;
+        }
+    </style>
+</head>
+<body>
+    <div data-mod-id="owner" class="Mail">
+        <div data-mod-id="inspector">
+            <div data-mod-id="emailSection" class="emailSection">
+                <div data-mod-id="from"></div>
+                <div data-mod-id="outgoing_server"></div>
+                <div data-mod-id="outgoing_port"></div>
+                <div data-mod-id="useSMTPAuth"></div>
+                <div data-mod-id="encryption"></div>
+                <div data-mod-id="username"></div>
+                <div data-mod-id="password"></div>
+                <div data-mod-id="send_to"></div>
+                <div data-mod-id="sendTestMail" class="Button--block"></div>
+                <div data-mod-id="msgSent" class="Mail-msg g-margin-top"></div>
+            </div>
+            <div data-mod-id="pushBulletSection" class="pushBulletSection">
+                <div data-mod-id="apikey"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "vlan-sample.info",
+  "version": "0.1.0",
+  "dependencies": {
+    "blue-shark.mod": "*",
+    "digit": "*",
+    "mod": "*",
+    "gui": "freenas/gui#montage"
+  },
+  "mappings": {
+    "mod": "../../../../../../node_modules/mod",
+    "digit": "../../../../../../node_modules/digit",
+    "blue-shark.mod": "../../../../../../node_modules/blue-shark.mod",
+    "gui": "../../../../../../"
+  }
+}

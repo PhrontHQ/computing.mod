@@ -1,0 +1,49 @@
+{
+  "blueprint_vmdevice_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "mandatory": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_vmdevice_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_vmdevice_properties": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "properties",
+      "blueprint": {"@": "root"},
+      "mandatory": true
+    }
+  },
+  "blueprint_vmdevice_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "mandatory": true,
+      "valueType": "object",
+      "valueObjectPrototypeName": "VmDeviceType"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VmDevice",
+      "propertyBlueprints": [
+        {"@": "blueprint_vmdevice_id"},
+        {"@": "blueprint_vmdevice_name"},
+        {"@": "blueprint_vmdevice_properties"},
+        {"@": "blueprint_vmdevice_type"}
+      ]
+    }
+  }
+}

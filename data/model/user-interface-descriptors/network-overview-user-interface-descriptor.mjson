@@ -1,0 +1,9 @@
+{
+    "root": {
+        "prototype": "mod/core/meta/user-interface-descriptor",
+        "properties": {
+            "inspectorComponentModule": {"%": "ui/network/configuration.reel"},
+            "nameExpression": "'Overview'"
+        }
+    }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "_afpTable": {"@": "afp"},
+                "_iscsiTable": {"@": "iscsi"},
+                "_nfsTable": {"@": "nfs"},
+                "_smbTable": {"@": "smb"}
+            },
+            "bindings": {
+                "object.__shares": {"<-": "[].concat(@afp.values, @iscsi.values, @nfs.values, @smb.values)"}
+            }
+        },
+
+        "afp": {
+            "prototype": "./table-afp.reel",
+            "properties": {
+                "element": {"#": "afp"}
+            },
+            "bindings": {
+                "users": {"<-": "@owner.users"}
+            }
+        },
+
+        "iscsi": {
+            "prototype": "./table-iscsi.reel",
+            "properties": {
+                "element": {"#": "iscsi"}
+            },
+            "bindings": {
+                "users": {"<-": "@owner.users"}
+            }
+        },
+
+        "nfs": {
+            "prototype": "./table-nfs.reel",
+            "properties": {
+                "element": {"#": "nfs"}
+            },
+            "bindings": {
+                "users": {"<-": "@owner.users"}
+            }
+        },
+
+        "smb": {
+            "prototype": "./table-smb.reel",
+            "properties": {
+                "element": {"#": "smb"}
+            },
+            "bindings": {
+                "users": {"<-": "@owner.users"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Share-wizard">
+        <div data-mod-id="afp" class="g-margin-bottom"></div>
+        <div data-mod-id="iscsi" class="g-margin-bottom"></div>
+        <div data-mod-id="nfs" class="g-margin-bottom"></div>
+        <div data-mod-id="smb" class="g-margin-bottom"></div>
+    </div>
+</body>
+</html>

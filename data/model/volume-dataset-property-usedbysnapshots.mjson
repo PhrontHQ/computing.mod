@@ -1,0 +1,49 @@
+{
+  "blueprint_volumedatasetpropertyusedbysnapshots_parsed": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parsed",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyUsedbysnapshotsValue"
+    }
+  },
+  "blueprint_volumedatasetpropertyusedbysnapshots_rawvalue": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rawvalue",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumedatasetpropertyusedbysnapshots_source": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "source",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertySource"
+    }
+  },
+  "blueprint_volumedatasetpropertyusedbysnapshots_value": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "value",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumeDatasetPropertyUsedbysnapshots",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumedatasetpropertyusedbysnapshots_parsed"},
+        {"@": "blueprint_volumedatasetpropertyusedbysnapshots_rawvalue"},
+        {"@": "blueprint_volumedatasetpropertyusedbysnapshots_source"},
+        {"@": "blueprint_volumedatasetpropertyusedbysnapshots_value"}
+      ]
+    }
+  }
+}

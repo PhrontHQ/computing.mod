@@ -1,0 +1,56 @@
+{
+  "blueprint_enclosure_description": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "description",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_enclosure_devices": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "devices",
+      "blueprint": {"@": "root"},
+      "valueType": "array"
+    }
+  },
+  "blueprint_enclosure_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_enclosure_name": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "name",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_enclosure_status": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "status",
+      "blueprint": {"@": "root"},
+      "valueType": "array",
+      "valueObjectPrototypeName": "EnclosureStatus"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "Enclosure",
+      "propertyBlueprints": [
+        {"@": "blueprint_enclosure_description"},
+        {"@": "blueprint_enclosure_devices"},
+        {"@": "blueprint_enclosure_id"},
+        {"@": "blueprint_enclosure_name"},
+        {"@": "blueprint_enclosure_status"}
+      ]
+    }
+  }
+}

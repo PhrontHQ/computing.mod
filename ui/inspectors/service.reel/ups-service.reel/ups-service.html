@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="ups-service.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "mode": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "mode"},
+                "label": "UPS Mode"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.modeOptions"},
+                "selectedValue": {"<->": "@owner.object.mode"}
+            }
+        },
+        "identifier": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "identifier"},
+                "label": "Identifier"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.identifier"}
+            }
+        },
+        "driver": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "driver"},
+                "label": "Driver"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.driverOptions"},
+                "selectedValue": {"<->": "@owner.object.driver"},
+                "classList.has('hide')": {"<-": "@owner.object.mode=='SLAVE'"}
+            }
+        },
+        "driver_port": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "driver_port"},
+                "label": "Driver Port"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.driverPortOptions"},
+                "selectedValue": {"<->": "@owner.object.driver_port"},
+                "classList.has('hide')": {"<-": "@owner.object.mode=='SLAVE'"}
+            }
+        },
+        "remote_host": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "remote_host"},
+                "label": "Remote Host"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.remote_host"},
+                "classList.has('hide')": {"<-": "@owner.object.mode=='MASTER'"}
+            }
+        },
+        "httpPortValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 1,
+                "ceiling": 65535,
+                "errorMessage": "Port must be an integer between 1 and 65535"
+            }
+        },
+        "httpPortConverter": {
+            "prototype": "core/converter/string-to-integer-converter",
+            "properties": {
+                "validator": {"@": "httpPortValidator"}
+            }
+        },
+        "remote_port": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "remote_port"},
+                "label": "Remote Port",
+                "converter" : {"@": "httpPortConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.remote_port"},
+                "classList.has('hide')": {"<-": "@owner.object.mode=='MASTER'"}
+            }
+        },
+        "description": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "description"},
+                "label": "Description"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.description"},
+                "classList.has('hide')": {"<-": "@owner.object.mode=='SLAVE'"}
+            }
+        },
+        "shutdown_mode": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "shutdown_mode"},
+                "label": "Shutdown Mode"
+            },
+            "bindings": {
+                "options" : {"<-": "@owner.shutdownModeOptions"},
+                "selectedValue": {"<->": "@owner.object.shutdown_mode"}
+            }
+        },
+        "upsTimerValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 0,
+                "errorMessage": "Timer must be an integer"
+            }
+        },
+        "upsTimerConverter": {
+            "prototype": "core/converter/string-to-integer-converter",
+            "properties": {
+                "validator": {"@": "upsTimerValidator"}
+            }
+        },
+        "shutdown_timer": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "shutdown_timer"},
+                "label": "Shutdown Timer"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.timerUnits"},
+                "value": {"<->": "@owner.object.shutdown_timer"}
+            }
+        },
+        "monitor_user": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "monitor_user"},
+                "label": "Monitor User"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.monitor_user"}
+            }
+        },
+        "monitor_password": {
+            "prototype": "blue-shark.mod/ui/field-password-input.reel",
+            "properties": {
+                "element": {"#": "monitor_password"},
+                "label": "Password",
+                "placeholder": "monitor password"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.monitor_password"}
+            }
+        },
+        "allow_remote_connections": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "allow_remote_connections"},
+                "label": "Allow Remote Connections"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.allow_remote_connections"},
+                "classList.has('hide')": {"<-": "@owner.object.mode=='SLAVE'"}
+            }
+        },
+        "propagate_alerts": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "propagate_alerts"},
+                "label": "Send Alerts"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.propagate_alerts"}
+            }
+        },
+        "powerdown": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "powerdown"},
+                "label": "Power Off UPS"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.powerdown"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Ups">
+        <div data-mod-id="mode"></div>
+        <div data-mod-id="identifier"></div>
+        <div data-mod-id="driver"></div>
+        <div data-mod-id="driver_port"></div>
+        <div data-mod-id="description"></div>
+        <div data-mod-id="shutdown_mode"></div>
+        <div data-mod-id="shutdown_timer"></div>
+        <div data-mod-id="allow_remote_connections"></div>
+        <div data-mod-id="monitor_user"></div>
+        <div data-mod-id="monitor_password"></div>
+        <div data-mod-id="remote_host"></div>
+        <div data-mod-id="remote_port"></div>
+        <div data-mod-id="propagate_alerts"></div>
+        <div data-mod-id="powerdown"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="static-route.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "validationController": {"@": "validationController"},
+                "inspector": {"@": "inspector"}
+            }
+        },
+        "validationController": {
+            "prototype": "core/controller/validation-controller",
+            "properties": {
+                "fields": {
+                }
+            }
+        },
+        "inspector": {
+            "prototype": "ui/inspectors/inspector.reel",
+            "properties": {
+                "element": {"#": "inspector"},
+                "validationController": {"@": "validationController"}
+            }
+        },
+        "netmask": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "netmask"},
+                "label": "Netmask"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.netmask"}
+            }
+        },
+        "gateway": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "gateway"},
+                "label": "Gateway"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.gateway"}
+            }
+        },
+        "network": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "network"},
+                "label": "Network"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.network"}
+            }
+        },
+        "protocolTypeConverter": {
+            "prototype": "core/converter/select-option-converter",
+            "properties": {
+                "labelPropertyName": "label",
+                "valuePropertyName": "value"
+            }
+        },
+        "type": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "type"},
+                "converter": {"@": "protocolTypeConverter"},
+                "label": "IP Type"
+            },
+            "bindings": {
+                "selectedValue": {"<->": "@owner.object.type"},
+                "options": {"<-": "@owner.protocolOptions"}
+            }
+        },
+        "id": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties" : {
+                "element": {"#": "id"},
+                "label": "ID"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.id"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="StaticRoute">
+        <div data-mod-id="inspector">
+            <div data-mod-id="netmask"></div>
+            <div data-mod-id="gateway"></div>
+            <div data-mod-id="network"></div>
+            <div data-mod-id="type"></div>
+            <div data-mod-id="id"></div>
+        </div>
+    </div>
+</body>
+</html>

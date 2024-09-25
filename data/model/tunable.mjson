@@ -1,0 +1,65 @@
+{
+  "blueprint_tunable_comment": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "comment",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_tunable_enabled": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "enabled",
+      "blueprint": {"@": "root"},
+      "valueType": "boolean"
+    }
+  },
+  "blueprint_tunable_id": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "id",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_tunable_type": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "type",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "TunableType"
+    }
+  },
+  "blueprint_tunable_value": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "value",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "blueprint_tunable_var": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "var",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "Tunable",
+      "propertyBlueprints": [
+        {"@": "blueprint_tunable_comment"},
+        {"@": "blueprint_tunable_enabled"},
+        {"@": "blueprint_tunable_id"},
+        {"@": "blueprint_tunable_type"},
+        {"@": "blueprint_tunable_value"},
+        {"@": "blueprint_tunable_var"}
+      ]
+    }
+  }
+}

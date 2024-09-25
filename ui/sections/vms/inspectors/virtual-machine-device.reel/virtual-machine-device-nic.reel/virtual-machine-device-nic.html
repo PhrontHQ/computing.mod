@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "selectOptionConverter": {
+            "prototype": "core/converter/select-option-converter"
+        },
+        "nicBridge": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "nicBridge"},
+                "label": "Bridge Interface",
+                "converter": {"@": "selectOptionConverter"}
+            },
+            "bindings": {
+                "options": {"<-": "[{id: 'default'}].concat(@owner.interfaces.filter{enabled}).map{id}"},
+                "selectedValue": {"<->": "@owner.object.bridge"}
+            }
+        },
+        "nicDevice": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "nicDevice"},
+                "label": "NIC Type",
+                "converter": {"@": "selectOptionConverter"}
+            },
+            "bindings": {
+                "options": {"<-": "@owner.nicDeviceOptions"},
+                "selectedValue": {"<->": "@owner.object.device"}
+            }
+        },
+        "nicLinkAddress": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "nicLinkAddress"},
+                "label": "MAC Address"
+            },
+            "bindings": {
+                "options": {"<-": "@owner.nicLinkAddressOptions"},
+                "value": {"<->": "@owner.object.link_address"}
+            }
+        },
+        "nicMode": {
+            "prototype": "blue-shark.mod/ui/field-select.reel",
+            "properties": {
+                "element": {"#": "nicMode"},
+                "label": "Mode",
+                "converter": {"@": "selectOptionConverter"}
+            },
+            "bindings": {
+                "options": {"<-": "@owner.nicModeOptions"},
+                "selectedValue": {"<->": "@owner.object.mode"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="VirtualMachineDeviceNic">
+        <div data-mod-id="nicBridge"></div>
+        <div data-mod-id="nicDevice"></div>
+        <div data-mod-id="nicLinkAddress"></div>
+        <div data-mod-id="nicMode"></div>
+    </div>
+</body>
+</html>

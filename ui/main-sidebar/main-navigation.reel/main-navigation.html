@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="main-navigation.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "repetition": {"@": "repetition"}
+            }
+        },
+        "repetition": {
+            "prototype": "mod/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"}
+            },
+            "bindings": {
+                "content": {"<-": "@owner.sections.filter{!isHidden}"}
+            }
+        },
+
+        "item": {
+            "prototype": "./main-navigation-item.reel",
+            "properties": {
+                "element": {"#": "item"}
+            },
+            "bindings": {
+                "object": {"<-": "@repetition:iteration.object"}
+            }
+        },
+        "scroller": {
+            "prototype": "blue-shark.mod/ui/scroller.reel",
+            "properties": {
+                "element": {"#": "scroller"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="MainNavigation">
+        <div data-mod-id="scroller" class="flex-column MainNavigation-scroller">
+            <div data-mod-id="repetition" class="MainNavigation-repetition">
+                <div data-mod-id="item"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

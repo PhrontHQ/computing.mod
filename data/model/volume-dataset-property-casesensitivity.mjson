@@ -1,0 +1,49 @@
+{
+  "blueprint_volumedatasetpropertycasesensitivity_parsed": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "parsed",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumeDatasetPropertyCasesensitivityValue"
+    }
+  },
+  "blueprint_volumedatasetpropertycasesensitivity_rawvalue": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "rawvalue",
+      "blueprint": {"@": "root"},
+      "readOnly": true,
+      "valueType": "String"
+    }
+  },
+  "blueprint_volumedatasetpropertycasesensitivity_source": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "source",
+      "blueprint": {"@": "root"},
+      "valueType": "object",
+      "valueObjectPrototypeName": "VolumePropertySource"
+    }
+  },
+  "blueprint_volumedatasetpropertycasesensitivity_value": {
+    "prototype": "mod/core/meta/property-descriptor",
+    "properties": {
+      "name": "value",
+      "blueprint": {"@": "root"},
+      "valueType": "String"
+    }
+  },
+  "root": {
+    "prototype": "core/model/model-descriptor",
+    "properties": {
+      "name": "VolumeDatasetPropertyCasesensitivity",
+      "propertyBlueprints": [
+        {"@": "blueprint_volumedatasetpropertycasesensitivity_parsed"},
+        {"@": "blueprint_volumedatasetpropertycasesensitivity_rawvalue"},
+        {"@": "blueprint_volumedatasetpropertycasesensitivity_source"},
+        {"@": "blueprint_volumedatasetpropertycasesensitivity_value"}
+      ]
+    }
+  }
+}

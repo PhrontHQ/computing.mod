@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="wizard.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('is-loading')": {"<-": "@owner._isLoading || @stepPlaceholder.isLoadingComponent"}
+            }
+        },
+
+        "loading": {
+            "prototype": "blue-shark.mod/ui/spinner.reel",
+            "properties": {
+                "element": {"#": "loading"}
+            },
+            "bindings": {
+                "isShown": {"<-": "@owner._isLoading || @stepPlaceholder.isLoadingComponent"}
+            }
+        },
+
+        "stepsLabel": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "stepsLabel"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner._currentUiDescriptor.wizardTitle"}
+            }
+        },
+
+        "stepPlaceholder": {
+            "prototype": "ui/controls/placeholder.reel",
+            "properties": {
+                "element": {"#": "stepPlaceholder"}
+            },
+            "bindings": {
+                "moduleId": {"<-": "@owner._currentUiDescriptor.wizardComponentModuleId"},
+                "object": {"<-": "@owner._currentObject"},
+                "context": {"<-": "@owner._context"}
+            }
+        },
+
+        "previous": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "previous"},
+                "value": "Previous"
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "@owner._currentIndex == 0"}
+            }
+        },
+
+        "next": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "next"},
+                "value": "Next"
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "@owner._currentIndex + 1 == @owner.steps.length"},
+                "disabled": {"<-": "@owner._context.defined() ? !!@owner._context.isNextStepDisabled : false"}
+            }
+        },
+
+        "skip": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "skip"},
+                "value": "Skip"
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "!@owner._canSkip"}
+            }
+        },
+
+        "submit": {
+            "prototype": "blue-shark.mod/ui/button.reel",
+            "properties": {
+                "element": {"#": "submit"},
+                "value": "Submit"
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "@owner._currentIndex + 1 != @owner.steps.length"}
+            }
+        },
+
+        "currentPageNumber": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "currentPageNumber"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner._currentIndex + 1"}
+            }
+        },
+
+        "totalPageNumber": {
+            "prototype": "blue-shark.mod/ui/text.reel",
+            "properties": {
+                "element": {"#": "totalPageNumber"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.steps.length"}
+            }
+        },
+        "contentScrollview": {
+            "prototype": "blue-shark.mod/ui/scroller.reel",
+            "properties": {
+                "element": {"#": "contentScrollview"},
+                "overflow": "scrollY"
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="Wizard">
+        <div class="Wizard-header g-padding">
+            <div class="wrapper">
+                <h2 data-mod-id="stepsLabel" class="flush-v Wizard-header-title"></h2>
+                <div class="Wizard-counter bold">
+                    <span data-mod-id="currentPageNumber"></span> / <span data-mod-id="totalPageNumber"></span>
+                </div>
+            </div>
+        </div>
+        <div data-mod-id="loading" class="Wizard-loading"></div>
+        <div class="Wizard-content">
+            <div data-mod-id="contentScrollview">
+                <div data-mod-id="stepPlaceholder" class="stepPlaceholder g-padding"></div>
+            </div>
+        </div>
+        <div class="Wizard-footer g-padding">
+            <div class="Wizard-controls flex-row flex-justifyContent--spaceBetween">
+                <div data-mod-id="previous" class="Button--secondary Wizard-controls-previous">
+                    <svg><use xlink:href="#i-arrow"/></svg>
+                </div>
+                <div class="flex-row flex-justifyContent--end">
+                    <div data-mod-id="skip" class="Button--secondary"></div>
+                    <div data-mod-id="next" class="Button--secondary Wizard-controls-next">
+                        <svg><use xlink:href="#i-arrow"/></svg>
+                    </div>
+                    <div data-mod-id="submit" class="Button--primary"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

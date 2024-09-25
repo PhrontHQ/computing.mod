@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="ftp-service.css">
+    <script type="text/mod-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+        "portValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 1,
+                "ceiling": 65535,
+                "errorMessage": "Value must be an integer between 1 and 65535"
+            }
+        },
+        "portConverter": {
+            "prototype": "core/converter/string-to-integer-converter",
+            "properties": {
+                "validator": {"@": "portValidator"}
+            }
+        },
+        "port": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "port"},
+                "label": "Port",
+                "converter": {"@": "portConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.port"}
+            }
+        },
+        "maxClientsValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 0,
+                "ceiling": 10000,
+                "errorMessage": "Value must be an integer between 0 and 10000"
+            }
+        },
+        "maxClientsConverter": {
+            "prototype": "core/converter/string-to-integer-converter",
+            "properties": {
+                "validator": {"@": "maxClientsValidator"}
+            }
+        },
+        "max_clients": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "max_clients"},
+                "label": "Max Clients",
+                "converter": {"@": "maxClientsConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.max_clients"}
+            }
+        },
+        "ipConnectionsValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 0,
+                "ceiling": 1000,
+                "errorMessage": "Value must be an integer between 0 and 1000"
+            }
+        },
+        "ipConnectionsConverter": {
+            "prototype": "core/converter/string-to-integer-or-null-converter",
+            "properties": {
+                "validator": {"@": "ipConnectionsValidator"}
+            }
+        },
+        "ip_connections": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "ip_connections"},
+                "label": "Max Connections",
+                "converter": {"@": "ipConnectionsConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.ip_connections"}
+            }
+        },
+        "loginAttemptValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 0,
+                "ceiling": 1000,
+                "errorMessage": "Value must be an integer between 0 and 1000"
+            }
+        },
+        "loginAttemptConverter": {
+            "prototype": "core/converter/string-to-integer-converter",
+            "properties": {
+                "validator": {"@": "loginAttemptValidator"}
+            }
+        },
+        "login_attempt": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "login_attempt"},
+                "label": "Max Login Attempts",
+                "converter": {"@": "loginAttemptConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.login_attempt"}
+            }
+        },
+        "timeout": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "timeout"},
+                "label": "Timeout"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.timeoutUnits"},
+                "value": {"<->": "@owner.object.timeout"}
+            }
+        },
+        "root_login": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "root_login"},
+                "label": "Allow Root Login"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.root_login"}
+            }
+        },
+        "only_anonymous": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "only_anonymous"},
+                "label": "Allow Anonymous Login"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.only_anonymous"}
+            }
+        },
+        "filesystemTreeController": {
+            "prototype": "core/controller/tree/filesystem-tree-controller",
+            "properties": {
+                "canListFiles": false,
+                "root": "/mnt"
+            },
+            "bindings": {
+                "service": {"<-": "@owner.application.filesystemService"}
+            }
+        },
+        "anonymous_path": {
+            "prototype": "ui/controls/field-treeview.reel",
+            "properties": {
+                "element": {"#": "anonymous_path"},
+                "controller": {"@": "filesystemTreeController"},
+                "validationPath": "anonymous_path",
+                "label": "Anonymous Path"
+            },
+            "bindings": {
+                "disabled": {"<-": "!@owner.object.only_anonymous"},
+                "selectedPath": {"<->": "@owner.object.anonymous_path"}
+            }
+        },
+        "only_local": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "only_local"},
+                "label": "Allow Local User Login"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.only_local"}
+            }
+        },
+        "display_login": {
+            "prototype": "blue-shark.mod/ui/field-text-area.reel",
+            "properties": {
+                "element": {"#": "display_login"},
+                "validationPath": "display_login",
+                "label": "Display Login"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.display_login"}
+            }
+        },
+        "resume": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "resume"},
+                "label": "Allow Transfer Resumption"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.resume"}
+            }
+        },
+        "chroot": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "chroot"},
+                "label": "Always Chroot"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.chroot"}
+            }
+        },
+        "reverse_dns": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "reverse_dns"},
+                "label": "Perform Reverse DNS Lookups"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.reverse_dns"}
+            }
+        },
+        "masquerade_address": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "masquerade_address"},
+                "label": "Masquerade Address"
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.masquerade_address"}
+            }
+        },
+        "advancedSettings": {
+            "prototype": "ui/controls/foldable-section.reel",
+            "properties": {
+                "element": {"#": "advancedSettings"},
+                "title": "Advanced Settings",
+                "isExpanded": false
+            }
+        },
+        "fxp": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "fxp"},
+                "label": "Enable FXP protocol"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.fxp"}
+            }
+        },
+        "filemask": {
+            "prototype": "ui/controls/unixPermissions.reel",
+            "properties": {
+                "element": {"#": "filemask"},
+                "title": "File creation mask"
+            },
+            "bindings": {
+                "modes": {"<->": "@owner.object.filemask"}
+            }
+        },
+        "dirmask": {
+            "prototype": "ui/controls/unixPermissions.reel",
+            "properties": {
+                "element": {"#": "dirmask"},
+                "title": "Directory creation mask"
+            },
+            "bindings": {
+                "modes": {"<->": "@owner.object.dirmask"}
+            }
+        },
+        "ident": {
+            "prototype": "blue-shark.mod/ui/field-checkbox.reel",
+            "properties": {
+                "element": {"#": "ident"},
+                "label": "Require IDENT Authentication"
+            },
+            "bindings": {
+                "checked": {"<->": "@owner.object.ident"}
+            }
+        },
+        "passivePortValidator": {
+            "prototype": "core/converter/validator/integer-range-validator",
+            "properties": {
+                "floor": 1024,
+                "ceiling": 65535,
+                "errorMessage": "Value must be an integer between 1024 and 65535 or empty for any port"
+            }
+        },
+        "passivePortConverter": {
+            "prototype": "core/converter/string-to-integer-or-null-converter",
+            "properties": {
+                "validator": {"@": "passivePortValidator"}
+            }
+        },
+        "passive_ports_min": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "passive_ports_min"},
+                "label": "Minimum Passive Port",
+                "converter": {"@": "passivePortConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.passive_ports_min"}
+            }
+        },
+        "passive_ports_max": {
+            "prototype": "blue-shark.mod/ui/field-text-input.reel",
+            "properties": {
+                "element": {"#": "passive_ports_max"},
+                "label": "Maximum Passive Port",
+                "converter": {"@": "passivePortConverter"}
+            },
+            "bindings": {
+                "value": {"<->": "@owner.object.passive_ports_max"}
+            }
+        },
+        "local_up_bandwidth": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "local_up_bandwidth"},
+                "label": "Local user upload bandwidth"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.bandwidthUnits"},
+                "value": {"<->": "@owner.object.local_up_bandwidth"}
+            }
+        },
+        "local_down_bandwidth": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "local_down_bandwidth"},
+                "label": "Local user download bandwidth"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.bandwidthUnits"},
+                "value": {"<->": "@owner.object.local_down_bandwidth"}
+            }
+        },
+        "anon_up_bandwidth": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "anon_up_bandwidth"},
+                "label": "Anonymous user upload bandwidth"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.bandwidthUnits"},
+                "value": {"<->": "@owner.object.anon_up_bandwidth"}
+            }
+        },
+        "anon_down_bandwidth": {
+            "prototype": "blue-shark.mod/ui/field-number-unit.reel",
+            "properties": {
+                "element": {"#": "anon_down_bandwidth"},
+                "label": "Anonymous user download bandwidth"
+            },
+            "bindings": {
+                "units": {"<-": "@owner.bandwidthUnits"},
+                "value": {"<->": "@owner.object.anon_down_bandwidth"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-mod-id="owner" class="FtpService">
+        <div data-mod-id="port"></div>
+        <div data-mod-id="max_clients"></div>
+        <div data-mod-id="ip_connections"></div>
+        <div data-mod-id="login_attempt"></div>
+        <div data-mod-id="timeout"></div>
+        <div data-mod-id="root_login"></div>
+        <div data-mod-id="only_anonymous"></div>
+        <div data-mod-id="anonymous_path"></div>
+        <div data-mod-id="only_local"></div>
+        <div data-mod-id="display_login"></div>
+        <div data-mod-id="resume"></div>
+        <div data-mod-id="chroot"></div>
+        <div data-mod-id="reverse_dns"></div>
+        <div data-mod-id="masquerade_address"></div>
+        <div data-mod-id="advancedSettings">
+          <div data-mod-id="fxp"></div>
+          <div data-mod-id="filemask"></div>
+          <div data-mod-id="dirmask"></div>
+          <div data-mod-id="ident"></div>
+          <div data-mod-id="passive_ports_min"></div>
+          <div data-mod-id="passive_ports_max"></div>
+          <div data-mod-id="local_up_bandwidth"></div>
+          <div data-mod-id="local_down_bandwidth"></div>
+          <div data-mod-id="anon_up_bandwidth"></div>
+          <div data-mod-id="anon_down_bandwidth"></div>
+        </div>
+    </div>
+</body>
+</html>
