@@ -34,14 +34,12 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-
 ### PROJECT SETTINGS ###
 *.pyc
 *.swp
 *.mo
 *.o
 *.so
-
 
 # Any and all logs
 *.log
@@ -80,5 +78,3 @@ core/service/
 core/drag-drop/
 core/model/enumerations/
 core/model/[A-Z]*.js
-ui/**/*.css
-!ui/**/_*.css
