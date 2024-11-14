@@ -1,0 +1,14 @@
+.FormField {
+    position: relative;
+    margin-top: 16px;
+}
+
+.FormField .label {
+    position: absolute;
+    left: 12px;
+    top: -10px;
+    background: white;
+    padding: 0 4px;
+    font-size: 14px;
+    color: #616161;
+}
