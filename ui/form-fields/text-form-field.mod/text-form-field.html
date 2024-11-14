@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="text-form-field.css" />
+        <script type="text/mod-serialization">
+            {
+                "owner": {
+                    "values": {
+                        "element": {"#": "owner"},
+                        "_input": {"#": "input"}
+                    }
+                },
+                "field": {
+                    "prototype": "ui/form-fields/form-field.mod",
+                    "values": {
+                        "element": {"#": "field"},
+                        "label": {"<-": "@owner.label"}
+                    }
+                },
+                "input": {
+                    "prototype": "mod/ui/text-field.mod",
+                    "values": {
+                        "element.placeholder": {"<-": "@owner.placeholder"},
+                        "disabled": {"<-": "!@owner.isEnabled"},
+                        "value": {"<->": "@owner.value"},
+                        "element": {"#": "input"}
+                    },
+                    "listeners": [
+                        {
+                            "type": "action",
+                            "listener": {"@": "owner"}
+                        }
+                    ]
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div data-mod-id="owner" class="TextField">
+            <div data-mod-id="field">
+                <input
+                    data-mod-id="input"
+                    data-arg="control"
+                    autocomplete="off"
+                    type="text"
+                />
+            </div>
+        </div>
+    </body>
+</html>
