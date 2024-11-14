@@ -1,11 +1,18 @@
-### SublimeText ###
-*.sublime-workspace
+### General ###
+.DS_Store
+Thumbs.db
+report/
+out/
+temp/
+tmp/
+.tmp
+*.tmp
+*.tmp.*
+log.txt
+*.log
 
-### PyCharm ###
-.idea
-
-### Visual Studio Code ###
-.vscode
+## jsdoc
+/doc
 
 ### OSX ###
 .DS_Store
@@ -34,47 +41,25 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-### PROJECT SETTINGS ###
-*.pyc
-*.swp
-*.mo
-*.o
-*.so
+### SublimeText ###
+*.sublime-project
+*.sublime-workspace
 
-# Any and all logs
-*.log
+### Intellij IDE ###
+.idea/
+atlassian-ide-plugin.xml
 
-# Exclude Grunt and Bower build data
-node_modules
-bower_components
+### VisualStudioCode ###
+#.vscode/*
+.vscode-upload.json
+.eslintrc.json
 
-# Exclude compiled webapp
-app/build/
-app-deploy/
+### TextMate ###
+*.tmproj
+*.tmproject
+tmtags
 
-# Exclude config files
-customSystem.js
-
-*.info/**/node_modules
-
-# Exclude builds
-builds/
-
-tests/e2e/reports/
-
-*.js.map
-bin/
-
-core/*.js
-core/backend/
-core/components/
-core/controller/
-core/converter/
-core/dao/
-core/reducers/
-core/repository/
-core/route/
-core/service/
-core/drag-drop/
-core/model/enumerations/
-core/model/[A-Z]*.js
+### Node ###
+npm-debug.log*
+.npmignore
+node_modules/
