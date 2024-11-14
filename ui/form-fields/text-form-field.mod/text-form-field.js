@@ -46,7 +46,7 @@ exports.TextFormField = class TextFormField extends FormField {
      * @type {string}
      */
     get placeholder() {
-        return this._placeholder;
+        return this._placeholder ?? "";
     }
 
     set placeholder(value) {
