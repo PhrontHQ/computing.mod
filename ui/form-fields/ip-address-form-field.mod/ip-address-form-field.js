@@ -45,6 +45,7 @@ exports.IpAddressFormField = class IpAddressFormField extends TextFormField {
         return this._label ?? "IP Address";
     }
 
+    // The type of IP address to accept (IPv4 or IPv6)
     get type() {
         return this.#type;
     }
@@ -62,6 +63,7 @@ exports.IpAddressFormField = class IpAddressFormField extends TextFormField {
         this.#type = value;
     }
 
+    // The placeholder text for the text form field
     get placeholder() {
         return this._placeholder ?? IpAddressFormField.placeholders[this.type];
     }
