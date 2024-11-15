@@ -1,0 +1,73 @@
+/* FIXME: needs to use css variables */
+
+.SelectField {
+    position: relative;
+    width: 100%;
+}
+
+.SelectField-select {
+    padding-right: 40px;
+    height: inherit !important;
+}
+
+.SelectField-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.SelectField-button .SelectField-icon {
+    background-image: url("./assets/chevron-down.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.2s;
+    width: 12px;
+    height: 12px;
+}
+
+.SelectField-button .SelectField-value.placeholder-shown {
+    color: #a0a0a0;
+}
+
+.SelectField-button.is-opened .SelectField-icon {
+    transform: rotate(180deg);
+}
+
+.SelectField-dropdown {
+    position: absolute;
+    visibility: hidden;
+    margin-top: 4px;
+    opacity: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    background: white;
+    border-radius: 8px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.SelectField-dropdown.overlay-mod--visible {
+    -webkit-transition-delay: 0s, 0s;
+    transition-delay: 0s, 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+.SelectField-options {
+    margin: 0;
+    padding: 4px 0;
+    list-style: none;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.SelectField-option {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.SelectField-option:hover {
+    background-color: #f3f4f6;
+}
