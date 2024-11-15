@@ -16,3 +16,10 @@
     color: #616161;
     font-weight: 500;
 }
+
+.FormField-control {
+    width: 100%;
+    background-color: white;
+    cursor: pointer;
+    min-height: 40px;
+}
