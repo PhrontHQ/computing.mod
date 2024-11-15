@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="port-form-field.css" rel="stylesheet" type="text/css" />
+        <script type="text/mod-serialization">
+            {
+               "owner": {
+                    "values": {
+                        "validator": {"@": "validator"},
+                        "element": {"#": "owner"}
+                    }
+                },
+                "validator": {
+                    "prototype": "core/validators/port-validator",
+                    "values": {
+                        "min": {"<-": "@owner.min"},
+                        "min": {"<-": "@owner.max"}
+                    }
+                },
+                "field": {
+                    "prototype": "ui/form-fields/text-form-field.mod",
+                    "values": {
+                        "placeholder": {"<-": "@owner.placeholder"},
+                        "isRequired": {"<-": "@owner.isRequired"},
+                        "validator": {"<-": "@owner.validator"},
+                        "disabled": {"<-": "!@owner.isEnabled"},
+                        "value": {"<->": "@owner.value"},
+                        "label": {"<-": "@owner.label"},
+                        "element": {"#": "port"}
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div data-mod-id="owner" class="PortFormField">
+            <div data-mod-id="port"></div>
+        </div>
+    </body>
+</html>
