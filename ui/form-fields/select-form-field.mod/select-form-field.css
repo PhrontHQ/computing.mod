@@ -46,6 +46,7 @@
     border-radius: 8px;
     z-index: 1000;
     overflow: hidden;
+    color: #3b3b3b;
 }
 
 .SelectField-dropdown.overlay-mod--visible {
