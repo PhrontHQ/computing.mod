@@ -72,6 +72,7 @@
                 "option": {
                     "prototype": "mod/ui/text.reel",
                     "values": {
+                        "classList.has('is-selected')": {"<-": "@owner._selection.value == @options:iteration.object.value"},
                         "value": {"<-": "@options:iteration.object.label"},
                         "element": {"#": "option"}
                     }

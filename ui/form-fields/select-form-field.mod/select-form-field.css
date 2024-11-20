@@ -69,6 +69,11 @@
     cursor: pointer;
 }
 
+.SelectField-option.is-selected {
+    color: #1d4ed8;
+    font-weight: 500;
+}
+
 .SelectField-option:hover {
     background-color: #f3f4f6;
 }
