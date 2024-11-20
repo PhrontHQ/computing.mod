@@ -53,7 +53,24 @@ exports.SelectFormField = class SelectFormField extends FormField {
      *    { label: "Option 3", value: "option3" },
      * ]
      */
-    options = [];
+    #options = [];
+
+    get options() {
+        return this.#options;
+    }
+
+    set options(value) {
+        if (value?.length) {
+            // FIXME: This should be check only in development mode
+            // Not sure how to do that with Mod.
+            console.assert(
+                "value" in value[0],
+                "Select option must have a value property"
+            );
+        }
+
+        this.#options = value;
+    }
 
     /**
      * @description Placeholder text to show when no option is selected
@@ -101,8 +118,8 @@ exports.SelectFormField = class SelectFormField extends FormField {
         this._displayedOptions = options.map((option, index) => {
             return {
                 ...option,
-                value: option.value ?? option.label,
-                label: option.label,
+                label: option.value ?? option.label,
+                value: option.value,
                 index: index,
             };
         });
