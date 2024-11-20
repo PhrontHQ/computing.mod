@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="select-form-field.css" />
+        <script type="text/mod-serialization">
+            {
+                "owner": {
+                    "values": {
+                        "_selection": { "<-": "@owner._displayedOptions.filter{value == @owner.value}.0" },
+                        "_optionsController": {"@": "optionsController"},
+                        "_dropdown": {"@": "dropdown"},
+                        "_select": {"@": "select"},
+                        "element": {"#": "owner"}
+                    }
+                },
+                "field": {
+                    "prototype": "ui/form-fields/form-field.mod",
+                    "values": {
+                        "isEnabled": {"<-": "@owner.isEnabled || @owner._displayedOptions.length > 0"},
+                        "isLoading": {"<-": "@owner.isLoading"},
+                        "label": {"<-": "@owner.label"},
+                        "element": {"#": "field"}
+                    }
+                },
+                "select": {
+                    "prototype": "mod/ui/button.mod",
+                    "values": {
+                        "classList.has('is-opened')": {"<-": "@dropdown.isShown"},
+                        "element": {"#": "select"}
+                    },
+                    "listeners": [
+                        {
+                            "listener": {"@": "owner"},
+                            "type": "action"
+                        }
+                    ]
+                },
+                "selectedOption": {
+                    "prototype": "mod/ui/text.reel",
+                    "values": {
+                        "classList.has('placeholder-shown')": {"<-": "!@owner._selection"},
+                        "value": {"<-": "@owner._selection.label ?? @owner.placeholder"},
+                        "element": {"#": "selectedOption"}
+                    }
+                },
+                "optionsController": {
+                    "prototype": "mod/core/range-controller",
+                    "values": {
+                        "content": {"<-": "@owner._displayedOptions"},
+                        "selection.0": {"<-": "@owner._selection"},
+                        "allowsMultipleSelection": false,
+                        "avoidsEmptySelection": false
+                    }
+                },
+                "dropdown": {
+                    "prototype": "mod/ui/overlay.mod",
+                    "values": {
+                        "dismissOnExternalInteraction": true,
+                        "element": {"#": "dropdown"},
+                        "anchor":  {"#": "select"},
+                        "constrainToAnchor": true
+                    }
+                },
+                "options": {
+                    "prototype": "mod/ui/repetition.mod",
+                    "values": {
+                        "contentController": {"@": "optionsController"},
+                        "element": {"#": "options"},
+                        "isSelectionEnabled": true
+                    }
+                },
+                "option": {
+                    "prototype": "mod/ui/text.reel",
+                    "values": {
+                        "classList.has('is-selected')": {"<-": "@owner._selection.value == @options:iteration.object.value"},
+                        "value": {"<-": "@options:iteration.object.label"},
+                        "element": {"#": "option"}
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div data-mod-id="owner" class="SelectField">
+            <div data-mod-id="field">
+                <button
+                    class="SelectField-button"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    data-mod-id="select"
+                    data-arg="control"
+                    type="button"
+                >
+                    <span data-mod-id="selectedOption" class="SelectField-value"></span>
+                    <span class="SelectField-icon"></span>
+                </button>
+                <div data-mod-id="dropdown" class="SelectField-dropdown">
+                    <div data-mod-id="options" class="SelectField-options">
+                        <div class="SelectField-option" data-mod-id="option" role="option"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
