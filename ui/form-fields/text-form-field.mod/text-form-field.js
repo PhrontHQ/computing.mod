@@ -37,6 +37,13 @@ exports.TextFormField = class TextFormField extends FormField {
     /** @protected */
     _value = null;
 
+    /**
+     * @description Indicates whether the field is in loading state
+     * @public
+     * @type {boolean}
+     */
+    isLoading = false;
+
     /** @protected */
     _placeholder = null;
 

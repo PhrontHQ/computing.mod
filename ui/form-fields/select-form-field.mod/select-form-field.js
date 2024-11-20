@@ -35,6 +35,13 @@ exports.SelectFormField = class SelectFormField extends FormField {
     selection = null;
 
     /**
+     * @description Indicates whether the field is in loading state
+     * @public
+     * @type {boolean}
+     */
+    isLoading = false;
+
+    /**
      * @description The options to display in the dropdown
      * @public
      * @type {Array<object>}

@@ -67,4 +67,11 @@ exports.IpAddressFormField = class IpAddressFormField extends TextFormField {
     get placeholder() {
         return this._placeholder ?? IpAddressFormField.placeholders[this.type];
     }
+
+    /**
+     * @description Indicates whether the field is in loading state
+     * @public
+     * @type {boolean}
+     */
+    isLoading = false;
 };

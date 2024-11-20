@@ -44,3 +44,21 @@
     background-color: #fff8f8;
     border-color: #dc3545;
 }
+
+.FormField.is-loading .FormField-control {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    animation: form-field-skeleton-loading 1.5s ease-in-out infinite;
+    background-size: 200% 100%;
+    border-color: #f0f0f0;
+    pointer-events: none;
+    user-select: none;
+}
+
+@keyframes form-field-skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}

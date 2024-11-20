@@ -12,8 +12,9 @@
                 "field": {
                     "prototype": "ui/form-fields/form-field.mod",
                     "values": {
-                        "element": {"#": "field"},
-                        "label": {"<-": "@owner.label"}
+                        "isLoading": {"<-": "@owner.isLoading"},
+                        "label": {"<-": "@owner.label"},
+                        "element": {"#": "field"}
                     }
                 },
                 "input": {

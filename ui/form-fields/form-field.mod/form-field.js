@@ -24,6 +24,13 @@ exports.FormField = class FormField extends Component {
     isRequired = false;
 
     /**
+     * @description Indicates whether the field is in loading state
+     * @public
+     * @type {boolean}
+     */
+    isLoading = false;
+
+    /**
      * @description The label of the form field
      * @public
      * @type {string}

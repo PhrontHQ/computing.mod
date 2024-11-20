@@ -45,4 +45,11 @@ exports.PortFormField = class PortFormField extends TextFormField {
     get placeholder() {
         return this._placeholder ?? PortFormField.placeholder;
     }
+
+    /**
+     * @description Indicates whether the field is in loading state
+     * @public
+     * @type {boolean}
+     */
+    isLoading = false;
 };
