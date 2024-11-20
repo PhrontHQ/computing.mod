@@ -4,24 +4,35 @@
     position: relative;
     margin-top: 16px;
     width: 100%;
-    color: #3b3b3b;
+    color: #2b2b2b;
 }
 
 .FormField-label {
     position: absolute;
     left: 10px;
     top: -10px;
-    background: white;
     padding: 0 4px;
     font-size: 12px;
-    color: #616161;
+    color: #515151;
     font-weight: 500;
+    z-index: 1;
+}
+
+.FormField-label::before {
+    background: white;
+    position: absolute;
+    z-index: -1;
+    content: "";
+    height: 1px;
+    top: 10px;
+    right: 0;
+    left: 0;
 }
 
 .FormField-control {
     transition: border-color 0.2s, box-shadow 0.2s;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-    border: 1px solid #e0e0e0;
+    border: 1px solid #a4a4a4;
     background-color: white;
     box-sizing: border-box;
     border-radius: 8px;
@@ -35,7 +46,7 @@
 
 .FormField-control:focus {
     box-shadow: 0 1px 4px rgba(37, 99, 235, 0.1);
-    border-color: #2563eb;
+    border-color: #1d4ed8;
     outline: none;
 }
 
@@ -44,7 +55,7 @@
 .FormField-control.mod--invalid {
     box-shadow: 0 1px 2px rgba(220, 53, 69, 0.1);
     background-color: #fff8f8;
-    border-color: #dc3545;
+    border-color: #bb2d3b;
 }
 
 /* Loading state */

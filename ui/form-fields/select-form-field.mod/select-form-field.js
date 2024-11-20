@@ -42,6 +42,12 @@ exports.SelectFormField = class SelectFormField extends FormField {
     isLoading = false;
 
     /**
+     * @description The currently selected value
+     * @public
+     */
+    value = null;
+
+    /**
      * @description The options to display in the dropdown
      * @public
      * @type {Array<object>}
