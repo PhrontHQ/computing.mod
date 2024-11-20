@@ -29,10 +29,10 @@ exports.SelectFormField = class SelectFormField extends FormField {
 
     /**
      * @description The selected option (managed by Frb)
-     * @public
+     * @protected
      * @type {object}
      */
-    selection = null;
+    _selection = null;
 
     /**
      * @description Indicates whether the field is in loading state
@@ -61,16 +61,21 @@ exports.SelectFormField = class SelectFormField extends FormField {
 
     set options(value) {
         if (value?.length) {
-            // FIXME: This should be check only in development mode
-            // Not sure how to do that with Mod.
-            console.assert(
-                "value" in value[0],
-                "Select option must have a value property"
-            );
+            // FIXME: This should be only check in development mode
+            // Not sure how to do deal with that within Mod.
+            console.assert("value" in value[0], "Select option must have a value property");
         }
 
         this.#options = value;
+        this.#buildOptions();
     }
+
+    /**
+     * @description Indicates whether the form field is enabled
+     * @public
+     * @type {boolean}
+     */
+    isEnabled = true;
 
     /**
      * @description Placeholder text to show when no option is selected
@@ -81,11 +86,7 @@ exports.SelectFormField = class SelectFormField extends FormField {
 
     enterDocument(isFirstTime) {
         if (isFirstTime) {
-            this.addPathChangeListener(
-                "selection",
-                this,
-                "handleSelectionChange"
-            );
+            this.addPathChangeListener("_optionsController.selection.0", this, "handleSelectionChange");
         }
     }
 
@@ -95,24 +96,23 @@ exports.SelectFormField = class SelectFormField extends FormField {
         this.#toggleDropdown();
     }
 
-    handleSelectionChange(_) {
+    handleSelectionChange(option) {
         if (this._dropdown.isShown) {
+            this.value = option?.value;
+            this.dispatchEventNamed("change", true, true, { value: this.value });
             this._dropdown.hide();
         }
     }
 
     #toggleDropdown() {
         if (!this._dropdown.isShown) {
-            this.#buildOptionsIfNeeded();
             this._dropdown.show();
         } else {
             this._dropdown.hide();
         }
     }
 
-    #buildOptionsIfNeeded() {
-        if (this._displayedOptions) return;
-
+    #buildOptions() {
         const options = this.options || [];
 
         this._displayedOptions = options.map((option, index) => {
@@ -120,7 +120,7 @@ exports.SelectFormField = class SelectFormField extends FormField {
                 ...option,
                 label: option.value ?? option.label,
                 value: option.value,
-                index: index,
+                index: index
             };
         });
     }

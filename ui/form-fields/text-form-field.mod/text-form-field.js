@@ -76,6 +76,13 @@ exports.TextFormField = class TextFormField extends FormField {
         }
     }
 
+    /**
+     * @description Indicates whether the form field is enabled
+     * @public
+     * @type {boolean}
+     */
+    isEnabled = true;
+
     /** @protected */
     handleAction() {
         // Mark as touched on user interaction

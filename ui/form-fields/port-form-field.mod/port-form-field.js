@@ -52,4 +52,11 @@ exports.PortFormField = class PortFormField extends TextFormField {
      * @type {boolean}
      */
     isLoading = false;
+
+    /**
+     * @description Indicates whether the form field is enabled
+     * @public
+     * @type {boolean}
+     */
+    isEnabled = true;
 };

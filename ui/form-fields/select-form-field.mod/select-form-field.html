@@ -6,7 +6,8 @@
             {
                 "owner": {
                     "values": {
-                        "selection": {"<->": "@optionsController.selection.0"},
+                        "_selection": { "<-": "@owner._displayedOptions.filter{value == @owner.value}.0" },
+                        "_optionsController": {"@": "optionsController"},
                         "_dropdown": {"@": "dropdown"},
                         "_select": {"@": "select"},
                         "element": {"#": "owner"}
@@ -15,6 +16,7 @@
                 "field": {
                     "prototype": "ui/form-fields/form-field.mod",
                     "values": {
+                        "isEnabled": {"<-": "@owner.isEnabled || @owner._displayedOptions.length > 0"},
                         "isLoading": {"<-": "@owner.isLoading"},
                         "label": {"<-": "@owner.label"},
                         "element": {"#": "field"}
@@ -36,8 +38,8 @@
                 "selectedOption": {
                     "prototype": "mod/ui/text.reel",
                     "values": {
-                        "classList.has('placeholder-shown')": {"<-": "!@owner.selection"},
-                        "value": {"<-": "@owner.selection.label ?? @owner.placeholder"},
+                        "classList.has('placeholder-shown')": {"<-": "!@owner._selection"},
+                        "value": {"<-": "@owner._selection.label ?? @owner.placeholder"},
                         "element": {"#": "selectedOption"}
                     }
                 },
@@ -45,6 +47,7 @@
                     "prototype": "mod/core/range-controller",
                     "values": {
                         "content": {"<-": "@owner._displayedOptions"},
+                        "selection.0": {"<-": "@owner._selection"},
                         "allowsMultipleSelection": false,
                         "avoidsEmptySelection": false
                     }
