@@ -1,14 +1,12 @@
 const { Ipv4Validator } = require("core/validators/ipv4-validator");
 const { Ipv6Validator } = require("core/validators/ipv6-validator");
 
-const {
-    TextFormField,
-} = require("ui/form-fields/text-form-field.mod/text-form-field");
+const { TextFormField } = require("ui/form-fields/text-form-field.mod/text-form-field");
 
 // Supported IP address types
 const IpAddressType = {
     IPv4: "IPv4",
-    IPv6: "IPv6",
+    IPv6: "IPv6"
 };
 
 Object.freeze(IpAddressType);
@@ -22,12 +20,12 @@ Object.freeze(IpAddressType);
 exports.IpAddressFormField = class IpAddressFormField extends TextFormField {
     static placeholders = {
         [IpAddressType.IPv4]: "eg. 192.168.1.1",
-        [IpAddressType.IPv6]: "eg. 2001:db8::1",
+        [IpAddressType.IPv6]: "eg. 2001:db8::1"
     };
 
     static validators = {
         [IpAddressType.IPv4]: new Ipv4Validator(),
-        [IpAddressType.IPv6]: new Ipv6Validator(),
+        [IpAddressType.IPv6]: new Ipv6Validator()
     };
 
     // The validator to use for the input field
@@ -36,7 +34,7 @@ exports.IpAddressFormField = class IpAddressFormField extends TextFormField {
     }
 
     // The type of IP address to accept (IPv4 or IPv6)
-    #type = IpAddressType.IPv4;
+    _type = IpAddressType.IPv4;
 
     // Public API
 
@@ -47,7 +45,7 @@ exports.IpAddressFormField = class IpAddressFormField extends TextFormField {
 
     // The type of IP address to accept (IPv4 or IPv6)
     get type() {
-        return this.#type;
+        return this._type;
     }
 
     set type(value) {
@@ -55,12 +53,10 @@ exports.IpAddressFormField = class IpAddressFormField extends TextFormField {
         if (!Object.values(IpAddressType).includes(value)) {
             const validTypes = Object.values(IpAddressType).join(", ");
 
-            throw new Error(
-                `Invalid IP address type. Must be one of: ${validTypes}`
-            );
+            throw new Error(`Invalid IP address type. Must be one of: ${validTypes}`);
         }
 
-        this.#type = value;
+        this._type = value;
     }
 
     // The placeholder text for the text form field

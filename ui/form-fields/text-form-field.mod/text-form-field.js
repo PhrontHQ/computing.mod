@@ -11,21 +11,21 @@ exports.TextFormField = class TextFormField extends FormField {
      * @private
      * @type {boolean}
      */
-    #isTouched = false;
+    _isTouched = false;
 
     /**
      * @description Track validation state
      * @private
      * @type {boolean}
      */
-    #previousValidity = true;
+    _previousValidity = true;
 
     /**
      * @description Track previous validation message
      * @private
      * @type {string}
      */
-    #previousValidationMessage = "";
+    _previousValidationMessage = "";
 
     /**
      * @description The input element
@@ -86,7 +86,7 @@ exports.TextFormField = class TextFormField extends FormField {
     /** @protected */
     handleAction() {
         // Mark as touched on user interaction
-        this.#isTouched = true;
+        this._isTouched = true;
         this._checkValidity();
     }
 
@@ -98,7 +98,7 @@ exports.TextFormField = class TextFormField extends FormField {
         this._input.setCustomValidity("");
 
         // Skip validation if not touched and empty
-        if (!this.#isTouched && !this.value) return;
+        if (!this._isTouched && !this.value) return;
 
         // Check if the field is required
         if (this.isRequired && !this.value) {
@@ -117,23 +117,20 @@ exports.TextFormField = class TextFormField extends FormField {
         const currentValidity = this._input.checkValidity();
         const currentMessage = this._input.validationMessage;
 
-        this.#dispatchValidityChange(currentValidity, currentMessage);
+        this._dispatchValidityChange(currentValidity, currentMessage);
     }
 
-    #dispatchValidityChange(currentValidity, currentMessage) {
-        if (
-            this.#previousValidationMessage !== currentMessage ||
-            this.#previousValidity !== currentValidity
-        ) {
+    _dispatchValidityChange(currentValidity, currentMessage) {
+        if (this._previousValidationMessage !== currentMessage || this._previousValidity !== currentValidity) {
             this.dispatchEventNamed("validityChange", true, true, {
                 validationMessage: currentMessage,
                 validity: this._input.validity,
                 isValid: currentValidity,
-                value: this.value,
+                value: this.value
             });
 
-            this.#previousValidationMessage = currentMessage;
-            this.#previousValidity = currentValidity;
+            this._previousValidationMessage = currentMessage;
+            this._previousValidity = currentValidity;
         }
     }
 };

@@ -11,7 +11,7 @@ exports.SelectFormField = class SelectFormField extends FormField {
      * @private
      * @type {boolean}
      */
-    #isTouched = false;
+    _isTouched = false;
 
     /**
      * @description The select element  (managed by Frb)
@@ -59,10 +59,10 @@ exports.SelectFormField = class SelectFormField extends FormField {
      *    { label: "Option 3", value: "option3" },
      * ]
      */
-    #options = [];
+    _options = [];
 
     get options() {
-        return this.#options;
+        return this._options;
     }
 
     set options(value) {
@@ -72,8 +72,8 @@ exports.SelectFormField = class SelectFormField extends FormField {
             console.assert("value" in value[0], "Select option must have a value property");
         }
 
-        this.#options = value;
-        this.#buildOptions();
+        this._options = value;
+        this._buildOptions();
     }
 
     /**
@@ -98,8 +98,8 @@ exports.SelectFormField = class SelectFormField extends FormField {
 
     /** @protected */
     handleAction() {
-        this.#isTouched = true;
-        this.#toggleDropdown();
+        this._isTouched = true;
+        this._toggleDropdown();
     }
 
     handleSelectionChange(option) {
@@ -110,7 +110,7 @@ exports.SelectFormField = class SelectFormField extends FormField {
         }
     }
 
-    #toggleDropdown() {
+    _toggleDropdown() {
         if (!this._dropdown.isShown) {
             this._dropdown.show();
         } else {
@@ -118,7 +118,7 @@ exports.SelectFormField = class SelectFormField extends FormField {
         }
     }
 
-    #buildOptions() {
+    _buildOptions() {
         const options = this.options || [];
 
         this._displayedOptions = options.map((option, index) => {
