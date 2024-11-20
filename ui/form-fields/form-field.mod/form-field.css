@@ -52,6 +52,17 @@
     border-color: #f0f0f0;
     pointer-events: none;
     user-select: none;
+    color: transparent;
+}
+
+.FormField.is-loading .FormField-control::placeholder,
+.FormField.is-loading .FormField-control > * {
+    color: transparent;
+    opacity: 0;
+}
+
+.FormField.is-loading .FormField-label {
+    background: transparent;
 }
 
 @keyframes form-field-skeleton-loading {
