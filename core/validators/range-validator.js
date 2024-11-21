@@ -6,11 +6,6 @@ const { NumberValidator } = require("./number-validator");
  * @extends NumberValidator
  */
 exports.RangeValidator = class RangeValidator extends NumberValidator {
-    static defaultOptions = {
-        allowNegative: true,
-        allowDecimal: true
-    };
-
     /**
      * @description Minimum value (inclusive)
      * @type {number}
@@ -46,23 +41,16 @@ exports.RangeValidator = class RangeValidator extends NumberValidator {
     /**
      * @param {number} [min=0] - Minimum value (inclusive)
      * @param {number} [max=100] - Maximum value (inclusive)
-     * @param {Object} [options] - Options
-     * @param {boolean} [options.allowNegative=true] - Indicates if negative numbers are allowed
-     * @param {boolean} [options.allowDecimal=true] - Indicates if decimal numbers are allowed
+     * @param {boolean} [allowDecimal=true] - Indicates if decimal numbers are allowed
      */
-    constructor(min = 0, max = 100, options = RangeValidator.defaultOptions) {
+    constructor(min = 0, max = 100, allowDecimal = true) {
         super();
-
-        if (options) {
-            const mergedOptions = { ...RangeValidator.defaultOptions, ...options };
-            this.allowNegative = mergedOptions.allowNegative;
-            this.allowDecimal = mergedOptions.allowDecimal;
-        }
 
         if (min > max) {
             throw new Error("Minimum value cannot be greater than maximum value");
         }
 
+        this.allowDecimal = allowDecimal ?? true;
         this.min = min;
         this.max = max;
     }

@@ -6,10 +6,6 @@ const { RangeValidator } = require("./range-validator");
  * @extends RangeValidator
  */
 exports.IntegerRangeValidator = class IntegerRangeValidator extends RangeValidator {
-    static defaultOptions = {
-        allowNegative: true
-    };
-
     /**
      * @description Minimum value (inclusive)
      * @type {number}
@@ -50,11 +46,9 @@ exports.IntegerRangeValidator = class IntegerRangeValidator extends RangeValidat
     /**
      * @param {number} [min=0] - Minimum value (inclusive)
      * @param {number} [max=100] - Maximum value (inclusive)
-     * @param {Object} [options] - Options
-     * @param {boolean} [options.allowNegative=true] - Indicates if negative numbers are allowed
      */
-    constructor(min, max, options = IntegerRangeValidator.defaultOptions) {
+    constructor(min, max) {
         // force allowDecimal to be false
-        super(min, max, { ...(options ?? {}), allowDecimal: false });
+        super(min, max, false);
     }
 };
