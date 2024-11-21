@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="range-form-field.css" rel="stylesheet" type="text/css" />
+        <script type="text/mod-serialization">
+            {
+                "owner": {
+                    "values": {
+                        "element": {"#": "owner"}
+                    }
+                },
+                "validator": {
+                    "prototype": "core/validators/range-validator",
+                    "values": {
+                        "allowDecimal": {"<-": "@owner.allowDecimal"},
+                        "min": {"<-": "@owner.min"},
+                        "max": {"<-": "@owner.max"}
+                    }
+                },
+                "field": {
+                    "prototype": "ui/form-fields/text-form-field.mod",
+                    "values": {
+                        "placeholder": {"<-": "@owner.placeholder"},
+                        "isRequired": {"<-": "@owner.isRequired"},
+                        "isEnabled": {"<-": "@owner.isEnabled"},
+                        "isLoading": {"<-": "@owner.isLoading"},
+                        "validator": {"<-": "@validator"},
+                        "value": {"<->": "@owner.value"},
+                        "label": {"<-": "@owner.label"},
+                        "element": {"#": "range"}
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div data-mod-id="owner" class="RangeFormField">
+            <div data-mod-id="range"></div>
+        </div>
+    </body>
+</html>
