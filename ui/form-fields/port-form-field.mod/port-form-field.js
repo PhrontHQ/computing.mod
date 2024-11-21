@@ -1,6 +1,4 @@
-const {
-    TextFormField,
-} = require("ui/form-fields/text-form-field.mod/text-form-field");
+const { TextFormField } = require("ui/form-fields/text-form-field.mod/text-form-field");
 
 /**
  * @class PortFormField
@@ -10,31 +8,21 @@ const {
 exports.PortFormField = class PortFormField extends TextFormField {
     static placeholder = "eg. 8080";
 
-    constructor() {
-        super();
-        this._min = 0;
-        this._max = 65535;
-    }
+    /**
+     * @description Minimum port number value (inclusive)
+     * @public
+     * @type {number}
+     * @default 0
+     */
+    min = 0;
 
-    // Public API
-
-    // The minimum port number
-    get min() {
-        return this._min;
-    }
-
-    set min(value) {
-        this._min = value;
-    }
-
-    // The maximum port number
-    get max() {
-        return this._max;
-    }
-
-    set max(value) {
-        this._max = value;
-    }
+    /**
+     * @description Maximum port number value (inclusive)
+     * @public
+     * @type {number}
+     * @default 65535
+     */
+    max = 65535;
 
     // Override the FromField label to provide a default value
     get label() {
