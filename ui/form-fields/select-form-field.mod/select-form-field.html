@@ -17,6 +17,7 @@
                     "prototype": "ui/form-fields/form-field.mod",
                     "values": {
                         "isEnabled": {"<-": "@owner.isEnabled || @owner._displayedOptions.length > 0"},
+                        "isRequired": {"<-": "@owner.isRequired"},
                         "isLoading": {"<-": "@owner.isLoading"},
                         "label": {"<-": "@owner.label"},
                         "element": {"#": "field"}

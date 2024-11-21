@@ -12,6 +12,7 @@
                 "field": {
                     "prototype": "ui/form-fields/form-field.mod",
                     "values": {
+                        "isRequired": {"<-": "@owner.isRequired"},
                         "isLoading": {"<-": "@owner.isLoading"},
                         "label": {"<-": "@owner.label"},
                         "element": {"#": "field"}
@@ -38,13 +39,7 @@
     <body>
         <div data-mod-id="owner" class="TextField">
             <div data-mod-id="field">
-                <input
-                    class="TextField-input"
-                    data-mod-id="input"
-                    data-arg="control"
-                    autocomplete="off"
-                    type="text"
-                />
+                <input class="TextField-input" data-mod-id="input" data-arg="control" autocomplete="off" type="text" />
             </div>
         </div>
     </body>
