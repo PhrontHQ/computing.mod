@@ -14,8 +14,8 @@
                 "label": {
                     "prototype": "mod/ui/text.mod",
                     "values": {
-                        "element": {"#": "label"},
-                        "value": {"<-": "@owner.label"}
+                        "value": {"<-": "@owner.isRequired ? @owner.label + ' *' : @owner.label"},
+                        "element": {"#": "label"}
                     }
                 }
             }

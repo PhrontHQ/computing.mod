@@ -6,19 +6,11 @@
             {
                "owner": {
                     "values": {
-                        "validator": {"@": "validator"},
                         "element": {"#": "owner"}
                     }
                 },
-                "validator": {
-                    "prototype": "core/validators/port-validator",
-                    "values": {
-                        "min": {"<-": "@owner.min"},
-                        "max": {"<-": "@owner.max"}
-                    }
-                },
                 "field": {
-                    "prototype": "ui/form-fields/text-form-field.mod",
+                    "prototype": "ui/form-fields/range-form-field.mod",
                     "values": {
                         "placeholder": {"<-": "@owner.placeholder"},
                         "isRequired": {"<-": "@owner.isRequired"},
@@ -27,7 +19,10 @@
                         "isLoading": {"<-": "@owner.isLoading"},
                         "value": {"<->": "@owner.value"},
                         "label": {"<-": "@owner.label"},
-                        "element": {"#": "port"}
+                        "min": {"<-": "@owner.min"},
+                        "max": {"<-": "@owner.max"},
+                        "element": {"#": "port"},
+                        "allowDecimal": false
                     }
                 }
             }

@@ -34,8 +34,19 @@ exports.TextFormField = class TextFormField extends FormField {
      */
     _input = null;
 
-    /** @protected */
-    _value = null;
+    /**
+     * @description Indicates whether the form field is enabled
+     * @public
+     * @type {boolean}
+     */
+    isEnabled = true;
+
+    /**
+     * @description Indicates whether the form field is mandatory
+     * @public
+     * @type {boolean}
+     */
+    isRequired = false;
 
     /**
      * @description Indicates whether the field is in loading state
@@ -44,21 +55,15 @@ exports.TextFormField = class TextFormField extends FormField {
      */
     isLoading = false;
 
-    /** @protected */
-    _placeholder = null;
-
     /**
      * @description The placeholder text for the text form field
      * @public
      * @type {string}
      */
-    get placeholder() {
-        return this._placeholder ?? "";
-    }
+    placeholder = "";
 
-    set placeholder(value) {
-        this._placeholder = value;
-    }
+    /** @protected */
+    _value = null;
 
     /**
      * @description The value of the text form field
@@ -75,13 +80,6 @@ exports.TextFormField = class TextFormField extends FormField {
             this._checkValidity();
         }
     }
-
-    /**
-     * @description Indicates whether the form field is enabled
-     * @public
-     * @type {boolean}
-     */
-    isEnabled = true;
 
     /** @protected */
     handleAction() {

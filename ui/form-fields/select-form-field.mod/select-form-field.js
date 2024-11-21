@@ -35,11 +35,32 @@ exports.SelectFormField = class SelectFormField extends FormField {
     _selection = null;
 
     /**
+     * @description Indicates whether the form field is enabled
+     * @public
+     * @type {boolean}
+     */
+    isEnabled = true;
+
+    /**
+     * @description Indicates whether the form field is mandatory
+     * @public
+     * @type {boolean}
+     */
+    isRequired = false;
+
+    /**
      * @description Indicates whether the field is in loading state
      * @public
      * @type {boolean}
      */
     isLoading = false;
+
+    /**
+     * @description Placeholder text to show when no option is selected
+     * @public
+     * @type {string}
+     */
+    placeholder = "Select an option";
 
     /**
      * @description The currently selected value
@@ -75,20 +96,6 @@ exports.SelectFormField = class SelectFormField extends FormField {
         this._options = value;
         this._buildOptions();
     }
-
-    /**
-     * @description Indicates whether the form field is enabled
-     * @public
-     * @type {boolean}
-     */
-    isEnabled = true;
-
-    /**
-     * @description Placeholder text to show when no option is selected
-     * @public
-     * @type {string}
-     */
-    placeholder = "Select an option";
 
     enterDocument(isFirstTime) {
         if (isFirstTime) {

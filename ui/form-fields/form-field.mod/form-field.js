@@ -6,9 +6,6 @@ const { Component } = require("mod/ui/component");
  * @description Base component for form fields
  */
 exports.FormField = class FormField extends Component {
-    /** @protected */
-    _label = null;
-
     /**
      * @description Indicates whether the form field is enabled
      * @public
@@ -35,15 +32,5 @@ exports.FormField = class FormField extends Component {
      * @public
      * @type {string}
      */
-    get label() {
-        let displayedLabel = this._label ?? "Field";
-
-        if (this.isRequired) displayedLabel += " *";
-
-        return displayedLabel;
-    }
-
-    set label(value) {
-        this._label = value;
-    }
+    label = "Field";
 };

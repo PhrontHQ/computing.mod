@@ -6,7 +6,40 @@ const { TextFormField } = require("ui/form-fields/text-form-field.mod/text-form-
  * @description A text form field for port numbers.
  */
 exports.PortFormField = class PortFormField extends TextFormField {
-    static placeholder = "eg. 8080";
+    /**
+     * @description Indicates whether the form field is enabled
+     * @public
+     * @type {boolean}
+     */
+    isEnabled = true;
+
+    /**
+     * @description Indicates whether the form field is mandatory
+     * @public
+     * @type {boolean}
+     */
+    isRequired = false;
+
+    /**
+     * @description Indicates whether the field is in loading state
+     * @public
+     * @type {boolean}
+     */
+    isLoading = false;
+
+    /**
+     * @description The label of the form field
+     * @public
+     * @type {string}
+     */
+    label = "Port";
+
+    /**
+     * @description The placeholder text for the text form field
+     * @public
+     * @type {string}
+     */
+    placeholder = "eg. 8080";
 
     /**
      * @description Minimum port number value (inclusive)
@@ -23,28 +56,4 @@ exports.PortFormField = class PortFormField extends TextFormField {
      * @default 65535
      */
     max = 65535;
-
-    // Override the FromField label to provide a default value
-    get label() {
-        return this._label ?? "Port";
-    }
-
-    // The placeholder text for the text form field
-    get placeholder() {
-        return this._placeholder ?? PortFormField.placeholder;
-    }
-
-    /**
-     * @description Indicates whether the field is in loading state
-     * @public
-     * @type {boolean}
-     */
-    isLoading = false;
-
-    /**
-     * @description Indicates whether the form field is enabled
-     * @public
-     * @type {boolean}
-     */
-    isEnabled = true;
 };
