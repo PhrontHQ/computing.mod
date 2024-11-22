@@ -5,15 +5,18 @@
             {
                 "owner": {
                     "values": {
-                        "element": {"#": "owner"},
-                        "_input": {"#": "input"}
+                        "element": {"#": "owner"}
                     }
                 },
                 "field": {
                     "prototype": "ui/form-fields/form-field.mod",
                     "values": {
+                        "validationMessage": {"<-": "@owner.validationMessage"},
                         "isRequired": {"<-": "@owner.isRequired"},
+                        "isEnabled": {"<-": "@owner.isEnabled"},
+                        "validator": {"<-": "@owner.validator"},
                         "isLoading": {"<-": "@owner.isLoading"},
+                        "isValid": {"<-": "@owner.isValid"},
                         "label": {"<-": "@owner.label"},
                         "element": {"#": "field"}
                     }

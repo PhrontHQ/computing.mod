@@ -50,14 +50,6 @@
     outline: none;
 }
 
-/* Invalid state */
-
-.FormField-control.mod--invalid {
-    box-shadow: 0 1px 2px rgba(220, 53, 69, 0.1);
-    background-color: #fff8f8;
-    border-color: #bb2d3b;
-}
-
 /* Loading state */
 
 .FormField.is-loading .FormField-control {
@@ -92,6 +84,27 @@
     border-color: #e0e0e0;
     color: #9e9e9e;
     pointer-events: none;
+}
+
+/* Error state */
+
+.FormField-error {
+    transition: opacity 0.2s;
+    color: #bb2d3b;
+    font-size: 12px;
+    margin-left: 12px;
+    margin-top: 4px;
+    opacity: 0;
+}
+
+.FormField.is-invalid .FormField-error {
+    opacity: 1;
+}
+
+.FormField.is-invalid .FormField-control {
+    box-shadow: 0 1px 2px rgba(220, 53, 69, 0.1);
+    background-color: #fff8f8;
+    border-color: #bb2d3b;
 }
 
 @keyframes form-field-skeleton-loading {

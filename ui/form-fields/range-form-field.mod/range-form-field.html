@@ -20,10 +20,12 @@
                 "field": {
                     "prototype": "ui/form-fields/text-form-field.mod",
                     "values": {
+                        "validationMessage": {"<-": "@owner.validationMessage"},
                         "placeholder": {"<-": "@owner.placeholder"},
                         "isRequired": {"<-": "@owner.isRequired"},
                         "isEnabled": {"<-": "@owner.isEnabled"},
                         "isLoading": {"<-": "@owner.isLoading"},
+                        "isValid": {"<-": "@owner.isValid"},
                         "validator": {"<-": "@validator"},
                         "value": {"<->": "@owner.value"},
                         "label": {"<-": "@owner.label"},

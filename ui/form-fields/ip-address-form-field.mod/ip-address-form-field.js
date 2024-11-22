@@ -33,6 +33,7 @@ exports.IpAddressFormField = class IpAddressFormField extends TextFormField {
         // Initialize the form field with IPv4 type
         this.type = IpAddressType.IPv4;
         this.placeholder = IpAddressFormField.placeholders[this.type];
+        this.validator = IpAddressFormField.validators[this.type];
     }
 
     // The validator to use for the input field
@@ -104,4 +105,25 @@ exports.IpAddressFormField = class IpAddressFormField extends TextFormField {
         this._type = value;
         this.placeholder = IpAddressFormField.placeholders[value];
     }
+
+    /**
+     * @description Optional validator for the form field
+     * @public
+     */
+    validator = null;
+
+    /**
+     * @description Validation state
+     * @public
+     * @type {boolean}
+     * @default true
+     */
+    isValid = true;
+
+    /**
+     * @description Validation message
+     * @protected
+     * @type {string}
+     */
+    validationMessage = null;
 };

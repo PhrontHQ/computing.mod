@@ -57,4 +57,25 @@ exports.RangeFormField = class RangeFormField extends TextFormField {
      * @default true
      */
     allowDecimal = true;
+
+    /**
+     * @description Optional validator for the form field
+     * @public
+     */
+    validator = null;
+
+    /**
+     * @description Validation state
+     * @public
+     * @type {boolean}
+     * @default true
+     */
+    isValid = true;
+
+    /**
+     * @description Validation message
+     * @protected
+     * @type {string}
+     */
+    validationMessage = null;
 };

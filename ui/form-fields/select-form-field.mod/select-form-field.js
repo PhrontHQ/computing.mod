@@ -7,20 +7,6 @@ const { FormField } = require("ui/form-fields/form-field.mod/form-field");
  */
 exports.SelectFormField = class SelectFormField extends FormField {
     /**
-     * @description Track if user has interacted with the form field
-     * @private
-     * @type {boolean}
-     */
-    _isTouched = false;
-
-    /**
-     * @description The select element  (managed by Frb)
-     * @protected
-     * @type {Button}
-     */
-    _select = null;
-
-    /**
      * @description The dropdown element (managed by Frb)
      * @protected
      * @type {Dropdown}
@@ -97,14 +83,44 @@ exports.SelectFormField = class SelectFormField extends FormField {
         this._buildOptions();
     }
 
+    /**
+     * @description Optional validator for the form field
+     * @public
+     */
+    validator = null;
+
+    /**
+     * @description Validation state
+     * @public
+     * @type {boolean}
+     * @default true
+     */
+    isValid = true;
+
+    /**
+     * @description Validation message
+     * @protected
+     * @type {string}
+     */
+    validationMessage = null;
+
     enterDocument(isFirstTime) {
         if (isFirstTime) {
             this.addPathChangeListener("_optionsController.selection.0", this, "handleSelectionChange");
         }
     }
 
+    handleVisibilityChange({ detail }) {
+        console.log("Dropdown visibility changed", detail);
+
+        if (!detail.isVisible) {
+            this._checkValidity();
+        }
+    }
+
     /** @protected */
     handleAction() {
+        // Mark as touched on user interaction
         this._isTouched = true;
         this._toggleDropdown();
     }
