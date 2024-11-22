@@ -109,8 +109,6 @@ exports.FormField = class FormField extends Component {
             }
         }
 
-        console.log("isValid", this.isValid, this.validationMessage);
-
         this._dispatchValidityChange(this.isValid, this.validationMessage);
     }
 
