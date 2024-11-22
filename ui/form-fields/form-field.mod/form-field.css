@@ -95,6 +95,7 @@
     margin-left: 12px;
     margin-top: 4px;
     opacity: 0;
+    white-space: nowrap;
 }
 
 .FormField.is-invalid .FormField-error {
