@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link
-            href="ip-address-form-field.css"
-            rel="stylesheet"
-            type="text/css"
-        />
+        <link href="ip-address-form-field.css" rel="stylesheet" type="text/css" />
         <script type="text/mod-serialization">
             {
                "owner": {
@@ -16,11 +12,13 @@
                 "field": {
                     "prototype": "ui/form-fields/text-form-field.mod",
                     "values": {
+                        "validationMessage": {"<-": "@owner.validationMessage"},
                         "placeholder": {"<-": "@owner.placeholder"},
                         "isRequired": {"<-": "@owner.isRequired"},
-                        "validator": {"<-": "@owner.validator"},
                         "isEnabled": {"<-": "@owner.isEnabled"},
                         "isLoading": {"<-": "@owner.isLoading"},
+                        "validator": {"<-": "@owner.validator"},
+                        "isValid": {"<-": "@owner.isValid"},
                         "value": {"<->": "@owner.value"},
                         "label": {"<-": "@owner.label"},
                         "element": {"#": "ipAddress"}

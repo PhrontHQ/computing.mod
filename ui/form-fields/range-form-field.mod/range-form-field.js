@@ -1,11 +1,11 @@
-const { FormField } = require("ui/form-fields/form-field.mod/form-field");
+const { TextFormField } = require("ui/form-fields/text-form-field.mod/text-form-field");
 
 /**
- * @class TextFormField
- * @extends FormField
- * @description Basic text field component
+ * @class RangeFormField
+ * @extends TextFormField
+ * @description A text form field for numeric ranges.
  */
-exports.TextFormField = class TextFormField extends FormField {
+exports.RangeFormField = class RangeFormField extends TextFormField {
     /**
      * @description Indicates whether the form field is enabled
      * @public
@@ -34,24 +34,29 @@ exports.TextFormField = class TextFormField extends FormField {
      */
     placeholder = "";
 
-    /** @protected */
-    _value = null;
+    /**
+     * @description Minimum value (inclusive)
+     * @public
+     * @type {number}
+     * @default 0
+     */
+    min = 0;
 
     /**
-     * @description The value of the text form field
+     * @description Maximum value (inclusive)
      * @public
-     * @type {string}
+     * @type {number}
+     * @default 100
      */
-    get value() {
-        return this._value;
-    }
+    max = 100;
 
-    set value(newValue) {
-        if (newValue !== this.value) {
-            this._value = newValue;
-            this._checkValidity();
-        }
-    }
+    /**
+     * @description Allow decimal numbers
+     * @public
+     * @type {boolean}
+     * @default true
+     */
+    allowDecimal = true;
 
     /**
      * @description Optional validator for the form field
@@ -73,11 +78,4 @@ exports.TextFormField = class TextFormField extends FormField {
      * @type {string}
      */
     validationMessage = null;
-
-    /** @protected */
-    handleAction() {
-        // Mark as touched on user interaction
-        this._isTouched = true;
-        this._checkValidity();
-    }
 };

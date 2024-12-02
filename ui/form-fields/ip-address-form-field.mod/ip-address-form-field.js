@@ -1,7 +1,6 @@
+const { TextFormField } = require("ui/form-fields/text-form-field.mod/text-form-field");
 const { Ipv4Validator } = require("core/validators/ipv4-validator");
 const { Ipv6Validator } = require("core/validators/ipv6-validator");
-
-const { TextFormField } = require("ui/form-fields/text-form-field.mod/text-form-field");
 
 // Supported IP address types
 const IpAddressType = {
@@ -28,24 +27,71 @@ exports.IpAddressFormField = class IpAddressFormField extends TextFormField {
         [IpAddressType.IPv6]: new Ipv6Validator()
     };
 
+    constructor() {
+        super();
+
+        // Initialize the form field with IPv4 type
+        this.type = IpAddressType.IPv4;
+        this.placeholder = IpAddressFormField.placeholders[this.type];
+        this.validator = IpAddressFormField.validators[this.type];
+    }
+
     // The validator to use for the input field
     get validator() {
         return IpAddressFormField.validators[this.type];
     }
 
-    // The type of IP address to accept (IPv4 or IPv6)
-    _type = IpAddressType.IPv4;
+    /**
+     * @description Indicates whether the form field is enabled
+     * @public
+     * @type {boolean}
+     */
+    isEnabled = true;
 
-    // Public API
+    /**
+     * @description Indicates whether the form field is mandatory
+     * @public
+     * @type {boolean}
+     */
+    isRequired = false;
 
-    // Override the FromField label to provide a default value
-    get label() {
-        return this._label ?? "IP Address";
+    /**
+     * @description Indicates whether the field is in loading state
+     * @public
+     * @type {boolean}
+     */
+    isLoading = false;
+
+    /**
+     * @description The label of the form field
+     * @public
+     * @type {string}
+     */
+    label = "IP Address";
+
+    /**
+     * @description The placeholder text for the text form field
+     * @public
+     * @type {string}
+     */
+    get placeholder() {
+        return this._placeholder;
     }
 
-    // The type of IP address to accept (IPv4 or IPv6)
+    set placeholder(value) {
+        this._placeholder = value ?? IpAddressFormField.placeholders[this.type];
+    }
+
+    /** @protected */
+    _type = null;
+
+    /**
+     * @description The type of IP address to accept (IPv4 or IPv6)
+     * @public
+     * @type {string}
+     */
     get type() {
-        return this._type;
+        return this._type ?? IpAddressType.IPv4;
     }
 
     set type(value) {
@@ -57,24 +103,27 @@ exports.IpAddressFormField = class IpAddressFormField extends TextFormField {
         }
 
         this._type = value;
-    }
-
-    // The placeholder text for the text form field
-    get placeholder() {
-        return this._placeholder ?? IpAddressFormField.placeholders[this.type];
+        this.placeholder = IpAddressFormField.placeholders[value];
     }
 
     /**
-     * @description Indicates whether the field is in loading state
+     * @description Optional validator for the form field
      * @public
-     * @type {boolean}
      */
-    isLoading = false;
+    validator = null;
 
     /**
-     * @description Indicates whether the form field is enabled
+     * @description Validation state
      * @public
      * @type {boolean}
+     * @default true
      */
-    isEnabled = true;
+    isValid = true;
+
+    /**
+     * @description Validation message
+     * @protected
+     * @type {string}
+     */
+    validationMessage = null;
 };

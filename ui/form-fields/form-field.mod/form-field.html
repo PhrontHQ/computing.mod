@@ -8,14 +8,22 @@
                     "values": {
                         "element": {"#": "owner"},
                         "classList.has('is-disabled')": {"<-": "!@owner.isEnabled"},
-                        "classList.has('is-loading')": {"<-": "@owner.isLoading"}
+                        "classList.has('is-loading')": {"<-": "@owner.isLoading"},
+                        "classList.has('is-invalid')": {"<-": "!@owner.isValid"}
                     }
                 },
                 "label": {
                     "prototype": "mod/ui/text.mod",
                     "values": {
-                        "element": {"#": "label"},
-                        "value": {"<-": "@owner.label"}
+                        "value": {"<-": "@owner.isRequired ? @owner.label + ' *' : @owner.label"},
+                        "element": {"#": "label"}
+                    }
+                },
+                "error": {
+                    "prototype": "mod/ui/text.mod",
+                    "values": {
+                        "value": {"<-": "@owner.validationMessage"},
+                        "element": {"#": "error"}
                     }
                 }
             }
@@ -25,6 +33,7 @@
         <div data-mod-id="owner" class="FormField">
             <span data-mod-id="label" class="FormField-label"></span>
             <div data-param="control" class="FormField-control"></div>
+            <span data-mod-id="error" class="FormField-error"></span>
         </div>
     </body>
 </html>
