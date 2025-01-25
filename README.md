@@ -1,2 +1,2 @@
 # computing.mod
-WIP - Project offering data objects, converters and components to mod apps using computing aspects
+Project offering data model, converter and component mods related to the field of computers, such as CPUs, disks, devices, network interfaces, system services, VMs, comtainers, file systems etc...
