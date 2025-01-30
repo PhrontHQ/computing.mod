@@ -1,11 +1,11 @@
-const { TextFormField } = require("ui/form-fields/text-form-field.mod/text-form-field");
+const { RangeFormField } = require("ui/form-fields/range-form-field.mod/range-form-field");
 
 /**
  * @class PortFormField
  * @extends TextFormField
  * @description A text form field for port numbers.
  */
-exports.PortFormField = class PortFormField extends TextFormField {
+exports.PortFormField = class PortFormField extends RangeFormField {
     /**
      * @description Indicates whether the form field is enabled
      * @public

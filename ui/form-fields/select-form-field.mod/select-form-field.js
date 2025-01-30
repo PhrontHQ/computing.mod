@@ -111,8 +111,6 @@ exports.SelectFormField = class SelectFormField extends FormField {
     }
 
     handleVisibilityChange({ detail }) {
-        console.log("Dropdown visibility changed", detail);
-
         if (!detail.isVisible) {
             this._checkValidity();
         }
