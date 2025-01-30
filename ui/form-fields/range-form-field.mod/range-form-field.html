@@ -3,9 +3,17 @@
     <head>
         <script type="text/mod-serialization">
             {
-               "owner": {
+                "owner": {
                     "values": {
                         "element": {"#": "owner"}
+                    }
+                },
+                "validator": {
+                    "prototype": "core/validators/range-validator",
+                    "values": {
+                        "allowDecimal": {"<-": "@owner.allowDecimal"},
+                        "min": {"<-": "@owner.min"},
+                        "max": {"<-": "@owner.max"}
                     }
                 },
                 "field": {
@@ -16,11 +24,11 @@
                         "isRequired": {"<-": "@owner.isRequired"},
                         "isEnabled": {"<-": "@owner.isEnabled"},
                         "isLoading": {"<-": "@owner.isLoading"},
-                        "validator": {"<-": "@owner.validator"},
                         "isValid": {"<-": "@owner.isValid"},
+                        "validator": {"<-": "@validator"},
                         "value": {"<->": "@owner.value"},
                         "label": {"<-": "@owner.label"},
-                        "element": {"#": "ipAddress"}
+                        "element": {"#": "range"}
                     }
                 }
             }
@@ -28,7 +36,7 @@
     </head>
     <body>
         <div data-mod-id="owner">
-            <div data-mod-id="ipAddress"></div>
+            <div data-mod-id="range"></div>
         </div>
     </body>
 </html>

@@ -5,14 +5,18 @@
             {
                 "owner": {
                     "values": {
-                        "element": {"#": "owner"},
-                        "_input": {"#": "input"}
+                        "element": {"#": "owner"}
                     }
                 },
                 "field": {
                     "prototype": "ui/form-fields/form-field.mod",
                     "values": {
+                        "validationMessage": {"<-": "@owner.validationMessage"},
+                        "isRequired": {"<-": "@owner.isRequired"},
+                        "isEnabled": {"<-": "@owner.isEnabled"},
+                        "validator": {"<-": "@owner.validator"},
                         "isLoading": {"<-": "@owner.isLoading"},
+                        "isValid": {"<-": "@owner.isValid"},
                         "label": {"<-": "@owner.label"},
                         "element": {"#": "field"}
                     }
@@ -36,15 +40,9 @@
         </script>
     </head>
     <body>
-        <div data-mod-id="owner" class="TextField">
+        <div data-mod-id="owner">
             <div data-mod-id="field">
-                <input
-                    class="TextField-input"
-                    data-mod-id="input"
-                    data-arg="control"
-                    autocomplete="off"
-                    type="text"
-                />
+                <input data-mod-id="input" data-arg="control" autocomplete="off" type="text" />
             </div>
         </div>
     </body>

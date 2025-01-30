@@ -9,7 +9,6 @@
                         "_selection": { "<-": "@owner._displayedOptions.filter{value == @owner.value}.0" },
                         "_optionsController": {"@": "optionsController"},
                         "_dropdown": {"@": "dropdown"},
-                        "_select": {"@": "select"},
                         "element": {"#": "owner"}
                     }
                 },
@@ -17,7 +16,11 @@
                     "prototype": "ui/form-fields/form-field.mod",
                     "values": {
                         "isEnabled": {"<-": "@owner.isEnabled || @owner._displayedOptions.length > 0"},
+                        "validationMessage": {"<-": "@owner.validationMessage"},
+                        "isRequired": {"<-": "@owner.isRequired"},
+                        "validator": {"<-": "@owner.validator"},
                         "isLoading": {"<-": "@owner.isLoading"},
+                        "isValid": {"<-": "@owner.isValid"},
                         "label": {"<-": "@owner.label"},
                         "element": {"#": "field"}
                     }
@@ -59,7 +62,13 @@
                         "element": {"#": "dropdown"},
                         "anchor":  {"#": "select"},
                         "constrainToAnchor": true
-                    }
+                    },
+                    "listeners": [
+                        {
+                            "listener": {"@": "owner"},
+                            "type": "visibilityChange"
+                        }
+                    ]
                 },
                 "options": {
                     "prototype": "mod/ui/repetition.mod",

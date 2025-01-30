@@ -2,7 +2,6 @@
 
 .SelectField {
     position: relative;
-    width: 100%;
 }
 
 .SelectField-select {
@@ -14,6 +13,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 
 .SelectField-button .SelectField-icon {

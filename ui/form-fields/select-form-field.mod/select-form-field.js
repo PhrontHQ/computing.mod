@@ -7,20 +7,6 @@ const { FormField } = require("ui/form-fields/form-field.mod/form-field");
  */
 exports.SelectFormField = class SelectFormField extends FormField {
     /**
-     * @description Track if user has interacted with the form field
-     * @private
-     * @type {boolean}
-     */
-    _isTouched = false;
-
-    /**
-     * @description The select element  (managed by Frb)
-     * @protected
-     * @type {Button}
-     */
-    _select = null;
-
-    /**
      * @description The dropdown element (managed by Frb)
      * @protected
      * @type {Dropdown}
@@ -35,11 +21,32 @@ exports.SelectFormField = class SelectFormField extends FormField {
     _selection = null;
 
     /**
+     * @description Indicates whether the form field is enabled
+     * @public
+     * @type {boolean}
+     */
+    isEnabled = true;
+
+    /**
+     * @description Indicates whether the form field is mandatory
+     * @public
+     * @type {boolean}
+     */
+    isRequired = false;
+
+    /**
      * @description Indicates whether the field is in loading state
      * @public
      * @type {boolean}
      */
     isLoading = false;
+
+    /**
+     * @description Placeholder text to show when no option is selected
+     * @public
+     * @type {string}
+     */
+    placeholder = "Select an option";
 
     /**
      * @description The currently selected value
@@ -77,18 +84,25 @@ exports.SelectFormField = class SelectFormField extends FormField {
     }
 
     /**
-     * @description Indicates whether the form field is enabled
+     * @description Optional validator for the form field
      * @public
-     * @type {boolean}
      */
-    isEnabled = true;
+    validator = null;
 
     /**
-     * @description Placeholder text to show when no option is selected
+     * @description Validation state
      * @public
+     * @type {boolean}
+     * @default true
+     */
+    isValid = true;
+
+    /**
+     * @description Validation message
+     * @protected
      * @type {string}
      */
-    placeholder = "Select an option";
+    validationMessage = null;
 
     enterDocument(isFirstTime) {
         if (isFirstTime) {
@@ -96,8 +110,15 @@ exports.SelectFormField = class SelectFormField extends FormField {
         }
     }
 
+    handleVisibilityChange({ detail }) {
+        if (!detail.isVisible) {
+            this._checkValidity();
+        }
+    }
+
     /** @protected */
     handleAction() {
+        // Mark as touched on user interaction
         this._isTouched = true;
         this._toggleDropdown();
     }
