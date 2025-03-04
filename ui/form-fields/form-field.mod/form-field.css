@@ -9,7 +9,7 @@
     align-items: stretch;
 }
 
-.FormField-label {
+.FormField .FormField-label {
     position: absolute;
     left: 10px;
     top: -10px;
@@ -20,7 +20,7 @@
     z-index: 1;
 }
 
-.FormField-label::before {
+.FormField .FormField-label::before {
     background: white;
     position: absolute;
     z-index: -1;
@@ -31,7 +31,7 @@
     left: 0;
 }
 
-.FormField-control {
+.FormField .FormField-control {
     transition: border-color 0.2s, box-shadow 0.2s;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
     border: 1px solid #a4a4a4;
@@ -45,7 +45,7 @@
     flex: 1;
 }
 
-.FormField-control:focus {
+.FormField .FormField-control:focus {
     box-shadow: 0 1px 4px rgba(37, 99, 235, 0.1);
     border-color: #1d4ed8;
     outline: none;

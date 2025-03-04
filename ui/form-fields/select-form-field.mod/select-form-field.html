@@ -9,6 +9,7 @@
                         "_selection": { "<-": "@owner._displayedOptions.filter{value == @owner.value}.0" },
                         "_optionsController": {"@": "optionsController"},
                         "_dropdown": {"@": "dropdown"},
+                        "_select": {"@": "select"},
                         "element": {"#": "owner"}
                     }
                 },
@@ -28,8 +29,11 @@
                 "select": {
                     "prototype": "mod/ui/button.mod",
                     "values": {
+                        "classList.has('placeholder-shown')": {"<-": "!@owner._selection"},
+                        "label": {"<-": "@owner._selection.label ?? @owner.placeholder"},
                         "classList.has('is-opened')": {"<-": "@dropdown.isShown"},
-                        "element": {"#": "select"}
+                        "element": {"#": "select"},
+                        "visualPosition": "end"
                     },
                     "listeners": [
                         {
@@ -37,14 +41,6 @@
                             "type": "action"
                         }
                     ]
-                },
-                "selectedOption": {
-                    "prototype": "mod/ui/text.reel",
-                    "values": {
-                        "classList.has('placeholder-shown')": {"<-": "!@owner._selection"},
-                        "value": {"<-": "@owner._selection.label ?? @owner.placeholder"},
-                        "element": {"#": "selectedOption"}
-                    }
                 },
                 "optionsController": {
                     "prototype": "mod/core/range-controller",
@@ -59,8 +55,8 @@
                     "prototype": "mod/ui/overlay.mod",
                     "values": {
                         "dismissOnExternalInteraction": true,
+                        "anchor":  {"<-": "@owner.dropdownAnchor"},
                         "element": {"#": "dropdown"},
-                        "anchor":  {"#": "select"},
                         "constrainToAnchor": true
                     },
                     "listeners": [
@@ -100,8 +96,7 @@
                     data-arg="control"
                     type="button"
                 >
-                    <span data-mod-id="selectedOption" class="SelectField-value"></span>
-                    <span class="SelectField-icon"></span>
+                    <span data-arg="image" class="SelectField-icon"></span>
                 </button>
                 <div data-mod-id="dropdown" class="SelectField-dropdown">
                     <div data-mod-id="options" class="SelectField-options">

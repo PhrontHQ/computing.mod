@@ -9,14 +9,11 @@
     height: inherit !important;
 }
 
-.SelectField-button {
-    display: flex;
+.ModButton.SelectField-button {
     justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
 }
 
-.SelectField-button .SelectField-icon {
+.ModButton.SelectField-button .SelectField-icon {
     background-image: url("./assets/chevron-down.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -25,11 +22,11 @@
     height: 12px;
 }
 
-.SelectField-button .SelectField-value.placeholder-shown {
+.ModButton.SelectField-button.placeholder-shown {
     color: #a0a0a0;
 }
 
-.SelectField-button.is-opened .SelectField-icon {
+.ModButton.SelectField-button.is-opened .SelectField-icon {
     transform: rotate(180deg);
 }
 

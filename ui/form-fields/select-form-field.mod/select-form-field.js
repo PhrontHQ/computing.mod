@@ -120,6 +120,14 @@ exports.SelectFormField = class SelectFormField extends FormField {
     handleAction() {
         // Mark as touched on user interaction
         this._isTouched = true;
+
+        // FIXME: kind of hacky, but the dropdown anchor is not 
+        // set properly during deserializing...
+        // the dropdown anchor is being set to the element of 
+        // the current select element instead of the one from 
+        // the button serialization.
+        this.dropdownAnchor = this._select?.element;
+        
         this._toggleDropdown();
     }
 
