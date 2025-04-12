@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "management",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,15 +10,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "nat",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VmConfigNetworkAnonymous",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_vmconfignetworkanonymous_management"},
         {"@": "blueprint_vmconfignetworkanonymous_nat"}
       ]

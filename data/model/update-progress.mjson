@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "details",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "error",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "filesize",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "finished",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "indeterminate",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "num_files_done",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -51,7 +45,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "num_files_total",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -59,7 +52,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "operation",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "UpdateProgressOperation"
     }
@@ -68,7 +60,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "percent",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -76,7 +67,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "pkg_name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -84,7 +74,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "pkg_version",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -92,15 +81,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "reboot",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "UpdateProgress",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_updateprogress_details"},
         {"@": "blueprint_updateprogress_error"},
         {"@": "blueprint_updateprogress_filesize"},

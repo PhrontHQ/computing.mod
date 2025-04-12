@@ -41,7 +41,7 @@ exports.DiskSetKeyParams = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "key",

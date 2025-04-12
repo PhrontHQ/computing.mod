@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "webui_http_port",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "webui_http_redirect_https",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "webui_https_certificate",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "webui_https_port",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "webui_listen",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -43,15 +38,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "webui_protocol",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "SystemUi",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_systemui_webui_http_port"},
         {"@": "blueprint_systemui_webui_http_redirect_https"},
         {"@": "blueprint_systemui_webui_https_certificate"},

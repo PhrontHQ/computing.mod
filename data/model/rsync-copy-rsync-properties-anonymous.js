@@ -119,7 +119,7 @@ exports.RsyncCopyRsyncPropertiesAnonymous = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "archive",

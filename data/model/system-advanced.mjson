@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "boot_scrub_internal",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "console_cli",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "console_screensaver",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "debugkernel",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "freenas_token_lifetime",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "graphite_servers",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -51,7 +45,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "home_directory_root",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -59,7 +52,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "motd",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -67,7 +59,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "periodic_notify_user",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -75,7 +66,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "powerd",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -83,7 +73,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "serial_console",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -91,7 +80,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "serial_port",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -99,7 +87,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "serial_speed",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "SystemAdvancedSerialspeed"
     }
@@ -108,7 +95,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "swapondrive",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -116,15 +102,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "uploadcrash",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "SystemAdvanced",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_systemadvanced_boot_scrub_internal"},
         {"@": "blueprint_systemadvanced_console_cli"},
         {"@": "blueprint_systemadvanced_console_screensaver"},

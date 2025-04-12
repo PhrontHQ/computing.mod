@@ -54,7 +54,7 @@ exports.SystemSection = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "identifier"

@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "description",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "initiators",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "networks",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ShareIscsiAuthType"
     }
@@ -44,15 +39,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "users",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ShareIscsiAuth",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_shareiscsiauth_description"},
         {"@": "blueprint_shareiscsiauth_id"},
         {"@": "blueprint_shareiscsiauth_initiators"},

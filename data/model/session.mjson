@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "active",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ended_at",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "resource",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "started_at",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "tty",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -43,15 +38,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "username",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Session",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_session_active"},
         {"@": "blueprint_session_ended_at"},
         {"@": "blueprint_session_resource"},

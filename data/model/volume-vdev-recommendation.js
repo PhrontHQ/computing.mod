@@ -28,7 +28,7 @@ exports.VolumeVdevRecommendation = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "drives",

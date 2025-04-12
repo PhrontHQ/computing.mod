@@ -67,7 +67,7 @@ exports.UpdateOps = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "new_name",

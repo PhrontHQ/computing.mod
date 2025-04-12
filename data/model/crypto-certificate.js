@@ -366,7 +366,7 @@ exports.CryptoCertificate = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "certificate",

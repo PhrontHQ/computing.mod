@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "vm-datastore-local"
       ]
@@ -13,15 +12,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "path",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VmDatastorePropertiesLocal",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
         {"@": "blueprint_vmdatastorepropertieslocal_path"}
       ]

@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "auxiliary",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "domains",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enable",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "force_update_period",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ipserver",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "password",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -51,7 +45,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "provider",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ServiceDyndnsProvider"
     }
@@ -60,7 +53,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "service-dyndns"
       ]
@@ -70,7 +62,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "update_period",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -78,15 +69,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "username",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ServiceDyndns",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_servicedyndns_auxiliary"},
         {"@": "blueprint_servicedyndns_domains"},
         {"@": "blueprint_servicedyndns_enable"},

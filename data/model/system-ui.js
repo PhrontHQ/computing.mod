@@ -80,7 +80,7 @@ exports.SystemUi = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "webui_http_port",

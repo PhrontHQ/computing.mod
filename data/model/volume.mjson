@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "attributes",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "auto_unlock",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "encryption",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumeEncryption"
     }
@@ -28,7 +25,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "guid",
-      "blueprint": {"@": "root"},
       "readOnly": true,
       "valueType": "String"
     }
@@ -37,7 +33,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -45,7 +40,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "key_encrypted",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -53,7 +47,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "mountpoint",
-      "blueprint": {"@": "root"},
       "readOnly": true,
       "valueType": "String"
     }
@@ -62,7 +55,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "params",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
@@ -70,7 +62,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "password_encrypted",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -78,7 +69,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "properties",
-      "blueprint": {"@": "root"},
       "readOnly": true,
       "valueType": "object",
       "valueObjectPrototypeName": "VolumeProperties"
@@ -88,7 +78,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "providers_presence",
-      "blueprint": {"@": "root"},
       "readOnly": true,
       "valueType": "object",
       "valueObjectPrototypeName": "VolumeProviderspresence"
@@ -98,7 +87,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "rname",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -106,7 +94,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "scan",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ZfsScan"
     }
@@ -115,7 +102,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "status",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumeStatus"
     }
@@ -124,7 +110,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "topology",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ZfsTopology"
     }
@@ -133,7 +118,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "valueType": "String",
       "enumValues": [
         "zfs"
@@ -144,16 +128,15 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "upgraded",
-      "blueprint": {"@": "root"},
       "readOnly": true,
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Volume",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_volume_attributes"},
         {"@": "blueprint_volume_auto_unlock"},
         {"@": "blueprint_volume_encryption"},

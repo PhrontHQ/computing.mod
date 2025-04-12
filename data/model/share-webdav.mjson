@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "share-webdav"
       ]
@@ -13,7 +12,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "permission",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -21,7 +19,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "read_only",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -29,15 +26,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "show_hidden_files",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ShareWebdav",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
         {"@": "blueprint_sharewebdav_permission"},
         {"@": "blueprint_sharewebdav_read_only"},

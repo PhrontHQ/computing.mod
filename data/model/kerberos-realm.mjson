@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "admin_server_address",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "kdc_address",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "password_server_address",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -35,15 +31,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "realm",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "KerberosRealm",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_kerberosrealm_admin_server_address"},
         {"@": "blueprint_kerberosrealm_id"},
         {"@": "blueprint_kerberosrealm_kdc_address"},

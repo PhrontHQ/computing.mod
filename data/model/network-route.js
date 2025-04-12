@@ -67,7 +67,7 @@ exports.NetworkRoute = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "gateway",

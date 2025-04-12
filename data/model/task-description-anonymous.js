@@ -41,7 +41,7 @@ exports.TaskDescriptionAnonymous = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "format"

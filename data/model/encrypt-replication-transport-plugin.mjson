@@ -3,82 +3,74 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "encrypt-replication-transport-plugin"
       ]
     }
   },
-  "blueprint_encryptreplicationtransportplugin_auth_token": {
+  "auth_token": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "auth_token",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_encryptreplicationtransportplugin_buffer_size": {
+  "buffer_size": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "buffer_size",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_encryptreplicationtransportplugin_read_fd": {
+  "read_fd": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "read_fd",
-      "blueprint": {"@": "root"},
       "valueType": "fd"
     }
   },
-  "blueprint_encryptreplicationtransportplugin_remote": {
+  "remote": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "remote",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_encryptreplicationtransportplugin_renewal_interval": {
+  "renewal_interval": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "renewal_interval",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_encryptreplicationtransportplugin_type": {
+  "type": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "EncryptPluginType"
     }
   },
-  "blueprint_encryptreplicationtransportplugin_write_fd": {
+  "write_fd": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "write_fd",
-      "blueprint": {"@": "root"},
       "valueType": "fd"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "EncryptReplicationTransportPlugin",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
-        {"@": "blueprint_encryptreplicationtransportplugin_auth_token"},
-        {"@": "blueprint_encryptreplicationtransportplugin_buffer_size"},
-        {"@": "blueprint_encryptreplicationtransportplugin_read_fd"},
-        {"@": "blueprint_encryptreplicationtransportplugin_remote"},
-        {"@": "blueprint_encryptreplicationtransportplugin_renewal_interval"},
-        {"@": "blueprint_encryptreplicationtransportplugin_type"},
-        {"@": "blueprint_encryptreplicationtransportplugin_write_fd"}
+        {"@": "auth_token"},
+        {"@": "buffer_size"},
+        {"@": "read_fd"},
+        {"@": "remote"},
+        {"@": "renewal_interval"},
+        {"@": "type"},
+        {"@": "write_fd"}
       ]
     }
   }

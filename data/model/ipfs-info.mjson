@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "Addresses",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "AgentVersion",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ID",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ProtocolVersion",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -35,15 +31,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "PublicKey",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "IpfsInfo",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_ipfsinfo_Addresses"},
         {"@": "blueprint_ipfsinfo_AgentVersion"},
         {"@": "blueprint_ipfsinfo_ID"},

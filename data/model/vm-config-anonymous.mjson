@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "autostart",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "boot_device",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "boot_directory",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "boot_partition",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "bootloader",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VmConfigBootloader"
     }
@@ -44,7 +39,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "cloud_init",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -52,7 +46,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "docker_host",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -60,7 +53,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "logging",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -68,7 +60,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "memsize",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -76,7 +67,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ncpus",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -84,7 +74,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "readme",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -92,15 +81,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "vnc_password",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VmConfigAnonymous",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_vmconfiganonymous_autostart"},
         {"@": "blueprint_vmconfiganonymous_boot_device"},
         {"@": "blueprint_vmconfiganonymous_boot_directory"},

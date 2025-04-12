@@ -28,7 +28,7 @@ exports.SectionSettings = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "section",

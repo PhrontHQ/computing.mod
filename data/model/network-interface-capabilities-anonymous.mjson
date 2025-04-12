@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "add",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "NetworkInterfaceCapabilities"
     }
@@ -12,16 +11,15 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "del",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "NetworkInterfaceCapabilities"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "NetworkInterfaceCapabilitiesAnonymous",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_networkinterfacecapabilitiesanonymous_add"},
         {"@": "blueprint_networkinterfacecapabilitiesanonymous_del"}
       ]

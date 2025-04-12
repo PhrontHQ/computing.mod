@@ -210,7 +210,7 @@ exports.Rusage = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "ru_idrss",

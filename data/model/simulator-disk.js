@@ -119,7 +119,7 @@ exports.SimulatorDisk = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "block_size",

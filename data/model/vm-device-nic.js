@@ -67,7 +67,7 @@ exports.VmDeviceNic = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "%type"

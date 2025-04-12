@@ -1,66 +1,58 @@
 {
-  "blueprint_directory_enabled": {
+  "enabled": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enabled",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_directory_enumerate": {
+  "enumerate": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enumerate",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_directory_gid_range": {
+  "gid_range": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "gid_range",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
-  "blueprint_directory_id": {
+  "id": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_directory_name": {
+  "name": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_directory_parameters": {
+  "parameters": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "parameters",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "DirectoryParams"
     }
   },
-  "blueprint_directory_status": {
+  "status": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "status",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
-  "blueprint_directory_type": {
+  "type": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "valueType": "String",
       "enumValues": [
         "file",
@@ -72,28 +64,27 @@
       ]
     }
   },
-  "blueprint_directory_uid_range": {
+  "uid_range": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "uid_range",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Directory",
-      "propertyBlueprints": [
-        {"@": "blueprint_directory_enabled"},
-        {"@": "blueprint_directory_enumerate"},
-        {"@": "blueprint_directory_gid_range"},
-        {"@": "blueprint_directory_id"},
-        {"@": "blueprint_directory_name"},
-        {"@": "blueprint_directory_parameters"},
-        {"@": "blueprint_directory_status"},
-        {"@": "blueprint_directory_type"},
-        {"@": "blueprint_directory_uid_range"}
+      "propertyDescriptors": [
+        {"@": "enabled"},
+        {"@": "enumerate"},
+        {"@": "gid_range"},
+        {"@": "id"},
+        {"@": "name"},
+        {"@": "parameters"},
+        {"@": "status"},
+        {"@": "type"},
+        {"@": "uid_range"}
       ]
     }
   }

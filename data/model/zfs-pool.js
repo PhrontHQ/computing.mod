@@ -106,7 +106,7 @@ exports.ZfsPool = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "groups",

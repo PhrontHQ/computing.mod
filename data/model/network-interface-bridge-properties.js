@@ -15,7 +15,7 @@ exports.NetworkInterfaceBridgeProperties = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "members",

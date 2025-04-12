@@ -54,7 +54,7 @@ exports.VolumeDatasetPropertyWritten = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "parsed",

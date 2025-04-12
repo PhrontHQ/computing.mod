@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "console_keymap",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "description",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "hostname",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "language",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "syslog_server",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "tags",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -51,15 +45,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "timezone",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "SystemGeneral",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_systemgeneral_console_keymap"},
         {"@": "blueprint_systemgeneral_description"},
         {"@": "blueprint_systemgeneral_hostname"},

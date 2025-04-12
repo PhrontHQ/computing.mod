@@ -41,7 +41,7 @@ exports.DirectoryStatusAnonymous = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "state",

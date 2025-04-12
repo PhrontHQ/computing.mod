@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "block_devices",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "clones",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,15 +17,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "snapshots",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VmDatastoreCapabilities",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_vmdatastorecapabilities_block_devices"},
         {"@": "blueprint_vmdatastorecapabilities_clones"},
         {"@": "blueprint_vmdatastorecapabilities_snapshots"}

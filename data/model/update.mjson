@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "check_auto",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "train",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,16 +17,15 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "update_server",
-      "blueprint": {"@": "root"},
       "readOnly": true,
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Update",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_update_check_auto"},
         {"@": "blueprint_update_train"},
         {"@": "blueprint_update_update_server"}

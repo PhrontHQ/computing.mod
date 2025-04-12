@@ -1,81 +1,73 @@
 {
-  "blueprint_ntpserver_address": {
+  "address": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "address",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_ntpserver_burst": {
+  "burst": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "burst",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_ntpserver_iburst": {
+  "iburst": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "iburst",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_ntpserver_id": {
+  "id": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_ntpserver_maxpoll": {
+  "maxpoll": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "maxpoll",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_ntpserver_minpoll": {
+  "minpoll": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "minpoll",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_ntpserver_pool": {
+  "pool": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "pool",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_ntpserver_prefer": {
+  "prefer": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "prefer",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "NtpServer",
-      "propertyBlueprints": [
-        {"@": "blueprint_ntpserver_address"},
-        {"@": "blueprint_ntpserver_burst"},
-        {"@": "blueprint_ntpserver_iburst"},
-        {"@": "blueprint_ntpserver_id"},
-        {"@": "blueprint_ntpserver_maxpoll"},
-        {"@": "blueprint_ntpserver_minpoll"},
-        {"@": "blueprint_ntpserver_pool"},
-        {"@": "blueprint_ntpserver_prefer"}
+      "propertyDescriptors": [
+        {"@": "address"},
+        {"@": "burst"},
+        {"@": "iburst"},
+        {"@": "id"},
+        {"@": "maxpoll"},
+        {"@": "minpoll"},
+        {"@": "pool"},
+        {"@": "prefer"}
       ]
     }
   }

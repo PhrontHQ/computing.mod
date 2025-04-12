@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "attributes",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "builtin",
-      "blueprint": {"@": "root"},
       "readOnly": true,
       "valueType": "boolean"
     }
@@ -20,7 +18,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "email",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "Email"
     }
@@ -29,7 +26,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "full_name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -37,7 +33,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "gid",
-      "blueprint": {"@": "root"},
       "readOnly": true,
       "valueType": "String"
     }
@@ -46,7 +41,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "group",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -54,7 +48,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "groups",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -62,7 +55,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "home",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -70,7 +62,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -78,7 +69,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "lmhash",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -86,7 +76,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "locked",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -94,7 +83,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "nthash",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -102,7 +90,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "origin",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
@@ -110,7 +97,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "password",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -118,7 +104,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "password_changed_at",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
@@ -126,7 +111,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "password_disabled",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -134,7 +118,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "shell",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -142,7 +125,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "sid",
-      "blueprint": {"@": "root"},
       "readOnly": true,
       "valueType": "String"
     }
@@ -151,7 +133,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "sshpubkey",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -159,7 +140,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "sudo",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -167,7 +147,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "uid",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -175,7 +154,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "unixhash",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -183,15 +161,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "username",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "User",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_user_attributes"},
         {"@": "blueprint_user_builtin"},
         {"@": "blueprint_user_email"},

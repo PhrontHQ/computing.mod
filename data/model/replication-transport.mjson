@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "auth_token",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "auth_token_size",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "buffer_size",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "client_address",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "estimated_size",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -43,14 +38,13 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "receive_properties",
-      "blueprint": {"@": "root"}
+      
     }
   },
   "blueprint_replicationtransport_server_address": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "server_address",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -58,7 +52,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "server_port",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -66,15 +59,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "transport_plugins",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ReplicationTransport",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_replicationtransport_auth_token"},
         {"@": "blueprint_replicationtransport_auth_token_size"},
         {"@": "blueprint_replicationtransport_buffer_size"},

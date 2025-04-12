@@ -184,7 +184,7 @@ exports.Disk = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "acoustic_level",

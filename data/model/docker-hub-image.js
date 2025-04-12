@@ -93,7 +93,7 @@ exports.DockerHubImage = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "description",

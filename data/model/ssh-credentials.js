@@ -93,7 +93,7 @@ exports.SshCredentials = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "%type"

@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "health",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VmStatusHealth"
     }
@@ -12,7 +11,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "management_lease",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VmStatusLease"
     }
@@ -21,7 +19,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "nat_lease",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VmStatusLease"
     }
@@ -30,7 +27,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "state",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VmStatusState"
     }
@@ -39,15 +35,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "vm_tools_available",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VmStatus",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_vmstatus_health"},
         {"@": "blueprint_vmstatus_management_lease"},
         {"@": "blueprint_vmstatus_nat_lease"},

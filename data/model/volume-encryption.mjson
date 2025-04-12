@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "hashed_password",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "key",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "salt",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -27,15 +24,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "slot",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VolumeEncryption",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_volumeencryption_hashed_password"},
         {"@": "blueprint_volumeencryption_key"},
         {"@": "blueprint_volumeencryption_salt"},

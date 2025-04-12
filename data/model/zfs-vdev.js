@@ -93,7 +93,7 @@ exports.ZfsVdev = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "children",

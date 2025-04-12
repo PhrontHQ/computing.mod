@@ -54,7 +54,7 @@ exports.BackupS3 = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "%type"

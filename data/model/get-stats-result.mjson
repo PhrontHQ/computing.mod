@@ -1,18 +1,17 @@
 {
-  "blueprint_getstatsresult_data": {
+  "data": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "data",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "GetStatsResult",
-      "propertyBlueprints": [
-        {"@": "blueprint_getstatsresult_data"}
+      "propertyDescriptors": [
+        {"@": "data"}
       ]
     }
   }

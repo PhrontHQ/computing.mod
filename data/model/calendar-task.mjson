@@ -1,91 +1,82 @@
 {
-  "blueprint_calendartask_args": {
+  "args": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "args",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
-  "blueprint_calendartask_enabled": {
+  "enabled": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enabled",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_calendartask_hidden": {
+  "hidden": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "hidden",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_calendartask_id": {
+  "id": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_calendartask_name": {
+  "name": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_calendartask_protected": {
+  "protected": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "protected",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_calendartask_schedule": {
+  "schedule": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "schedule",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
-  "blueprint_calendartask_status": {
+  "status": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "status",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "CalendarTaskStatus"
     }
   },
-  "blueprint_calendartask_task": {
+  "task": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "task",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "CalendarTask",
-      "propertyBlueprints": [
-        {"@": "blueprint_calendartask_args"},
-        {"@": "blueprint_calendartask_enabled"},
-        {"@": "blueprint_calendartask_hidden"},
-        {"@": "blueprint_calendartask_id"},
-        {"@": "blueprint_calendartask_name"},
-        {"@": "blueprint_calendartask_protected"},
-        {"@": "blueprint_calendartask_schedule"},
-        {"@": "blueprint_calendartask_status"},
-        {"@": "blueprint_calendartask_task"}
+      "propertyDescriptors": [
+        {"@": "args"},
+        {"@": "enabled"},
+        {"@": "hidden"},
+        {"@": "id"},
+        {"@": "name"},
+        {"@": "protected"},
+        {"@": "schedule"},
+        {"@": "status"},
+        {"@": "task"}
       ]
     }
   }

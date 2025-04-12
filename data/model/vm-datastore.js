@@ -80,7 +80,7 @@ exports.VmDatastore = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "capabilities",

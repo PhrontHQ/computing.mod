@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "share-afp"
       ]
@@ -13,7 +12,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "afp3_privileges",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -21,7 +19,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "comment",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -29,7 +26,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "default_directory_perms",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "UnixPermissions"
     }
@@ -38,7 +34,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "default_file_perms",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "UnixPermissions"
     }
@@ -47,7 +42,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "default_umask",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "UnixPermissions"
     }
@@ -56,7 +50,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "groups_allow",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -64,7 +57,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "groups_deny",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -72,7 +64,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "hosts_allow",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -80,7 +71,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "hosts_deny",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -88,7 +78,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "no_stat",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -96,7 +85,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "read_only",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -104,7 +92,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ro_groups",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -112,7 +99,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ro_users",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -120,7 +106,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "rw_groups",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -128,7 +113,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "rw_users",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -136,7 +120,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "time_machine",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -144,7 +127,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "users_allow",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -152,7 +134,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "users_deny",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -160,7 +141,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "zero_dev_numbers",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -168,15 +148,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "smb_compatible",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ShareAfp",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
         {"@": "blueprint_shareafp_afp3_privileges"},
         {"@": "blueprint_shareafp_comment"},

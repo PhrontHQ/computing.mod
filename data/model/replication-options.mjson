@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "followdelete",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "force",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "lifetime",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "nomount",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "peer",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "recursive",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -51,7 +45,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "remote",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -59,15 +52,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "remote_dataset",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ReplicationOptions",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_replicationoptions_followdelete"},
         {"@": "blueprint_replicationoptions_force"},
         {"@": "blueprint_replicationoptions_lifetime"},

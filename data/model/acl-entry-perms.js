@@ -210,7 +210,7 @@ exports.AclEntryPerms = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "ADD_FILE",

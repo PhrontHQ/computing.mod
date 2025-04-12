@@ -54,7 +54,7 @@ exports.WinbindDirectoryStatus = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "domain_controller",

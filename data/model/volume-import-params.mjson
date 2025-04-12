@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "disks",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "key",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,15 +17,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "key_fd",
-      "blueprint": {"@": "root"},
       "valueType": "fd"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VolumeImportParams",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_volumeimportparams_disks"},
         {"@": "blueprint_volumeimportparams_key"},
         {"@": "blueprint_volumeimportparams_key_fd"}

@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "path",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "pid",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -19,15 +17,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "process_name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "OpenFile",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_openfile_path"},
         {"@": "blueprint_openfile_pid"},
         {"@": "blueprint_openfile_process_name"}

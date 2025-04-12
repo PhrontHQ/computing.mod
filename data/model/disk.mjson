@@ -1,137 +1,123 @@
 {
-  "blueprint_disk_acoustic_level": {
+  "acoustic_level": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "acoustic_level",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "DiskAcousticlevel"
     }
   },
-  "blueprint_disk_apm_mode": {
+  "apm_mode": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "apm_mode",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_disk_id": {
+  "id": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_disk_is_multipath": {
+  "is_multipath": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "is_multipath",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_disk_mediasize": {
+  "mediasize": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "mediasize",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_disk_name": {
+  "name": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_disk_path": {
+  "path": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "path",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_disk_rname": {
+  "rname": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "rname",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_disk_serial": {
+  "serial": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "serial",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_disk_smart": {
+  "smart": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "smart",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_disk_online": {
+  "online": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "online",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_disk_smart_options": {
+  "smart_options": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "smart_options",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_disk_standby_mode": {
+  "standby_mode": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "standby_mode",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_disk_status": {
+  "status": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "status",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "DiskStatus"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Disk",
-      "propertyBlueprints": [
-        {"@": "blueprint_disk_acoustic_level"},
-        {"@": "blueprint_disk_apm_mode"},
-        {"@": "blueprint_disk_id"},
-        {"@": "blueprint_disk_is_multipath"},
-        {"@": "blueprint_disk_mediasize"},
-        {"@": "blueprint_disk_name"},
-        {"@": "blueprint_disk_path"},
-        {"@": "blueprint_disk_rname"},
-        {"@": "blueprint_disk_serial"},
-        {"@": "blueprint_disk_smart"},
-        {"@": "blueprint_disk_online"},
-        {"@": "blueprint_disk_smart_options"},
-        {"@": "blueprint_disk_standby_mode"},
-        {"@": "blueprint_disk_status"}
+      "propertyDescriptors": [
+        {"@": "acoustic_level"},
+        {"@": "apm_mode"},
+        {"@": "id"},
+        {"@": "is_multipath"},
+        {"@": "mediasize"},
+        {"@": "name"},
+        {"@": "path"},
+        {"@": "rname"},
+        {"@": "serial"},
+        {"@": "smart"},
+        {"@": "online"},
+        {"@": "smart_options"},
+        {"@": "standby_mode"},
+        {"@": "status"}
       ]
     }
   }

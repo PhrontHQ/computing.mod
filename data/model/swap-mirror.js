@@ -28,7 +28,7 @@ exports.SwapMirror = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "disks",

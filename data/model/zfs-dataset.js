@@ -67,7 +67,7 @@ exports.ZfsDataset = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "children",

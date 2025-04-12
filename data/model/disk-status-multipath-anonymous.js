@@ -41,7 +41,7 @@ exports.DiskStatusMultipathAnonymous = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "members",

@@ -15,7 +15,7 @@ exports.GetStatsResult = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "data",

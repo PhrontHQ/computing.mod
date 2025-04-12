@@ -1,45 +1,41 @@
 {
-  "blueprint_dockerhoststatus_hostname": {
+  "hostname": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "hostname",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_dockerhoststatus_mem_total": {
+  "mem_total": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "mem_total",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_dockerhoststatus_os": {
+  "os": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "os",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_dockerhoststatus_unique_id": {
+  "unique_id": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "unique_id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "DockerHostStatus",
-      "propertyBlueprints": [
-        {"@": "blueprint_dockerhoststatus_hostname"},
-        {"@": "blueprint_dockerhoststatus_mem_total"},
-        {"@": "blueprint_dockerhoststatus_os"},
-        {"@": "blueprint_dockerhoststatus_unique_id"}
+      "propertyDescriptors": [
+        {"@": "hostname"},
+        {"@": "mem_total"},
+        {"@": "os"},
+        {"@": "unique_id"}
       ]
     }
   }

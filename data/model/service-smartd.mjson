@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enable",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "interval",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "power_mode",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ServiceSmartdPowermode"
     }
@@ -28,7 +25,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "temp_critical",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -36,7 +32,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "temp_difference",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -44,7 +39,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "temp_informational",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -52,17 +46,16 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "service-smartd"
       ]
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ServiceSmartd",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_servicesmartd_enable"},
         {"@": "blueprint_servicesmartd_interval"},
         {"@": "blueprint_servicesmartd_power_mode"},

@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "attachments",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "extra_headers",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "from",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "message",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "subject",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -43,15 +38,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "to",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "MailMessage",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_mailmessage_attachments"},
         {"@": "blueprint_mailmessage_extra_headers"},
         {"@": "blueprint_mailmessage_from"},

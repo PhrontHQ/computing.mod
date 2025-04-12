@@ -54,7 +54,7 @@ exports.VolumeEncryption = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "hashed_password",

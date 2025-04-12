@@ -3,27 +3,25 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "alert-emitter-email"
       ]
     }
   },
-  "blueprint_alertemitteremail_addresses": {
+  "addresses": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "addresses",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "AlertEmitterEmail",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
-        {"@": "blueprint_alertemitteremail_addresses"}
+        {"@": "addresses"}
       ]
     }
   }

@@ -3,45 +3,41 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "backup-s3"
       ]
     }
   },
-  "blueprint_backups3_bucket": {
+  "bucket": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "bucket",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_backups3_folder": {
+  "folder": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "folder",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_backups3_peer": {
+  "peer": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "peer",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "BackupS3",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
-        {"@": "blueprint_backups3_bucket"},
-        {"@": "blueprint_backups3_folder"},
-        {"@": "blueprint_backups3_peer"}
+        {"@": "bucket"},
+        {"@": "folder"},
+        {"@": "peer"}
       ]
     }
   }

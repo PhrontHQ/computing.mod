@@ -249,7 +249,7 @@ exports.NetworkInterfaceStatus = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "active_media_subtype",

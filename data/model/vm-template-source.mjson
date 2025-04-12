@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "driver",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,15 +17,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "url",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VmTemplateSource",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_vmtemplatesource_driver"},
         {"@": "blueprint_vmtemplatesource_id"},
         {"@": "blueprint_vmtemplatesource_url"}

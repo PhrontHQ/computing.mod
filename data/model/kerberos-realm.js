@@ -67,7 +67,7 @@ exports.KerberosRealm = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "admin_server_address",

@@ -132,7 +132,7 @@ exports.CalendarTaskScheduleAnonymous = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "coalesce",

@@ -41,7 +41,7 @@ exports.VmDatastoreCapabilities = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "block_devices",

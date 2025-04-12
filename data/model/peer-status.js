@@ -28,7 +28,7 @@ exports.PeerStatus = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "rtt",

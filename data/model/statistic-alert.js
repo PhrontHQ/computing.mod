@@ -80,7 +80,7 @@ exports.StatisticAlert = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "alert_high",

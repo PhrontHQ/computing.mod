@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "children",
-      "blueprint": {"@": "root"},
       "valueType": "array",
       "valueObjectPrototypeName": "ZfsVdev"
     }
@@ -12,7 +11,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "disk_id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -20,7 +18,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "guid",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -28,7 +25,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "path",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -36,7 +32,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "stats",
-      "blueprint": {"@": "root"},
       "readOnly": true,
       "valueType": "object"
     }
@@ -45,7 +40,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "status",
-      "blueprint": {"@": "root"},
       "readOnly": true,
       "valueType": "String"
     }
@@ -54,16 +48,15 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ZfsVdevType"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ZfsVdev",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_zfsvdev_children"},
         {"@": "blueprint_zfsvdev_disk_id"},
         {"@": "blueprint_zfsvdev_guid"},

@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "addresses",
-      "blueprint": {"@": "root"},
       "valueType": "array",
       "valueObjectPrototypeName": "IpAddress"
     }
@@ -12,15 +11,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "NetworkHost",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_networkhost_addresses"},
         {"@": "blueprint_networkhost_id"}
       ]

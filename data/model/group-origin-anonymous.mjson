@@ -1,45 +1,41 @@
 {
-  "blueprint_grouporiginanonymous_cached_at": {
+  "cached_at": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "cached_at",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
-  "blueprint_grouporiginanonymous_directory": {
+  "directory": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "directory",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_grouporiginanonymous_read_only": {
+  "read_only": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "read_only",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_grouporiginanonymous_ttl": {
+  "ttl": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ttl",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "GroupOriginAnonymous",
-      "propertyBlueprints": [
-        {"@": "blueprint_grouporiginanonymous_cached_at"},
-        {"@": "blueprint_grouporiginanonymous_directory"},
-        {"@": "blueprint_grouporiginanonymous_read_only"},
-        {"@": "blueprint_grouporiginanonymous_ttl"}
+      "propertyDescriptors": [
+        {"@": "cached_at"},
+        {"@": "directory"},
+        {"@": "read_only"},
+        {"@": "ttl"}
       ]
     }
   }

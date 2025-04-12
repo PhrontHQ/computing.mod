@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "dataset",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "datastore",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "peer",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "vm_filter_entries",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -51,16 +45,15 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "vm_filter_op",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VmwareDatasetFilterOp"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VmwareDataset",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_vmwaredataset_dataset"},
         {"@": "blueprint_vmwaredataset_datastore"},
         {"@": "blueprint_vmwaredataset_id"},

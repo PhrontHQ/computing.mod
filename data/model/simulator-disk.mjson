@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "block_size",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "mediasize",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "model",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "online",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "path",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -51,7 +45,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "rpm",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "SimulatorDiskRpm"
     }
@@ -60,7 +53,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "serial",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -68,15 +60,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "vendor",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "SimulatorDisk",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_simulatordisk_block_size"},
         {"@": "blueprint_simulatordisk_id"},
         {"@": "blueprint_simulatordisk_mediasize"},

@@ -236,7 +236,7 @@ exports.ServiceUps = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "auxiliary",

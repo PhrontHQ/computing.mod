@@ -3,36 +3,33 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "backup-ssh"
       ]
     }
   },
-  "blueprint_backupssh_directory": {
+  "directory": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "directory",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_backupssh_peer": {
+  "peer": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "peer",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "BackupSsh",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
-        {"@": "blueprint_backupssh_directory"},
-        {"@": "blueprint_backupssh_peer"}
+        {"@": "directory"},
+        {"@": "peer"}
       ]
     }
   }

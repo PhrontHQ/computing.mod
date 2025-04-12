@@ -1,9 +1,8 @@
 {
-  "blueprint_directorystatusanonymous_state": {
+  "state": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "state",
-      "blueprint": {"@": "root"},
       "valueType": "String",
       "enumValues": [
         "DISABLED",
@@ -14,30 +13,28 @@
       ]
     }
   },
-  "blueprint_directorystatusanonymous_status_code": {
+  "status_code": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "status_code",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_directorystatusanonymous_status_message": {
+  "status_message": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "status_message",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "DirectoryStatusAnonymous",
-      "propertyBlueprints": [
-        {"@": "blueprint_directorystatusanonymous_state"},
-        {"@": "blueprint_directorystatusanonymous_status_code"},
-        {"@": "blueprint_directorystatusanonymous_status_message"}
+      "propertyDescriptors": [
+        {"@": "state"},
+        {"@": "status_code"},
+        {"@": "status_message"}
       ]
     }
   }

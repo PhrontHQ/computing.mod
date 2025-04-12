@@ -106,7 +106,7 @@ exports.SupportTicket = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: true,
             name: "attachments",

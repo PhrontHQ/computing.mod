@@ -1,36 +1,33 @@
 {
-  "blueprint_diskdevice_description": {
+  "description": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "description",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_diskdevice_mediasize": {
+  "mediasize": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "mediasize",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_diskdevice_name": {
+  "name": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "DiskDevice",
-      "propertyBlueprints": [
-        {"@": "blueprint_diskdevice_description"},
-        {"@": "blueprint_diskdevice_mediasize"},
-        {"@": "blueprint_diskdevice_name"}
+      "propertyDescriptors": [
+        {"@": "description"},
+        {"@": "mediasize"},
+        {"@": "name"}
       ]
     }
   }

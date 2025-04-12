@@ -54,7 +54,7 @@ exports.VmDevice = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: true,
             name: "id",

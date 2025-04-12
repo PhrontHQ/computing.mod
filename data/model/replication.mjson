@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "auto_recover",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "bidirectional",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "datasets",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "followdelete",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "initial_master",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -51,7 +45,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "master",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -59,7 +52,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -67,7 +59,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "recursive",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -75,7 +66,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "replicate_services",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -83,7 +73,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "slave",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -91,7 +80,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "snapshot_lifetime",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -99,7 +87,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "status",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ReplicationStatus"
     }
@@ -108,7 +95,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "transport_options",
-      "blueprint": {"@": "root"},
       "valueType": "array",
       "valueObjectPrototypeName": "ReplicationTransportOption"
     }
@@ -117,15 +103,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "update_date",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Replication",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_replication_auto_recover"},
         {"@": "blueprint_replication_bidirectional"},
         {"@": "blueprint_replication_datasets"},

@@ -1,63 +1,57 @@
 {
-  "blueprint_diskpartition_label": {
+  "label": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "label",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_diskpartition_mediasize": {
+  "mediasize": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "mediasize",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_diskpartition_name": {
+  "name": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_diskpartition_paths": {
+  "paths": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "paths",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
-  "blueprint_diskpartition_type": {
+  "type": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_diskpartition_uuid": {
+  "uuid": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "uuid",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "DiskPartition",
-      "propertyBlueprints": [
-        {"@": "blueprint_diskpartition_label"},
-        {"@": "blueprint_diskpartition_mediasize"},
-        {"@": "blueprint_diskpartition_name"},
-        {"@": "blueprint_diskpartition_paths"},
-        {"@": "blueprint_diskpartition_type"},
-        {"@": "blueprint_diskpartition_uuid"}
+      "propertyDescriptors": [
+        {"@": "label"},
+        {"@": "mediasize"},
+        {"@": "name"},
+        {"@": "paths"},
+        {"@": "type"},
+        {"@": "uuid"}
       ]
     }
   }

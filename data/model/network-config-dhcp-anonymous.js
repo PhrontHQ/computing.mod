@@ -28,7 +28,7 @@ exports.NetworkConfigDhcpAnonymous = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "assign_dns",

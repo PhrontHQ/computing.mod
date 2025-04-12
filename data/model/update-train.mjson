@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "current",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "description",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -27,15 +24,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "sequence",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "UpdateTrain",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_updatetrain_current"},
         {"@": "blueprint_updatetrain_description"},
         {"@": "blueprint_updatetrain_name"},

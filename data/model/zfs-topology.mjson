@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "cache",
-      "blueprint": {"@": "root"},
       "valueType": "array",
       "valueObjectPrototypeName": "ZfsVdev"
     }
@@ -12,7 +11,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "data",
-      "blueprint": {"@": "root"},
       "valueType": "array",
       "valueObjectPrototypeName": "ZfsVdev"
     }
@@ -21,7 +19,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "log",
-      "blueprint": {"@": "root"},
       "valueType": "array",
       "valueObjectPrototypeName": "ZfsVdev"
     }
@@ -30,16 +27,15 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "spare",
-      "blueprint": {"@": "root"},
       "valueType": "array",
       "valueObjectPrototypeName": "ZfsVdev"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ZfsTopology",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_zfstopology_cache"},
         {"@": "blueprint_zfstopology_data"},
         {"@": "blueprint_zfstopology_log"},

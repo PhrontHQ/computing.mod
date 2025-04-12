@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "new_name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "new_version",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "operation",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "UpdateOpsOperation"
     }
@@ -28,7 +25,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "previous_name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -36,15 +32,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "previous_version",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "UpdateOps",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_updateops_new_name"},
         {"@": "blueprint_updateops_new_version"},
         {"@": "blueprint_updateops_operation"},

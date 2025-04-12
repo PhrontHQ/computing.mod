@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "alert_high",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "alert_high_enabled",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "alert_low",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "alert_low_enabled",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "normalized_alert_high",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -43,15 +38,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "normalized_alert_low",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "StatisticAlert",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_statisticalert_alert_high"},
         {"@": "blueprint_statisticalert_alert_high_enabled"},
         {"@": "blueprint_statisticalert_alert_low"},

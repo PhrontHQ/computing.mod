@@ -28,7 +28,7 @@ exports.ThrottleReplicationTransportOption = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "%type"

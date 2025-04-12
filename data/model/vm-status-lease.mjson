@@ -3,15 +3,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "client_ip",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VmStatusLease",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_vmstatuslease_client_ip"}
       ]
     }

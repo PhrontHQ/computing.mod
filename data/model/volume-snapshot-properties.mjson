@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "clones",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumeSnapshotPropertyClones"
     }
@@ -12,7 +11,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "compressratio",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumeSnapshotPropertyCompressratio"
     }
@@ -21,7 +19,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "creation",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumeSnapshotPropertyCreation"
     }
@@ -30,7 +27,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "referenced",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumeSnapshotPropertyReferenced"
     }
@@ -39,16 +35,15 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "used",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumeSnapshotPropertyUsed"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VolumeSnapshotProperties",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_volumesnapshotproperties_clones"},
         {"@": "blueprint_volumesnapshotproperties_compressratio"},
         {"@": "blueprint_volumesnapshotproperties_creation"},

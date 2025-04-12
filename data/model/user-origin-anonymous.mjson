@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "cached_at",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "directory",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "read_only",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -27,15 +24,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ttl",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "UserOriginAnonymous",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_useroriginanonymous_cached_at"},
         {"@": "blueprint_useroriginanonymous_directory"},
         {"@": "blueprint_useroriginanonymous_read_only"},

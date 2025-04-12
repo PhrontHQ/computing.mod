@@ -132,7 +132,7 @@ exports.ServiceConsul = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "bind_address",

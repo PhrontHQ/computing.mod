@@ -15,7 +15,7 @@ exports.VmStatusLease = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "client_ip",

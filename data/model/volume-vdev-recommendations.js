@@ -41,7 +41,7 @@ exports.VolumeVdevRecommendations = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "redundancy",

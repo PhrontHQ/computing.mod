@@ -3,55 +3,50 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "compress-replication-transport-plugin"
       ]
     }
   },
-  "blueprint_compressreplicationtransportplugin_buffer_size": {
+  "buffer_size": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "buffer_size",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_compressreplicationtransportplugin_level": {
+  "level": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "level",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "CompressPluginLevel"
     }
   },
-  "blueprint_compressreplicationtransportplugin_read_fd": {
+  "read_fd": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "read_fd",
-      "blueprint": {"@": "root"},
       "valueType": "fd"
     }
   },
-  "blueprint_compressreplicationtransportplugin_write_fd": {
+  "write_fd": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "write_fd",
-      "blueprint": {"@": "root"},
       "valueType": "fd"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "CompressReplicationTransportPlugin",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
-        {"@": "blueprint_compressreplicationtransportplugin_buffer_size"},
-        {"@": "blueprint_compressreplicationtransportplugin_level"},
-        {"@": "blueprint_compressreplicationtransportplugin_read_fd"},
-        {"@": "blueprint_compressreplicationtransportplugin_write_fd"}
+        {"@": "buffer_size"},
+        {"@": "level"},
+        {"@": "read_fd"},
+        {"@": "write_fd"}
       ]
     }
   }

@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "assign_dns",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -11,15 +10,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "assign_gateway",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "NetworkConfigDhcpAnonymous",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_networkconfigdhcpanonymous_assign_dns"},
         {"@": "blueprint_networkconfigdhcpanonymous_assign_gateway"}
       ]

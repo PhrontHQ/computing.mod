@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_idrss",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_inblock",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_isrss",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_ixrss",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_majflt",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_maxrss",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -51,7 +45,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_minflt",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -59,7 +52,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_msgrcv",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -67,7 +59,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_msgsnd",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -75,7 +66,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_nivcsw",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -83,7 +73,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_nsignals",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -91,7 +80,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_nswap",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -99,7 +87,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_nvcsw",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -107,7 +94,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_oublock",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -115,7 +101,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_stime",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -123,15 +108,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ru_utime",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Rusage",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_rusage_ru_idrss"},
         {"@": "blueprint_rusage_ru_inblock"},
         {"@": "blueprint_rusage_ru_isrss"},

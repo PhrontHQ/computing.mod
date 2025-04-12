@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "attachments",
-      "blueprint": {"@": "root"},
       "mandatory": true,
       "valueType": "array"
     }
@@ -12,7 +11,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "category",
-      "blueprint": {"@": "root"},
       "mandatory": true,
       "valueType": "String"
     }
@@ -21,7 +19,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "debug",
-      "blueprint": {"@": "root"},
       "mandatory": true,
       "valueType": "boolean"
     }
@@ -30,7 +27,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "description",
-      "blueprint": {"@": "root"},
       "mandatory": true,
       "valueType": "String"
     }
@@ -39,7 +35,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "password",
-      "blueprint": {"@": "root"},
       "mandatory": true,
       "valueType": "String"
     }
@@ -48,7 +43,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "subject",
-      "blueprint": {"@": "root"},
       "mandatory": true,
       "valueType": "String"
     }
@@ -57,7 +51,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "mandatory": true,
       "valueType": "String",
       "enumValues": [
@@ -70,15 +63,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "username",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "SupportTicket",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_supportticket_attachments"},
         {"@": "blueprint_supportticket_category"},
         {"@": "blueprint_supportticket_debug"},

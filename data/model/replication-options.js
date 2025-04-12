@@ -106,7 +106,7 @@ exports.ReplicationOptions = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "followdelete",

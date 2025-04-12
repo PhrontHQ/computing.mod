@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "parent",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,15 +10,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "tag",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "NetworkInterfaceVlanProperties",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_networkinterfacevlanproperties_parent"},
         {"@": "blueprint_networkinterfacevlanproperties_tag"}
       ]

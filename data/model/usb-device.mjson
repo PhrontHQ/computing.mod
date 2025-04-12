@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "address",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "bus",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "class",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "manufacturer",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "pid",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "product",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -51,15 +45,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "vid",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "UsbDevice",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_usbdevice_address"},
         {"@": "blueprint_usbdevice_bus"},
         {"@": "blueprint_usbdevice_class"},

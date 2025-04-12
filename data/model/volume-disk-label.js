@@ -67,7 +67,7 @@ exports.VolumeDiskLabel = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "hostid",

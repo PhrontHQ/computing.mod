@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "address",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "Ipv4Address"
     }
@@ -12,7 +11,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "dhcp",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -20,14 +18,13 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "gateway",
-      "blueprint": {"@": "root"}
+      
     }
   },
   "blueprint_ipmi_id": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -35,7 +32,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "netmask",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -43,7 +39,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "password",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -51,15 +46,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "vlan_id",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Ipmi",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_ipmi_address"},
         {"@": "blueprint_ipmi_dhcp"},
         {"@": "blueprint_ipmi_gateway"},

@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "authentication",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ServiceWebdavAuthentication"
     }
@@ -12,7 +11,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "certificate",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -20,7 +18,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enable",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -28,7 +25,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "http_port",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -36,7 +32,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "https_port",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -44,7 +39,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "password",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -52,7 +46,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "protocol",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -60,17 +53,16 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "service-webdav"
       ]
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ServiceWebdav",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_servicewebdav_authentication"},
         {"@": "blueprint_servicewebdav_certificate"},
         {"@": "blueprint_servicewebdav_enable"},

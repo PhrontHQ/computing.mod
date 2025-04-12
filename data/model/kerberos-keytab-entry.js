@@ -41,7 +41,7 @@ exports.KerberosKeytabEntry = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "enctype",

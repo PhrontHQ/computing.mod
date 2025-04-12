@@ -3,16 +3,15 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "operation",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "PowerChangedOperation"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "PowerChanged",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_powerchanged_operation"}
       ]
     }

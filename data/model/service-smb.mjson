@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "auxiliary",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "bind_addresses",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "description",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "dirmask",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "UnixPermissions"
     }
@@ -36,7 +32,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "domain_logons",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -44,7 +39,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "dos_charset",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ServiceSmbDoscharset"
     }
@@ -53,7 +47,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enable",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -61,7 +54,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "execute_always",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -69,7 +61,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "filemask",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "UnixPermissions"
     }
@@ -78,7 +69,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "guest_user",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -86,7 +76,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "hostlookup",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -94,7 +83,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "local_master",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -102,7 +90,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "log_level",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ServiceSmbLoglevel"
     }
@@ -111,7 +98,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "max_protocol",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ServiceSmbMaxprotocol"
     }
@@ -120,7 +106,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "min_protocol",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ServiceSmbMinprotocol"
     }
@@ -129,7 +114,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "netbiosname",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -137,7 +121,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "obey_pam_restrictions",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -145,7 +128,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "sid",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -153,7 +135,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "syslog",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -161,7 +142,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "time_server",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -169,7 +149,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "service-smb"
       ]
@@ -179,7 +158,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "unix_charset",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ServiceSmbUnixcharset"
     }
@@ -188,7 +166,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "unixext",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -196,7 +173,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "workgroup",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -204,15 +180,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "zeroconf",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ServiceSmb",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_servicesmb_auxiliary"},
         {"@": "blueprint_servicesmb_bind_addresses"},
         {"@": "blueprint_servicesmb_description"},

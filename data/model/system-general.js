@@ -93,7 +93,7 @@ exports.SystemGeneral = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "console_keymap",

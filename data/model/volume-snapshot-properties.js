@@ -67,7 +67,7 @@ exports.VolumeSnapshotProperties = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "clones",

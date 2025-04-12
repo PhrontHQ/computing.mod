@@ -80,7 +80,7 @@ exports.VmDeviceDisk = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: true,
             name: "%type"

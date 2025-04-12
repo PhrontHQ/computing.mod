@@ -67,7 +67,7 @@ exports.VmDeviceVolume = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "%type"

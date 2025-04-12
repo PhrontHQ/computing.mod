@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "interfaces",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "load_avg",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "time",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
@@ -27,15 +24,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "vm_tools_version",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VmGuestInfo",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_vmguestinfo_interfaces"},
         {"@": "blueprint_vmguestinfo_load_avg"},
         {"@": "blueprint_vmguestinfo_time"},

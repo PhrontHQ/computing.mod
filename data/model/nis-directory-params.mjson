@@ -3,36 +3,33 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "nis-directory-params"
       ]
     }
   },
-  "blueprint_nisdirectoryparams_domain": {
+  "domain": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "domain",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_nisdirectoryparams_server": {
+  "server": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "server",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "NisDirectoryParams",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
-        {"@": "blueprint_nisdirectoryparams_domain"},
-        {"@": "blueprint_nisdirectoryparams_server"}
+        {"@": "domain"},
+        {"@": "server"}
       ]
     }
   }

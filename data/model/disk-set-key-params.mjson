@@ -1,36 +1,33 @@
 {
-  "blueprint_disksetkeyparams_key": {
+  "key": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "key",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_disksetkeyparams_password": {
+  "password": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "password",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_disksetkeyparams_slot": {
+  "slot": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "slot",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "DiskSetKeyParams",
-      "propertyBlueprints": [
-        {"@": "blueprint_disksetkeyparams_key"},
-        {"@": "blueprint_disksetkeyparams_password"},
-        {"@": "blueprint_disksetkeyparams_slot"}
+      "propertyDescriptors": [
+        {"@": "key"},
+        {"@": "password"},
+        {"@": "slot"}
       ]
     }
   }

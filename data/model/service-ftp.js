@@ -405,7 +405,7 @@ exports.ServiceFtp = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "anon_down_bandwidth",

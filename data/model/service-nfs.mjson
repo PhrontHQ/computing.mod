@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "bind_addresses",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enable",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "mountd_port",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "nonroot",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "rpclockd_port",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "rpcstatd_port",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -51,7 +45,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "servers",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -59,7 +52,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "service-nfs"
       ]
@@ -69,7 +61,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "udp",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -77,7 +68,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "v4",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -85,15 +75,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "v4_kerberos",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ServiceNfs",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_servicenfs_bind_addresses"},
         {"@": "blueprint_servicenfs_enable"},
         {"@": "blueprint_servicenfs_mountd_port"},

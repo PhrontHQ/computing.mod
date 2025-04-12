@@ -67,7 +67,7 @@ exports.IpfsInfo = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "Addresses",

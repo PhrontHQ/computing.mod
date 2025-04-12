@@ -28,7 +28,7 @@ exports.VmConfig = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "additional_templates",

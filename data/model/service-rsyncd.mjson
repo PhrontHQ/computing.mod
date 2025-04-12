@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "auxiliary",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enable",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "port",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -27,17 +24,16 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "service-rsyncd"
       ]
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ServiceRsyncd",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_servicersyncd_auxiliary"},
         {"@": "blueprint_servicersyncd_enable"},
         {"@": "blueprint_servicersyncd_port"},

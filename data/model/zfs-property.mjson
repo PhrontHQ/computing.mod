@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "parsed",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "rawvalue",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "source",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ZfsPropertySource"
     }
@@ -28,15 +25,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "value",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ZfsProperty",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_zfsproperty_parsed"},
         {"@": "blueprint_zfsproperty_rawvalue"},
         {"@": "blueprint_zfsproperty_source"},

@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "description",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enabled",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "filesystem_path",
-      "blueprint": {"@": "root"},
       "readOnly": true,
       "valueType": "String"
     }
@@ -28,7 +25,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -36,7 +32,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "immutable",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -44,7 +39,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -52,7 +46,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "permissions",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "Permissions"
     }
@@ -61,7 +54,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "properties",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ShareProperties"
     }
@@ -70,7 +62,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "target_path",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -78,7 +69,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "target_type",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ShareTargettype"
     }
@@ -87,15 +77,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Share",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_share_description"},
         {"@": "blueprint_share_enabled"},
         {"@": "blueprint_share_filesystem_path"},

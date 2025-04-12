@@ -197,7 +197,7 @@ exports.SystemAdvanced = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "boot_scrub_internal",

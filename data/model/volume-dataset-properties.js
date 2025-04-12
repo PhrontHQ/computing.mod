@@ -314,7 +314,7 @@ exports.VolumeDatasetProperties = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "atime",

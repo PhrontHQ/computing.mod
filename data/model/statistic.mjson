@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "alerts",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "StatisticAlert"
     }
@@ -12,7 +11,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "last_value",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -20,7 +18,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -28,7 +25,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "short_name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -36,15 +32,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "unit",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Statistic",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_statistic_alerts"},
         {"@": "blueprint_statistic_last_value"},
         {"@": "blueprint_statistic_name"},

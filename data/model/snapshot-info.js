@@ -54,7 +54,7 @@ exports.SnapshotInfo = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "created_at",

@@ -301,7 +301,7 @@ exports.DiskStatus = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "controller",

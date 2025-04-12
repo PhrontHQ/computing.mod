@@ -28,7 +28,7 @@ exports.ZfsVdevExtension = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "target_guid",

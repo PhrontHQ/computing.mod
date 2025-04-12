@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "connected_at",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "extra",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "host",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "share",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -35,15 +31,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "user",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ShareClient",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_shareclient_connected_at"},
         {"@": "blueprint_shareclient_extra"},
         {"@": "blueprint_shareclient_host"},

@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "addresses",
-      "blueprint": {"@": "root"},
       "valueType": "array",
       "valueObjectPrototypeName": "IpAddress"
     }
@@ -12,15 +11,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "search",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "NetworkConfigDnsAnonymous",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_networkconfigdnsanonymous_addresses"},
         {"@": "blueprint_networkconfigdnsanonymous_search"}
       ]

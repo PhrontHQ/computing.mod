@@ -67,7 +67,7 @@ exports.ServiceIscsi = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "base_name",

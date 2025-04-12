@@ -54,7 +54,7 @@ exports.DirectoryserviceConfig = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "cache_enumerations",

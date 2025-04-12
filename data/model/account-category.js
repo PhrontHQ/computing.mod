@@ -54,7 +54,7 @@ exports.AccountCategory = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "user"

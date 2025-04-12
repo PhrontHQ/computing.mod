@@ -1,74 +1,67 @@
 {
-  "blueprint_backup_compression": {
+  "compression": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "compression",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "BackupCompressionType"
     }
   },
-  "blueprint_backup_dataset": {
+  "dataset": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "dataset",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_backup_id": {
+  "id": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_backup_name": {
+  "name": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_backup_properties": {
+  "properties": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "properties",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "BackupProperties"
     }
   },
-  "blueprint_backup_provider": {
+  "provider": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "provider",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_backup_recursive": {
+  "recursive": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "recursive",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Backup",
-      "propertyBlueprints": [
-        {"@": "blueprint_backup_compression"},
-        {"@": "blueprint_backup_dataset"},
-        {"@": "blueprint_backup_id"},
-        {"@": "blueprint_backup_name"},
-        {"@": "blueprint_backup_properties"},
-        {"@": "blueprint_backup_provider"},
-        {"@": "blueprint_backup_recursive"}
+      "propertyDescriptors": [
+        {"@": "compression"},
+        {"@": "dataset"},
+        {"@": "id"},
+        {"@": "name"},
+        {"@": "properties"},
+        {"@": "provider"},
+        {"@": "recursive"}
       ]
     }
   }

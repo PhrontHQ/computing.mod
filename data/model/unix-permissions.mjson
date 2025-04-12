@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "group",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "UnixModeTuple"
     }
@@ -12,7 +11,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "others",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "UnixModeTuple"
     }
@@ -21,7 +19,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "user",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "UnixModeTuple"
     }
@@ -30,15 +27,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "value",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "UnixPermissions",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_unixpermissions_group"},
         {"@": "blueprint_unixpermissions_others"},
         {"@": "blueprint_unixpermissions_user"},

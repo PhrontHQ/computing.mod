@@ -119,7 +119,7 @@ exports.VolumeSnapshot = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "dataset",

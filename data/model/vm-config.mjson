@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "additional_templates",
-      "blueprint": {"@": "root"},
       "valueType": "array",
       "valueObjectPrototypeName": "VmTemplateSource"
     }
@@ -12,15 +11,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "network",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VmConfig",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_vmconfig_additional_templates"},
         {"@": "blueprint_vmconfig_network"}
       ]

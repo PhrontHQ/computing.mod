@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enctype",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "principal",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,15 +17,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "vno",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "KerberosKeytabEntry",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_kerberoskeytabentry_enctype"},
         {"@": "blueprint_kerberoskeytabentry_principal"},
         {"@": "blueprint_kerberoskeytabentry_vno"}

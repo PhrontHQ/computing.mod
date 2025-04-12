@@ -106,7 +106,7 @@ exports.ZfsScan = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "bytes_processed",

@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "drives",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -11,15 +10,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VolumeVdevRecommendation",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_volumevdevrecommendation_drives"},
         {"@": "blueprint_volumevdevrecommendation_type"}
       ]

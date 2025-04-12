@@ -54,7 +54,7 @@ exports.DockerVolume = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "container_path",

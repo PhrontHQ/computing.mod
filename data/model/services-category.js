@@ -41,7 +41,7 @@ exports.ServicesCategory = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "name"

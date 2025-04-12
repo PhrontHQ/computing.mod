@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "mandatory": true,
       "enumValues": [
         "vm-device-disk"
@@ -14,7 +13,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "mode",
-      "blueprint": {"@": "root"},
       "mandatory": true,
       "valueType": "object",
       "valueObjectPrototypeName": "VmDeviceDiskMode"
@@ -24,7 +22,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "size",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -32,7 +29,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "source",
-      "blueprint": {"@": "root"},
       "mandatory": true,
       "valueType": "String"
     }
@@ -41,7 +37,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "target_type",
-      "blueprint": {"@": "root"},
       "mandatory": true,
       "valueType": "object",
       "valueObjectPrototypeName": "VmDeviceDiskTargetType"
@@ -51,16 +46,15 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "target_path",
-      "blueprint": {"@": "root"},
       "mandatory": true,
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VmDeviceDisk",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
         {"@": "blueprint_vmdevicedisk_mode"},
         {"@": "blueprint_vmdevicedisk_size"},

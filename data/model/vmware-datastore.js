@@ -54,7 +54,7 @@ exports.VmwareDatastore = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "free_space",

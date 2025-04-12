@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "domain_controller",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "joined",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "server_time",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
@@ -27,17 +24,16 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "winbind-directory-status"
       ]
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "WinbindDirectoryStatus",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_winbinddirectorystatus_domain_controller"},
         {"@": "blueprint_winbinddirectorystatus_joined"},
         {"@": "blueprint_winbinddirectorystatus_server_time"},

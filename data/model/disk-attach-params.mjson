@@ -1,27 +1,25 @@
 {
-  "blueprint_diskattachparams_key": {
+  "key": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "key",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_diskattachparams_password": {
+  "password": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "password",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "DiskAttachParams",
-      "propertyBlueprints": [
-        {"@": "blueprint_diskattachparams_key"},
-        {"@": "blueprint_diskattachparams_password"}
+      "propertyDescriptors": [
+        {"@": "key"},
+        {"@": "password"}
       ]
     }
   }

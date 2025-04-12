@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ipv4",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "Ipv4Address"
     }
@@ -12,16 +11,15 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ipv6",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "Ipv6Address"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "NetworkConfigGatewayAnonymous",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_networkconfiggatewayanonymous_ipv4"},
         {"@": "blueprint_networkconfiggatewayanonymous_ipv6"}
       ]

@@ -54,7 +54,7 @@ exports.AclEntryFlags = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "DIRECTORY_INHERIT",

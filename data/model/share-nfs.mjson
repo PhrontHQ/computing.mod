@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "share-nfs"
       ]
@@ -13,7 +12,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "alldirs",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -21,7 +19,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "hosts",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -29,7 +26,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "mapall_group",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -37,7 +33,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "mapall_user",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -45,7 +40,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "maproot_group",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -53,7 +47,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "maproot_user",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -61,7 +54,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "read_only",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -69,16 +61,15 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "security",
-      "blueprint": {"@": "root"},
       "valueType": "array",
       "valueObjectPrototypeName": "ShareNfsSecurityItems"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ShareNfs",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
         {"@": "blueprint_sharenfs_alldirs"},
         {"@": "blueprint_sharenfs_hosts"},

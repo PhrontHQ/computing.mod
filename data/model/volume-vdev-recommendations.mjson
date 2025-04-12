@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "redundancy",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "speed",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
@@ -19,15 +17,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "storage",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VolumeVdevRecommendations",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_volumevdevrecommendations_redundancy"},
         {"@": "blueprint_volumevdevrecommendations_speed"},
         {"@": "blueprint_volumevdevrecommendations_storage"}

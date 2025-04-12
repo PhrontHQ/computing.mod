@@ -54,7 +54,7 @@ exports.DockerConfig = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "api_forwarding",

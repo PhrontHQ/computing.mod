@@ -54,7 +54,7 @@ exports.GroupOriginAnonymous = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "cached_at",

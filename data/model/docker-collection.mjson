@@ -1,55 +1,50 @@
 {
-  "blueprint_dockercollection_collection": {
+  "collection": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "collection",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_dockercollection_id": {
+  "id": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_dockercollection_images": {
+  "images": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "images",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "DockerHubImage"
     }
   },
-  "blueprint_dockercollection_match_expr": {
+  "match_expr": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "match_expr",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_dockercollection_name": {
+  "name": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "DockerCollection",
-      "propertyBlueprints": [
-        {"@": "blueprint_dockercollection_collection"},
-        {"@": "blueprint_dockercollection_id"},
-        {"@": "blueprint_dockercollection_images"},
-        {"@": "blueprint_dockercollection_match_expr"},
-        {"@": "blueprint_dockercollection_name"}
+      "propertyDescriptors": [
+        {"@": "collection"},
+        {"@": "id"},
+        {"@": "images"},
+        {"@": "match_expr"},
+        {"@": "name"}
       ]
     }
   }

@@ -41,7 +41,7 @@ exports.BackupFile = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "content_type",

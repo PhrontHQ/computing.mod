@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "auth_group",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "description",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "extents",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -35,15 +31,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "portal_group",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ShareIscsiTarget",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_shareiscsitarget_auth_group"},
         {"@": "blueprint_shareiscsitarget_description"},
         {"@": "blueprint_shareiscsitarget_extents"},

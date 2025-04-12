@@ -41,7 +41,7 @@ exports.VolumeVdevRecommendationsSpeedAnonymous = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "redundancy",

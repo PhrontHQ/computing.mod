@@ -1,46 +1,42 @@
 {
-  "blueprint_dockervolume_container_path": {
+  "container_path": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "container_path",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_dockervolume_host_path": {
+  "host_path": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "host_path",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_dockervolume_readonly": {
+  "readonly": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "readonly",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_dockervolume_source": {
+  "source": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "source",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "DockerVolumeHostPathSource"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "DockerVolume",
-      "propertyBlueprints": [
-        {"@": "blueprint_dockervolume_container_path"},
-        {"@": "blueprint_dockervolume_host_path"},
-        {"@": "blueprint_dockervolume_readonly"},
-        {"@": "blueprint_dockervolume_source"}
+      "propertyDescriptors": [
+        {"@": "container_path"},
+        {"@": "host_path"},
+        {"@": "readonly"},
+        {"@": "source"}
       ]
     }
   }

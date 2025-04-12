@@ -1,36 +1,33 @@
 {
-  "blueprint_backupstate_dataset": {
+  "dataset": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "dataset",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_backupstate_hostname": {
+  "hostname": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "hostname",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_backupstate_snapshots": {
+  "snapshots": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "snapshots",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "BackupState",
-      "propertyBlueprints": [
-        {"@": "blueprint_backupstate_dataset"},
-        {"@": "blueprint_backupstate_hostname"},
-        {"@": "blueprint_backupstate_snapshots"}
+      "propertyDescriptors": [
+        {"@": "dataset"},
+        {"@": "hostname"},
+        {"@": "snapshots"}
       ]
     }
   }

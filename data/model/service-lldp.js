@@ -67,7 +67,7 @@ exports.ServiceLldp = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "country_code",

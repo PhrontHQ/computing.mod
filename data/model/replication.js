@@ -197,7 +197,7 @@ exports.Replication = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "auto_recover",

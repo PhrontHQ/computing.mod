@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "acl",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "group",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "modes",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "UnixPermissions"
     }
@@ -28,15 +25,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "user",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Permissions",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_permissions_acl"},
         {"@": "blueprint_permissions_group"},
         {"@": "blueprint_permissions_modes"},

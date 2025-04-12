@@ -145,7 +145,7 @@ exports.RsyncCopy = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: true,
             name: "path",

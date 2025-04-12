@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "throttle-replication-transport-plugin"
       ]
@@ -13,7 +12,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "buffer_size",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -21,7 +19,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "read_fd",
-      "blueprint": {"@": "root"},
       "valueType": "fd"
     }
   },
@@ -29,15 +26,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "write_fd",
-      "blueprint": {"@": "root"},
       "valueType": "fd"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ThrottleReplicationTransportPlugin",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
         {"@": "blueprint_throttlereplicationtransportplugin_buffer_size"},
         {"@": "blueprint_throttlereplicationtransportplugin_read_fd"},

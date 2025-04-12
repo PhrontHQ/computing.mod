@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enable",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "path",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "service-ipfs"
       ]
@@ -29,15 +26,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "webui",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ServiceIpfs",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_serviceipfs_enable"},
         {"@": "blueprint_serviceipfs_path"},
         {"@": "blueprint_serviceipfs_type"},

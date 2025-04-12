@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "args",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "created_at",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "IsoDatetime"
     }
@@ -20,7 +18,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "debugger",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -28,7 +25,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "description",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
@@ -36,7 +32,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "error",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "Error"
     }
@@ -45,7 +40,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "finished_at",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "IsoDatetime"
     }
@@ -54,7 +48,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -62,7 +55,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -70,7 +62,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "output",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -78,7 +69,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "parent",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -86,7 +76,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "resources",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -94,7 +83,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "rusage",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "Rusage"
     }
@@ -103,7 +91,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "session",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -111,7 +98,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "started_at",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "IsoDatetime"
     }
@@ -120,7 +106,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "state",
-      "blueprint": {"@": "root"},
       "valueType": "String",
       "enumValues": [
         "CREATED",
@@ -137,7 +122,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "updated_at",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "IsoDatetime"
     }
@@ -146,7 +130,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "user",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -154,15 +137,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "warnings",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Task",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_task_args"},
         {"@": "blueprint_task_created_at"},
         {"@": "blueprint_task_debugger"},

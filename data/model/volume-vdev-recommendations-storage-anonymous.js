@@ -41,7 +41,7 @@ exports.VolumeVdevRecommendationsStorageAnonymous = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "redundancy",

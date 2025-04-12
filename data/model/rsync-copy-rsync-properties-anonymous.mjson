@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "archive",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "compress",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "delay_updates",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "delete",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "extra",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "preserve_attributes",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -51,7 +45,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "preserve_permissions",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -59,7 +52,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "recursive",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -67,15 +59,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "times",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "RsyncCopyRsyncPropertiesAnonymous",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_rsynccopyrsyncpropertiesanonymous_archive"},
         {"@": "blueprint_rsynccopyrsyncpropertiesanonymous_compress"},
         {"@": "blueprint_rsynccopyrsyncpropertiesanonymous_delay_updates"},

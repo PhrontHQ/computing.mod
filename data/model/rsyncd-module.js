@@ -145,7 +145,7 @@ exports.RsyncdModule = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "auxiliary",

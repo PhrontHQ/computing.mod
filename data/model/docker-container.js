@@ -275,7 +275,7 @@ exports.DockerContainer = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "autostart",

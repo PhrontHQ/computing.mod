@@ -28,7 +28,7 @@ exports.EncryptedVolumeImporter = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "key"

@@ -145,7 +145,7 @@ exports.ServiceNfs = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "bind_addresses",

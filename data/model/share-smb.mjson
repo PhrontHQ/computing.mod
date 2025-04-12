@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "share-smb"
       ]
@@ -13,7 +12,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "browseable",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -21,7 +19,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "comment",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -29,7 +26,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "extra_parameters",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
@@ -37,7 +33,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "guest_ok",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -45,7 +40,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "guest_only",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -53,7 +47,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "hosts_allow",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -61,7 +54,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "hosts_deny",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -69,7 +61,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "previous_versions",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -77,7 +68,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "read_only",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -85,7 +75,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "recyclebin",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -93,7 +82,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "show_hidden_files",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -101,15 +89,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "vfs_objects",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ShareSmb",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
         {"@": "blueprint_sharesmb_browseable"},
         {"@": "blueprint_sharesmb_comment"},

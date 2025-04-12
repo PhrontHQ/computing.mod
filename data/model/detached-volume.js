@@ -54,7 +54,7 @@ exports.DetachedVolume = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "id",

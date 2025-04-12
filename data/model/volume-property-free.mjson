@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "parsed",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyFreeValue"
     }
@@ -12,7 +11,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "rawvalue",
-      "blueprint": {"@": "root"},
       "readOnly": true,
       "valueType": "String"
     }
@@ -21,7 +19,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "source",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertySource"
     }
@@ -30,15 +27,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "value",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VolumePropertyFree",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_volumepropertyfree_parsed"},
         {"@": "blueprint_volumepropertyfree_rawvalue"},
         {"@": "blueprint_volumepropertyfree_source"},

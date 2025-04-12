@@ -106,7 +106,7 @@ exports.ServiceTftpd = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "allow_new_files",

@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enable",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "service-dc"
       ]
@@ -21,15 +19,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "volume",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ServiceDc",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_servicedc_enable"},
         {"@": "blueprint_servicedc_type"},
         {"@": "blueprint_servicedc_volume"}

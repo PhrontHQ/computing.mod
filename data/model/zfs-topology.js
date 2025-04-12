@@ -54,7 +54,7 @@ exports.ZfsTopology = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "cache",

@@ -67,7 +67,7 @@ exports.NetworkInterfaceStatusDhcpAnonymous = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "lease_ends_at",

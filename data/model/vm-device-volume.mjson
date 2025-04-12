@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "vm-device-volume"
       ]
@@ -13,7 +12,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "auto",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -21,7 +19,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "destination",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -29,7 +26,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "source",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -37,16 +33,15 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VmDeviceVolumeType"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VmDeviceVolume",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
         {"@": "blueprint_vmdevicevolume_auto"},
         {"@": "blueprint_vmdevicevolume_destination"},

@@ -1,72 +1,65 @@
 {
-  "blueprint_dockerhubimage_description": {
+  "description": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "description",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_dockerhubimage_icon": {
+  "icon": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "icon",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_dockerhubimage_name": {
+  "name": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_dockerhubimage_presets": {
+  "presets": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "presets",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
-  "blueprint_dockerhubimage_pull_count": {
+  "pull_count": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "pull_count",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_dockerhubimage_star_count": {
+  "star_count": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "star_count",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_dockerhubimage_version": {
+  "version": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "version",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "DockerHubImage",
-      "propertyBlueprints": [
-        {"@": "blueprint_dockerhubimage_description"},
-        {"@": "blueprint_dockerhubimage_icon"},
-        {"@": "blueprint_dockerhubimage_name"},
-        {"@": "blueprint_dockerhubimage_presets"},
-        {"@": "blueprint_dockerhubimage_pull_count"},
-        {"@": "blueprint_dockerhubimage_star_count"},
-        {"@": "blueprint_dockerhubimage_version"}
+      "propertyDescriptors": [
+        {"@": "description"},
+        {"@": "icon"},
+        {"@": "name"},
+        {"@": "presets"},
+        {"@": "pull_count"},
+        {"@": "star_count"},
+        {"@": "version"}
       ]
     }
   }

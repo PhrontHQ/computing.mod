@@ -1,27 +1,25 @@
 {
-  "blueprint_networkstatus_dns": {
+  "dns": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "dns",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
-  "blueprint_networkstatus_gateway": {
+  "gateway": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "gateway",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "NetworkStatus",
-      "propertyBlueprints": [
-        {"@": "blueprint_networkstatus_dns"},
-        {"@": "blueprint_networkstatus_gateway"}
+      "propertyDescriptors": [
+        {"@": "dns"},
+        {"@": "gateway"}
       ]
     }
   }

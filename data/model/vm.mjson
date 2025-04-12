@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "config",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "description",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "devices",
-      "blueprint": {"@": "root"},
       "valueType": "array",
       "valueObjectPrototypeName": "VmDevice"
     }
@@ -28,7 +25,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enabled",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -36,7 +32,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "guest_type",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VmGuestType"
     }
@@ -45,7 +40,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -53,7 +47,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "immutable",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -61,7 +54,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -69,7 +61,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "status",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VmStatus"
     }
@@ -78,7 +69,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "target",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -86,15 +76,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "template",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Vm",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_vm_config"},
         {"@": "blueprint_vm_description"},
         {"@": "blueprint_vm_devices"},

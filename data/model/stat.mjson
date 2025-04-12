@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "atime",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ctime",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "mtime",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "path",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "permissions",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "Permissions"
     }
@@ -44,7 +39,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "size",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -52,15 +46,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "Stat",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_stat_atime"},
         {"@": "blueprint_stat_ctime"},
         {"@": "blueprint_stat_mtime"},

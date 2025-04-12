@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "auxiliary",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "community",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "contact",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enable",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "location",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "service-snmp"
       ]
@@ -53,7 +47,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "v3",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -61,7 +54,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "v3_auth_type",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ServiceSnmpV3authtype"
     }
@@ -70,7 +62,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "v3_password",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -78,7 +69,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "v3_privacy_passphrase",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -86,7 +76,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "v3_privacy_protocol",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ServiceSnmpV3privacyprotocol"
     }
@@ -95,15 +84,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "v3_username",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ServiceSnmp",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_servicesnmp_auxiliary"},
         {"@": "blueprint_servicesnmp_community"},
         {"@": "blueprint_servicesnmp_contact"},

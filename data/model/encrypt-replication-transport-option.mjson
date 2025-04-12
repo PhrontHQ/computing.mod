@@ -3,28 +3,26 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "%type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "encrypt-replication-transport-option"
       ]
     }
   },
-  "blueprint_encryptreplicationtransportoption_type": {
+  "type": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "EncryptPluginType"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "EncryptReplicationTransportOption",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "propertyblueprint"},
-        {"@": "blueprint_encryptreplicationtransportoption_type"}
+        {"@": "type"}
       ]
     }
   }

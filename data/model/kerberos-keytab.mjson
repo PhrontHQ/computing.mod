@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "entries",
-      "blueprint": {"@": "root"},
       "valueType": "array",
       "valueObjectPrototypeName": "KerberosKeytabEntry"
     }
@@ -12,7 +11,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -20,7 +18,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "keytab",
-      "blueprint": {"@": "root"},
       "valueType": "binary"
     }
   },
@@ -28,15 +25,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "KerberosKeytab",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_kerberoskeytab_entries"},
         {"@": "blueprint_kerberoskeytab_id"},
         {"@": "blueprint_kerberoskeytab_keytab"},

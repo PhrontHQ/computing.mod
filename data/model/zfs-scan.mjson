@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "bytes_processed",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "bytes_to_process",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "end_time",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "errors",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "func",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "percentage",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -51,7 +45,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "start_time",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
@@ -59,15 +52,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "state",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ZfsScan",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_zfsscan_bytes_processed"},
         {"@": "blueprint_zfsscan_bytes_to_process"},
         {"@": "blueprint_zfsscan_end_time"},

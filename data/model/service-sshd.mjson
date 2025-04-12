@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "allow_gssapi_auth",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "allow_password_auth",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "allow_port_forwarding",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "allow_pubkey_auth",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "auxiliary",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -43,7 +38,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "compression",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -51,7 +45,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enable",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -59,7 +52,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "permit_root_login",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -67,7 +59,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "port",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -75,7 +66,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "sftp_log_facility",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ServiceSshdSftplogfacility"
     }
@@ -84,7 +74,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "sftp_log_level",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "ServiceSshdSftploglevel"
     }
@@ -93,17 +82,16 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "enumValues": [
         "service-sshd"
       ]
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "ServiceSshd",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_servicesshd_allow_gssapi_auth"},
         {"@": "blueprint_servicesshd_allow_password_auth"},
         {"@": "blueprint_servicesshd_allow_port_forwarding"},

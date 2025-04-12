@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "allocated",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyAllocated"
     }
@@ -12,7 +11,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "autoreplace",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyAutoreplace"
     }
@@ -21,7 +19,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "capacity",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyCapacity"
     }
@@ -30,7 +27,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "comment",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyComment"
     }
@@ -39,7 +35,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "dedupratio",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyDedupratio"
     }
@@ -48,7 +43,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "delegation",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyDelegation"
     }
@@ -57,7 +51,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "expandsize",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyExpandsize"
     }
@@ -66,7 +59,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "failmode",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyFailmode"
     }
@@ -75,7 +67,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "fragmentation",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyFragmentation"
     }
@@ -84,7 +75,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "free",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyFree"
     }
@@ -93,7 +83,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "health",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyHealth"
     }
@@ -102,7 +91,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "leaked",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyLeaked"
     }
@@ -111,7 +99,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "readonly",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyReadonly"
     }
@@ -120,7 +107,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "size",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertySize"
     }
@@ -129,16 +115,15 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "version",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "VolumePropertyVersion"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VolumeProperties",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_volumeproperties_allocated"},
         {"@": "blueprint_volumeproperties_autoreplace"},
         {"@": "blueprint_volumeproperties_capacity"},

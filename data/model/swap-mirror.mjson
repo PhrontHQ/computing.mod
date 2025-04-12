@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "disks",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -11,15 +10,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "SwapMirror",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_swapmirror_disks"},
         {"@": "blueprint_swapmirror_name"}
       ]

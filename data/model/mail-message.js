@@ -80,7 +80,7 @@ exports.MailMessage = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "attachments",

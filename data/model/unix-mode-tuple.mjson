@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "execute",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "read",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
@@ -19,15 +17,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "write",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "UnixModeTuple",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_unixmodetuple_execute"},
         {"@": "blueprint_unixmodetuple_read"},
         {"@": "blueprint_unixmodetuple_write"}

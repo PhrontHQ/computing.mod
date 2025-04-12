@@ -67,7 +67,7 @@ exports.FreenasInitialCredentials = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "%type"

@@ -54,7 +54,7 @@ exports.UnixPermissions = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "group",

@@ -28,7 +28,7 @@ exports.NetworkConfigGatewayAnonymous = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "ipv4",

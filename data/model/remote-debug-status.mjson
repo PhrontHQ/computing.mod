@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "connected_at",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "connection_id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "jobs",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -27,7 +24,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "server",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -35,7 +31,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "state",
-      "blueprint": {"@": "root"},
       "valueType": "String",
       "enumValues": [
         "OFFLINE",
@@ -46,10 +41,10 @@
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "RemoteDebugStatus",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_remotedebugstatus_connected_at"},
         {"@": "blueprint_remotedebugstatus_connection_id"},
         {"@": "blueprint_remotedebugstatus_jobs"},

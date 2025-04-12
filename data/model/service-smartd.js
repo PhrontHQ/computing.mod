@@ -93,7 +93,7 @@ exports.ServiceSmartd = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "enable",

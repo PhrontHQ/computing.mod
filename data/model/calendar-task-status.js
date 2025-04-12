@@ -54,7 +54,7 @@ exports.CalendarTaskStatus = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "current_run_progress",

@@ -1,178 +1,160 @@
 {
-  "blueprint_networkinterface_aliases": {
+  "aliases": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "aliases",
-      "blueprint": {"@": "root"},
       "valueType": "array",
       "valueObjectPrototypeName": "NetworkInterfaceAlias"
     }
   },
-  "blueprint_networkinterface_bridge": {
+  "bridge": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "bridge",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "NetworkInterfaceBridgeProperties"
     }
   },
-  "blueprint_networkinterface_capabilities": {
+  "capabilities": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "capabilities",
-      "blueprint": {"@": "root"},
       "valueType": "object"
     }
   },
-  "blueprint_networkinterface_created_at": {
+  "created_at": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "created_at",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
-  "blueprint_networkinterface_dhcp": {
+  "dhcp": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "dhcp",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_networkinterface_enabled": {
+  "enabled": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "enabled",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_networkinterface_id": {
+  "id": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_networkinterface_lagg": {
+  "lagg": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "lagg",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "NetworkInterfaceLaggProperties"
     }
   },
-  "blueprint_networkinterface_media": {
+  "media": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "media",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_networkinterface_mediaopts": {
+  "mediaopts": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "mediaopts",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "NetworkInterfaceMediaopts"
     }
   },
-  "blueprint_networkinterface_mtu": {
+  "mtu": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "mtu",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
-  "blueprint_networkinterface_name": {
+  "name": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
-  "blueprint_networkinterface_noipv6": {
+  "noipv6": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "noipv6",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_networkinterface_rtadv": {
+  "rtadv": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "rtadv",
-      "blueprint": {"@": "root"},
       "valueType": "boolean"
     }
   },
-  "blueprint_networkinterface_status": {
+  "status": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "status",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "NetworkInterfaceStatus"
     }
   },
-  "blueprint_networkinterface_type": {
+  "type": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "type",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "NetworkInterfaceType"
     }
   },
-  "blueprint_networkinterface_updated_at": {
+  "updated_at": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "updated_at",
-      "blueprint": {"@": "root"},
       "valueType": "datetime"
     }
   },
-  "blueprint_networkinterface_vlan": {
+  "vlan": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "vlan",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "NetworkInterfaceVlanProperties"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "NetworkInterface",
-      "propertyBlueprints": [
-        {"@": "blueprint_networkinterface_aliases"},
-        {"@": "blueprint_networkinterface_bridge"},
-        {"@": "blueprint_networkinterface_capabilities"},
-        {"@": "blueprint_networkinterface_created_at"},
-        {"@": "blueprint_networkinterface_dhcp"},
-        {"@": "blueprint_networkinterface_enabled"},
-        {"@": "blueprint_networkinterface_id"},
-        {"@": "blueprint_networkinterface_lagg"},
-        {"@": "blueprint_networkinterface_media"},
-        {"@": "blueprint_networkinterface_mediaopts"},
-        {"@": "blueprint_networkinterface_mtu"},
-        {"@": "blueprint_networkinterface_name"},
-        {"@": "blueprint_networkinterface_noipv6"},
-        {"@": "blueprint_networkinterface_rtadv"},
-        {"@": "blueprint_networkinterface_status"},
-        {"@": "blueprint_networkinterface_type"},
-        {"@": "blueprint_networkinterface_updated_at"},
-        {"@": "blueprint_networkinterface_vlan"}
+      "propertyDescriptors": [
+        {"@": "aliases"},
+        {"@": "bridge"},
+        {"@": "capabilities"},
+        {"@": "created_at"},
+        {"@": "dhcp"},
+        {"@": "enabled"},
+        {"@": "id"},
+        {"@": "lagg"},
+        {"@": "media"},
+        {"@": "mediaopts"},
+        {"@": "mtu"},
+        {"@": "name"},
+        {"@": "noipv6"},
+        {"@": "rtadv"},
+        {"@": "status"},
+        {"@": "type"},
+        {"@": "updated_at"},
+        {"@": "vlan"}
       ]
     }
   }

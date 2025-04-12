@@ -28,7 +28,7 @@ exports.VmDeviceCdrom = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: true,
             name: "%type"

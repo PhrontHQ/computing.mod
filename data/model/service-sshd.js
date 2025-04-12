@@ -158,7 +158,7 @@ exports.ServiceSshd = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "allow_gssapi_auth",

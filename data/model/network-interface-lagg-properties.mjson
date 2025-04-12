@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "ports",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
@@ -11,16 +10,16 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "protocol",
-      "blueprint": {"@": "root"},
       "valueType": "object",
       "valueObjectPrototypeName": "NetworkAggregationProtocols"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "NetworkInterfaceLaggProperties",
-      "propertyBlueprints": [
+      "descrition": "A Link Aggregation Group (LAG), or Link Aggregation, is a technique that bundles multiple physical network links into a single logical link, effectively increasing bandwidth and redundancy. This is often done to enhance network performance, improve availability, and distribute traffic load across multiple connections.",
+      "propertyDescriptors": [
         {"@": "blueprint_networkinterfacelaggproperties_ports"},
         {"@": "blueprint_networkinterfacelaggproperties_protocol"}
       ]

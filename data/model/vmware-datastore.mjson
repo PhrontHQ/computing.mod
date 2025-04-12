@@ -3,7 +3,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "free_space",
-      "blueprint": {"@": "root"},
       "valueType": "number"
     }
   },
@@ -11,7 +10,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "id",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -19,7 +17,6 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "name",
-      "blueprint": {"@": "root"},
       "valueType": "String"
     }
   },
@@ -27,15 +24,14 @@
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
       "name": "virtual_machines",
-      "blueprint": {"@": "root"},
       "valueType": "array"
     }
   },
   "root": {
-    "prototype": "core/model/model-descriptor",
+    "prototype": "mod/core/meta/module-object-descriptor",
     "properties": {
       "name": "VmwareDatastore",
-      "propertyBlueprints": [
+      "propertyDescriptors": [
         {"@": "blueprint_vmwaredatastore_free_space"},
         {"@": "blueprint_vmwaredatastore_id"},
         {"@": "blueprint_vmwaredatastore_name"},

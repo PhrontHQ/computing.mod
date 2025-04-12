@@ -28,7 +28,7 @@ exports.DiskMetadata = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "disk",

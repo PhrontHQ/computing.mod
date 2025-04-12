@@ -119,7 +119,7 @@ exports.ReplicationTransport = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "auth_token",

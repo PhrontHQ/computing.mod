@@ -41,7 +41,7 @@ exports.UnixModeTuple = DataObject.specialize({
         }
     }
 }, {
-    propertyBlueprints: {
+    propertyDescriptors: {
         value: [{
             mandatory: false,
             name: "execute",
