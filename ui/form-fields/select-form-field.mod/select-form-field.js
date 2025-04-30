@@ -153,7 +153,7 @@ exports.SelectFormField = class SelectFormField extends FormField {
         this._displayedOptions = options.map((option, index) => {
             return {
                 ...option,
-                label: option.value ?? option.label,
+                label: option.label || option.value,
                 value: option.value,
                 index: index
             };
