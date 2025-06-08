@@ -16,7 +16,7 @@
                 "field": {
                     "prototype": "ui/form-fields/form-field.mod",
                     "values": {
-                        "isEnabled": {"<-": "@owner.isEnabled || @owner._displayedOptions.length > 0"},
+                        "isEnabled": {"<-": "@owner.isEnabled && @owner._displayedOptions.length > 0"},
                         "validationMessage": {"<-": "@owner.validationMessage"},
                         "isRequired": {"<-": "@owner.isRequired"},
                         "validator": {"<-": "@owner.validator"},
