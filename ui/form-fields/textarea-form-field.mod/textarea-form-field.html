@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/mod-serialization">
+            {
+                "owner": {
+                    "values": {
+                        "element": {"#": "owner"}
+                    }
+                },
+                "field": {
+                    "prototype": "ui/form-fields/form-field.mod",
+                    "values": {
+                        "validationMessage": {"<-": "@owner.validationMessage"},
+                        "isRequired": {"<-": "@owner.isRequired"},
+                        "isEnabled": {"<-": "@owner.isEnabled"},
+                        "validator": {"<-": "@owner.validator"},
+                        "isLoading": {"<-": "@owner.isLoading"},
+                        "isValid": {"<-": "@owner.isValid"},
+                        "label": {"<-": "@owner.label"},
+                        "element": {"#": "field"}
+                    }
+                },
+                "textarea": {
+                    "prototype": "mod/ui/text-field.mod",
+                    "values": {
+                        "element.placeholder": {"<-": "@owner.placeholder"},
+                        "element.rows": {"<-": "@owner.rows"},
+                        "element.cols": {"<-": "@owner.cols"},
+                        "element.disabled": {"<-": "!@owner.isEnabled"},
+                        "element.value": {"<->": "@owner.value"},
+                        "element": {"#": "textarea"}
+                    },
+                    "listeners": [
+                        {
+                            "type": "action",
+                            "listener": {"@": "owner"}
+                        }
+                    ]
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div data-mod-id="owner">
+            <div data-mod-id="field">
+                <textarea data-mod-id="textarea" data-arg="control" autocomplete="off"></textarea>
+            </div>
+        </div>
+    </body>
+</html>
