@@ -6,6 +6,7 @@
             {
                 "owner": {
                     "values": {
+                        "_displayedOptions": {"<-": "@owner.options.map{{label: label || value, value: value}}"},
                         "_selection": { "<-": "@owner._displayedOptions.filter{value == @owner.value}.0" },
                         "_optionsController": {"@": "optionsController"},
                         "_dropdown": {"@": "dropdown"},

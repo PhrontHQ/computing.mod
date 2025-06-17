@@ -80,7 +80,6 @@ exports.SelectFormField = class SelectFormField extends FormField {
         }
 
         this._options = value;
-        this._buildOptions();
     }
 
     /**
@@ -104,10 +103,12 @@ exports.SelectFormField = class SelectFormField extends FormField {
      */
     validationMessage = null;
 
-    enterDocument(isFirstTime) {
-        if (isFirstTime) {
-            this.addPathChangeListener("_optionsController.selection.0", this, "handleSelectionChange");
-        }
+    enterDocument() {
+        this.addPathChangeListener("_optionsController.selection.0", this, "handleSelectionChange");
+    }
+
+    exitDocument() {
+        this.removePathChangeListener("_optionsController.selection.0", this,);
     }
 
     handleVisibilityChange({ detail }) {
@@ -121,13 +122,13 @@ exports.SelectFormField = class SelectFormField extends FormField {
         // Mark as touched on user interaction
         this._isTouched = true;
 
-        // FIXME: kind of hacky, but the dropdown anchor is not 
+        // FIXME: kind of hacky, but the dropdown anchor is not
         // set properly during deserializing...
-        // the dropdown anchor is being set to the element of 
-        // the current select element instead of the one from 
+        // the dropdown anchor is being set to the element of
+        // the current select element instead of the one from
         // the button serialization.
         this.dropdownAnchor = this._select?.element;
-        
+
         this._toggleDropdown();
     }
 
@@ -145,18 +146,5 @@ exports.SelectFormField = class SelectFormField extends FormField {
         } else {
             this._dropdown.hide();
         }
-    }
-
-    _buildOptions() {
-        const options = this.options || [];
-
-        this._displayedOptions = options.map((option, index) => {
-            return {
-                ...option,
-                label: option.label || option.value,
-                value: option.value,
-                index: index
-            };
-        });
     }
 };
