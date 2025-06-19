@@ -22,13 +22,13 @@
                     }
                 },
                 "textarea": {
-                    "prototype": "mod/ui/text-field.mod",
+                    "prototype": "mod/ui/text-area.mod",
                     "values": {
                         "element.placeholder": {"<-": "@owner.placeholder"},
-                        "element.rows": {"<-": "@owner.rows"},
-                        "element.cols": {"<-": "@owner.cols"},
-                        "element.disabled": {"<-": "!@owner.isEnabled"},
-                        "element.value": {"<->": "@owner.value"},
+                        "disabled": {"<-": "!@owner.isEnabled"},
+                        "value": {"<->": "@owner.value"},
+                        "rows": {"<-": "@owner.rows"},
+                        "cols": {"<-": "@owner.cols"},
                         "element": {"#": "textarea"}
                     },
                     "listeners": [
