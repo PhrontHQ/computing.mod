@@ -17,8 +17,7 @@
   "blueprint_ipmi_gateway": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
-      "name": "gateway",
-      
+      "name": "gateway"
     }
   },
   "blueprint_ipmi_id": {

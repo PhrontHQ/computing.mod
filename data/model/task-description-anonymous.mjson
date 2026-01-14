@@ -2,7 +2,7 @@
   "blueprint_taskdescriptionanonymous_format": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
-      "name": "format",
+      "name": "format"
       
     }
   },

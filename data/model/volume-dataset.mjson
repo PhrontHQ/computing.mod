@@ -84,7 +84,7 @@
   "blueprint_volumedataset_type": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
-      "name": "type",
+      "name": "type"
       
     }
   },

@@ -37,7 +37,7 @@
   "blueprint_replicationtransport_receive_properties": {
     "prototype": "mod/core/meta/property-descriptor",
     "properties": {
-      "name": "receive_properties",
+      "name": "receive_properties"
       
     }
   },
